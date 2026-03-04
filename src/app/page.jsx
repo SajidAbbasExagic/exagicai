@@ -14,7 +14,7 @@ export const metadata = {
   description:
     "Exagic AI is a San Francisco AI SEO agency specializing in brand visibility optimization for industrial manufacturers, global suppliers, and hardware companies in the SF Bay Area corridor.",
   alternates: {
-    canonical: "https://exagic-ai.vercel.app",
+    canonical: "https://exagic.ai",
   },
 };
 
