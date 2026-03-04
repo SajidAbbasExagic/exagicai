@@ -1,0 +1,45 @@
+# Exagic AI
+> San Francisco AI SEO agency specializing in brand visibility optimization for industrial manufacturers, global suppliers, and hardware companies in the SF Bay Area corridor.
+
+## Core Pages
+- Home: https://exagic-ai.vercel.app/
+- AI SEO Capabilities: https://exagic-ai.vercel.app/capabilities
+- AEO Services: https://exagic-ai.vercel.app/capabilities/aeo
+- SRO Services: https://exagic-ai.vercel.app/capabilities/sro
+- Industries: https://exagic-ai.vercel.app/industries
+- Resources / Lab: https://exagic-ai.vercel.app/lab
+- Contact: https://exagic-ai.vercel.app/#contact
+
+## What We Do
+- Answer Engine Optimization (AEO) for industrial brands
+- Selection Rate Optimization (SRO) for AI retrieval
+- AI Visibility Tracking for Gemini, ChatGPT, and Perplexity
+- Technical Entity Audits for SF Bay Area manufacturers
+
+## Lab
+- [The 2026 Bay Area Industrial AI Visibility Report](https://www.exagic.ai/lab/2026-bay-area-industrial-ai-visibility-report): Original research assessing the AI retrieval readiness of 50 industrial manufacturers across the I-880 corridor. 18% are completely invisible to AI procurement agents.
+- [What Is Grounding in AI Search and Why It Determines Who Gets Cited](https://www.exagic.ai/lab/what-is-grounding-in-ai-search): Grounding is the process by which AI systems retrieve external sources to support their answers. Understanding it is the foundation of every effective AI SEO strategy.
+- [How Large Language Models Build Brand Associations and Why It Matters for Industrial Companies](https://www.exagic.ai/lab/how-llms-build-brand-associations): LLMs build associations between brands and concepts during training. Understanding this process is essential for industrial companies that want AI systems to represent them accurately.
+- [What Is Entity SEO and Why Industrial Brands Need It for AI Visibility](https://www.exagic.ai/lab/what-is-entity-seo-industrial-brands): Entity SEO is the practice of defining your brand, products, and services as named, verifiable entities that AI systems can understand and cite.
+- [Google AI Overviews and AI Mode: What Industrial Brands Need to Know](https://www.exagic.ai/lab/ai-overviews-industrial-procurement): Google's AI Overviews and AI Mode are changing how industrial buyers find suppliers. Here is how they work and what manufacturers must do to appear.
+- [AI Procurement in Bay Area Aerospace and Defense](https://www.exagic.ai/lab/ai-procurement-aerospace-defense-bay-area): Aerospace and defense procurement teams use AI to pre-screen suppliers for AS9100, ITAR, and NADCAP qualifications.
+- [AI Procurement in the Semiconductor Supply Chain](https://www.exagic.ai/lab/ai-procurement-semiconductor-supply-chain): Semiconductor equipment suppliers and specialty chemical vendors serving Silicon Valley fabs need AI-optimized content for procurement visibility.
+- [AI Procurement in Pharmaceutical Manufacturing](https://www.exagic.ai/lab/ai-procurement-pharmaceutical-manufacturing): GMP-compliant suppliers and life sciences service providers need AI-optimized content to be found by pharmaceutical procurement teams.
+- [AI Search for Industrial Safety and EHS Suppliers](https://www.exagic.ai/lab/ai-search-industrial-safety-compliance-suppliers): EHS consultants and safety equipment suppliers serving Bay Area manufacturers need AI-optimized content to be found by safety procurement teams.
+- [Silicon Valley Supply Chain Visibility](https://www.exagic.ai/lab/silicon-valley-supply-chain-ai-visibility): Suppliers serving Silicon Valley tech manufacturers face AI procurement tools that evaluate vendors on specification-driven criteria.
+- [The East Bay Industrial Corridor AI SEO](https://www.exagic.ai/lab/east-bay-industrial-corridor-ai-seo): Manufacturers and industrial suppliers in Oakland, Hayward, Newark, and Union City face AI procurement gaps.
+- [The Exact Questions Industrial Buyers Ask AI When Finding Suppliers](https://www.exagic.ai/lab/questions-buyers-ask-ai-finding-suppliers): Industrial procurement teams ask AI highly specific questions when finding suppliers. Here are the most common query patterns.
+- [What Industrial Buyers Actually Want From AI Answers](https://www.exagic.ai/lab/what-industrial-buyers-want-ai-answers): Industrial buyers query AI with specific intent. Understanding what they want from AI-generated answers determines what content you need.
+- [The Q&A Engine Playbook: Industrial FAQs for AI Visibility](https://www.exagic.ai/lab/qa-engine-playbook-industrial-faq): Why comprehensive FAQ strategy is critical for AI SEO, AEO, and getting Bay Area industrial brands cited by AI sourcing agents.
+- [Structuring Technical Data: How AI Reads Industrial Catalogs](https://www.exagic.ai/lab/how-to-structure-technical-data-for-ai-sourcing): How to use Schema.org, JSON-LD, and clear data architecture to ensure AI sourcing tools read your industrial catalogs.
+- [AI SEO for Silicon Valley Hardware Startups](https://www.exagic.ai/lab/ai-seo-silicon-valley-hardware-startups): How hardware startups in Silicon Valley and San Jose can use AI SEO and entity structures to bypass legacy manufacturers.
+- [Precision Machining in San Leandro](https://www.exagic.ai/lab/precision-machining-san-leandro-ai-sourcing): How machine shops and precision fabricators in San Leandro and the East Bay can get cited by AI procurement.
+- [How AI Search Is Changing How Industrial Buyers Find Suppliers](https://www.exagic.ai/lab/ai-search-industrial-suppliers-sf-bay-area): Why procurement teams are querying ChatGPT and Perplexity before Google — and what SF Bay Area suppliers must do.
+- [What Is Selection Rate Optimization (SRO)](https://www.exagic.ai/lab/what-is-sro-selection-rate-optimization): A practical guide to SRO — the AI-native discipline that determines whether your content gets cited or ignored.
+- [Why East Bay Manufacturers Are Invisible in AI Search](https://www.exagic.ai/lab/east-bay-manufacturers-invisible-ai-search): Most East Bay manufacturers have qualified capabilities but structurally broken content. Here is how to fix it.
+- [AEO vs SEO: Difference for SF Bay Area Industrial Companies](https://www.exagic.ai/lab/aeo-vs-seo-industrial-brands): A clear breakdown of how Answer Engine Optimization differs from traditional SEO — and why you need both.
+- [AI Search and the Port of Oakland](https://www.exagic.ai/lab/ai-search-port-of-oakland-freight-suppliers): How freight forwarders, 3PL operators, and logistics providers at the Port of Oakland can become the supplier AI procurement tools cite.
+- [AI Procurement in the Richmond-Benicia Industrial Corridor](https://www.exagic.ai/lab/ai-search-richmond-refinery-chemical-suppliers): How refinery vendors serving Chevron Richmond and Valero Benicia can build AI citation authority.
+- [AI Search for Fremont and San Jose Manufacturers](https://www.exagic.ai/lab/ai-search-fremont-san-jose-manufacturing-suppliers): How Tesla supply chain vendors and San Jose aerospace manufacturers can become AI-citable.
+- [AI Procurement in South San Francisco's Biotech Cluster](https://www.exagic.ai/lab/ai-search-south-san-francisco-biotech-suppliers): How life sciences suppliers serving the South SF biotech corridor can build AI visibility.
+- [AI Search for Vallejo Defense and Maritime Suppliers](https://www.exagic.ai/lab/ai-search-vallejo-defense-maritime-suppliers): How Vallejo's post-Mare Island defense industrial base can build AI citation authority.

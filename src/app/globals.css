@@ -1,0 +1,265 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-brand: #ff7300;
+  --color-brand-light: #ff9e5c;
+  --color-brand-dark: #cc5500;
+  --color-surface: #ffffff;
+  --color-surface-dim: #f9fafb;
+}
+
+body {
+  color: #0a0a0a;
+  background: #ffffff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ═══════════════════════════════════════════════
+   Custom Scrollbar
+   ═══════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-dark);
+}
+
+/* Firefox support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand) #f1f1f1;
+}
+
+/* ═══════════════════════════════════════════════
+   RAG-Ready Utility Classes
+   ═══════════════════════════════════════════════ */
+
+.rag-section {
+  scroll-margin-top: 5rem;
+}
+
+.entity-card {
+  border-left: 3px solid var(--color-brand);
+  background: linear-gradient(to right, rgba(255, 107, 0, 0.04), transparent);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ff7300 0%, #ff8a00 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ═══════════════════════════════════════════════
+   Navigation
+   ═══════════════════════════════════════════════ */
+
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-brand);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════════
+   Animations
+   ═══════════════════════════════════════════════ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px 4px rgba(255, 107, 0, 0.15);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.7s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Staggered animation delays */
+.delay-100 {
+  animation-delay: 100ms;
+}
+.delay-200 {
+  animation-delay: 200ms;
+}
+.delay-300 {
+  animation-delay: 300ms;
+}
+.delay-400 {
+  animation-delay: 400ms;
+}
+.delay-500 {
+  animation-delay: 500ms;
+}
+.delay-600 {
+  animation-delay: 600ms;
+}
+
+/* ═══════════════════════════════════════════════
+   Service/Capability Cards
+   ═══════════════════════════════════════════════ */
+
+.capability-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.capability-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #ff7300, #ff9e5c);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.capability-card:hover {
+  border-color: rgba(255, 107, 0, 0.3);
+  box-shadow: 0 8px 30px rgba(255, 107, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.capability-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ═══════════════════════════════════════════════
+   FAQ Accordion
+   ═══════════════════════════════════════════════ */
+
+.faq-item {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.2s ease;
+}
+
+.faq-item:hover {
+  background: rgba(255, 107, 0, 0.02);
+}
+
+/* ═══════════════════════════════════════════════
+   CTA Sections
+   ═══════════════════════════════════════════════ */
+
+.cta-gradient {
+  background: linear-gradient(135deg, #ff7300 0%, #ff8a00 40%, #ffa44d 100%);
+}
+
+/* ═══════════════════════════════════════════════
+   Project Type Cards
+   ═══════════════════════════════════════════════ */
+
+.project-card {
+  background: #ffffff;
+  border: 1px solid #f3f4f6;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: rgba(255, 107, 0, 0.2);
+  background: rgba(255, 107, 0, 0.02);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50%));
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.pause-scroll:hover {
+  animation-play-state: paused;
+}

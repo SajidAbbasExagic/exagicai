@@ -1,0 +1,540 @@
+﻿
+> exagic-ai@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+node.exe : 
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" "C:\Us
+ers\gz275\AppData\Roaming\ 
+...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+    + CategoryInfo           
+   : NotSpecified: (:String  
+  ) [], RemoteException
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+> Build error occurred
+Error: Turbopack build 
+failed with 7 errors:
+./src/app/ai-seo/_components/
+charts/CitationStackChart.jsx
+:49:54
+Parsing ecmascript source 
+code failed
+[0m [90m 47 |[39m
+ [90m 48 |[39m       
+[33m<[39m[33mdiv[39m clas
+sName[33m=[39m[32m"mt-10 
+pt-6 border-t 
+border-zinc-100 italic 
+text-[11px] text-zinc-400 
+font-medium leading-relaxed"
+[39m[33m>[39m
+[31m[1m>[22m[39m[90m 49 
+|[39m         [33m*[39m 
+[33mEvery[39m layer must 
+be optimized to achieve a [3
+3m>[39m[35m85[39m[33m%[3
+9m citation probability 
+[36min[39m procurement 
+queries[33m.[39m
+ [90m    |[39m             
+                             
+            
+[31m[1m^[22m[39m
+ [90m 50 |[39m       [33m<
+[39m[33m/[39m[33mdiv[39m
+[33m>[39m
+ [90m 51 |[39m     [33m<[
+39m[33m/[39m[33mdiv[39m[
+33m>[39m
+ [90m 52 |[39m   
+)[33m;[39m[0m
+
+Unexpected token. Did you 
+mean `{'>'}` or `&gt;`?
+
+Import trace:
+  Server Component:
+    ./src/app/ai-seo/_compone
+nts/charts/CitationStackChart
+.jsx
+    ./src/app/ai-seo/_compone
+nts/TECHSTACKCAPABILITIES.jsx
+    ./src/app/ai-seo/page.jsx
+
+
+./src/app/ai-seo/_components/
+charts/MethodologyProcessFlow
+.jsx:4:1
+Module not found: Can't 
+resolve 'framer-motion'
+[0m [90m 2 |[39m
+ [90m 3 |[39m 
+[36mimport[39m { c 
+[36mas[39m _c } 
+[36mfrom[39m [32m"react/co
+mpiler-runtime"[39m[33m;[3
+9m
+[31m[1m>[22m[39m[90m 4 
+|[39m [36mimport[39m { 
+motion } [36mfrom[39m [32m
+"framer-motion"[39m[33m;[3
+9m
+ [90m   |[39m [31m[1m^[2
+2m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22
+m[39m[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m[1m^[
+22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31
+m[1m^[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[
+1m^[22m[39m
+ [90m 5 |[39m 
+[36mexport[39m 
+[36mdefault[39m 
+[36mfunction[39m [33mMetho
+dologyProcessFlow[39m() {
+ [90m 6 |[39m   
+[36mconst[39m $ 
+[33m=[39m 
+_c([35m5[39m)[33m;[39m
+ [90m 7 |[39m   
+[36mlet[39m 
+t0[33m;[39m[0m
+
+
+
+Import trace:
+  Server Component:
+    ./src/app/ai-seo/_compone
+nts/charts/MethodologyProcess
+Flow.jsx
+    ./src/app/ai-seo/_compone
+nts/THEEXAGICAISEOMETHODOLOGY
+.jsx
+    ./src/app/ai-seo/page.jsx
+
+https://nextjs.org/docs/messa
+ges/module-not-found
+
+
+./src/app/ai-seo/_components/
+charts/MethodologyProcessFlow
+.jsx:3:1
+Module not found: Can't 
+resolve 'framer-motion'
+[0m [90m 1 |[39m 
+[32m"use 
+client"[39m[33m;[39m
+ [90m 2 |[39m
+[31m[1m>[22m[39m[90m 3 
+|[39m [36mimport[39m { 
+motion } [36mfrom[39m [32m
+"framer-motion"[39m[33m;[3
+9m
+ [90m   |[39m [31m[1m^[2
+2m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22
+m[39m[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m[1m^[
+22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31
+m[1m^[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[
+1m^[22m[39m
+ [90m 4 |[39m
+ [90m 5 |[39m 
+[36mexport[39m 
+[36mdefault[39m 
+[36mfunction[39m [33mMetho
+dologyProcessFlow[39m() {
+ [90m 6 |[39m   
+[36mconst[39m phases 
+[33m=[39m [[0m
+
+
+
+Import trace:
+  Server Component:
+    ./src/app/ai-seo/_compone
+nts/charts/MethodologyProcess
+Flow.jsx
+    ./src/app/ai-seo/_compone
+nts/THEEXAGICAISEOMETHODOLOGY
+.jsx
+    ./src/app/ai-seo/page.jsx
+
+https://nextjs.org/docs/messa
+ges/module-not-found
+
+
+./src/app/ai-seo/_components/
+charts/ShiftingSearchLandscap
+eChart.jsx:4:1
+Module not found: Can't 
+resolve 'framer-motion'
+[0m [90m 2 |[39m
+ [90m 3 |[39m 
+[36mimport[39m { c 
+[36mas[39m _c } 
+[36mfrom[39m [32m"react/co
+mpiler-runtime"[39m[33m;[3
+9m
+[31m[1m>[22m[39m[90m 4 
+|[39m [36mimport[39m { 
+motion } [36mfrom[39m [32m
+"framer-motion"[39m[33m;[3
+9m
+ [90m   |[39m [31m[1m^[2
+2m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22
+m[39m[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m[1m^[
+22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31
+m[1m^[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[
+1m^[22m[39m
+ [90m 5 |[39m 
+[36mexport[39m 
+[36mdefault[39m 
+[36mfunction[39m [33mShift
+ingSearchLandscapeChart[39m(
+) {
+ [90m 6 |[39m   
+[36mconst[39m $ 
+[33m=[39m 
+_c([35m5[39m)[33m;[39m
+ [90m 7 |[39m   
+[36mlet[39m 
+t0[33m;[39m[0m
+
+
+
+Import trace:
+  Server Component:
+    ./src/app/ai-seo/_compone
+nts/charts/ShiftingSearchLand
+scapeChart.jsx
+    ./src/app/ai-seo/_compone
+nts/WHATISAISEO.jsx
+    ./src/app/ai-seo/page.jsx
+
+https://nextjs.org/docs/messa
+ges/module-not-found
+
+
+./src/app/ai-seo/_components/
+charts/ShiftingSearchLandscap
+eChart.jsx:3:1
+Module not found: Can't 
+resolve 'framer-motion'
+[0m [90m 1 |[39m 
+[32m"use 
+client"[39m[33m;[39m
+ [90m 2 |[39m
+[31m[1m>[22m[39m[90m 3 
+|[39m [36mimport[39m { 
+motion } [36mfrom[39m [32m
+"framer-motion"[39m[33m;[3
+9m
+ [90m   |[39m [31m[1m^[2
+2m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22
+m[39m[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m[1m^[
+22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31
+m[1m^[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[
+1m^[22m[39m
+ [90m 4 |[39m
+ [90m 5 |[39m 
+[36mexport[39m 
+[36mdefault[39m 
+[36mfunction[39m [33mShift
+ingSearchLandscapeChart[39m(
+) {
+ [90m 6 |[39m   
+[36mconst[39m data 
+[33m=[39m [[0m
+
+
+
+Import trace:
+  Server Component:
+    ./src/app/ai-seo/_compone
+nts/charts/ShiftingSearchLand
+scapeChart.jsx
+    ./src/app/ai-seo/_compone
+nts/WHATISAISEO.jsx
+    ./src/app/ai-seo/page.jsx
+
+https://nextjs.org/docs/messa
+ges/module-not-found
+
+
+./src/app/ai-seo/_components/
+charts/VisibilityEfficiencyCh
+art.jsx:4:1
+Module not found: Can't 
+resolve 'framer-motion'
+[0m [90m 2 |[39m
+ [90m 3 |[39m 
+[36mimport[39m { c 
+[36mas[39m _c } 
+[36mfrom[39m [32m"react/co
+mpiler-runtime"[39m[33m;[3
+9m
+[31m[1m>[22m[39m[90m 4 
+|[39m [36mimport[39m { 
+motion } [36mfrom[39m [32m
+"framer-motion"[39m[33m;[3
+9m
+ [90m   |[39m [31m[1m^[2
+2m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22
+m[39m[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m[1m^[
+22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31
+m[1m^[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[
+1m^[22m[39m
+ [90m 5 |[39m 
+[36mexport[39m 
+[36mdefault[39m 
+[36mfunction[39m [33mVisib
+ilityEfficiencyChart[39m() {
+ [90m 6 |[39m   
+[36mconst[39m $ 
+[33m=[39m 
+_c([35m5[39m)[33m;[39m
+ [90m 7 |[39m   
+[36mlet[39m 
+t0[33m;[39m[0m
+
+
+
+Import trace:
+  Server Component:
+    ./src/app/ai-seo/_compone
+nts/charts/VisibilityEfficien
+cyChart.jsx
+    ./src/app/ai-seo/_compone
+nts/WHONEEDSAISEO.jsx
+    ./src/app/ai-seo/page.jsx
+
+https://nextjs.org/docs/messa
+ges/module-not-found
+
+
+./src/app/ai-seo/_components/
+charts/VisibilityEfficiencyCh
+art.jsx:3:1
+Module not found: Can't 
+resolve 'framer-motion'
+[0m [90m 1 |[39m 
+[32m"use 
+client"[39m[33m;[39m
+ [90m 2 |[39m
+[31m[1m>[22m[39m[90m 3 
+|[39m [36mimport[39m { 
+motion } [36mfrom[39m [32m
+"framer-motion"[39m[33m;[3
+9m
+ [90m   |[39m [31m[1m^[2
+2m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22
+m[39m[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m[1m^[
+22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m[31
+m[1m^[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m[31m[
+1m^[22m[39m
+ [90m 4 |[39m
+ [90m 5 |[39m 
+[36mexport[39m 
+[36mdefault[39m 
+[36mfunction[39m [33mVisib
+ilityEfficiencyChart[39m() {
+ [90m 6 |[39m   
+[36mconst[39m steps 
+[33m=[39m [[0m
+
+
+
+Import trace:
+  Server Component:
+    ./src/app/ai-seo/_compone
+nts/charts/VisibilityEfficien
+cyChart.jsx
+    ./src/app/ai-seo/_compone
+nts/WHONEEDSAISEO.jsx
+    ./src/app/ai-seo/page.jsx
+
+https://nextjs.org/docs/messa
+ges/module-not-found
+
+
+    at <unknown> (./src/app/a
+i-seo/_components/charts/Cita
+tionStackChart.jsx:49:54)
+    at <unknown> (./src/app/a
+i-seo/_components/charts/Meth
+odologyProcessFlow.jsx:4:1)
+    at <unknown> (https://nex
+tjs.org/docs/messages/module-
+not-found)
+    at <unknown> (./src/app/a
+i-seo/_components/charts/Meth
+odologyProcessFlow.jsx:3:1)
+    at <unknown> (https://nex
+tjs.org/docs/messages/module-
+not-found)
+    at <unknown> (./src/app/a
+i-seo/_components/charts/Shif
+tingSearchLandscapeChart.jsx:
+4:1)
+    at <unknown> (https://nex
+tjs.org/docs/messages/module-
+not-found)
+    at <unknown> (./src/app/a
+i-seo/_components/charts/Shif
+tingSearchLandscapeChart.jsx:
+3:1)
+    at <unknown> (https://nex
+tjs.org/docs/messages/module-
+not-found)
+    at <unknown> (./src/app/a
+i-seo/_components/charts/Visi
+bilityEfficiencyChart.jsx:4:1
+)
+    at <unknown> (https://nex
+tjs.org/docs/messages/module-
+not-found)
+    at <unknown> (./src/app/a
+i-seo/_components/charts/Visi
+bilityEfficiencyChart.jsx:3:1
+)
+    at <unknown> (https://nex
+tjs.org/docs/messages/module-
+not-found)

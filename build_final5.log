@@ -1,0 +1,62 @@
+﻿
+> exagic-ai@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 12.5s
+  Running TypeScript ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/42) ...
+  Generating static pages using 7 workers (10/42) 
+  Generating static pages using 7 workers (20/42) 
+  Generating static pages using 7 workers (31/42) 
+Γ£ô Generating static pages using 7 workers (42/42) in 1763.3ms
+  Finalizing page optimization ...
+
+Route (app)
+Γöî Γùï /
+Γö£ Γùï /_not-found
+Γö£ Γùï /aeo
+Γö£ Γùï /ai-seo
+Γö£ Γùï /contact
+Γö£ Γùï /industries
+Γö£ Γùï /industries/logistics
+Γö£ Γùï /industries/manufacturing
+Γö£ Γùï /lab
+Γö£ Γùï /lab/aeo-vs-seo-industrial-brands
+Γö£ Γùï /lab/ai-overviews-industrial-procurement
+Γö£ Γùï /lab/ai-procurement-aerospace-defense-bay-area
+Γö£ Γùï /lab/ai-procurement-pharmaceutical-manufacturing
+Γö£ Γùï /lab/ai-procurement-semiconductor-supply-chain
+Γö£ Γùï /lab/ai-search-fremont-san-jose-manufacturing-suppliers
+Γö£ Γùï /lab/ai-search-industrial-safety-compliance-suppliers
+Γö£ Γùï /lab/ai-search-industrial-suppliers-sf-bay-area
+Γö£ Γùï /lab/ai-search-port-of-oakland-freight-suppliers
+Γö£ Γùï /lab/ai-search-richmond-refinery-chemical-suppliers
+Γö£ Γùï /lab/ai-search-south-san-francisco-biotech-suppliers
+Γö£ Γùï /lab/ai-search-vallejo-defense-maritime-suppliers
+Γö£ Γùï /lab/ai-seo-silicon-valley-hardware-startups
+Γö£ Γùï /lab/case-studies
+Γö£ Γùï /lab/east-bay-industrial-corridor-ai-seo
+Γö£ Γùï /lab/east-bay-manufacturers-invisible-ai-search
+Γö£ Γùï /lab/how-llms-build-brand-associations
+Γö£ Γùï /lab/how-to-structure-technical-data-for-ai-sourcing
+Γö£ Γùï /lab/model-updates
+Γö£ Γùï /lab/precision-machining-san-leandro-ai-sourcing
+Γö£ Γùï /lab/qa-engine-playbook-industrial-faq
+Γö£ Γùï /lab/questions-buyers-ask-ai-finding-suppliers
+Γö£ Γùï /lab/silicon-valley-supply-chain-ai-visibility
+Γö£ Γùï /lab/what-industrial-buyers-want-ai-answers
+Γö£ Γùï /lab/what-is-entity-seo-industrial-brands
+Γö£ Γùï /lab/what-is-grounding-in-ai-search
+Γö£ Γùï /lab/what-is-sro-selection-rate-optimization
+Γö£ Γùï /privacy
+Γö£ Γùï /sitemap.xml
+Γö£ Γùï /sro
+Γöö Γùï /terms
+
+
+Γùï  (Static)  prerendered as static content
+
