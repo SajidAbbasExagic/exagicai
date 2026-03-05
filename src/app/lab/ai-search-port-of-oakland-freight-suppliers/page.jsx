@@ -7,7 +7,7 @@ export const metadata = {
     "Freight forwarders, 3PL operators, and logistics providers serving the Port of Oakland are increasingly sourced through AI tools. Here is how to be the supplier that gets cited.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/ai-search-port-of-oakland-freight-suppliers",
+      "https://exagic.ai/lab/ai-search-port-of-oakland-freight-suppliers",
   },
 };
 
@@ -46,11 +46,11 @@ export default function ArticlePage() {
   ];
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "Port of Oakland AI Search",
-      item: "https://exagic-ai.vercel.app/lab/ai-search-port-of-oakland-freight-suppliers",
+      item: "https://exagic.ai/lab/ai-search-port-of-oakland-freight-suppliers",
     },
   ];
 

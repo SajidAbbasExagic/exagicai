@@ -44,7 +44,7 @@ export default function Capabilities() {
         name: cap.title,
         description: cap.description,
         provider: {
-          "@id": "https://exagic-ai.vercel.app/#organization",
+          "@id": "https://exagic.ai/#organization",
         },
       },
     })),
@@ -65,7 +65,8 @@ export default function Capabilities() {
           id="capabilities-heading"
           className="max-w-4xl text-3xl sm:text-4xl font-bold text-zinc-900 tracking-tight leading-tight"
         >
-          We are an industry leader in machine learning driven digital marketing.
+          We are an industry leader in machine learning driven digital
+          marketing.
         </h2>
 
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
@@ -92,8 +93,9 @@ export default function Capabilities() {
                 <Link
                   href={cap.href}
                   className="inline-flex items-center gap-2 text-base font-bold text-brand hover:text-brand-dark transition-colors"
+                  aria-label={`Learn more about ${cap.title}`}
                 >
-                  Learn more
+                  Learn more about {cap.title}
                   <svg
                     className="h-5 w-5"
                     fill="none"

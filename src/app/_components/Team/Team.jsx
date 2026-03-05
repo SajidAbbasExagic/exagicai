@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Team() {
@@ -5,17 +6,17 @@ export default function Team() {
     {
       name: "Saif K",
       title: "Director of Strategy",
-      image: "/team/arthur.jpeg",
+      image: "/team/arthur.jpg",
     },
     {
       name: "Elena Vance",
       title: "AI SEO Specialist",
-      image: "/team/elena.jpeg",
+      image: "/team/elena.jpg",
     },
     {
       name: "Marcus Thorne",
       title: "Technical SEO",
-      image: "/team/marcus.jpeg",
+      image: "/team/marcus.jpg",
     },
     {
       name: "Julian Reed",
@@ -41,10 +42,13 @@ export default function Team() {
           {team.map((member, index) => (
             <div key={index} className="text-center">
               <div className="aspect-square w-full bg-zinc-50 rounded-[1.5rem] mb-6 relative overflow-hidden border border-zinc-100 flex items-center justify-center group">
-                <img
+                <Image
                   src={member.image}
                   alt={member.name}
+                  width={400}
+                  height={400}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
               </div>
               <h3 className="text-xl font-bold text-zinc-900 tracking-tight">

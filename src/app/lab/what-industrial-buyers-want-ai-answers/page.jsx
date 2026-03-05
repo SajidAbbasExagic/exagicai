@@ -6,7 +6,7 @@ export const metadata = {
     "Industrial buyers query AI with specific intent. Understanding what they want from AI-generated answers determines what content suppliers need to build for AI citation.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/what-industrial-buyers-want-ai-answers",
+      "https://exagic.ai/lab/what-industrial-buyers-want-ai-answers",
   },
 };
 
@@ -30,11 +30,11 @@ export default function WhatBuyersWantArticle() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "What Industrial Buyers Want From AI",
-      item: "https://exagic-ai.vercel.app/lab/what-industrial-buyers-want-ai-answers",
+      item: "https://exagic.ai/lab/what-industrial-buyers-want-ai-answers",
     },
   ];
 

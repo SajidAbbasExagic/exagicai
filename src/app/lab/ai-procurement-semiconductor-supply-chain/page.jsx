@@ -6,7 +6,7 @@ export const metadata = {
     "Semiconductor equipment suppliers, cleanroom service providers, and specialty chemical vendors serving Silicon Valley fabs need AI-optimized content for procurement visibility.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/ai-procurement-semiconductor-supply-chain",
+      "https://exagic.ai/lab/ai-procurement-semiconductor-supply-chain",
   },
 };
 
@@ -30,11 +30,11 @@ export default function SemiconductorArticle() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "AI Procurement in Semiconductor Supply Chain",
-      item: "https://exagic-ai.vercel.app/lab/ai-procurement-semiconductor-supply-chain",
+      item: "https://exagic.ai/lab/ai-procurement-semiconductor-supply-chain",
     },
   ];
 

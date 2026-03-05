@@ -6,7 +6,7 @@ export const metadata = {
     "Manufacturers and industrial suppliers in Oakland, Hayward, Newark, and Union City face AI procurement gaps. Here is how East Bay industrial companies build AI citation authority.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/east-bay-industrial-corridor-ai-seo",
+      "https://exagic.ai/lab/east-bay-industrial-corridor-ai-seo",
   },
 };
 
@@ -30,11 +30,11 @@ export default function EastBayArticle() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "East Bay Industrial Corridor AI SEO",
-      item: "https://exagic-ai.vercel.app/lab/east-bay-industrial-corridor-ai-seo",
+      item: "https://exagic.ai/lab/east-bay-industrial-corridor-ai-seo",
     },
   ];
 

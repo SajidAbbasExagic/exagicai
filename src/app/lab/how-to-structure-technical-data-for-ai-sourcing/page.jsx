@@ -6,7 +6,7 @@ export const metadata = {
     "How to use Schema.org, JSON-LD, and clear data architecture to ensure AI sourcing tools read your industrial catalogs.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/how-to-structure-technical-data-for-ai-sourcing",
+      "https://exagic.ai/lab/how-to-structure-technical-data-for-ai-sourcing",
   },
 };
 
@@ -29,11 +29,11 @@ export default function StructureDataPage() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "Structuring Technical Data",
-      item: "https://exagic-ai.vercel.app/lab/how-to-structure-technical-data-for-ai-sourcing",
+      item: "https://exagic.ai/lab/how-to-structure-technical-data-for-ai-sourcing",
     },
   ];
 

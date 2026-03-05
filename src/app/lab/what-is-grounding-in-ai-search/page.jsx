@@ -6,7 +6,7 @@ export const metadata = {
     "Grounding is the process by which AI systems retrieve external sources to support their answers. Understanding it is the foundation of every effective AI SEO strategy.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/what-is-grounding-in-ai-search",
+      "https://exagic.ai/lab/what-is-grounding-in-ai-search",
   },
 };
 
@@ -30,11 +30,11 @@ export default function GroundingArticle() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "What Is Grounding in AI Search",
-      item: "https://exagic-ai.vercel.app/lab/what-is-grounding-in-ai-search",
+      item: "https://exagic.ai/lab/what-is-grounding-in-ai-search",
     },
   ];
 

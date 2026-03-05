@@ -16,7 +16,7 @@ export const metadata = {
   description:
     "World-class AI SEO services for SF Bay Area industrial manufacturers. From visibility analysis to practical model steering strategies, Exagic AI ensures your brand dominates AI retrieval.",
   alternates: {
-    canonical: "https://exagic-ai.vercel.app/ai-seo",
+    canonical: "https://exagic.ai/ai-seo",
   },
 };
 export default function AISEOPage() {
@@ -28,7 +28,7 @@ export default function AISEOPage() {
     provider: {
       "@type": "Organization",
       name: "Exagic AI",
-      url: "https://exagic-ai.vercel.app",
+      url: "https://exagic.ai",
     },
     areaServed: "San Francisco Bay Area",
     description:
@@ -42,13 +42,13 @@ export default function AISEOPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://exagic-ai.vercel.app/",
+        item: "https://exagic.ai/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "AI SEO",
-        item: "https://exagic-ai.vercel.app/ai-seo",
+        item: "https://exagic.ai/ai-seo",
       },
     ],
   };
@@ -67,7 +67,7 @@ export default function AISEOPage() {
       name: "Exagic AI",
       logo: {
         "@type": "ImageObject",
-        url: "https://exagic-ai.vercel.app/logo.png",
+        url: "https://exagic.ai/logo.png",
       },
     },
     datePublished: "2026-02-20",

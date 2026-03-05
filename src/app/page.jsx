@@ -45,18 +45,23 @@ export default function HomePage() {
     areaServed: [
       {
         "@type": "City",
+        name: "San Francisco",
+        sameAs: "https://www.wikidata.org/wiki/Q601",
+      },
+      {
+        "@type": "City",
         name: "Oakland",
         sameAs: "https://www.wikidata.org/wiki/Q17042",
       },
       {
         "@type": "City",
         name: "Fremont",
-        sameAs: "https://www.wikidata.org/wiki/Q486517",
+        sameAs: "https://www.wikidata.org/wiki/Q49220",
       },
       {
         "@type": "City",
         name: "San Leandro",
-        sameAs: "https://www.wikidata.org/wiki/Q860166",
+        sameAs: "https://www.wikidata.org/wiki/Q851034",
       },
       {
         "@type": "City",
@@ -65,23 +70,13 @@ export default function HomePage() {
       },
       {
         "@type": "City",
-        name: "Richmond",
-        sameAs: "https://www.wikidata.org/wiki/Q49114",
+        name: "Alameda",
+        sameAs: "https://www.wikidata.org/wiki/Q490744",
       },
       {
         "@type": "City",
         name: "Hayward",
-        sameAs: "https://www.wikidata.org/wiki/Q866660",
-      },
-      {
-        "@type": "City",
-        name: "Vallejo",
-        sameAs: "https://www.wikidata.org/wiki/Q108067",
-      },
-      {
-        "@type": "City",
-        name: "South San Francisco",
-        sameAs: "https://www.wikidata.org/wiki/Q878503",
+        sameAs: "https://www.wikidata.org/wiki/Q491114",
       },
       {
         "@type": "AdministrativeArea",
@@ -142,7 +137,7 @@ export default function HomePage() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Exagic AI",
-    url: "https://exagic-ai.vercel.app",
+    url: "https://exagic.ai",
     description:
       "AI SEO and Answer Engine Optimization for industrial manufacturers.",
     publisher: {
@@ -162,7 +157,7 @@ export default function HomePage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://exagic-ai.vercel.app",
+        item: "https://exagic.ai",
       },
     ],
   };

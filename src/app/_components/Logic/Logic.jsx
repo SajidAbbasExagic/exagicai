@@ -63,10 +63,6 @@ export default function Logic() {
               itemType="https://schema.org/HowToStep"
             >
               <div className="flex items-center gap-4 mb-4">
-                <div
-                  className="flex h-1.5 w-1.5 rounded-full bg-brand shrink-0"
-                  aria-hidden="true"
-                />
                 <div className="text-brand shrink-0" aria-hidden="true">
                   {step.icon}
                 </div>

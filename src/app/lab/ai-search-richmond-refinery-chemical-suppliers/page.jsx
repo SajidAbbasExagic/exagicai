@@ -7,7 +7,7 @@ export const metadata = {
     "Chemical plant vendors, refinery service providers, and industrial suppliers serving Richmond, Benicia, and Pittsburg need AI-optimized content to be found by energy sector procurement teams.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/ai-search-richmond-refinery-chemical-suppliers",
+      "https://exagic.ai/lab/ai-search-richmond-refinery-chemical-suppliers",
   },
 };
 
@@ -46,11 +46,11 @@ export default function ArticlePage() {
   ];
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "Richmond-Benicia AI Procurement",
-      item: "https://exagic-ai.vercel.app/lab/ai-search-richmond-refinery-chemical-suppliers",
+      item: "https://exagic.ai/lab/ai-search-richmond-refinery-chemical-suppliers",
     },
   ];
 

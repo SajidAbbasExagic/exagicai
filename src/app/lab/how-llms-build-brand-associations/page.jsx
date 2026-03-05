@@ -6,7 +6,7 @@ export const metadata = {
     "LLMs build associations between brands and concepts during training. Understanding this process is essential for industrial companies that want AI systems to represent them accurately.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/how-llms-build-brand-associations",
+      "https://exagic.ai/lab/how-llms-build-brand-associations",
   },
 };
 
@@ -30,11 +30,11 @@ export default function LLMBrandAssociationsArticle() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "How LLMs Build Brand Associations",
-      item: "https://exagic-ai.vercel.app/lab/how-llms-build-brand-associations",
+      item: "https://exagic.ai/lab/how-llms-build-brand-associations",
     },
   ];
 

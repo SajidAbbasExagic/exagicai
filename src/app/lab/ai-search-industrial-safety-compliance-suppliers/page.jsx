@@ -6,7 +6,7 @@ export const metadata = {
     "EHS consultants, safety equipment suppliers, and industrial hygiene services serving Bay Area manufacturers need AI-optimized content to be found by safety procurement teams.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/ai-search-industrial-safety-compliance-suppliers",
+      "https://exagic.ai/lab/ai-search-industrial-safety-compliance-suppliers",
   },
 };
 
@@ -30,11 +30,11 @@ export default function SafetyArticle() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "AI Search for Industrial Safety Suppliers",
-      item: "https://exagic-ai.vercel.app/lab/ai-search-industrial-safety-compliance-suppliers",
+      item: "https://exagic.ai/lab/ai-search-industrial-safety-compliance-suppliers",
     },
   ];
 
