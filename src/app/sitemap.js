@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = "https://exagic-ai.vercel.app";
+  const baseUrl = "https://exagic.ai";
 
   const labArticles = [
     "2026-bay-area-industrial-ai-visibility-report",

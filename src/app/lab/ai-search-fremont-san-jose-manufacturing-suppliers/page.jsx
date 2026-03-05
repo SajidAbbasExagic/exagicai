@@ -7,7 +7,7 @@ export const metadata = {
     "Suppliers serving Tesla's Fremont factory, Silicon Valley aerospace, and San Jose defense manufacturers need AI-optimized content to appear in AI procurement searches.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/ai-search-fremont-san-jose-manufacturing-suppliers",
+      "https://exagic.ai/lab/ai-search-fremont-san-jose-manufacturing-suppliers",
   },
 };
 
@@ -46,11 +46,11 @@ export default function ArticlePage() {
   ];
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "Fremont & San Jose AI Search",
-      item: "https://exagic-ai.vercel.app/lab/ai-search-fremont-san-jose-manufacturing-suppliers",
+      item: "https://exagic.ai/lab/ai-search-fremont-san-jose-manufacturing-suppliers",
     },
   ];
 

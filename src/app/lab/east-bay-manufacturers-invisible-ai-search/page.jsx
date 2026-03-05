@@ -7,7 +7,7 @@ export const metadata = {
     "Most East Bay manufacturers are qualified suppliers being skipped by AI procurement tools. Here is exactly why and the specific fixes that make industrial brands AI-citable.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/east-bay-manufacturers-invisible-ai-search",
+      "https://exagic.ai/lab/east-bay-manufacturers-invisible-ai-search",
   },
 };
 
@@ -45,11 +45,11 @@ export default function ArticlePage() {
   ];
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "Why East Bay Manufacturers Are Invisible",
-      item: "https://exagic-ai.vercel.app/lab/east-bay-manufacturers-invisible-ai-search",
+      item: "https://exagic.ai/lab/east-bay-manufacturers-invisible-ai-search",
     },
   ];
 

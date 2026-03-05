@@ -49,7 +49,7 @@ export default function ProjectTypes() {
         name: project.title,
         description: project.description,
         provider: {
-          "@id": "https://exagic-ai.vercel.app/#organization",
+          "@id": "https://exagic.ai/#organization",
         },
       },
     })),

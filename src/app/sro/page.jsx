@@ -14,7 +14,7 @@ export const metadata = {
   description:
     "Selection Rate Optimization by Exagic AI — advanced techniques to increase the probability of your brand being selected as the primary citation by AI models during retrieval.",
   alternates: {
-    canonical: "https://exagic-ai.vercel.app/sro",
+    canonical: "https://exagic.ai/sro",
   },
 };
 export default function SROPage() {
@@ -26,7 +26,7 @@ export default function SROPage() {
     provider: {
       "@type": "Organization",
       name: "Exagic AI",
-      url: "https://exagic-ai.vercel.app",
+      url: "https://exagic.ai",
     },
     areaServed: "San Francisco Bay Area",
     description:
@@ -40,19 +40,19 @@ export default function SROPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://exagic-ai.vercel.app/",
+        item: "https://exagic.ai/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "AI SEO",
-        item: "https://exagic-ai.vercel.app/ai-seo",
+        item: "https://exagic.ai/ai-seo",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Selection Rate Optimization",
-        item: "https://exagic-ai.vercel.app/sro",
+        item: "https://exagic.ai/sro",
       },
     ],
   };

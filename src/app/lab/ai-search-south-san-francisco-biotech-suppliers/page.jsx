@@ -6,7 +6,7 @@ export const metadata = {
     "South San Francisco is the birthplace of biotech. Suppliers serving pharma and life sciences manufacturers in this cluster need AI-optimized content to be found by procurement teams.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/ai-search-south-san-francisco-biotech-suppliers",
+      "https://exagic.ai/lab/ai-search-south-san-francisco-biotech-suppliers",
   },
 };
 
@@ -44,11 +44,11 @@ export default function ArticlePage() {
   ];
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "South SF Biotech AI Procurement",
-      item: "https://exagic-ai.vercel.app/lab/ai-search-south-san-francisco-biotech-suppliers",
+      item: "https://exagic.ai/lab/ai-search-south-san-francisco-biotech-suppliers",
     },
   ];
 

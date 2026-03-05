@@ -23,13 +23,13 @@ export default function LabPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://exagic-ai.vercel.app/",
+        item: "https://exagic.ai/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Lab",
-        item: "https://exagic-ai.vercel.app/lab",
+        item: "https://exagic.ai/lab",
       },
     ],
   };
@@ -40,7 +40,7 @@ export default function LabPage() {
     itemListElement: filteredArticles.map((article, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      url: `https://exagic-ai.vercel.app${article.href}`,
+      url: `https://exagic.ai${article.href}`,
       name: article.title,
     })),
   };

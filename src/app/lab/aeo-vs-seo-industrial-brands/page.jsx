@@ -6,7 +6,7 @@ export const metadata = {
   description:
     "A clear breakdown of how Answer Engine Optimization differs from traditional SEO and why SF Bay Area industrial brands need both working together.",
   alternates: {
-    canonical: "https://exagic-ai.vercel.app/lab/aeo-vs-seo-industrial-brands",
+    canonical: "https://exagic.ai/lab/aeo-vs-seo-industrial-brands",
   },
 };
 
@@ -43,11 +43,11 @@ export default function ArticlePage() {
   ];
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "AEO vs SEO",
-      item: "https://exagic-ai.vercel.app/lab/aeo-vs-seo-industrial-brands",
+      item: "https://exagic.ai/lab/aeo-vs-seo-industrial-brands",
     },
   ];
 

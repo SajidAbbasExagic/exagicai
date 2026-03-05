@@ -4,7 +4,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  metadataBase: new URL("https://exagic-ai.vercel.app"),
+  metadataBase: new URL("https://exagic.ai"),
   title: {
     default: "Exagic AI | AI SEO & SRO Agency San Francisco",
     template: "%s | Exagic AI",
@@ -14,6 +14,7 @@ export const metadata = {
   icons: {
     icon: "/icon.png",
   },
+  themeColor: "#ff7300",
   keywords: [
     "AI SEO",
     "AEO",
@@ -26,17 +27,17 @@ export const metadata = {
     "mechanistic interpretability",
     "model steering",
   ],
-  authors: [{ name: "Exagic AI", url: "https://exagic-ai.vercel.app" }],
+  authors: [{ name: "Exagic AI", url: "https://exagic.ai" }],
   creator: "Exagic AI",
   publisher: "Exagic AI",
   alternates: {
-    canonical: "https://exagic-ai.vercel.app",
+    canonical: "https://exagic.ai",
   },
   openGraph: {
     title: "Exagic AI | AI SEO & SRO Agency San Francisco",
     description:
       "Exagic AI is a San Francisco AI SEO agency specializing in brand visibility optimization for industrial manufacturers, global suppliers, and hardware companies in the SF Bay Area corridor.",
-    url: "https://exagic-ai.vercel.app",
+    url: "https://exagic.ai",
     siteName: "Exagic AI",
     images: [
       {
@@ -74,9 +75,6 @@ import ConditionalLayout from "../components/ConditionalLayout";
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <link rel="canonical" href="https://exagic-ai.vercel.app" />
-      </head>
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <ConditionalLayout>{children}</ConditionalLayout>
       </body>

@@ -142,7 +142,7 @@ export default function HomePage() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Exagic AI",
-    url: "https://exagic-ai.vercel.app",
+    url: "https://exagic.ai",
     description:
       "AI SEO and Answer Engine Optimization for industrial manufacturers.",
     publisher: {
@@ -162,7 +162,7 @@ export default function HomePage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://exagic-ai.vercel.app",
+        item: "https://exagic.ai",
       },
     ],
   };

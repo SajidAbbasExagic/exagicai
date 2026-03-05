@@ -3,7 +3,7 @@ export const metadata = {
   description:
     "Insights, research, and technical guides on AI SEO, AEO, and SRO for industrial manufacturers from the Exagic AI team in San Francisco.",
   alternates: {
-    canonical: "https://exagic-ai.vercel.app/lab",
+    canonical: "https://exagic.ai/lab",
   },
 };
 

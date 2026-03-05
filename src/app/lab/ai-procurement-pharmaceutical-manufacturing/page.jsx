@@ -6,7 +6,7 @@ export const metadata = {
     "GMP-compliant suppliers, contract manufacturers, and life sciences service providers need AI-optimized content to be found by pharmaceutical procurement teams using AI tools.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/ai-procurement-pharmaceutical-manufacturing",
+      "https://exagic.ai/lab/ai-procurement-pharmaceutical-manufacturing",
   },
 };
 
@@ -30,11 +30,11 @@ export default function PharmaArticle() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "AI Procurement in Pharmaceutical Manufacturing",
-      item: "https://exagic-ai.vercel.app/lab/ai-procurement-pharmaceutical-manufacturing",
+      item: "https://exagic.ai/lab/ai-procurement-pharmaceutical-manufacturing",
     },
   ];
 

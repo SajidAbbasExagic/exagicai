@@ -52,7 +52,7 @@ export default function PrivacyPage() {
           </h2>
           <p>
             If you have any questions about this privacy policy, please contact
-            us at info@exagic-ai.vercel.app.
+            us at info@exagic.ai.
           </p>
         </div>
       </div>

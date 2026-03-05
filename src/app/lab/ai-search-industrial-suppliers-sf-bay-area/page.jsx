@@ -7,7 +7,7 @@ export const metadata = {
     "Procurement teams in the SF Bay Area are using ChatGPT, Perplexity, and Gemini to find suppliers. Here is what industrial manufacturers need to know to appear in those searches.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/ai-search-industrial-suppliers-sf-bay-area",
+      "https://exagic.ai/lab/ai-search-industrial-suppliers-sf-bay-area",
   },
 };
 
@@ -45,11 +45,11 @@ export default function ArticlePage() {
   ];
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "AI Search in the Bay Area",
-      item: "https://exagic-ai.vercel.app/lab/ai-search-industrial-suppliers-sf-bay-area",
+      item: "https://exagic.ai/lab/ai-search-industrial-suppliers-sf-bay-area",
     },
   ];
 
