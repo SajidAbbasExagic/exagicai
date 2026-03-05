@@ -34,7 +34,7 @@ function AuditPageContent() {
   const searchParams = useSearchParams();
   const targetUrl = searchParams.get("url") || "your-website.com";
 
-  const [stage, setStage] = useState("analyzing"); // 'analyzing' | 'form'
+  const [stage, setStage] = useState("analyzing"); // 'analyzing' | 'form' | 'success'
   const [analysisText, setAnalysisText] = useState(
     "Initializing semantic crawler...",
   );
@@ -49,6 +49,11 @@ function AuditPageContent() {
     "Evaluating model-steering visibility...",
     "Finalizing visibility report...",
   ];
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setStage("success");
+  };
 
   useEffect(() => {
     let currentStep = 0;
@@ -147,6 +152,53 @@ function AuditPageContent() {
     );
   }
 
+  if (stage === "success") {
+    return (
+      <div className="min-h-screen bg-[#f06030] flex flex-col relative items-center justify-center p-6 pb-24 text-center">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 pointer-events-none"></div>
+
+        {/* Success Icon */}
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="h-20 w-20 md:h-24 md:w-24 rounded-full bg-white flex items-center justify-center shadow-2xl mb-8 relative z-10"
+        >
+          <ShieldCheck className="h-10 w-10 md:h-12 md:w-12 text-[#f06030]" />
+        </motion.div>
+
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="max-w-xl w-full relative z-10"
+        >
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            Submission Received!
+          </h2>
+          <p className="text-[#ffee00] text-lg md:text-xl font-medium mb-12 opacity-90 leading-relaxed">
+            Thank you! You&apos;ll be receiving your detailed AI visibility
+            report soon over your email.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button
+              onClick={() => router.push("/")}
+              className="w-full sm:w-auto px-10 py-4 rounded-md bg-white text-[#f06030] font-bold text-sm tracking-widest uppercase transition-all shadow-xl hover:bg-zinc-50 hover:scale-105 active:scale-95"
+            >
+              Back to Home
+            </button>
+            <button
+              onClick={() => router.push("/lab")}
+              className="w-full sm:w-auto px-10 py-4 rounded-md bg-[#222222] text-white font-bold text-sm tracking-widest uppercase transition-all shadow-xl hover:bg-black hover:scale-105 active:scale-95"
+            >
+              Read the Lab Blog
+            </button>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen lg:h-screen bg-[#f06030] flex flex-col relative lg:overflow-hidden">
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 pointer-events-none"></div>
@@ -181,7 +233,7 @@ function AuditPageContent() {
             </p>
           </div>
 
-          <form className="space-y-4 md:space-y-6">
+          <form onSubmit={handleFormSubmit} className="space-y-4 md:space-y-6">
             <div className="space-y-3 md:space-y-4">
               <input
                 type="text"
