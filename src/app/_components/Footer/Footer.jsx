@@ -15,7 +15,7 @@ export default function Footer() {
               alt="Exagic AI"
               width={150}
               height={50}
-              className="h-10 w-auto object-contain mb-4 opacity-80 hover:opacity-100 transition-all"
+              className="h-10 w-auto object-contain mb-4"
             />
             <p className="mt-4 max-w-sm text-zinc-500 text-sm leading-relaxed">
               Leading the industry through mechanistic interpretability and

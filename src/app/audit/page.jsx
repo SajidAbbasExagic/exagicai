@@ -14,6 +14,7 @@ import {
   Database,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AuditPage() {
   return (
@@ -154,47 +155,68 @@ function AuditPageContent() {
 
   if (stage === "success") {
     return (
-      <div className="min-h-screen bg-[#f06030] flex flex-col relative items-center justify-center p-6 pb-24 text-center">
+      <div className="min-h-screen bg-[#f06030] flex flex-col relative">
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 pointer-events-none"></div>
 
-        {/* Success Icon */}
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className="h-20 w-20 md:h-24 md:w-24 rounded-full bg-white flex items-center justify-center shadow-2xl mb-8 relative z-10"
-        >
-          <ShieldCheck className="h-10 w-10 md:h-12 md:w-12 text-[#f06030]" />
-        </motion.div>
-
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="max-w-xl w-full relative z-10"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            Submission Received!
-          </h2>
-          <p className="text-[#ffee00] text-lg md:text-xl font-medium mb-12 opacity-90 leading-relaxed">
-            Thank you! You&apos;ll be receiving your detailed AI visibility
-            report soon over your email.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button
-              onClick={() => router.push("/")}
-              className="w-full sm:w-auto px-10 py-4 rounded-md bg-white text-[#f06030] font-bold text-sm tracking-widest uppercase transition-all shadow-xl hover:bg-zinc-50 hover:scale-105 active:scale-95"
-            >
-              Back to Home
-            </button>
-            <button
-              onClick={() => router.push("/lab")}
-              className="w-full sm:w-auto px-10 py-4 rounded-md bg-[#222222] text-white font-bold text-sm tracking-widest uppercase transition-all shadow-xl hover:bg-black hover:scale-105 active:scale-95"
-            >
-              Read the Lab Blog
-            </button>
+        {/* Premium Logo Bar */}
+        <header className="w-full bg-[#222222] py-3 px-6 md:px-12 flex items-center justify-between relative z-20 shrink-0">
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/exagic-logo.png"
+              alt="Exagic AI"
+              width={120}
+              height={40}
+              className="h-8 w-auto object-contain"
+              priority
+            />
+          </Link>
+          <div className="hidden md:block">
+            <span className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest">
+              Visibility Intelligence v2.0
+            </span>
           </div>
-        </motion.div>
+        </header>
+
+        <div className="flex-grow flex flex-col items-center justify-center p-6 pb-24 text-center relative z-10">
+          {/* Success Icon */}
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="h-20 w-20 md:h-24 md:w-24 rounded-full bg-white flex items-center justify-center shadow-2xl mb-8"
+          >
+            <ShieldCheck className="h-10 w-10 md:h-12 md:w-12 text-[#f06030]" />
+          </motion.div>
+
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="max-w-xl w-full"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+              Submission Received!
+            </h2>
+            <p className="text-[#ffee00] text-lg md:text-xl font-medium mb-12 opacity-90 leading-relaxed">
+              Thank you! You&apos;ll be receiving your detailed AI visibility
+              report soon over your email.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button
+                onClick={() => router.push("/")}
+                className="w-full sm:w-auto px-10 py-4 rounded-md bg-white text-[#f06030] font-bold text-sm tracking-widest uppercase transition-all shadow-xl hover:bg-zinc-50 hover:scale-105 active:scale-95"
+              >
+                Back to Home
+              </button>
+              <button
+                onClick={() => router.push("/lab")}
+                className="w-full sm:w-auto px-10 py-4 rounded-md bg-[#222222] text-white font-bold text-sm tracking-widest uppercase transition-all shadow-xl hover:bg-black hover:scale-105 active:scale-95"
+              >
+                Read the Lab Blog
+              </button>
+            </div>
+          </motion.div>
+        </div>
       </div>
     );
   }
@@ -205,11 +227,16 @@ function AuditPageContent() {
 
       {/* Premium Logo Bar */}
       <header className="w-full bg-[#222222] py-3 px-6 md:px-12 flex items-center justify-between relative z-20 shrink-0">
-        <div className="flex items-center gap-2">
-          <span className="text-white font-black text-lg md:text-xl tracking-tighter uppercase italic">
-            Exagic AI
-          </span>
-        </div>
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/exagic-logo.png"
+            alt="Exagic AI"
+            width={120}
+            height={40}
+            className="h-8 w-auto object-contain"
+            priority
+          />
+        </Link>
         <div className="hidden md:block">
           <span className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest">
             Visibility Intelligence v2.0
