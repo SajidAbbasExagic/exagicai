@@ -10,7 +10,7 @@ import FAQ from "./_components/FAQ/FAQ";
 import ContactCTA from "./_components/ContactCTA/ContactCTA";
 
 export const metadata = {
-  title: "Exagic AI | AI SEO & SRO Agency San Francisco",
+  title: "Exagic AI | AI SEO & SRO Agency San Francisco.",
   description:
     "Exagic AI is a San Francisco AI SEO agency specializing in brand visibility optimization for industrial manufacturers, global suppliers, and hardware companies in the SF Bay Area corridor.",
   alternates: {
