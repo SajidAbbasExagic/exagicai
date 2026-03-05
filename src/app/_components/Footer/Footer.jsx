@@ -72,12 +72,67 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4">Location</h4>
-            <p className="text-sm text-zinc-500 leading-relaxed">
-              San Francisco Corridor
-              <br />
-              California, US
-            </p>
+            <h4 className="font-semibold mb-4 text-zinc-900">
+              Industrial Corridor
+            </h4>
+            <ul className="space-y-2 text-sm text-zinc-500">
+              <li>
+                <a
+                  href="/locations/san-francisco"
+                  className="hover:text-brand transition-colors"
+                >
+                  San Francisco
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/locations/oakland"
+                  className="hover:text-brand transition-colors"
+                >
+                  Oakland
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/locations/fremont"
+                  className="hover:text-brand transition-colors"
+                >
+                  Fremont
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/locations/san-leandro"
+                  className="hover:text-brand transition-colors"
+                >
+                  San Leandro
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/locations/san-jose"
+                  className="hover:text-brand transition-colors"
+                >
+                  San Jose
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/locations/alameda"
+                  className="hover:text-brand transition-colors"
+                >
+                  Alameda
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/locations/hayward"
+                  className="hover:text-brand transition-colors"
+                >
+                  Hayward
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <div className="mt-16 pt-8 border-t border-zinc-200 flex flex-col md:flex-row justify-between text-xs text-zinc-400 gap-4">

@@ -32,6 +32,16 @@ export default function sitemap() {
     "what-is-sro-selection-rate-optimization",
   ];
 
+  const locations = [
+    "san-francisco",
+    "oakland",
+    "fremont",
+    "san-leandro",
+    "san-jose",
+    "alameda",
+    "hayward",
+  ];
+
   const routes = [
     { url: "", priority: 1.0, changeFrequency: "weekly" },
     { url: "/ai-seo", priority: 0.9, changeFrequency: "monthly" },
@@ -55,6 +65,12 @@ export default function sitemap() {
       lastModified: new Date(),
       changeFrequency: route.changeFrequency,
       priority: route.priority,
+    })),
+    ...locations.map((slug) => ({
+      url: `${baseUrl}/locations/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
     })),
     ...labArticles.map((slug) => ({
       url: `${baseUrl}/lab/${slug}`,
