@@ -23,6 +23,7 @@ jobs:
           script: |
             cd /home/exagic.ai/public_html
             git pull origin main
+            rm -rf .next
             npm install
             npm run build
             pm2 restart exagic
