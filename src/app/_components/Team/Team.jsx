@@ -6,17 +6,17 @@ export default function Team() {
     {
       name: "Saif K",
       title: "Director of Strategy",
-      image: "/team/arthur.jpeg",
+      image: "/team/arthur.jpg",
     },
     {
       name: "Elena Vance",
       title: "AI SEO Specialist",
-      image: "/team/elena.jpeg",
+      image: "/team/elena.jpg",
     },
     {
       name: "Marcus Thorne",
       title: "Technical SEO",
-      image: "/team/marcus.jpeg",
+      image: "/team/marcus.jpg",
     },
     {
       name: "Julian Reed",
