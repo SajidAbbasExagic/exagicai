@@ -6,7 +6,7 @@ export const metadata = {
     "Suppliers serving Silicon Valley tech manufacturers face AI procurement tools that evaluate vendors on specification-driven criteria. Here is how to build AI citation authority in this ecosystem.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/silicon-valley-supply-chain-ai-visibility",
+      "https://exagic.ai/lab/silicon-valley-supply-chain-ai-visibility",
   },
 };
 
@@ -30,11 +30,11 @@ export default function SiliconValleyVisibilityArticle() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "Silicon Valley Supply Chain AI Visibility",
-      item: "https://exagic-ai.vercel.app/lab/silicon-valley-supply-chain-ai-visibility",
+      item: "https://exagic.ai/lab/silicon-valley-supply-chain-ai-visibility",
     },
   ];
 

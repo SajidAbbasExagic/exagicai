@@ -14,7 +14,7 @@ export const metadata = {
   description:
     "Answer Engine Optimization services for industrial brands. Exagic AI ensures your products and services are the default recommendation in ChatGPT, Gemini, and Perplexity when industrial buyers search.",
   alternates: {
-    canonical: "https://exagic-ai.vercel.app/aeo",
+    canonical: "https://exagic.ai/aeo",
   },
 };
 export default function AEOPage() {
@@ -26,7 +26,7 @@ export default function AEOPage() {
     provider: {
       "@type": "Organization",
       name: "Exagic AI",
-      url: "https://exagic-ai.vercel.app",
+      url: "https://exagic.ai",
     },
     areaServed: "San Francisco Bay Area",
     description:
@@ -40,19 +40,19 @@ export default function AEOPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://exagic-ai.vercel.app/",
+        item: "https://exagic.ai/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "AI SEO",
-        item: "https://exagic-ai.vercel.app/ai-seo",
+        item: "https://exagic.ai/ai-seo",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Answer Engine Optimization",
-        item: "https://exagic-ai.vercel.app/aeo",
+        item: "https://exagic.ai/aeo",
       },
     ],
   };

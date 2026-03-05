@@ -6,7 +6,7 @@ export const metadata = {
     "Why comprehensive FAQ strategy is critical for AI SEO, AEO, and getting Bay Area industrial brands cited by AI sourcing agents.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/qa-engine-playbook-industrial-faq",
+      "https://exagic.ai/lab/qa-engine-playbook-industrial-faq",
   },
 };
 
@@ -29,11 +29,11 @@ export default function QAEnginePlaybookPage() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "Q&A Engine Playbook",
-      item: "https://exagic-ai.vercel.app/lab/qa-engine-playbook-industrial-faq",
+      item: "https://exagic.ai/lab/qa-engine-playbook-industrial-faq",
     },
   ];
 

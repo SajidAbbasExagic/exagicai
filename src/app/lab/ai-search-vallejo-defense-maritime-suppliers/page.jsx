@@ -7,7 +7,7 @@ export const metadata = {
     "Vallejo's defense and maritime industrial base continues beyond Mare Island. Suppliers serving ship repair, defense contracting, and maritime services need AI-optimized content to compete.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/ai-search-vallejo-defense-maritime-suppliers",
+      "https://exagic.ai/lab/ai-search-vallejo-defense-maritime-suppliers",
   },
 };
 
@@ -46,11 +46,11 @@ export default function ArticlePage() {
   ];
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "Vallejo Defense AI Search",
-      item: "https://exagic-ai.vercel.app/lab/ai-search-vallejo-defense-maritime-suppliers",
+      item: "https://exagic.ai/lab/ai-search-vallejo-defense-maritime-suppliers",
     },
   ];
 

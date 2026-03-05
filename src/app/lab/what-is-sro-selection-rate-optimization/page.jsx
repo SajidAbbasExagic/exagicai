@@ -7,7 +7,7 @@ export const metadata = {
     "SRO is the AI SEO discipline that determines whether your content is cited once AI retrieves it. A practical guide for SF Bay Area industrial manufacturers.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/what-is-sro-selection-rate-optimization",
+      "https://exagic.ai/lab/what-is-sro-selection-rate-optimization",
   },
 };
 
@@ -43,11 +43,11 @@ export default function ArticlePage() {
   ];
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "Selection Rate Optimization (SRO)",
-      item: "https://exagic-ai.vercel.app/lab/what-is-sro-selection-rate-optimization",
+      item: "https://exagic.ai/lab/what-is-sro-selection-rate-optimization",
     },
   ];
 

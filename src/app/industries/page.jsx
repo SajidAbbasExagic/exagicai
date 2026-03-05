@@ -17,7 +17,7 @@ export const metadata = {
   description:
     "AI SEO for SF Bay Area industrial manufacturers, East Bay suppliers, Silicon Valley hardware companies, and Fremont logistics hubs. Exagic AI specializes in your sector.",
   alternates: {
-    canonical: "https://exagic-ai.vercel.app/industries",
+    canonical: "https://exagic.ai/industries",
   },
 };
 export default function IndustriesPage() {
@@ -29,13 +29,13 @@ export default function IndustriesPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://exagic-ai.vercel.app/",
+        item: "https://exagic.ai/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Industries",
-        item: "https://exagic-ai.vercel.app/industries",
+        item: "https://exagic.ai/industries",
       },
     ],
   };
@@ -48,37 +48,37 @@ export default function IndustriesPage() {
         "@type": "ListItem",
         position: 1,
         name: "Precision Manufacturing",
-        url: "https://exagic-ai.vercel.app/industries#precision-manufacturing",
+        url: "https://exagic.ai/industries#precision-manufacturing",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Logistics and Supply Chain",
-        url: "https://exagic-ai.vercel.app/industries#logistics",
+        url: "https://exagic.ai/industries#logistics",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Electronics and Hardware",
-        url: "https://exagic-ai.vercel.app/industries#electronics",
+        url: "https://exagic.ai/industries#electronics",
       },
       {
         "@type": "ListItem",
         position: 4,
         name: "B2B Technical Services",
-        url: "https://exagic-ai.vercel.app/industries#technical-services",
+        url: "https://exagic.ai/industries#technical-services",
       },
       {
         "@type": "ListItem",
         position: 5,
         name: "Engineering and Construction",
-        url: "https://exagic-ai.vercel.app/industries#engineering",
+        url: "https://exagic.ai/industries#engineering",
       },
       {
         "@type": "ListItem",
         position: 6,
         name: "Cleantech and Energy",
-        url: "https://exagic-ai.vercel.app/industries#cleantech",
+        url: "https://exagic.ai/industries#cleantech",
       },
     ],
   };

@@ -3,7 +3,7 @@ export const metadata = {
   description:
     "AI SEO optimization for industrial manufacturers in the East Bay and San Leandro. We ensure your product catalogs become structured entities in the Knowledge Graph.",
   alternates: {
-    canonical: "https://exagic-ai.vercel.app/industries/manufacturing",
+    canonical: "https://exagic.ai/industries/manufacturing",
   },
 };
 
@@ -16,19 +16,19 @@ export default function ManufacturingPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://exagic-ai.vercel.app/",
+        item: "https://exagic.ai/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Industries",
-        item: "https://exagic-ai.vercel.app/industries",
+        item: "https://exagic.ai/industries",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Industrial Manufacturing",
-        item: "https://exagic-ai.vercel.app/industries/manufacturing",
+        item: "https://exagic.ai/industries/manufacturing",
       },
     ],
   };

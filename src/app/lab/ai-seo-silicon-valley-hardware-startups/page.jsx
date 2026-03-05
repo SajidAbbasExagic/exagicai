@@ -6,7 +6,7 @@ export const metadata = {
     "How hardware startups in Silicon Valley and San Jose can use AI SEO and entity structures to bypass legacy manufacturers and build rapid B2B visibility.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/ai-seo-silicon-valley-hardware-startups",
+      "https://exagic.ai/lab/ai-seo-silicon-valley-hardware-startups",
   },
 };
 
@@ -29,11 +29,11 @@ export default function SiliconValleyHardwarePage() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "AI SEO for SV Hardware Startups",
-      item: "https://exagic-ai.vercel.app/lab/ai-seo-silicon-valley-hardware-startups",
+      item: "https://exagic.ai/lab/ai-seo-silicon-valley-hardware-startups",
     },
   ];
 

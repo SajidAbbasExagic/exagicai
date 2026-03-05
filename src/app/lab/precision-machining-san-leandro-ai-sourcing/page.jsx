@@ -6,7 +6,7 @@ export const metadata = {
     "How machine shops and precision fabricators in San Leandro and the East Bay can get cited by AI procurement and Answer Engines.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/precision-machining-san-leandro-ai-sourcing",
+      "https://exagic.ai/lab/precision-machining-san-leandro-ai-sourcing",
   },
 };
 
@@ -30,11 +30,11 @@ export default function SanLeandroMachiningPage() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "San Leandro Machining",
-      item: "https://exagic-ai.vercel.app/lab/precision-machining-san-leandro-ai-sourcing",
+      item: "https://exagic.ai/lab/precision-machining-san-leandro-ai-sourcing",
     },
   ];
 

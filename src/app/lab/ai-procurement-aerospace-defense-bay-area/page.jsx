@@ -6,7 +6,7 @@ export const metadata = {
     "Aerospace and defense procurement teams use AI to pre-screen suppliers for AS9100, ITAR, and NADCAP qualifications. Here is how Bay Area suppliers can appear in those searches.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/ai-procurement-aerospace-defense-bay-area",
+      "https://exagic.ai/lab/ai-procurement-aerospace-defense-bay-area",
   },
 };
 
@@ -30,11 +30,11 @@ export default function AerospaceArticle() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "AI Procurement in Bay Area Aerospace",
-      item: "https://exagic-ai.vercel.app/lab/ai-procurement-aerospace-defense-bay-area",
+      item: "https://exagic.ai/lab/ai-procurement-aerospace-defense-bay-area",
     },
   ];
 

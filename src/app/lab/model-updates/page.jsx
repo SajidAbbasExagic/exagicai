@@ -5,7 +5,7 @@ export const metadata = {
   description:
     "Tracking how AI model releases impact industrial brand visibility. Analysis of Gemini, GPT-4o, and other LLMs for supply chain and manufacturing queries.",
   alternates: {
-    canonical: "https://exagic-ai.vercel.app/lab/model-updates",
+    canonical: "https://exagic.ai/lab/model-updates",
   },
 };
 
@@ -18,19 +18,19 @@ export default function ModelUpdatesPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://exagic-ai.vercel.app/",
+        item: "https://exagic.ai/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Lab",
-        item: "https://exagic-ai.vercel.app/lab",
+        item: "https://exagic.ai/lab",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Model Updates",
-        item: "https://exagic-ai.vercel.app/lab/model-updates",
+        item: "https://exagic.ai/lab/model-updates",
       },
     ],
   };

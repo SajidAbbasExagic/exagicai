@@ -7,7 +7,7 @@ export const metadata = {
     "By 2027, autonomous AI agents will handle supplier discovery, qualification, and shortlisting for manufacturing, production, and wholesale buyers. Most industrial brands are not ready. Here is what the shift looks like and how to prepare.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/ai-agents-procurement-2027-manufacturing",
+      "https://exagic.ai/lab/ai-agents-procurement-2027-manufacturing",
   },
 };
 
@@ -31,11 +31,11 @@ export default function AIAgentsProcurement2027Article() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "AI Agents in Procurement by 2027",
-      item: "https://exagic-ai.vercel.app/lab/ai-agents-procurement-2027-manufacturing",
+      item: "https://exagic.ai/lab/ai-agents-procurement-2027-manufacturing",
     },
   ];
 

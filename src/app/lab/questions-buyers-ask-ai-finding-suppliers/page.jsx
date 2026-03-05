@@ -6,7 +6,7 @@ export const metadata = {
     "Industrial procurement teams ask AI highly specific questions when finding suppliers. Here are the most common query patterns and how suppliers can structure content to answer them directly.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/questions-buyers-ask-ai-finding-suppliers",
+      "https://exagic.ai/lab/questions-buyers-ask-ai-finding-suppliers",
   },
 };
 
@@ -30,11 +30,11 @@ export default function QuestionsBuyersAskArticle() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "Questions Buyers Ask AI",
-      item: "https://exagic-ai.vercel.app/lab/questions-buyers-ask-ai-finding-suppliers",
+      item: "https://exagic.ai/lab/questions-buyers-ask-ai-finding-suppliers",
     },
   ];
 

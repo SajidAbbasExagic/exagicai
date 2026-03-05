@@ -6,7 +6,7 @@ export const metadata = {
     "Entity SEO is the practice of defining your brand, products, and services as named, verifiable entities that AI systems can understand and cite. Here is how it works for industrial companies.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/what-is-entity-seo-industrial-brands",
+      "https://exagic.ai/lab/what-is-entity-seo-industrial-brands",
   },
 };
 
@@ -30,11 +30,11 @@ export default function EntitySEOArticle() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "What Is Entity SEO",
-      item: "https://exagic-ai.vercel.app/lab/what-is-entity-seo-industrial-brands",
+      item: "https://exagic.ai/lab/what-is-entity-seo-industrial-brands",
     },
   ];
 

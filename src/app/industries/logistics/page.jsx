@@ -3,7 +3,7 @@ export const metadata = {
   description:
     "AI SEO visibility for logistics providers in the Fremont corridor. Ensuring AI models cite your brand when buyers search for freight, warehousing, and distribution partners.",
   alternates: {
-    canonical: "https://exagic-ai.vercel.app/industries/logistics",
+    canonical: "https://exagic.ai/industries/logistics",
   },
 };
 
@@ -16,19 +16,19 @@ export default function LogisticsPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://exagic-ai.vercel.app/",
+        item: "https://exagic.ai/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Industries",
-        item: "https://exagic-ai.vercel.app/industries",
+        item: "https://exagic.ai/industries",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Logistics & Supply Chain",
-        item: "https://exagic-ai.vercel.app/industries/logistics",
+        item: "https://exagic.ai/industries/logistics",
       },
     ],
   };

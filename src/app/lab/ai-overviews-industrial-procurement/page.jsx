@@ -6,7 +6,7 @@ export const metadata = {
     "Google's AI Overviews and AI Mode are changing how industrial buyers find suppliers. Here is how they work and what manufacturers must do to appear in them.",
   alternates: {
     canonical:
-      "https://exagic-ai.vercel.app/lab/ai-overviews-industrial-procurement",
+      "https://exagic.ai/lab/ai-overviews-industrial-procurement",
   },
 };
 
@@ -30,11 +30,11 @@ export default function AIOverviewsArticle() {
   };
 
   const breadcrumbItems = [
-    { name: "Home", item: "https://exagic-ai.vercel.app/" },
-    { name: "Lab", item: "https://exagic-ai.vercel.app/lab" },
+    { name: "Home", item: "https://exagic.ai/" },
+    { name: "Lab", item: "https://exagic.ai/lab" },
     {
       name: "Google AI Overviews and AI Mode",
-      item: "https://exagic-ai.vercel.app/lab/ai-overviews-industrial-procurement",
+      item: "https://exagic.ai/lab/ai-overviews-industrial-procurement",
     },
   ];
 
