@@ -6,8 +6,7 @@ export const metadata = {
   description:
     "By 2027, autonomous AI agents will handle supplier discovery, qualification, and shortlisting for manufacturing, production, and wholesale buyers. Most industrial brands are not ready. Here is what the shift looks like and how to prepare.",
   alternates: {
-    canonical:
-      "https://exagic.ai/lab/ai-agents-procurement-2027-manufacturing",
+    canonical: "https://exagic.ai/lab/ai-agents-procurement-2027-manufacturing",
   },
 };
 
@@ -153,46 +152,40 @@ export default function AIAgentsProcurement2027Article() {
 
       <h2>The Three Industries Most Exposed</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-10 not-prose">
-        <div className="p-8 rounded-2xl bg-zinc-50 border border-zinc-100 shadow-sm">
-          <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center font-bold text-xl mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-12 not-prose">
+        <div className="p-7 rounded-2xl bg-zinc-50 border border-zinc-100 shadow-sm flex flex-col">
+          <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center font-bold text-lg mb-6">
             1
           </div>
           <h4 className="font-bold text-zinc-900 mb-3 text-lg">
             Manufacturing
           </h4>
           <p className="text-sm text-zinc-600 leading-relaxed">
-            Contract manufacturers, precision machining shops, metal
-            fabricators, plastics molders, and specialty component producers.
-            These companies rely on technical specifications and certifications
-            that AI agents will use as primary filtering criteria. Most have
-            this data locked in legacy formats.
+            Contract manufacturers and machine shops. These firms rely on
+            technical specs and certifications that AI agents use as primary
+            filters, yet most keep this data in legacy formats.
           </p>
         </div>
-        <div className="p-8 rounded-2xl bg-zinc-50 border border-zinc-100 shadow-sm">
-          <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center font-bold text-xl mb-6">
+        <div className="p-7 rounded-2xl bg-zinc-50 border border-zinc-100 shadow-sm flex flex-col">
+          <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center font-bold text-lg mb-6">
             2
           </div>
           <h4 className="font-bold text-zinc-900 mb-3 text-lg">Production</h4>
           <p className="text-sm text-zinc-600 leading-relaxed">
-            Food and beverage producers, chemical blenders, pharmaceutical
-            formulators, and packaging operations. Production companies face
-            agent-driven procurement that will evaluate GMP compliance, FDA
-            registration, capacity metrics, and facility certifications
-            autonomously.
+            Food, chemical, and pharma producers. AI agents will autonomously
+            evaluate GMP compliance, FDA registration, and capacity metrics to
+            qualify these suppliers.
           </p>
         </div>
-        <div className="p-8 rounded-2xl bg-zinc-50 border border-zinc-100 shadow-sm">
-          <div className="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center font-bold text-xl mb-6">
+        <div className="p-7 rounded-2xl bg-zinc-50 border border-zinc-100 shadow-sm flex flex-col">
+          <div className="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center font-bold text-lg mb-6">
             3
           </div>
           <h4 className="font-bold text-zinc-900 mb-3 text-lg">Wholesale</h4>
           <p className="text-sm text-zinc-600 leading-relaxed">
-            Industrial distributors, material suppliers, MRO providers, and bulk
-            commodity vendors. Wholesale companies will be evaluated by agents
-            on inventory availability, minimum order quantities, lead times, and
-            distribution coverage, all data points that must be published as
-            structured content.
+            Industrial distributors and bulk vendors. Agents evaluate these
+            brands on inventory, MOQs, and lead times—data that must be
+            structured and machine-readable.
           </p>
         </div>
       </div>
@@ -308,7 +301,7 @@ export default function AIAgentsProcurement2027Article() {
         programs:
       </p>
 
-      <div className="my-10 not-prose space-y-6">
+      <div className="my-12 not-prose space-y-6">
         {[
           {
             step: "1",
@@ -342,11 +335,11 @@ export default function AIAgentsProcurement2027Article() {
           },
         ].map((item, i) => (
           <div key={i} className="flex gap-6 items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center font-bold text-xl">
+            <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center font-bold text-lg">
               {item.step}
             </div>
             <div>
-              <h4 className="text-lg font-bold text-zinc-900 mb-2">
+              <h4 className="text-lg font-bold text-zinc-900 mb-1">
                 {item.title}
               </h4>
               <p className="text-sm text-zinc-600 leading-relaxed">
@@ -384,8 +377,8 @@ export default function AIAgentsProcurement2027Article() {
         agent-driven procurement becomes the default channel.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-10 not-prose">
-        <div className="p-8 rounded-2xl bg-zinc-50 border border-zinc-100 shadow-sm">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-12 not-prose">
+        <div className="p-7 rounded-2xl bg-zinc-50 border border-zinc-100 shadow-sm">
           <h4 className="font-bold text-zinc-900 mb-4 text-sm uppercase tracking-widest text-zinc-400">
             What Gets You Filtered Out
           </h4>
@@ -412,7 +405,7 @@ export default function AIAgentsProcurement2027Article() {
             </li>
           </ul>
         </div>
-        <div className="p-8 rounded-2xl bg-brand/5 border border-brand/20 shadow-sm">
+        <div className="p-7 rounded-2xl bg-brand/5 border border-brand/20 shadow-sm">
           <h4 className="font-bold text-brand mb-4 text-sm uppercase tracking-widest">
             What Gets You Shortlisted
           </h4>
