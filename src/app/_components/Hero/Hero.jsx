@@ -17,6 +17,7 @@ export default function Hero() {
           >
             San Francisco AI SEO Agency specialising in brand visibility
             optimisation for global brands and e-commerce websites.
+          </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-700">
             We help brands dominate search results through advanced AI-driven
