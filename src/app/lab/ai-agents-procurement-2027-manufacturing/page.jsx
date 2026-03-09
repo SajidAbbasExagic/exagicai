@@ -83,8 +83,8 @@ export default function AIAgentsProcurement2027Article() {
       faqSchema={faqSchema}
       breadcrumbItems={breadcrumbItems}
       nextArticle={{
-        title: "The 2026 Bay Area Industrial AI Visibility Report",
-        href: "/lab/2026-bay-area-industrial-ai-visibility-report",
+        title: "SRO & Grounding Snippets: How Google's AI Search Pipeline Works",
+        href: "/lab/sro-grounding-snippets",
       }}
     >
       <p className="lead text-xl font-medium text-zinc-900 mb-10">

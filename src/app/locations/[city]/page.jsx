@@ -69,6 +69,19 @@ export default async function LocationPage({ params }) {
     ],
   };
 
+  const faqSchema = city.richContent?.faqs ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: city.richContent.faqs.map(faq => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer
+      }
+    }))
+  } : null;
+
   return (
     <div className="bg-zinc-50 min-h-screen">
       <script
@@ -79,6 +92,12 @@ export default async function LocationPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       {/* City Hero */}
       <section className="relative isolate overflow-hidden bg-zinc-950 px-6 py-24 sm:py-32 lg:px-8">
@@ -101,7 +120,127 @@ export default async function LocationPage({ params }) {
         </div>
       </section>
 
-      {/* Methodology Section */}
+      {/* Rich Industrial Content Section (Conditional) */}
+      {city.richContent && (
+        <section className="py-24 bg-white border-y border-zinc-100">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="max-w-3xl mb-16">
+              <h2 className="text-3xl font-bold tracking-tight text-zinc-900 mb-6">
+                Regional Industrial Analysis: {city.name}
+              </h2>
+              <p className="text-lg text-zinc-600 leading-relaxed">
+                Authentic visibility in {city.name} requires more than just ranking. 
+                We map your physical footprint against the specific industrial nodes 
+                that define the city's supply chain authority.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
+              {city.richContent.industrialNodes.map((node, i) => (
+                <div key={i} className="group relative">
+                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-zinc-50 rounded-2xl flex items-center justify-center text-zinc-300 font-bold text-xl group-hover:text-brand transition-colors border border-zinc-100 italic">
+                    {i + 1}
+                  </div>
+                  <div className="pl-10 pt-2 pb-6 border-b border-zinc-100 h-full">
+                    <h4 className="text-xl font-bold text-zinc-900 mb-3 group-hover:text-brand transition-colors">
+                      {node.name}
+                    </h4>
+                    <p className="text-zinc-600 text-sm leading-relaxed mb-4">
+                      {node.description}
+                    </p>
+                    <a 
+                      href={`https://www.wikidata.org/wiki/${node.wikidata}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-zinc-400 hover:text-brand transition-colors"
+                    >
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79l5.79 5.79v1.93zm5.91-2.91C15.65 18.2 13.92 19 12 19c-.3 0-.6-.02-.89-.07l.89-.89v-1.5l-1.5-1.5V11l2.5-2.5v3l3 3v2.02z" />
+                      </svg>
+                      Wikidata Reference: {node.wikidata}
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+              {city.richContent.aiStrategies.map((strat, i) => (
+                <div key={i} className="p-8 rounded-3xl bg-zinc-950 text-white relative overflow-hidden group shadow-2xl">
+                  <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-16 h-16">
+                      <path d="M13 3l-2 3H6a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2h-5l-2-3H13z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-xl font-bold mb-4 relative z-10">{strat.title}</h4>
+                  <p className="text-zinc-400 text-sm leading-relaxed relative z-10">{strat.detail}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Local Stats / Facts Bar */}
+            <div className="bg-brand/5 border border-brand/20 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-12 text-center md:text-left">
+              <div className="flex-1">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand block mb-4">Regional Status Monitor</span>
+                <p className="text-xl font-bold text-zinc-900 leading-tight">
+                  "{city.richContent.regionalStats.topQuery}"
+                </p>
+                <p className="text-sm text-zinc-500 mt-2 italic">
+                  Critical local intent captured via Entity Grounding
+                </p>
+              </div>
+              <div className="w-px h-16 bg-brand/20 hidden md:block" />
+              <div className="flex gap-12">
+                <div>
+                  <span className="text-3xl font-bold text-zinc-900 block mb-1">
+                    {city.richContent.regionalStats.visibilityGap.split(' ')[0]}
+                  </span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">
+                    Visibility Gap
+                  </span>
+                </div>
+                <div>
+                  <span className="text-3xl font-bold text-brand block mb-1">
+                    {city.richContent.regionalStats.targetCitationRate.split(' ')[0]}
+                  </span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">
+                    Target Rate
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Localized FAQ / AEO Knowledge Base */}
+            {city.richContent.faqs && (
+              <div className="mt-24 pt-24 border-t border-zinc-100">
+                <div className="max-w-3xl mb-12">
+                  <h3 className="text-2xl font-bold text-zinc-900 mb-4">
+                    Local AEO Knowledge Base: {city.name}
+                  </h3>
+                  <p className="text-sm text-zinc-500 font-medium">
+                    Addressing local industrial search patterns for machine agents
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+                  {city.richContent.faqs.map((faq, i) => (
+                    <div key={i} className="group">
+                      <h4 className="text-lg font-bold text-zinc-900 mb-4 flex items-start gap-3">
+                        <span className="text-brand font-black shrink-0">Q.</span>
+                        {faq.question}
+                      </h4>
+                      <p className="text-zinc-600 text-[15px] leading-relaxed pl-7 border-l-2 border-zinc-50 group-hover:border-brand/30 transition-colors">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* Methodology Section (Original) */}
       <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-x-12 gap-y-16 lg:grid-cols-2 items-start">

@@ -8,6 +8,15 @@ export const categories = [
 
 export const articles = [
   {
+    title: "Grounding Snippets & SRO: Decoding Google's AI Search Pipeline",
+    description:
+      "New research into the Gemini grounding pipeline reveals the exact mechanics of Selection Rate Optimization (SRO). Learn the rules of the 2,000-word budget and extractive summarization.",
+    href: "/lab/sro-grounding-snippets",
+    date: "March 9, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
     title:
       "How AI Agents Will Transform Procurement by 2027: Is Your Manufacturing Brand Visible?",
     description:
@@ -15,7 +24,6 @@ export const articles = [
     href: "/lab/ai-agents-procurement-2027-manufacturing",
     date: "March 4, 2026",
     category: "Industry Specific",
-    badge: "New",
   },
   {
     title: "The 2026 Bay Area Industrial AI Visibility Report",

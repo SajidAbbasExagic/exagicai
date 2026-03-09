@@ -132,8 +132,8 @@ export default function VisibilityReportPart1() {
         },
       ]}
       previousArticle={{
-        title: "How AI Agents Will Transform Procurement by 2027",
-        href: "/lab/ai-agents-procurement-2027-manufacturing",
+        title: "SRO & Grounding Snippets: How Google's AI Search Pipeline Works",
+        href: "/lab/sro-grounding-snippets",
       }}
       nextArticle={{
         title:
