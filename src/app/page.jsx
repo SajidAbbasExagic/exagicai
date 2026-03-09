@@ -46,7 +46,7 @@ export default function HomePage() {
       {
         "@type": "City",
         name: "San Francisco",
-        sameAs: "https://www.wikidata.org/wiki/Q601",
+        sameAs: "https://www.wikidata.org/wiki/Q62",
       },
       {
         "@type": "City",
