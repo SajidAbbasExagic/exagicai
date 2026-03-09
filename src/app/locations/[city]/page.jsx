@@ -1,5 +1,10 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { cities } from "@/data/cities";
+import LogoStrip from "@/app/_components/LogoStrip/LogoStrip";
+import Capabilities from "@/app/_components/Capabilities/Capabilities";
+import IndustryFocus from "@/app/_components/IndustryFocus/IndustryFocus";
+import SocialProof from "@/app/_components/SocialProof/SocialProof";
 import ContactCTA from "@/app/_components/ContactCTA/ContactCTA";
 
 export async function generateStaticParams() {
@@ -100,25 +105,69 @@ export default async function LocationPage({ params }) {
       )}
 
       {/* City Hero */}
-      <section className="relative isolate overflow-hidden bg-zinc-950 px-6 py-24 sm:py-32 lg:px-8">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.zinc.900),theme(colors.zinc.950))] opacity-40" />
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-base font-semibold leading-7 text-brand uppercase tracking-widest">
-            Local Grounding & Entity Mapping
-          </h2>
-          <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            {city.name} Methodology
-          </p>
-          <div className="mt-8 flex items-center justify-center gap-x-3 text-zinc-400 text-sm">
-            <span>{city.profile}</span>
-            <span className="h-1 w-1 rounded-full bg-zinc-700" />
-            <span>EXAGIC Industrial Strategy</span>
+      <section
+        id="hero"
+        aria-labelledby="hero-heading"
+        className="rag-section relative flex min-h-[70vh] items-center bg-white pt-24 pb-12 border-b border-zinc-100"
+      >
+        <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
+          <div className="max-w-3xl pt-8">
+            <h2 className="text-sm font-bold leading-7 text-brand uppercase tracking-widest mb-4">
+              Local AI Visibility & Entity Mapping
+            </h2>
+            <h1
+              id="hero-heading"
+              className="text-xl sm:text-4xl md:text-5xl font-semibold text-zinc-900 leading-[1.2] tracking-tight"
+            >
+              {city.name} AI SEO Agency specialising in brand visibility optimisation for industrial and hardware brands.
+            </h1>
+
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-700">
+              We help {city.name} brands dominate search results through advanced AI-driven SEO strategies, including mechanistic interpretability, model steering, and hyper-local entity grounding. {city.description}
+            </p>
+
+            <p className="mt-4 text-sm sm:text-base text-zinc-500 font-medium">
+              Book a consultation with our senior strategy team to discuss your {city.name} project. The consultation is free and highly constructive.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-6">
+              <Link
+                href="/contact"
+                className="rounded-md bg-brand px-4 py-3 sm:px-6 text-sm sm:text-base font-bold text-white shadow-xl transition-colors hover:bg-brand-dark whitespace-nowrap"
+              >
+                Schedule a Call
+              </Link>
+              <Link
+                href="/capabilities"
+                className="text-zinc-900 text-xs sm:text-base font-bold hover:text-brand transition-colors flex items-center gap-1.5 sm:gap-2 whitespace-nowrap"
+              >
+                See Our Capabilities
+                <svg
+                  className="h-3.5 w-3.5 sm:h-4 sm:w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+            </div>
           </div>
-          <p className="mt-10 text-xl leading-8 text-zinc-300 max-w-3xl mx-auto">
-            {city.description}
-          </p>
         </div>
       </section>
+
+      {/* Global Logo Strip */}
+      <LogoStrip />
+
+      {/* Global Capabilities Section */}
+      <div className="bg-zinc-50 pt-16">
+        <Capabilities />
+      </div>
 
       {/* Rich Industrial Content Section (Conditional) */}
       {city.richContent && (
@@ -240,83 +289,88 @@ export default async function LocationPage({ params }) {
         </section>
       )}
 
-      {/* Methodology Section (Original) */}
-      <section className="py-24 sm:py-32">
+      {/* City-Specific Analysis Section */}
+      <section className="py-24 sm:py-32 bg-zinc-50 border-t border-zinc-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-x-12 gap-y-16 lg:grid-cols-2 items-start">
             <div>
               <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl mb-6">
-                City-Specific Industrial Analysis
+                Advanced AI SEO Strategies for {city.name}
               </h2>
-              <div className="space-y-8 text-zinc-600 leading-8">
+              <div className="space-y-4 text-zinc-600 leading-8 text-lg">
                 <p>
                   For brands operating within the{" "}
                   <span className="font-semibold text-zinc-900">
                     {city.profile}
                   </span>
-                  , generic SEO is no longer sufficient. Our methodology focuses
-                  on linking technical expertise directly to geographic
-                  coordinates, ensuring that LLMs accurately "ground" your
-                  entity as a regional authority.
+                  , generic SEO is no longer sufficient. Our specialized <Link href="/capabilities/aeo" className="text-brand hover:underline font-medium">Answer Engine Optimization (AEO)</Link> strategies focus
+                  on linking your technical expertise directly to geographic
+                  coordinates, ensuring that Large Language Models (LLMs) accurately "ground" your
+                  entity as the definitive regional authority.
                 </p>
-                <div className="bg-white p-8 rounded-2xl border border-zinc-200 shadow-sm">
+                <div className="bg-white p-8 rounded-2xl border border-zinc-200 shadow-sm my-8">
                   <h3 className="text-xl font-bold text-zinc-900 mb-4 flex items-center gap-x-2">
                     <span className="h-6 w-1 bg-brand rounded-full" />
-                    Methodology Topic
+                    Strategic Focus
                   </h3>
                   <p className="text-zinc-600 italic">
                     "{city.caseStudyTopic}"
                   </p>
                 </div>
                 <p>
-                  Instead of generic landing pages, we implement high-fidelity
+                  Instead of relying on dated ranking tactics, we implement high-fidelity
                   technical data sets that AI search engines use to resolve
                   intent. This prevents "AI hallucinations" where models might
                   incorrectly associate your brand with the wrong physical
-                  address or region.
+                  address or region, maximizing your <Link href="/capabilities/sro" className="text-brand hover:underline font-medium">Selection Rate Optimization (SRO)</Link>.
                 </p>
               </div>
             </div>
 
-            <div className="bg-zinc-100 rounded-3xl p-8 lg:p-12 border border-zinc-200">
-              <h3 className="text-2xl font-bold text-zinc-900 mb-8 underline decoration-brand/30 decoration-4 underline-offset-8">
-                Local Strategic Pillars
+            <div className="bg-white rounded-[2rem] p-8 lg:p-12 border border-zinc-200 shadow-sm relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-8 opacity-5">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-32 h-32">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79l5.79 5.79v1.93zm5.91-2.91C15.65 18.2 13.92 19 12 19c-.3 0-.6-.02-.89-.07l.89-.89v-1.5l-1.5-1.5V11l2.5-2.5v3l3 3v2.02z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-zinc-900 mb-8 border-b border-zinc-100 pb-4 relative z-10">
+                Core AI Local Capabilities
               </h3>
-              <dl className="space-y-10">
+              <dl className="space-y-10 relative z-10">
                 <div>
-                  <dt className="flex items-center gap-x-3 text-base font-bold leading-7 text-zinc-900">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand text-white text-xs">
+                  <dt className="flex items-center gap-x-4 text-lg font-bold leading-7 text-zinc-900">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand text-sm font-black">
                       01
                     </span>
                     Geographic Entity Linking
                   </dt>
-                  <dd className="mt-2 text-sm leading-7 text-zinc-600 pl-11">
+                  <dd className="mt-3 text-base leading-relaxed text-zinc-600 pl-14">
                     Mapping {city.name} industrial nodes to business entities
-                    via Wikidata and JSON-LD AreaServed collections.
+                    via Wikidata and JSON-LD AreaServed collections. This ensures AI explicitly knows your service zone.
                   </dd>
                 </div>
                 <div>
-                  <dt className="flex items-center gap-x-3 text-base font-bold leading-7 text-zinc-900">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-900 text-white text-xs">
+                  <dt className="flex items-center gap-x-4 text-lg font-bold leading-7 text-zinc-900">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand text-sm font-black">
                       02
                     </span>
                     Targeting Localized Queries
                   </dt>
-                  <dd className="mt-2 text-sm leading-7 text-zinc-600 pl-11">
+                  <dd className="mt-3 text-base leading-relaxed text-zinc-600 pl-14">
                     Capturing high-intent B2B search strings specifically tuned
-                    to the industrial profile of {city.name}.
+                    to the industrial profile of {city.name}. We optimize for the prompts buyers actually use in AI chat.
                   </dd>
                 </div>
                 <div>
-                  <dt className="flex items-center gap-x-3 text-base font-bold leading-7 text-zinc-900">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-900 text-white text-xs">
+                  <dt className="flex items-center gap-x-4 text-lg font-bold leading-7 text-zinc-900">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand text-sm font-black">
                       03
                     </span>
                     Grounding Verification
                   </dt>
-                  <dd className="mt-2 text-sm leading-7 text-zinc-600 pl-11">
+                  <dd className="mt-3 text-base leading-relaxed text-zinc-600 pl-14">
                     Citing regional authority and specific location data to
-                    prevent misattribution in model-generated answers.
+                    prevent misattribution in model-generated answers, acting as a safeguard for your AI visibility.
                   </dd>
                 </div>
               </dl>
@@ -324,6 +378,12 @@ export default async function LocationPage({ params }) {
           </div>
         </div>
       </section>
+
+      {/* Global Industry Focus */}
+      <IndustryFocus />
+
+      {/* Global Social Proof */}
+      <SocialProof />
 
       <ContactCTA />
     </div>
