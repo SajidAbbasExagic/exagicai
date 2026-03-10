@@ -54,7 +54,7 @@ export default function Capabilities() {
     <section
       id="capabilities"
       aria-labelledby="capabilities-heading"
-      className="rag-section bg-zinc-50 py-20 md:py-24 border-y border-zinc-100"
+      className="rag-section bg-white py-20 md:py-24"
     >
       <script
         type="application/ld+json"
@@ -71,9 +71,9 @@ export default function Capabilities() {
 
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
           {capabilities.map((cap) => (
-            <article
+            <div
               key={cap.title}
-              className="rounded-3xl border border-zinc-200 bg-white p-8 relative overflow-hidden shadow-sm"
+              className="relative pl-8 border-l border-zinc-200 group hover:border-brand transition-colors"
               itemScope
               itemType="https://schema.org/Service"
             >
@@ -84,20 +84,20 @@ export default function Capabilities() {
                 <span itemProp="knowsAbout">{cap.title}</span>
               </h3>
               <p
-                className="mt-3 text-zinc-600 text-base leading-relaxed relative z-10"
+                className="mt-3 text-zinc-600 text-base leading-relaxed"
                 itemProp="description"
               >
                 {cap.description}
               </p>
-              <div className="mt-8 relative z-10">
+              <div className="mt-6">
                 <Link
                   href={cap.href}
-                  className="inline-flex items-center gap-2 text-base font-bold text-brand hover:text-brand-dark transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-brand hover:text-brand-dark transition-colors uppercase tracking-wider"
                   aria-label={`Learn more about ${cap.title}`}
                 >
-                  Learn more about {cap.title}
+                  Learn more
                   <svg
-                    className="h-5 w-5"
+                    className="h-4 w-4"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -111,7 +111,7 @@ export default function Capabilities() {
                   </svg>
                 </Link>
               </div>
-            </article>
+            </div>
           ))}
         </div>
       </div>

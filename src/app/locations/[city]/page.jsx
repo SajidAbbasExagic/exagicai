@@ -193,19 +193,21 @@ export default async function LocationPage({ params }) {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 mb-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 mb-20">
               {city.richContent.industrialNodes.map((node, i) => (
-                <article
-                  key={i}
-                  className="rounded-3xl border border-zinc-200 bg-white p-8 relative overflow-hidden shadow-sm"
-                >
-                  <h4 className="text-xl font-bold text-zinc-900 tracking-tight">
-                    {node.name}
-                  </h4>
-                  <p className="mt-4 text-zinc-600 text-base leading-relaxed relative z-10">
-                    {node.description}
-                  </p>
-                </article>
+                <div key={i} className="group relative">
+                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-zinc-50 rounded-2xl flex items-center justify-center text-zinc-300 font-bold text-xl group-hover:text-brand transition-colors border border-zinc-100 italic">
+                    {i + 1}
+                  </div>
+                  <div className="pl-10 pt-2 pb-6 border-b border-zinc-100 h-full">
+                    <h4 className="text-xl font-bold text-zinc-900 mb-3 group-hover:text-brand transition-colors">
+                      {node.name}
+                    </h4>
+                    <p className="text-zinc-600 text-sm leading-relaxed">
+                      {node.description}
+                    </p>
+                  </div>
+                </div>
               ))}
             </div>
 
