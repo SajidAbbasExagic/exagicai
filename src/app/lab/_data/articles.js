@@ -8,13 +8,21 @@ export const categories = [
 
 export const articles = [
   {
+    title: "Anthropic Just Created a Dedicated Institute to Study What Powerful AI Does to Society",
+    description:
+      "Anthropic launched The Anthropic Institute to publicly report what building powerful AI models is teaching them about the world.",
+    href: "/lab/anthropic-institute-ai-society",
+    date: "March 12, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
     title: "Grounding Snippets & SRO: Decoding Google's AI Search Pipeline",
     description:
       "New research into the Gemini grounding pipeline reveals the exact mechanics of Selection Rate Optimization (SRO). Learn the rules of the 2,000-word budget and extractive summarization.",
     href: "/lab/sro-grounding-snippets",
     date: "March 9, 2026",
     category: "AI SEO Education",
-    badge: "New",
   },
   {
     title:
