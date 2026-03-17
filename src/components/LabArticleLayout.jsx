@@ -283,7 +283,7 @@ export default function LabArticleLayout({
               </Link>
             </div>
 
-            <ArticleComments />
+            <ArticleComments articleTitle={title} />
             <ArticleNavigation
               previousArticle={previousArticle}
               nextArticle={nextArticle}

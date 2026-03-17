@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { sendCommentEmail } from "@/app/actions/comment";
 
-export default function ArticleComments() {
+export default function ArticleComments({ articleTitle }) {
   const [formData, setFormData] = useState({
     comment: "",
     name: "",
@@ -11,12 +12,24 @@ export default function ArticleComments() {
     saveInfo: false,
   });
   const [verification, setVerification] = useState(null); // 'robot' or 'human'
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState("idle"); // 'idle', 'submitting', 'success', 'error'
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (verification === "human") {
-      setSubmitted(true);
+    if (verification !== "human") return;
+
+    setStatus("submitting");
+
+    const data = new FormData(e.target);
+    data.append("postUrl", window.location.href);
+    data.append("articleTitle", articleTitle);
+
+    const result = await sendCommentEmail(data);
+
+    if (result.success) {
+      setStatus("success");
+    } else {
+      setStatus("error");
     }
   };
 
@@ -28,7 +41,7 @@ export default function ArticleComments() {
     }));
   };
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <div className="mt-16 pt-16 border-t border-zinc-100">
         <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-8 text-center">
@@ -46,6 +59,12 @@ export default function ArticleComments() {
   return (
     <div className="mt-16 pt-16 border-t border-zinc-100">
       <h2 className="text-3xl font-bold text-zinc-900 mb-8">Comments</h2>
+
+      {status === "error" && (
+        <div className="bg-rose-50 border border-rose-100 rounded-xl p-4 text-rose-700 mb-6 text-sm font-medium">
+          There was an error sending your comment. Please try again later.
+        </div>
+      )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
@@ -142,6 +161,7 @@ export default function ArticleComments() {
           <div className="flex justify-center gap-4">
             <button
               type="button"
+              disabled={status === "submitting"}
               onClick={() => setVerification("robot")}
               className={`px-6 py-2 rounded-full text-sm font-bold border transition-all ${
                 verification === "robot"
@@ -153,6 +173,7 @@ export default function ArticleComments() {
             </button>
             <button
               type="button"
+              disabled={status === "submitting"}
               onClick={() => setVerification("human")}
               className={`px-6 py-2 rounded-full text-sm font-bold border transition-all ${
                 verification === "human"
@@ -168,14 +189,14 @@ export default function ArticleComments() {
         <div className="pt-6">
           <button
             type="submit"
-            disabled={verification !== "human"}
+            disabled={verification !== "human" || status === "submitting"}
             className={`w-full rounded-full py-4 text-center font-bold transition-all ${
-              verification === "human"
+              verification === "human" && status !== "submitting"
                 ? "bg-brand text-white shadow-xl hover:scale-[1.02] active:scale-[0.98]"
                 : "bg-zinc-100 text-zinc-400 cursor-not-allowed"
             }`}
           >
-            Post Comment
+            {status === "submitting" ? "Posting..." : "Post Comment"}
           </button>
         </div>
       </form>

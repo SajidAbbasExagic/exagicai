@@ -1,13 +1,26 @@
 "use client";
 
 import { useState } from "react";
+import { sendContactEmail } from "@/app/actions/contact";
 
 export default function ContactForm() {
   const [status, setStatus] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("success");
+    setIsSubmitting(true);
+    setStatus(null);
+
+    const formData = new FormData(e.target);
+    const result = await sendContactEmail(formData);
+
+    if (result.success) {
+      setStatus("success");
+    } else {
+      setStatus("error");
+    }
+    setIsSubmitting(false);
   };
 
   return (
@@ -15,11 +28,18 @@ export default function ContactForm() {
       <h2 className="text-xl font-bold text-zinc-900 mb-6">
         Discuss Your AI Visibility
       </h2>
-      {status === "success" ? (
+      {status === "success" && (
         <div className="bg-emerald-50 text-emerald-700 p-4 rounded-xl border border-emerald-100 font-medium text-sm">
           Thank you! Our strategy team will reach out to you within 24 hours.
         </div>
-      ) : (
+      )}
+      {status === "error" && (
+        <div className="bg-rose-50 text-rose-700 p-4 rounded-xl border border-rose-100 font-medium text-sm mb-6">
+          Something went wrong. Please try again or contact us directly.
+        </div>
+      )}
+
+      {status !== "success" && (
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-1.5">
@@ -28,6 +48,7 @@ export default function ContactForm() {
               </label>
               <input
                 required
+                name="name"
                 type="text"
                 className="w-full bg-zinc-50 border border-zinc-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand transition-all"
                 placeholder="John Doe"
@@ -39,6 +60,7 @@ export default function ContactForm() {
               </label>
               <input
                 required
+                name="email"
                 type="email"
                 className="w-full bg-zinc-50 border border-zinc-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand transition-all"
                 placeholder="john@company.com"
@@ -49,7 +71,10 @@ export default function ContactForm() {
             <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
               Subject
             </label>
-            <select className="w-full bg-zinc-50 border border-zinc-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand transition-all appearance-none cursor-pointer">
+            <select
+              name="subject"
+              className="w-full bg-zinc-50 border border-zinc-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand transition-all appearance-none cursor-pointer"
+            >
               <option>AI SEO Visibility Analysis</option>
               <option>AEO/SRO Implementation</option>
               <option>Technical Data Structuring</option>
@@ -62,6 +87,7 @@ export default function ContactForm() {
             </label>
             <textarea
               required
+              name="message"
               rows={4}
               className="w-full bg-zinc-50 border border-zinc-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand transition-all resize-none"
               placeholder="Tell us about your project..."
@@ -69,9 +95,12 @@ export default function ContactForm() {
           </div>
           <button
             type="submit"
-            className="w-full bg-zinc-900 text-white font-bold py-3 px-6 rounded-lg hover:bg-brand transition-all shadow-md active:scale-[0.98] text-sm"
+            disabled={isSubmitting}
+            className={`w-full bg-zinc-900 text-white font-bold py-3 px-6 rounded-lg hover:bg-brand transition-all shadow-md active:scale-[0.98] text-sm ${
+              isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+            }`}
           >
-            Submit Strategy Inquiry
+            {isSubmitting ? "Sending..." : "Submit Strategy Inquiry"}
           </button>
         </form>
       )}
