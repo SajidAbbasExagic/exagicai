@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Header from "../app/_components/Header/Header";
 import Footer from "../app/_components/Footer/Footer";
+import FloatingChat from "./FloatingChat";
 
 export default function ConditionalLayout({ children }) {
   const pathname = usePathname();
@@ -13,6 +14,7 @@ export default function ConditionalLayout({ children }) {
       {!isAuditPage && <Header />}
       <main className="flex-grow">{children}</main>
       {!isAuditPage && <Footer />}
+      <FloatingChat />
     </>
   );
 }
