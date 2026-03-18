@@ -5,11 +5,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Search } from 'lucide-react';
 import { chatData } from '../data/chatData';
 
+const agentPersona = {
+    name: "Exagic Prime",
+    title: "Strategic Visibility Agent",
+    welcome: "Protocol initiated. I am Exagic Prime. My mission is to optimize your brand's authority in some of the world's most sophisticated AI ecosystems. What is our first objective?"
+};
+
+const STOP_WORDS = new Set(['a', 'an', 'the', 'and', 'or', 'do', 'does', 'how', 'is', 'are', 'can', 'you', 'me', 'i', 'to', 'for', 'with', 'about', 'what', 'where']);
+
 const FloatingChat = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [message, setMessage] = useState('');
     const [status, setStatus] = useState('READY'); // READY, THINKING, EXECUTING
-    const [chatHistory, setChatHistory] = useState([]);
+    const [chatHistory, setChatHistory] = useState([
+        { type: 'bot', text: agentPersona.welcome }
+    ]);
     const [isTyping, setIsTyping] = useState(false);
     const chatEndRef = useRef(null);
     const [activeMission, setActiveMission] = useState(null);
@@ -26,14 +36,6 @@ const FloatingChat = () => {
             scrollToBottom();
         }
     }, [chatHistory, isTyping, isOpen]);
-
-    const agentPersona = {
-        name: "Exagic Prime",
-        title: "Strategic Visibility Agent",
-        welcome: "Protocol initiated. I am Exagic Prime. My mission is to optimize your brand's authority in the AI ecosystem. What is our first objective?"
-    };
-
-    const STOP_WORDS = new Set(['a', 'an', 'the', 'and', 'or', 'do', 'does', 'how', 'is', 'are', 'can', 'you', 'me', 'i', 'to', 'for', 'with', 'about', 'what', 'where']);
 
     const handleSendMessage = (e, presetMsg = null) => {
         if (e) e.preventDefault();
@@ -151,17 +153,17 @@ const FloatingChat = () => {
     const toggleChat = () => setIsOpen(!isOpen);
 
     return (
-        <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end">
+        <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-3">
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        className="mb-4 w-[350px] sm:w-[400px] h-[600px] bg-white/90 dark:bg-zinc-900/95 backdrop-blur-xl rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/20 dark:border-zinc-800 flex flex-col overflow-hidden no-scrollbar"
+                        className="w-[350px] sm:w-[400px] h-[600px] bg-white dark:bg-zinc-900 backdrop-blur-xl rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-zinc-200/50 dark:border-zinc-800 flex flex-col overflow-hidden no-scrollbar"
                     >
                         {/* Premium Header */}
-                        <div className="p-6 bg-gradient-to-br from-orange-500/10 to-transparent border-b border-zinc-100 dark:border-zinc-800">
+                        <div className="p-6 bg-gradient-to-br from-orange-500/5 via-transparent to-transparent border-b border-zinc-100 dark:border-zinc-800">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-4">
                                     <div className="relative">
@@ -172,10 +174,10 @@ const FloatingChat = () => {
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-zinc-900 dark:text-white leading-tight">{agentPersona.name}</h3>
-                                        <p className="text-xs text-zinc-500 dark:text-zinc-400">{agentPersona.title}</p>
+                                        <p className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500 dark:text-zinc-400 mt-0.5">{agentPersona.title}</p>
                                     </div>
                                 </div>
-                                <button onClick={toggleChat} className="p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-xl transition-colors">
+                                <button onClick={toggleChat} className="p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-xl transition-all active:scale-90">
                                     <X size={20} className="text-zinc-400" />
                                 </button>
                             </div>
@@ -190,16 +192,16 @@ const FloatingChat = () => {
                                         <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
                                         <span className="text-[10px] uppercase tracking-wider font-bold text-orange-600 dark:text-orange-400">{activeMission}</span>
                                     </div>
-                                    <span className="text-[10px] text-zinc-400">Status: Running</span>
+                                    <span className="text-[10px] text-zinc-400 uppercase font-medium">Status: Active</span>
                                 </motion.div>
                             )}
                         </div>
 
                         {/* Conversational Space */}
-                        <div className="flex-grow p-6 overflow-y-auto overflow-x-hidden space-y-6 no-scrollbar">
+                        <div className="flex-grow p-6 overflow-y-auto overflow-x-hidden space-y-6 no-scrollbar scrolling-touch">
                             {chatHistory.map((msg, idx) => (
                                 <div key={idx} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                                    <div className={`max-w-[85%] p-4 rounded-3xl text-sm leading-relaxed shadow-sm ${
+                                    <div className={`max-w-[85%] p-4 rounded-3xl text-sm leading-relaxed shadow-sm transition-all ${
                                         msg.type === 'user' 
                                         ? 'bg-orange-500 text-white rounded-tr-none' 
                                         : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-tl-none'
@@ -210,49 +212,52 @@ const FloatingChat = () => {
                             ))}
                             {isTyping && (
                                 <div className="flex justify-start">
-                                    <div className="bg-zinc-100 dark:bg-zinc-800 p-4 rounded-3xl rounded-tl-none flex gap-1.5">
-                                        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ repeat: Infinity, duration: 1 }} className="w-1.5 h-1.5 bg-zinc-400 rounded-full" />
-                                        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ repeat: Infinity, duration: 1, delay: 0.2 }} className="w-1.5 h-1.5 bg-zinc-400 rounded-full" />
-                                        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ repeat: Infinity, duration: 1, delay: 0.4 }} className="w-1.5 h-1.5 bg-zinc-400 rounded-full" />
+                                    <div className="bg-zinc-100 dark:bg-zinc-800 p-4 rounded-3xl rounded-tl-none flex gap-1.5 items-center">
+                                        <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }} transition={{ repeat: Infinity, duration: 1 }} className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
+                                        <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }} transition={{ repeat: Infinity, duration: 1, delay: 0.2 }} className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
+                                        <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }} transition={{ repeat: Infinity, duration: 1, delay: 0.4 }} className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
                                     </div>
                                 </div>
                             )}
                             <div ref={chatEndRef} />
                         </div>
 
-                        {/* Agent Suggestions */}
-                        {suggestions.length > 0 && !isTyping && (
-                            <div className="px-6 py-3 flex gap-2 overflow-x-auto overflow-y-hidden no-scrollbar border-t border-zinc-100 dark:border-zinc-800/50 bg-zinc-50/50 dark:bg-zinc-900/30">
-                                {suggestions.map((s, i) => (
-                                    <button 
-                                        key={i}
-                                        onClick={() => handleSendMessage(null, s)}
-                                        className="whitespace-nowrap px-4 py-2 bg-white dark:bg-zinc-800 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-600 transition-all text-[11px] font-medium border border-zinc-200 dark:border-zinc-700 rounded-xl shadow-sm hover:shadow-orange-500/20 active:scale-95 text-zinc-600 dark:text-zinc-300"
-                                    >
-                                        {s}
-                                    </button>
-                                ))}
-                            </div>
-                        )}
+                        {/* Integrated Footer Area */}
+                        <div className="bg-zinc-50 dark:bg-zinc-900/50 border-t border-zinc-100 dark:border-zinc-800">
+                            {/* Agent Suggestions */}
+                            {suggestions.length > 0 && !isTyping && (
+                                <div className="px-6 py-4 flex gap-2 overflow-x-auto no-scrollbar mask-fade-right">
+                                    {suggestions.map((s, i) => (
+                                        <button 
+                                            key={i}
+                                            onClick={() => handleSendMessage(null, s)}
+                                            className="whitespace-nowrap px-4 py-2 bg-white dark:bg-zinc-800/80 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-600 transition-all text-xs font-medium border border-zinc-200/50 dark:border-zinc-700/50 rounded-xl shadow-sm hover:shadow-orange-500/20 active:scale-95 text-zinc-600 dark:text-zinc-300"
+                                        >
+                                            {s}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
 
-                        {/* Modern Input */}
-                        <div className="p-6 bg-white dark:bg-zinc-900 border-t border-zinc-100 dark:border-zinc-800">
-                            <form className="relative flex items-center" onSubmit={(e) => handleSendMessage(e)}>
-                                <input 
-                                    type="text"
-                                    value={message}
-                                    onChange={(e) => setMessage(e.target.value)}
-                                    placeholder="Brief your agent..."
-                                    className="w-full bg-zinc-100 dark:bg-zinc-800/50 text-zinc-900 dark:text-white rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-orange-500 transition-all outline-none border-none pr-14"
-                                />
-                                <button 
-                                    type="submit"
-                                    disabled={!message.trim()}
-                                    className="absolute right-2 p-3 bg-orange-500 text-white rounded-xl shadow-lg shadow-orange-500/30 hover:bg-orange-600 disabled:opacity-50 transition-all active:scale-95"
-                                >
-                                    <Send size={18} />
-                                </button>
-                            </form>
+                            {/* Modern Input */}
+                            <div className="px-6 pb-6 pt-2">
+                                <form className="flex items-center gap-2 bg-white dark:bg-zinc-800 rounded-2xl p-1.5 border border-zinc-200/50 dark:border-zinc-700/50 shadow-inner" onSubmit={(e) => handleSendMessage(e)}>
+                                    <input 
+                                        type="text"
+                                        value={message}
+                                        onChange={(e) => setMessage(e.target.value)}
+                                        placeholder="Brief your agent..."
+                                        className="flex-grow bg-transparent text-zinc-900 dark:text-white px-4 py-2.5 text-sm focus:outline-none placeholder:text-zinc-400"
+                                    />
+                                    <button 
+                                        type="submit"
+                                        disabled={!message.trim()}
+                                        className="p-2.5 bg-orange-500 text-white rounded-xl shadow-lg shadow-orange-500/20 hover:bg-orange-600 disabled:opacity-50 disabled:shadow-none transition-all active:scale-90"
+                                    >
+                                        <Send size={18} />
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </motion.div>
                 )}

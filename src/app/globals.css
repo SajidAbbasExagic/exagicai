@@ -18,6 +18,14 @@
   scrollbar-width: none !important;
 }
 
+@utility mask-fade-right {
+  mask-image: linear-gradient(to right, black 85%, transparent 100%);
+}
+
+@utility mask-fade-left {
+  mask-image: linear-gradient(to left, black 85%, transparent 100%);
+}
+
 body {
   color: #0a0a0a;
   background: #ffffff;
