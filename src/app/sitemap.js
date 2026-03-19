@@ -4,6 +4,7 @@ export default function sitemap() {
   const labArticles = [
     "2026-bay-area-industrial-ai-visibility-report",
     "aeo-vs-seo-industrial-brands",
+    "ai-adoption-by-country",
     "ai-overviews-industrial-procurement",
     "ai-procurement-aerospace-defense-bay-area",
     "ai-procurement-pharmaceutical-manufacturing",
@@ -25,6 +26,7 @@ export default function sitemap() {
     "precision-machining-san-leandro-ai-sourcing",
     "qa-engine-playbook-industrial-faq",
     "questions-buyers-ask-ai-finding-suppliers",
+    "rise-of-ai-referral-traffic",
     "silicon-valley-supply-chain-ai-visibility",
     "what-industrial-buyers-want-ai-answers",
     "what-is-entity-seo-industrial-brands",

@@ -8,6 +8,22 @@ export const categories = [
 
 export const articles = [
   {
+    title: "The Rise of AI Traffic: Which LLM Is Sending the Most Visitors to Your Website?",
+    description: "ChatGPT, Gemini, Perplexity, Claude — AI referral traffic is growing exponentially. Here's what the latest data shows and what it means for your traffic strategy in 2026.",
+    href: "/lab/rise-of-ai-referral-traffic",
+    date: "March 19, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title: "AI Adoption by Country: Why the US Is Falling Behind (And What It Means for Your Business)",
+    description:
+      "AI may be built in America, but the world is adopting it faster. Here's what the latest AI adoption data reveals — and how businesses can act on it.",
+    href: "/lab/ai-adoption-by-country",
+    date: "March 19, 2026",
+    category: "AI SEO Education",
+  },
+  {
     title: "Anthropic Just Created a Dedicated Institute to Study What Powerful AI Does to Society",
     description:
       "Anthropic launched The Anthropic Institute to publicly report what building powerful AI models is teaching them about the world.",

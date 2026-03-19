@@ -14,7 +14,6 @@ export const metadata = {
   icons: {
     icon: "/icon.png",
   },
-  themeColor: "#ff7300",
   keywords: [
     "AI SEO",
     "AEO",
