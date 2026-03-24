@@ -21,7 +21,7 @@ export default function SidebarCTA() {
         Do you want more AI Visibility?
       </h3>
       <p className="text-xs mb-5 opacity-90 leading-relaxed">
-        Enter your website URL to see how AI models currently rank your brand.
+        Enter your website Link to see how AI models currently rank your brand.
       </p>
 
       <div className="space-y-3">
