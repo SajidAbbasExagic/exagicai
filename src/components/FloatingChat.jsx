@@ -6,9 +6,9 @@ import { MessageCircle, X, Send, Search } from 'lucide-react';
 import { chatData } from '../data/chatData';
 
 const agentPersona = {
-    name: "Exagic Prime",
-    title: "Strategic Visibility Agent",
-    welcome: "Protocol initiated. I am Exagic Prime. My mission is to optimize your brand's authority in some of the world's most sophisticated AI ecosystems. What is our first objective?"
+    name: "Exagic Assistant",
+    title: "AI Growth Strategist",
+    welcome: "Hello! I'm your Exagic growth strategist. I can help you optimize your brand's visibility in AI-driven search results. What can we look into first?"
 };
 
 const STOP_WORDS = new Set(['a', 'an', 'the', 'and', 'or', 'do', 'does', 'how', 'is', 'are', 'can', 'you', 'me', 'i', 'to', 'for', 'with', 'about', 'what', 'where']);
@@ -16,20 +16,28 @@ const STOP_WORDS = new Set(['a', 'an', 'the', 'and', 'or', 'do', 'does', 'how', 
 const FloatingChat = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [message, setMessage] = useState('');
-    const [status, setStatus] = useState('READY'); // READY, THINKING, EXECUTING
+    const [status, setStatus] = useState('READY'); // READY, PROCESSING
     const [chatHistory, setChatHistory] = useState([
         { type: 'bot', text: agentPersona.welcome }
     ]);
     const [isTyping, setIsTyping] = useState(false);
     const chatEndRef = useRef(null);
-    const [activeMission, setActiveMission] = useState(null);
-    const [suggestions, setSuggestions] = useState(['Audit my visibility', 'Explain SRO Strategy', 'Contact SF Team']);
+    const [activeAction, setActiveAction] = useState(null);
+    const [suggestions, setSuggestions] = useState(['Audit my visibility', 'How SRO works', 'Contact the team']);
     const [stats, setStats] = useState({ latency: '24ms', tokens: '142/s', version: 'Exagic-Prime' });
     const [context, setContext] = useState({ topic: null, depth: 0 });
+    const [showIntro, setShowIntro] = useState(false);
 
     const scrollToBottom = () => {
         chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
     };
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (!isOpen) setShowIntro(true);
+        }, 2000);
+        return () => clearTimeout(timer);
+    }, [isOpen]);
 
     useEffect(() => {
         if (isOpen) {
@@ -54,24 +62,24 @@ const FloatingChat = () => {
             
             let responseText = "";
             let newSuggestions = [];
-            let mission = null;
+            let action = null;
             let currentTopic = context.topic;
 
             // 1. Intent Detection (Enhanced)
             const intents = {
                 greetings: {
                     patterns: ['hi', 'hello', 'hey', 'yo', 'greetings', 'sup', 'morning', 'evening'],
-                    responses: ["Hello. Protocol established. I am online and ready to optimize. What's our primary objective?"],
+                    responses: ["Hi there! I'm online and ready to help. What would you like to focus on today?"],
                     topic: 'general'
                 },
                 wellbeing: {
                     patterns: ['how are you', 'hows it going', 'you okay', 'status'],
-                    responses: ["Internal systems are at peak efficiency. Latency is sub-20ms. Ready for strategic briefing."],
+                    responses: ["I'm doing great, thank you! Ready to dive into your strategy. How can I help?"],
                     topic: 'internal'
                 },
                 identity: {
                     patterns: ['who are you', 'what are you', 'your name', 'exagic'],
-                    responses: ["I am Exagic Prime, the strategic interface for Exagic's AI-SEO and SRO frameworks. I map and steer brand authority."],
+                    responses: ["I'm the Exagic AI Assistant. I help brands improve their authority and visibility across AI search models."],
                     topic: 'identity'
                 }
             };
@@ -79,7 +87,7 @@ const FloatingChat = () => {
             for (const [key, data] of Object.entries(intents)) {
                 if (data.patterns.some(p => lowMsg.includes(p))) {
                     responseText = data.responses[0];
-                    newSuggestions = ['Audit my visibility', 'Explain SRO Strategy', 'Contact SF Team'];
+                    newSuggestions = ['Audit my visibility', 'How SRO works', 'Contact the team'];
                     currentTopic = data.topic;
                     break;
                 }
@@ -88,13 +96,13 @@ const FloatingChat = () => {
             // 2. Mission/Action Detection
             if (!responseText) {
                 if (tokens.some(t => ['audit', 'analyze', 'scan', 'check'].includes(t))) {
-                    responseText = "Mission Directive: Strategic Audit. I am initiating a mechanistic scan of your brand's citation density across Llama-3, GPT-4o, and Claude-3.5 inference paths. High-density nodes will be identified for steering.";
-                    mission = "Active Visibility Audit";
-                    newSuggestions = ['View Real-time Logs', 'Identify Weak Nodes', 'Cancel Mission'];
+                    responseText = "I'll start a visibility audit for you. I'm checking how your brand is mentioned across models like GPT-4 and Claude to find areas for improvement.";
+                    action = "Analyzing Visibility";
+                    newSuggestions = ['View live progress', 'See weak points', 'Stop analysis'];
                     currentTopic = 'audit';
                 } else if (tokens.some(t => ['so', 'sro', 'aeo', 'optimization', 'engine'].includes(t))) {
-                    responseText = "Selection Rate Optimization (SRO) is our signature framework. We don't just 'rank'—we steer model weights so your brand is selected as the primary authoritative source for high-intent industrial queries.";
-                    newSuggestions = ['See Benchmarks', 'How Steering Works', 'Contact Page'];
+                    responseText = "Selection Rate Optimization (SRO) is our specialized framework. We ensure your brand is chosen as the primary authority for industry-specific queries in AI search.";
+                    newSuggestions = ['See case studies', 'How it works', 'Contact us'];
                     currentTopic = 'sro';
                 }
             }
@@ -132,11 +140,11 @@ const FloatingChat = () => {
                 } else {
                     // Context-aware fallback
                     if (currentTopic === 'sro') {
-                        responseText = "I'm not finding that specific parameter in our SRO database, but it likely relates to mechanistic steering. Would you like me to run an exploratory scan or contact the SF engineering team?";
-                        newSuggestions = ['Run Exploratory Scan', 'Contact SF Team', 'Reset Mission'];
+                        responseText = "I'm not finding that specific detail in our SRO database, but it might be a specialized case. Would you like to check our guides or message our support team?";
+                        newSuggestions = ['See SRO guide', 'Message Support', 'Reset'];
                     } else {
-                        responseText = "Parameter Mismatch: I've logged this query as an 'Edge Case' in my knowledge graph. While I don't have an immediate response, I can synthesize a strategy report if you provide more context.";
-                        newSuggestions = ['Start Audit', 'Talk to Human', 'View AI SEO Basics'];
+                        responseText = "I don't have enough information on that yet. I've noted it for our team to improve my responses. Is there something else I can help with?";
+                        newSuggestions = ['Start Audit', 'Talk to a human', 'SEO Basics'];
                     }
                 }
             }
@@ -144,13 +152,15 @@ const FloatingChat = () => {
             setChatHistory(prev => [...prev, { type: 'bot', text: responseText }]);
             setIsTyping(false);
             setStatus('READY');
-            setSuggestions(newSuggestions.length > 0 ? newSuggestions : ['Audit my visibility', 'Explain SRO Strategy', 'Contact SF Team']);
-            setActiveMission(mission);
+            setSuggestions(newSuggestions.length > 0 ? newSuggestions : ['Audit my visibility', 'How SRO works', 'Contact the team']);
+            setActiveAction(action);
             setContext({ topic: currentTopic, depth: context.depth + 1 });
-            setStats(prev => ({ ...prev, latency: `${Math.floor(Math.random() * 20) + 12}ms` }));
         }, 1200);
     };
-    const toggleChat = () => setIsOpen(!isOpen);
+    const toggleChat = () => {
+        setIsOpen(!isOpen);
+        setShowIntro(false);
+    };
 
     return (
         <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-3">
@@ -182,7 +192,7 @@ const FloatingChat = () => {
                                 </button>
                             </div>
 
-                            {activeMission && (
+                            {activeAction && (
                                 <motion.div 
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -190,9 +200,9 @@ const FloatingChat = () => {
                                 >
                                     <div className="flex items-center gap-2">
                                         <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-                                        <span className="text-[10px] uppercase tracking-wider font-bold text-orange-600 dark:text-orange-400">{activeMission}</span>
+                                        <span className="text-[10px] uppercase tracking-wider font-bold text-orange-600 dark:text-orange-400">{activeAction}</span>
                                     </div>
-                                    <span className="text-[10px] text-zinc-400 uppercase font-medium">Status: Active</span>
+                                    <span className="text-[10px] text-zinc-400 uppercase font-medium">In progress</span>
                                 </motion.div>
                             )}
                         </div>
@@ -246,7 +256,7 @@ const FloatingChat = () => {
                                         type="text"
                                         value={message}
                                         onChange={(e) => setMessage(e.target.value)}
-                                        placeholder="Brief your agent..."
+                                        placeholder="Ask a question..."
                                         className="flex-grow bg-transparent text-zinc-900 dark:text-white px-4 py-2.5 text-sm focus:outline-none placeholder:text-zinc-400"
                                     />
                                     <button 
@@ -263,26 +273,70 @@ const FloatingChat = () => {
                 )}
             </AnimatePresence>
 
+            {/* Intro Message Bubble */}
+            <AnimatePresence>
+                {showIntro && !isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.5, x: 20, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.5, x: 20, y: 20 }}
+                        className="absolute bottom-20 right-0 mb-4 mr-2"
+                    >
+                        <div className="relative group">
+                            <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-4 rounded-3xl rounded-br-sm shadow-2xl min-w-[200px] max-w-[250px]">
+                                <button 
+                                    onClick={() => setShowIntro(false)}
+                                    className="absolute -top-2 -right-2 w-6 h-6 bg-zinc-100 dark:bg-zinc-800 rounded-full flex items-center justify-center text-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity border border-zinc-200 dark:border-zinc-700"
+                                >
+                                    <X size={12} />
+                                </button>
+                                <p className="text-zinc-900 dark:text-white text-sm font-semibold mb-1">
+                                    {agentPersona.name}
+                                </p>
+                                <p className="text-zinc-600 dark:text-zinc-400 text-xs leading-relaxed">
+                                    Hi! Need help optimizing your brand's visibility for AI search?
+                                </p>
+                                <div className="mt-2 flex gap-2">
+                                    <button 
+                                        onClick={toggleChat}
+                                        className="text-[10px] font-bold text-orange-500 uppercase tracking-wider hover:text-orange-600 transition-colors"
+                                    >
+                                        Chat with us
+                                    </button>
+                                </div>
+                            </div>
+                            {/* Speech bubble arrow */}
+                            <div className="absolute -bottom-2 right-4 w-4 h-4 bg-white dark:bg-zinc-900 border-r border-b border-zinc-200 dark:border-zinc-800 transform rotate-45" />
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             {/* Agent Toggle Bubble */}
             <motion.button
                 onClick={toggleChat}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all border-4 ${
+                className={`w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all border-4 relative ${
                     isOpen ? 'bg-white dark:bg-zinc-900 border-orange-500' : 'bg-orange-500 border-white/20'
                 }`}
             >
                 {isOpen ? (
                     <X size={28} className="text-orange-500" />
                 ) : (
-                    <div className="relative">
-                        <motion.div 
-                            animate={{ rotate: 360 }}
-                            transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-                            className="absolute -inset-4 border border-white/30 rounded-full border-dashed"
-                        />
-                        <MessageCircle size={30} className="text-white" />
-                    </div>
+                    <>
+                        <div className="relative z-10">
+                            <motion.div 
+                                animate={{ rotate: 360 }}
+                                transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+                                className="absolute -inset-4 border border-white/30 rounded-full border-dashed"
+                            />
+                            <MessageCircle size={30} className="text-white" />
+                        </div>
+                        {showIntro && (
+                            <span className="absolute top-0 right-0 w-4 h-4 bg-red-500 border-2 border-white dark:border-zinc-900 rounded-full animate-bounce z-20" />
+                        )}
+                    </>
                 )}
             </motion.button>
         </div>
