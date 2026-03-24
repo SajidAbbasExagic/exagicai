@@ -16,7 +16,7 @@ export default function Hero() {
             className="text-xl sm:text-4xl md:text-4xl font-semibold text-zinc-900"
           >
             San Francisco AI SEO Agency specialising in brand visibility
-            optimisation for global brands and e-commerce websites.
+            optimisation for global brands and e-commerce websites
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-700">
