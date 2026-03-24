@@ -170,7 +170,7 @@ const FloatingChat = () => {
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        className="w-[350px] sm:w-[400px] h-[600px] bg-white dark:bg-zinc-900 backdrop-blur-xl rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-zinc-200/50 dark:border-zinc-800 flex flex-col overflow-hidden no-scrollbar"
+                        className="w-[350px] sm:w-[400px] max-h-[calc(100dvh-120px)] h-[600px] bg-white dark:bg-zinc-900 backdrop-blur-xl rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-zinc-200/50 dark:border-zinc-800 flex flex-col overflow-hidden no-scrollbar"
                     >
                         {/* Premium Header */}
                         <div className="p-6 bg-gradient-to-br from-orange-500/5 via-transparent to-transparent border-b border-zinc-100 dark:border-zinc-800">
