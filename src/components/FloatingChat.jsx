@@ -66,6 +66,15 @@ const FloatingChat = () => {
     }, [isOpen]);
 
     useEffect(() => {
+        if (showIntro) {
+            const timer = setTimeout(() => {
+                setShowIntro(false);
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [showIntro]);
+
+    useEffect(() => {
         if (isOpen) {
             scrollToBottom();
         }
@@ -342,25 +351,25 @@ const FloatingChat = () => {
                         className="absolute bottom-20 right-0 mb-4 mr-2"
                     >
                         <div className="relative group">
-                            <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-4 rounded-3xl rounded-br-sm shadow-2xl min-w-[200px] max-w-[250px]">
+                            <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-3 sm:p-4 rounded-[1.5rem] sm:rounded-3xl rounded-br-sm shadow-2xl min-w-[170px] sm:min-w-[200px] max-w-[210px] sm:max-w-[250px]">
                                 <button 
                                     onClick={() => setShowIntro(false)}
-                                    className="absolute -top-2 -right-2 w-6 h-6 bg-zinc-100 dark:bg-zinc-800 rounded-full flex items-center justify-center text-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity border border-zinc-200 dark:border-zinc-700"
+                                    className="absolute -top-1.5 -right-1.5 w-5 h-5 sm:w-6 sm:h-6 bg-zinc-100 dark:bg-zinc-800 rounded-full flex items-center justify-center text-zinc-400 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity border border-zinc-200 dark:border-zinc-700 shadow-sm"
                                 >
-                                    <X size={12} />
+                                    <X size={10} className="sm:size-3" />
                                 </button>
-                                <p className="text-zinc-900 dark:text-white text-sm font-semibold mb-1">
+                                <p className="text-zinc-900 dark:text-white text-[11px] sm:text-sm font-bold mb-0.5 sm:mb-1">
                                     {agentPersona.name}
                                 </p>
-                                <p className="text-zinc-600 dark:text-zinc-400 text-xs leading-relaxed">
-                                    Hi! Need help optimizing your brand's visibility for AI search?
+                                <p className="text-zinc-600 dark:text-zinc-400 text-[10px] sm:text-xs leading-[1.4] sm:leading-relaxed">
+                                    Hi! Need help optimizing your visibility?
                                 </p>
-                                <div className="mt-2 flex gap-2">
+                                <div className="mt-1.5 sm:mt-2 flex gap-2">
                                     <button 
                                         onClick={toggleChat}
-                                        className="text-[10px] font-bold text-orange-500 uppercase tracking-wider hover:text-orange-600 transition-colors"
+                                        className="text-[9px] sm:text-[10px] font-bold text-orange-500 uppercase tracking-wider hover:text-orange-600 transition-colors"
                                     >
-                                        Chat with us
+                                        Chat now
                                     </button>
                                 </div>
                             </div>
