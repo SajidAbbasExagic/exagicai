@@ -8,6 +8,14 @@ export const categories = [
 
 export const articles = [
   {
+    title: "Do AI Systems Only Cite You If You’re in Google’s Entity Database?",
+    description: "In recent months, a claim has circulated widely: 'AI will only cite you if you’re in Google’s entity database.' We evaluate this claim by explaining how AI models actually select sources.",
+    href: "/lab/do-ai-systems-only-cite-you-if-youre-in-googles-entity-database",
+    date: "March 25, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
     title: "The Rise of AI Traffic: Which LLM Is Sending the Most Visitors to Your Website?",
     description: "ChatGPT, Gemini, Perplexity, Claude — AI referral traffic is growing exponentially. Here's what the latest data shows and what it means for your traffic strategy in 2026.",
     href: "/lab/rise-of-ai-referral-traffic",
