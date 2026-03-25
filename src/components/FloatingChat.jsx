@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Search } from 'lucide-react';
+import { MessageCircle, X, Send, Search, UserPlus, Lock } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { chatData } from '../data/chatData';
 
 const agentPersona = {
@@ -27,6 +28,31 @@ const FloatingChat = () => {
     const [stats, setStats] = useState({ latency: '24ms', tokens: '142/s', version: 'Exagic-Prime' });
     const [context, setContext] = useState({ topic: null, depth: 0 });
     const [showIntro, setShowIntro] = useState(false);
+    const [hasEmail, setHasEmail] = useState(false);
+    const [tempEmail, setTempEmail] = useState('');
+    const router = useRouter();
+
+    useEffect(() => {
+        const checkAuth = () => {
+            const emailProvided = localStorage.getItem('userEmail') !== null;
+            setHasEmail(emailProvided);
+        };
+        checkAuth();
+        window.addEventListener('storage', checkAuth);
+        window.addEventListener('focus', checkAuth);
+        return () => {
+            window.removeEventListener('storage', checkAuth);
+            window.removeEventListener('focus', checkAuth);
+        };
+    }, []);
+
+    const handleEmailSubmit = (e) => {
+        e.preventDefault();
+        if (tempEmail.trim() && tempEmail.includes('@')) {
+            localStorage.setItem('userEmail', tempEmail);
+            setHasEmail(true);
+        }
+    };
 
     const scrollToBottom = () => {
         chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -207,67 +233,100 @@ const FloatingChat = () => {
                             )}
                         </div>
 
-                        {/* Conversational Space */}
-                        <div className="flex-grow p-6 overflow-y-auto overflow-x-hidden space-y-6 no-scrollbar scrolling-touch">
-                            {chatHistory.map((msg, idx) => (
-                                <div key={idx} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                                    <div className={`max-w-[85%] p-4 rounded-3xl text-sm leading-relaxed shadow-sm transition-all ${
-                                        msg.type === 'user' 
-                                        ? 'bg-orange-500 text-white rounded-tr-none' 
-                                        : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-tl-none'
-                                    }`}>
-                                        {msg.text}
+                        {/* Conversational Space or Email Gate */}
+                        <div className="flex-grow overflow-hidden flex flex-col relative bg-white dark:bg-zinc-900">
+                            {!hasEmail ? (
+                                <div className="absolute inset-0 z-20 flex flex-col items-center justify-center p-8 text-center">
+                                    <div className="w-16 h-16 rounded-3xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 border border-orange-500/20">
+                                        <MessageCircle size={28} />
                                     </div>
-                                </div>
-                            ))}
-                            {isTyping && (
-                                <div className="flex justify-start">
-                                    <div className="bg-zinc-100 dark:bg-zinc-800 p-4 rounded-3xl rounded-tl-none flex gap-1.5 items-center">
-                                        <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }} transition={{ repeat: Infinity, duration: 1 }} className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                                        <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }} transition={{ repeat: Infinity, duration: 1, delay: 0.2 }} className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                                        <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }} transition={{ repeat: Infinity, duration: 1, delay: 0.4 }} className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                                    </div>
-                                </div>
-                            )}
-                            <div ref={chatEndRef} />
-                        </div>
-
-                        {/* Integrated Footer Area */}
-                        <div className="bg-zinc-50 dark:bg-zinc-900/50 border-t border-zinc-100 dark:border-zinc-800">
-                            {/* Agent Suggestions */}
-                            {suggestions.length > 0 && !isTyping && (
-                                <div className="px-6 py-4 flex gap-2 overflow-x-auto no-scrollbar mask-fade-right">
-                                    {suggestions.map((s, i) => (
+                                    <h4 className="text-xl font-bold text-zinc-900 dark:text-white mb-3 leading-tight">Wait! Let's stay connected</h4>
+                                    <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-8 leading-relaxed max-w-[280px] mx-auto">
+                                        Please provide your email so that we can reach out if our connection is lost.
+                                    </p>
+                                    <form onSubmit={handleEmailSubmit} className="w-full space-y-3">
+                                        <input 
+                                            required
+                                            type="email" 
+                                            value={tempEmail}
+                                            onChange={(e) => setTempEmail(e.target.value)}
+                                            placeholder="Enter your email"
+                                            className="w-full bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 rounded-2xl px-5 py-4 text-zinc-900 dark:text-white focus:outline-none focus:ring-4 focus:ring-orange-500/10 focus:border-orange-500 transition-all text-sm"
+                                        />
                                         <button 
-                                            key={i}
-                                            onClick={() => handleSendMessage(null, s)}
-                                            className="whitespace-nowrap px-4 py-2 bg-white dark:bg-zinc-800/80 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-600 transition-all text-xs font-medium border border-zinc-200/50 dark:border-zinc-700/50 rounded-xl shadow-sm hover:shadow-orange-500/20 active:scale-95 text-zinc-600 dark:text-zinc-300"
+                                            type="submit"
+                                            className="w-full py-4 bg-orange-500 text-white rounded-2xl font-bold shadow-lg shadow-orange-500/20 hover:bg-orange-600 transition-all flex items-center justify-center gap-2 active:scale-[0.98]"
                                         >
-                                            {s}
+                                            Continue to Chat
                                         </button>
-                                    ))}
+                                    </form>
+                                    <p className="mt-6 text-[10px] text-zinc-400 uppercase tracking-widest font-bold">Secure Connection Enabled</p>
                                 </div>
-                            )}
+                            ) : (
+                                <>
+                                    <div className="flex-grow p-6 overflow-y-auto overflow-x-hidden space-y-6 no-scrollbar scrolling-touch">
+                                        {chatHistory.map((msg, idx) => (
+                                            <div key={idx} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
+                                                <div className={`max-w-[85%] p-4 rounded-3xl text-sm leading-relaxed shadow-sm transition-all ${
+                                                    msg.type === 'user' 
+                                                    ? 'bg-orange-500 text-white rounded-tr-none' 
+                                                    : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-tl-none'
+                                                }`}>
+                                                    {msg.text}
+                                                </div>
+                                            </div>
+                                        ))}
+                                        {isTyping && (
+                                            <div className="flex justify-start">
+                                                <div className="bg-zinc-100 dark:bg-zinc-800 p-4 rounded-3xl rounded-tl-none flex gap-1.5 items-center">
+                                                    <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }} transition={{ repeat: Infinity, duration: 1 }} className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
+                                                    <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }} transition={{ repeat: Infinity, duration: 1, delay: 0.2 }} className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
+                                                    <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }} transition={{ repeat: Infinity, duration: 1, delay: 0.4 }} className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
+                                                </div>
+                                            </div>
+                                        )}
+                                        <div ref={chatEndRef} />
+                                    </div>
 
-                            {/* Modern Input */}
-                            <div className="px-6 pb-6 pt-2">
-                                <form className="flex items-center gap-2 bg-white dark:bg-zinc-800 rounded-2xl p-1.5 border border-zinc-200/50 dark:border-zinc-700/50 shadow-inner" onSubmit={(e) => handleSendMessage(e)}>
-                                    <input 
-                                        type="text"
-                                        value={message}
-                                        onChange={(e) => setMessage(e.target.value)}
-                                        placeholder="Ask a question..."
-                                        className="flex-grow bg-transparent text-zinc-900 dark:text-white px-4 py-2.5 text-sm focus:outline-none placeholder:text-zinc-400"
-                                    />
-                                    <button 
-                                        type="submit"
-                                        disabled={!message.trim()}
-                                        className="p-2.5 bg-orange-500 text-white rounded-xl shadow-lg shadow-orange-500/20 hover:bg-orange-600 disabled:opacity-50 disabled:shadow-none transition-all active:scale-90"
-                                    >
-                                        <Send size={18} />
-                                    </button>
-                                </form>
-                            </div>
+                                    {/* Integrated Footer Area */}
+                                    <div className="bg-zinc-50 dark:bg-zinc-900/50 border-t border-zinc-100 dark:border-zinc-800">
+                                        {/* Agent Suggestions */}
+                                        {suggestions.length > 0 && !isTyping && (
+                                            <div className="px-6 py-4 flex gap-2 overflow-x-auto no-scrollbar mask-fade-right">
+                                                {suggestions.map((s, i) => (
+                                                    <button 
+                                                        key={i}
+                                                        onClick={() => handleSendMessage(null, s)}
+                                                        className="whitespace-nowrap px-4 py-2 bg-white dark:bg-zinc-800/80 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-600 transition-all text-xs font-medium border border-zinc-200/50 dark:border-zinc-700/50 rounded-xl shadow-sm hover:shadow-orange-500/20 active:scale-95 text-zinc-600 dark:text-zinc-300"
+                                                    >
+                                                        {s}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        )}
+
+                                        {/* Modern Input */}
+                                        <div className="px-6 pb-6 pt-2">
+                                            <form className="flex items-center gap-2 bg-white dark:bg-zinc-800 rounded-2xl p-1.5 border border-zinc-200/50 dark:border-zinc-700/50 shadow-inner" onSubmit={(e) => handleSendMessage(e)}>
+                                                <input 
+                                                    type="text"
+                                                    value={message}
+                                                    onChange={(e) => setMessage(e.target.value)}
+                                                    placeholder="Ask a question..."
+                                                    className="flex-grow bg-transparent text-zinc-900 dark:text-white px-4 py-2.5 text-sm focus:outline-none placeholder:text-zinc-400"
+                                                />
+                                                <button 
+                                                    type="submit"
+                                                    disabled={!message.trim()}
+                                                    className="p-2.5 bg-orange-500 text-white rounded-xl shadow-lg shadow-orange-500/20 hover:bg-orange-600 disabled:opacity-50 disabled:shadow-none transition-all active:scale-90"
+                                                >
+                                                    <Send size={18} />
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </>
+                            )}
                         </div>
                     </motion.div>
                 )}
