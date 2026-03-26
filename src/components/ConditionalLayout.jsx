@@ -9,13 +9,14 @@ export default function ConditionalLayout({ children }) {
   const pathname = usePathname();
   const isAuditPage = pathname === "/audit";
   const isLandingPage = pathname === "/ai-website-sprint";
-  const hideLayout = isAuditPage || isLandingPage;
+  const hideHeader = isAuditPage || isLandingPage;
+  const hideFooter = isAuditPage;
 
   return (
     <>
-      {!hideLayout && <Header />}
+      {!hideHeader && <Header />}
       <main className="flex-grow">{children}</main>
-      {!hideLayout && <Footer />}
+      {!hideFooter && <Footer />}
       <FloatingChat />
     </>
   );

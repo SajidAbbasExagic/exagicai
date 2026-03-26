@@ -43,6 +43,14 @@ export default function Footer() {
                   SRO Implementation
                 </a>
               </li>
+              <li className="pt-2 border-t border-zinc-100 mt-2">
+                <a 
+                  href="/ai-website-sprint" 
+                  className="text-brand font-bold hover:opacity-80 transition-opacity"
+                >
+                  48hr AI Website Sprint
+                </a>
+              </li>
             </ul>
           </div>
           <div>

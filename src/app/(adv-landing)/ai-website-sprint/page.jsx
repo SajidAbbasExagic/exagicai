@@ -2,10 +2,7 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
-import { Playfair_Display } from "next/font/google";
 import { motion } from "framer-motion";
-
-const playfair = Playfair_Display({ subsets: ["latin"], weight: ["700", "800"] });
 
 // Animation presets
 const fadeInUp = {
@@ -42,7 +39,7 @@ export default function AIWebsiteSprintPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className={`${playfair.className} text-4xl md:text-7xl font-extrabold leading-[1.1] mb-6 md:mb-8 text-zinc-900`}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6 md:mb-8 text-zinc-900"
           >
             We&apos;ll Build Your <span className="text-brand">AI-Visible</span> Website in 48 Hours.
           </motion.h1>
@@ -51,7 +48,7 @@ export default function AIWebsiteSprintPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-2xl text-zinc-600 max-w-2xl mx-auto mb-10 leading-relaxed px-4 md:px-0"
+            className="text-base md:text-lg lg:text-xl text-zinc-600 max-w-2xl mx-auto mb-10 leading-relaxed px-4 md:px-0"
           >
             When someone asks ChatGPT, Gemini, or Google AI who the best professional in your field is — <span className="text-zinc-900 font-semibold underline decoration-brand/30 decoration-2 underline-offset-4">your name should come up.</span> We make that happen.
           </motion.p>
@@ -64,7 +61,7 @@ export default function AIWebsiteSprintPage() {
           >
             <Link 
               href="#form" 
-              className="w-full md:w-auto bg-brand hover:bg-brand-dark text-white font-bold px-12 py-5 rounded-xl text-lg transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xl shadow-brand/20 flex items-center justify-center group"
+              className="w-full md:w-auto bg-brand hover:bg-brand-dark text-white font-bold px-8 py-4 rounded-xl text-base md:text-lg transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xl shadow-brand/20 flex items-center justify-center group"
             >
               Claim Your Spot 
               <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
@@ -83,11 +80,10 @@ export default function AIWebsiteSprintPage() {
           >
             <p className="text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-zinc-400 font-bold mb-8">Trusted by 2,500+ professionals worldwide</p>
             <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12 grayscale opacity-80">
-              <LogoItem icon="G" name="ChatGPT" color="bg-emerald-600" />
-              <LogoItem icon="G" name="Gemini" color="bg-blue-500" />
-              <LogoItem icon="P" name="Perplexity" color="bg-teal-500" />
-              <LogoItem icon="C" name="Copilot" color="bg-indigo-500" />
-              <LogoItem icon="G" name="Google AI" color="bg-red-500" />
+              <AILogo name="ChatGPT" svg={<svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/></svg>} />
+              <AILogo name="Gemini" svg={<svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg>} />
+              <AILogo name="Perplexity" svg={<svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor"><path d="M22.3977 7.0896h-2.3106V.0676l-7.5094 6.3542V.1577h-1.1554v6.1966L4.4904 0v7.0896H1.6023v10.3976h2.8882V24l6.932-6.3591v6.2005h1.1554v-6.0469l6.9318 6.1807v-6.4879h2.8882V7.0896zm-3.4657-4.531v4.531h-5.355l5.355-4.531zm-13.2862.0676 4.8691 4.4634H5.6458V2.6262zM2.7576 16.332V8.245h7.8476l-6.1149 6.1147v1.9723H2.7576zm2.8882 5.0404v-3.8852h.0001v-2.6488l5.7763-5.7764v7.0111l-5.7764 5.2993zm12.7086.0248-5.7766-5.1509V9.0618l5.7766 5.7766v6.5588zm2.8882-5.0652h-1.733v-1.9723L13.3948 8.245h7.8478v8.087z"/></svg>} />
+              <AILogo name="Google AI" svg={<svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>} />
             </div>
           </motion.div>
         </div>
@@ -101,7 +97,7 @@ export default function AIWebsiteSprintPage() {
             className="text-center mb-16 md:mb-24"
           >
             <span className="text-[12px] font-bold text-brand uppercase tracking-[0.3em] mb-4 block">The Visibility Problem</span>
-            <h2 className={`${playfair.className} text-3xl md:text-6xl font-bold text-zinc-900 leading-tight`}>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-zinc-900 leading-tight">
               90% of Professional Websites Are <span className="text-brand">Invisible</span> to AI.
             </h2>
           </motion.div>
@@ -143,20 +139,20 @@ export default function AIWebsiteSprintPage() {
           >
             <div className="bg-brand text-white px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest mb-10 inline-block shadow-lg shadow-brand/20">The Zero Risk Guarantee</div>
             
-            <h2 className={`${playfair.className} text-3xl md:text-6xl font-bold mb-6 text-zinc-900 leading-tight`}>We Deliver First. <br className="hidden md:block" /> You Decide After.</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 text-zinc-900 leading-tight">We Deliver First. <br className="hidden md:block" /> You Decide After.</h2>
             
             <motion.div 
                 initial={{ scale: 0.9 }}
                 whileInView={{ scale: 1 }}
-                className={`${playfair.className} text-7xl md:text-[10rem] font-black text-brand mb-4 flex items-center justify-center gap-2`}
+                className="text-6xl md:text-8xl lg:text-[9rem] font-black text-brand mb-4 flex items-center justify-center gap-2"
             >
                 <span className="text-3xl md:text-5xl font-extrabold translate-y-[-10px] md:translate-y-[-20px]">$</span>
                 999
             </motion.div>
             
-            <p className="text-xl md:text-2xl text-zinc-900 font-bold mb-10 tracking-tight">Only if you love it. If you don&apos;t — pay nothing.</p>
+            <p className="text-lg md:text-xl text-zinc-900 font-bold mb-8 tracking-tight">Only if you love it. If you don&apos;t — pay nothing.</p>
             
-            <p className="text-zinc-600 leading-relaxed text-base md:text-xl max-w-2xl mx-auto mb-12">
+            <p className="text-zinc-600 leading-relaxed text-sm md:text-base lg:text-lg max-w-2xl mx-auto mb-10">
               We build your complete AI-visible website and deliver it in 48 hours. <span className="text-zinc-900 font-semibold underline decoration-brand/20">Check it live on your own domain before spending a single dollar.</span>
             </p>
 
@@ -182,8 +178,8 @@ export default function AIWebsiteSprintPage() {
             {...fadeInUp}
             className="text-center mb-16 md:mb-24"
           >
-            <h2 className={`${playfair.className} text-3xl md:text-5xl font-bold mb-6 text-zinc-900`}>Tailored for Humans. <br className="md:hidden" /> Built for AI.</h2>
-            <p className="text-zinc-500 text-lg md:text-xl">One package. One price. Only if you love the result.</p>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 text-zinc-900">Tailored for Humans. <br className="md:hidden" /> Built for AI.</h2>
+            <p className="text-zinc-500 text-base md:text-lg">One package. One price. Only if you love the result.</p>
           </motion.div>
 
           <motion.div 
@@ -208,8 +204,8 @@ export default function AIWebsiteSprintPage() {
       {/* ─────────────────── HOW IT WORKS ─────────────────── */}
       <section className="py-20 md:py-32 px-6">
         <div className="max-w-4xl mx-auto">
-          <motion.div {...fadeInUp} className="text-center mb-16 md:mb-24">
-            <h2 className={`${playfair.className} text-3xl md:text-5xl font-bold text-zinc-900`}>From Invisible to Authority <br /> in 3 Steps.</h2>
+          <motion.div {...fadeInUp} className="text-center mb-16 md:mb-20">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-zinc-900">From Invisible to Authority <br /> in 3 Steps.</h2>
           </motion.div>
 
           <motion.div 
@@ -247,9 +243,9 @@ export default function AIWebsiteSprintPage() {
       <section className="py-20 md:py-32 px-6 bg-zinc-100 border-y border-zinc-200">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <motion.div {...fadeInUp} className="lg:col-span-12 text-center mb-16">
-                 <h2 className={`${playfair.className} text-3xl md:text-6xl font-bold mb-6 text-zinc-900`}>Trusted by Professionals Who Lead.</h2>
-                 <p className="text-zinc-500 text-lg">Independent experts and industry founders across 40+ countries.</p>
+            <motion.div {...fadeInUp} className="lg:col-span-12 text-center mb-12 md:mb-16">
+                 <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-zinc-900">Trusted by Professionals Who Lead.</h2>
+                 <p className="text-zinc-500 text-base md:text-lg">Independent experts and industry founders across 40+ countries.</p>
             </motion.div>
             
             <TestimonialCarousel testimonials={[
@@ -263,7 +259,7 @@ export default function AIWebsiteSprintPage() {
 
       {/* ─────────────────── FAQ ─────────────────── */}
       <section className="py-20 md:py-32 px-6 max-w-3xl mx-auto">
-        <motion.h2 {...fadeInUp} className={`${playfair.className} text-3xl md:text-5xl font-bold text-center mb-16 text-zinc-900`}>Got Questions? <br className="md:hidden" /> We Have Answers.</motion.h2>
+        <motion.h2 {...fadeInUp} className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-zinc-900">Got Questions? <br className="md:hidden" /> We Have Answers.</motion.h2>
         <div className="space-y-4">
           <FAQItem q="What does 'pay only if you love it' actually mean?" a="Exactly what it says. We build your live website first. After 48 hours, we send you the link. If you're 100% happy, you pay the $999. If not, we take the site down and you walk away free. No friction." />
           <FAQItem q="How is this different from a normal website?" a="Typical sites focus on humans. Our sites are built for both humans AND AI crawlers. We integrate JSON-LD schema so AI assistants (ChatGPT, Gemini) can verify you as an authority." />
@@ -274,9 +270,9 @@ export default function AIWebsiteSprintPage() {
       {/* ─────────────────── LEAD FORM ─────────────────── */}
       <section id="form" className="py-20 md:py-32 px-4 md:px-6 border-t border-zinc-100 bg-zinc-50">
         <div className="max-w-3xl mx-auto">
-          <motion.div {...fadeInUp} className="text-center mb-12 md:mb-16">
-            <h2 className={`${playfair.className} text-4xl md:text-6xl font-black mb-4 text-zinc-900 leading-tight`}>Ready for Your <br className="md:hidden" /> Sprint?</h2>
-            <p className="text-lg md:text-xl text-zinc-500">Fill out the form below to secure your slot.</p>
+          <motion.div {...fadeInUp} className="text-center mb-10 md:mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 text-zinc-900 leading-tight">Ready for Your <br className="md:hidden" /> Sprint?</h2>
+            <p className="text-base md:text-lg lg:text-xl text-zinc-500">Fill out the form below to secure your slot.</p>
           </motion.div>
           
           <motion.div 
@@ -305,17 +301,16 @@ export default function AIWebsiteSprintPage() {
                 </select>
               </div>
               
-              <div className="pt-6">
+              <div className="pt-4">
                 <motion.button 
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
                     type="submit" 
-                    className="w-full bg-brand text-white font-black text-xl py-6 rounded-2xl shadow-xl shadow-brand/10 transition-all uppercase tracking-wide tracking flex items-center justify-center gap-2"
+                    className="w-full bg-brand text-white font-bold text-base md:text-lg py-4 md:py-5 rounded-xl shadow-lg shadow-brand/10 transition-all flex items-center justify-center gap-2"
                 >
-                  Start My Website Sprint
-                  <span className="text-2xl pt-0.5">→</span>
+                  Start My Website Sprint →
                 </motion.button>
-                <p className="text-center text-sm text-zinc-400 mt-6 font-medium leading-relaxed uppercase tracking-tighter italic">
+                <p className="text-center text-xs text-zinc-400 mt-4 font-medium leading-relaxed">
                   No credit card required. No contracts. Pay $999 only after the reveal.
                 </p>
               </div>
@@ -324,22 +319,14 @@ export default function AIWebsiteSprintPage() {
         </div>
       </section>
 
-      {/* ─────────────────── FOOTER ─────────────────── */}
-      <footer className="py-20 px-6 bg-white border-t border-zinc-100 text-center">
-        <div className="max-w-md mx-auto">
-          <div className="text-brand text-3xl font-black mb-8">EXAGIC</div>
-          <p className="text-zinc-500 text-sm font-medium mb-12 leading-relaxed uppercase tracking-wider">Your Expertise. <br className="md:hidden" /> AI Recommended.</p>
-          <p className="text-zinc-300 text-[10px] font-bold uppercase tracking-widest">© 2026 Exagic AI. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 }
 
-function LogoItem({ icon, name, color }) {
+function AILogo({ name, svg }) {
   return (
     <div className="flex items-center gap-2">
-      <span className={`w-7 h-7 rounded-lg ${color} flex items-center justify-center font-black text-white text-[10px]`}>{icon}</span>
+      <span className="text-zinc-600">{svg}</span>
       <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-tight">{name}</span>
     </div>
   );
@@ -362,7 +349,7 @@ function FeatureBox({ title, desc }) {
   return (
     <motion.div 
       variants={fadeInUp}
-      className="p-4 md:p-6 border border-zinc-100 rounded-xl md:rounded-2xl bg-white hover:bg-zinc-50 transition-all border-dashed"
+      className="p-4 md:p-6 border border-zinc-100 rounded-xl md:rounded-2xl bg-white hover:shadow-xl hover:shadow-brand/5 hover:border-brand/20 transition-all border-dashed"
     >
       <div className="text-emerald-600 font-bold mb-2 md:mb-4 text-base md:text-lg">✓</div>
       <h4 className="font-bold text-[10px] md:text-sm mb-1 md:mb-2 text-zinc-900 leading-tight">{title}</h4>
@@ -466,18 +453,27 @@ function StatItem({ val, label }) {
 }
 
 function FAQItem({ q, a }) {
+  const [open, setOpen] = useState(false);
   return (
     <motion.div 
       variants={fadeInUp}
-      className="border-b border-zinc-100 pb-6 group cursor-pointer hover:bg-zinc-50/50 transition-all px-4 pt-6 rounded-2xl"
+      className="border-b border-zinc-100 pb-4 cursor-pointer hover:bg-zinc-50/50 transition-all px-4 pt-4 rounded-xl"
+      onClick={() => setOpen(!open)}
     >
-      <div className="flex justify-between items-center gap-6">
-        <h3 className="text-base md:text-lg font-bold group-hover:text-brand transition-colors text-zinc-800">{q}</h3>
-        <span className="text-brand text-2xl group-hover:rotate-90 transition-transform">+</span>
+      <div className="flex justify-between items-center gap-4">
+        <h3 className={`text-sm md:text-base font-bold transition-colors ${open ? 'text-brand' : 'text-zinc-800'}`}>{q}</h3>
+        <span className={`text-brand text-xl flex-shrink-0 transition-transform duration-200 ${open ? 'rotate-45' : ''}`}>+</span>
       </div>
-      <div className="hidden group-hover:block mt-6 transition-all duration-300">
-        <p className="text-zinc-500 text-sm md:text-base leading-relaxed pb-4">{a}</p>
-      </div>
+      {open && (
+        <motion.div 
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          transition={{ duration: 0.2 }}
+          className="mt-4"
+        >
+          <p className="text-zinc-500 text-sm leading-relaxed pb-2">{a}</p>
+        </motion.div>
+      )}
     </motion.div>
   );
 }
