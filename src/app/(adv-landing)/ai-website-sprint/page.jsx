@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import { Playfair_Display } from "next/font/google";
 import { motion } from "framer-motion";
@@ -115,7 +116,7 @@ export default function AIWebsiteSprintPage() {
             <ProblemCard 
               icon="🔍"
               title="AI Can't Read Your Site"
-              desc="Your website looks great to humans. But AI engines need schema markup, entity data, and structured content to recommend you."
+              desc="Your website looks great to humans. But AI engines need schema markup, entity data, and structured content to understand and recommend you."
             />
             <ProblemCard 
               icon="📉"
@@ -138,7 +139,7 @@ export default function AIWebsiteSprintPage() {
           
           <motion.div 
             {...fadeInUp}
-            className="relative border border-brand/20 bg-white p-8 md:p-20 rounded-[32px] md:rounded-[48px] text-center shadow-[0_32px_80px_-20px_rgba(255,115,0,0.1)]"
+            className="relative border border-brand/20 bg-white p-8 md:p-20 rounded-[32px] md:rounded-[48px] text-center shadow-[0_32px_80px_-20px_rgba(255,115,0,0.15)]"
           >
             <div className="bg-brand text-white px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest mb-10 inline-block shadow-lg shadow-brand/20">The Zero Risk Guarantee</div>
             
@@ -190,7 +191,7 @@ export default function AIWebsiteSprintPage() {
             initial="initial"
             whileInView="whileInView"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 md:gap-4"
           >
             <FeatureBox title="Premium Minimal Design" desc="Focusing on professional authority and high-converting layouts." />
             <FeatureBox title="SRO & Entity Prep" desc="JSON-LD schema, entity mapping, and relationship metadata." />
@@ -251,29 +252,11 @@ export default function AIWebsiteSprintPage() {
                  <p className="text-zinc-500 text-lg">Independent experts and industry founders across 40+ countries.</p>
             </motion.div>
             
-            <motion.div 
-                variants={staggerContainer}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={{ once: true }}
-                className="lg:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6"
-            >
-              <TestimonialCard 
-                author="Dr. Ayesha Khan" 
-                role="Psychologist & Author" 
-                quote="Elegant, professional, and built in two days. The process was effortless and perfectly aligned with my vision."
-              />
-              <TestimonialCard 
-                author="David Liu" 
-                role="FinTech Founder" 
-                quote="Exactly what I needed for investors. They understood my goals and made the execution feel premium."
-              />
-              <TestimonialCard 
-                author="James Carter" 
-                role="Real Estate Consultant" 
-                quote="Seamless and personal experience. I finally have a website that feels polished, impactful, and authentic."
-              />
-            </motion.div>
+            <TestimonialCarousel testimonials={[
+              { author: "Dr. Ayesha Khan", role: "Psychologist & Author", quote: "Elegant, professional, and built in two days. The process was effortless and perfectly aligned with my vision." },
+              { author: "David Liu", role: "FinTech Founder", quote: "Exactly what I needed for investors. They understood my goals and made the execution feel premium." },
+              { author: "James Carter", role: "Real Estate Consultant", quote: "Seamless and personal experience. I finally have a website that feels polished, impactful, and authentic." }
+            ]} />
           </div>
         </div>
       </section>
@@ -332,7 +315,7 @@ export default function AIWebsiteSprintPage() {
                   Start My Website Sprint
                   <span className="text-2xl pt-0.5">→</span>
                 </motion.button>
-                <p className="text-center text-xs text-zinc-400 mt-6 font-medium leading-relaxed uppercase tracking-tighter italic">
+                <p className="text-center text-sm text-zinc-400 mt-6 font-medium leading-relaxed uppercase tracking-tighter italic">
                   No credit card required. No contracts. Pay $999 only after the reveal.
                 </p>
               </div>
@@ -379,11 +362,11 @@ function FeatureBox({ title, desc }) {
   return (
     <motion.div 
       variants={fadeInUp}
-      className="p-6 border border-zinc-100 rounded-2xl bg-white hover:bg-zinc-50 transition-all border-dashed"
+      className="p-4 md:p-6 border border-zinc-100 rounded-xl md:rounded-2xl bg-white hover:bg-zinc-50 transition-all border-dashed"
     >
-      <div className="text-emerald-600 font-bold mb-4 text-lg">✓</div>
-      <h4 className="font-bold text-sm mb-2 text-zinc-900">{title}</h4>
-      <p className="text-zinc-500 text-[11px] leading-relaxed">{desc}</p>
+      <div className="text-emerald-600 font-bold mb-2 md:mb-4 text-base md:text-lg">✓</div>
+      <h4 className="font-bold text-[10px] md:text-sm mb-1 md:mb-2 text-zinc-900 leading-tight">{title}</h4>
+      <p className="text-zinc-500 text-[9px] md:text-[11px] leading-relaxed line-clamp-3 md:line-clamp-none">{desc}</p>
     </motion.div>
   );
 }
@@ -403,11 +386,65 @@ function StepItem({ num, title, desc, color }) {
   );
 }
 
+function TestimonialCarousel({ testimonials }) {
+  const [isPaused, setIsPaused] = useState(false);
+  const scrollRef = useRef(null);
+  const rafRef = useRef(null);
+  const speedRef = useRef(0.5); // pixels per frame
+
+  const items = [...testimonials, ...testimonials];
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const tick = () => {
+      if (!isPaused && el) {
+        const halfScroll = el.scrollWidth / 2;
+        if (el.scrollLeft >= halfScroll) {
+          el.scrollLeft -= halfScroll;
+        }
+        el.scrollLeft += speedRef.current;
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [isPaused]);
+
+  return (
+    <div 
+        className="lg:col-span-12 relative"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
+    >
+        <div 
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto pb-8 lg:pb-0 px-4 md:px-0 no-scrollbar"
+        >
+            {items.map((t, i) => (
+                <TestimonialCard key={i} {...t} />
+            ))}
+        </div>
+        
+        <div className="flex justify-center gap-2 mt-4 lg:hidden">
+            {testimonials.map((_, i) => (
+                <div key={i} className="w-1.5 h-1.5 rounded-full bg-zinc-300" />
+            ))}
+        </div>
+    </div>
+  );
+}
+
 function TestimonialCard({ author, role, quote }) {
   return (
     <motion.div 
+      data-card
       variants={fadeInUp}
-      className="p-8 md:p-10 border border-zinc-200 rounded-[32px] bg-white relative group transition-all"
+      className="p-8 md:p-10 border border-zinc-200 rounded-[32px] bg-white relative group transition-all flex-shrink-0 w-[85vw] lg:w-[calc(33.333%-16px)] snap-center"
     >
       <div className="text-brand text-2xl mb-6">★★★★★</div>
       <p className="text-zinc-600 italic mb-8 leading-relaxed text-base md:text-lg">&quot;{quote}&quot;</p>
@@ -416,6 +453,15 @@ function TestimonialCard({ author, role, quote }) {
         <div className="text-[10px] text-zinc-400 font-bold uppercase tracking-[0.2em] mt-2">{role}</div>
       </div>
     </motion.div>
+  );
+}
+
+function StatItem({ val, label }) {
+  return (
+    <div>
+      <div className="text-4xl font-extrabold text-brand mb-1">{val}</div>
+      <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">{label}</div>
+    </div>
   );
 }
 
