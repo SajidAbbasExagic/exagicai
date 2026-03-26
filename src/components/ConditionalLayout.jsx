@@ -8,12 +8,14 @@ import FloatingChat from "./FloatingChat";
 export default function ConditionalLayout({ children }) {
   const pathname = usePathname();
   const isAuditPage = pathname === "/audit";
+  const isLandingPage = pathname === "/ai-website-sprint";
+  const hideLayout = isAuditPage || isLandingPage;
 
   return (
     <>
-      {!isAuditPage && <Header />}
+      {!hideLayout && <Header />}
       <main className="flex-grow">{children}</main>
-      {!isAuditPage && <Footer />}
+      {!hideLayout && <Footer />}
       <FloatingChat />
     </>
   );
