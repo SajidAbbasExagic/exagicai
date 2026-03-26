@@ -3,6 +3,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ReCAPTCHA from "react-google-recaptcha";
+import { sendSprintEmail } from "@/app/actions/sprint";
 
 // Animation presets
 const fadeInUp = {
@@ -19,6 +21,36 @@ const staggerContainer = {
 };
 
 export default function AIWebsiteSprintPage() {
+  const [status, setStatus] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState("");
+  const recaptchaRef = useRef(null);
+
+  const onRecaptchaChange = (value) => {
+    setRecaptchaToken(value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus(null);
+
+    const formData = new FormData(e.target);
+    // Add token manually if not automatically handled by hidden field
+    formData.append("recaptchaToken", recaptchaToken);
+    
+    const result = await sendSprintEmail(formData);
+
+    if (result.success) {
+      setStatus("success");
+      recaptchaRef.current?.reset();
+    } else {
+      setStatus("error");
+      recaptchaRef.current?.reset();
+    }
+    setIsSubmitting(false);
+  };
+
   return (
     <div className="bg-white text-zinc-900 min-h-screen selection:bg-brand/10 overflow-x-hidden">
       {/* ─────────────────── HERO ─────────────────── */}
@@ -281,39 +313,68 @@ export default function AIWebsiteSprintPage() {
             viewport={{ once: true }}
             className="bg-white p-6 md:p-12 rounded-[24px] md:rounded-[40px] border border-zinc-200 relative shadow-2xl overflow-hidden"
           >
-            <form className="space-y-6 relative z-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                <InputGroup label="First Name" placeholder="John" />
-                <InputGroup label="Last Name" placeholder="Smith" />
-              </div>
-              <InputGroup label="Expert Email" placeholder="john@example.com" type="email" />
-              <InputGroup label="Phone (Optional)" placeholder="+1 (555) 000-0000" />
-              <div className="flex flex-col gap-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Your Expertise</label>
-                <select className="bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-4 text-zinc-900 focus:outline-none focus:border-brand transition-all appearance-none cursor-pointer">
-                  <option>Select your field</option>
-                  <option>Psychologist</option>
-                  <option>Real Estate Expert</option>
-                  <option>Strategic Consultant</option>
-                  <option>Legal Professional</option>
-                  <option>Tech Founder</option>
-                  <option>Other Expert</option>
-                </select>
-              </div>
-              
-              <div className="pt-4">
-                <motion.button 
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
-                    type="submit" 
-                    className="w-full bg-brand text-white font-bold text-base md:text-lg py-4 md:py-5 rounded-xl shadow-lg shadow-brand/10 transition-all flex items-center justify-center gap-2"
-                >
-                  Start My Website Sprint →
-                </motion.button>
-                <p className="text-center text-xs text-zinc-400 mt-4 font-medium leading-relaxed">
-                  No credit card required. No contracts. Pay $999 only after the reveal.
-                </p>
-              </div>
+            <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+              {status === "success" && (
+                <div className="bg-emerald-50 text-emerald-700 p-4 rounded-xl border border-emerald-100 font-medium text-sm text-center">
+                  Thank you! We've received your request and will be in touch shortly.
+                </div>
+              )}
+              {status === "error" && (
+                <div className="bg-rose-50 text-rose-700 p-4 rounded-xl border border-rose-100 font-medium text-sm text-center">
+                  Something went wrong submitting the form. Please try again.
+                </div>
+              )}
+              {status !== "success" && (
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <InputGroup name="firstName" label="First Name" placeholder="John" required />
+                    <InputGroup name="lastName" label="Last Name" placeholder="Smith" required />
+                  </div>
+                  <InputGroup name="email" label="Expert Email" placeholder="john@example.com" type="email" required />
+                  <InputGroup name="phone" label="Phone (Optional)" placeholder="+1 (555) 000-0000" />
+                  <div className="flex flex-col gap-2">
+                    <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Your Expertise</label>
+                    <div className="relative">
+                      <select name="expertise" required className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-4 text-zinc-900 focus:outline-none focus:border-brand transition-all appearance-none cursor-pointer">
+                        <option value="">Select your field</option>
+                        <option value="Psychologist">Psychologist</option>
+                        <option value="Real Estate Expert">Real Estate Expert</option>
+                        <option value="Strategic Consultant">Strategic Consultant</option>
+                        <option value="Legal Professional">Legal Professional</option>
+                        <option value="Tech Founder">Tech Founder</option>
+                        <option value="Other Expert">Other Expert</option>
+                      </select>
+                      <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400">
+                        ▼
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Google reCAPTCHA */}
+                  <div className="flex justify-center md:justify-start">
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"} 
+                      onChange={onRecaptchaChange}
+                    />
+                  </div>
+                  
+                  <div className="pt-4">
+                    <motion.button 
+                        whileHover={{ scale: 1.01 }}
+                        whileTap={{ scale: 0.99 }}
+                        type="submit" 
+                        disabled={isSubmitting}
+                        className={`w-full bg-brand text-white font-bold text-base md:text-lg py-4 md:py-5 rounded-xl transition-all flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'shadow-lg shadow-brand/10 hover:shadow-brand/20'}`}
+                    >
+                      {isSubmitting ? "Submitting..." : "Start My Website Sprint →"}
+                    </motion.button>
+                    <p className="text-center text-xs text-zinc-400 mt-4 font-medium leading-relaxed">
+                      No credit card required. No contracts. Pay $999 only after the reveal.
+                    </p>
+                  </div>
+                </>
+              )}
             </form>
           </motion.div>
         </div>
@@ -478,11 +539,13 @@ function FAQItem({ q, a }) {
   );
 }
 
-function InputGroup({ label, placeholder, type = "text" }) {
+function InputGroup({ label, placeholder, type = "text", name, required }) {
   return (
     <div className="flex flex-col gap-2">
       <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">{label}</label>
       <input 
+        name={name}
+        required={required}
         type={type} 
         placeholder={placeholder} 
         className="bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-4 text-zinc-900 placeholder:text-zinc-300 focus:outline-none focus:border-brand transition-all text-sm"
