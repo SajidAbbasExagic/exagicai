@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { sendContactEmail } from "@/app/actions/contact";
 
 export default function ContactForm() {
+  const pathname = usePathname();
   const [status, setStatus] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -41,6 +43,7 @@ export default function ContactForm() {
 
       {status !== "success" && (
         <form onSubmit={handleSubmit} className="space-y-4">
+          <input type="hidden" name="path" value={pathname} />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">

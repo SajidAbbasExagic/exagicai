@@ -7,6 +7,8 @@ export async function sendContactEmail(formData) {
   const email = formData.get("email");
   const subject = formData.get("subject");
   const message = formData.get("message");
+  const path = formData.get("path") || "/";
+  const sourceUrl = `https://exagic.ai${path}`;
 
   const recipient = process.env.CONTACT_RECIPIENT_EMAIL || process.env.SMTP_USER;
 
@@ -15,6 +17,7 @@ export async function sendContactEmail(formData) {
       <h2 style="color: #000;">New Strategy Inquiry Received</h2>
       <p><strong>From:</strong> ${name} &lt;${email}&gt;</p>
       <p><strong>Subject:</strong> ${subject}</p>
+      <p><strong>Source Page:</strong> <a href="${sourceUrl}">${sourceUrl}</a></p>
       <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
       <p><strong>Message:</strong></p>
       <p style="white-space: pre-wrap; background: #f9f9f9; padding: 15px; border-radius: 8px;">${message}</p>

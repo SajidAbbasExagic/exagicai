@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { sendCommentEmail } from "@/app/actions/comment";
 
 export default function ArticleComments({ articleTitle }) {
+  const pathname = usePathname();
   const [formData, setFormData] = useState({
     comment: "",
     name: "",
@@ -21,7 +23,7 @@ export default function ArticleComments({ articleTitle }) {
     setStatus("submitting");
 
     const data = new FormData(e.target);
-    data.append("postUrl", window.location.href);
+    data.append("postUrl", `https://exagic.ai${pathname}`);
     data.append("articleTitle", articleTitle);
 
     const result = await sendCommentEmail(data);

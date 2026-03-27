@@ -16,7 +16,7 @@ export async function sendCommentEmail(formData) {
     <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
       <h2 style="color: #000;">New Comment on: ${articleTitle}</h2>
       <p><strong>Article:</strong> ${articleTitle}</p>
-      <p><strong>URL:</strong> <a href="${postUrl}">${postUrl}</a></p>
+      <p><strong>Source Page:</strong> <a href="${postUrl}">${postUrl}</a></p>
       <p><strong>From:</strong> ${name} &lt;${email}&gt;</p>
       <p><strong>Website:</strong> ${website}</p>
       <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />

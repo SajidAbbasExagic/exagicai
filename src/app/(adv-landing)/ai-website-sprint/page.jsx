@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -21,6 +22,7 @@ const staggerContainer = {
 };
 
 export default function AIWebsiteSprintPage() {
+  const pathname = usePathname();
   const [status, setStatus] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState("");
@@ -314,6 +316,7 @@ export default function AIWebsiteSprintPage() {
             className="bg-white p-6 md:p-12 rounded-[24px] md:rounded-[40px] border border-zinc-200 relative shadow-2xl overflow-hidden"
           >
             <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+              <input type="hidden" name="path" value={pathname} />
               {status === "success" && (
                 <div className="bg-emerald-50 text-emerald-700 p-4 rounded-xl border border-emerald-100 font-medium text-sm text-center">
                   Thank you! We've received your request and will be in touch shortly.

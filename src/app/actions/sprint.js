@@ -9,6 +9,8 @@ export async function sendSprintEmail(formData) {
   const phone = formData.get("phone");
   const expertise = formData.get("expertise");
   const recaptchaToken = formData.get("recaptchaToken");
+  const path = formData.get("path") || "/";
+  const sourceUrl = `https://exagic.ai${path}`;
 
   if (!recaptchaToken) {
     return { success: false, error: "Please complete the CAPTCHA." };
@@ -42,6 +44,7 @@ export async function sendSprintEmail(formData) {
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
       <p><strong>Expertise:</strong> ${expertise}</p>
+      <p><strong>Source Page:</strong> <a href="${sourceUrl}">${sourceUrl}</a></p>
       <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
       <p style="font-size: 12px; color: #999;">Sent from Exagic.ai AI Website Sprint form.</p>
     </div>
