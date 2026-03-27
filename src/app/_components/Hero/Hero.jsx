@@ -13,7 +13,7 @@ export default function Hero() {
         <div className="max-w-3xl pt-8">
           <h1
             id="hero-heading"
-            className="text-xl sm:text-4xl md:text-4xl font-semibold text-zinc-900"
+            className="text-xl  sm:text-4xl md:text-4xl font-semibold text-zinc-900"
           >
             San Francisco AI SEO Agency specialising in brand visibility
             optimisation for global brands and e-commerce websites.
