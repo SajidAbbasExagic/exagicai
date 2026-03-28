@@ -9,6 +9,7 @@ export default function ContactForm() {
   const pathname = usePathname();
   const [status, setStatus] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [captchaValue, setCaptchaValue] = useState(null);
   const recaptchaRef = useRef(null);
 
   const handleSubmit = async (e) => {
@@ -111,13 +112,15 @@ export default function ContactForm() {
             <ReCAPTCHA
               ref={recaptchaRef}
               sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              onChange={(val) => setCaptchaValue(val)}
+              onExpired={() => setCaptchaValue(null)}
             />
           </div>
           <button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !captchaValue}
             className={`w-full bg-zinc-900 text-white font-bold py-3 px-6 rounded-lg hover:bg-brand transition-all shadow-md active:scale-[0.98] text-sm ${
-              isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+              isSubmitting || !captchaValue ? "opacity-50 cursor-not-allowed" : ""
             }`}
           >
             {isSubmitting ? "Sending..." : "Submit Strategy Inquiry"}

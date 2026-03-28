@@ -16,6 +16,7 @@ export default function ArticleComments({ articleTitle }) {
   });
   const [verification, setVerification] = useState(null); // 'robot' or 'human'
   const [status, setStatus] = useState("idle"); // 'idle', 'submitting', 'success', 'error'
+  const [captchaValue, setCaptchaValue] = useState(null);
   const recaptchaRef = useRef(null);
 
   const handleSubmit = async (e) => {
@@ -202,6 +203,8 @@ export default function ArticleComments({ articleTitle }) {
                <ReCAPTCHA
                  ref={recaptchaRef}
                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                 onChange={(val) => setCaptchaValue(val)}
+                 onExpired={() => setCaptchaValue(null)}
                />
             </div>
           )}
@@ -210,9 +213,9 @@ export default function ArticleComments({ articleTitle }) {
         <div className="pt-6">
           <button
             type="submit"
-            disabled={verification !== "human" || status === "submitting"}
+            disabled={verification !== "human" || status === "submitting" || !captchaValue}
             className={`w-full rounded-full py-4 text-center font-bold transition-all ${
-              verification === "human" && status !== "submitting"
+              verification === "human" && status !== "submitting" && captchaValue
                 ? "bg-brand text-white shadow-xl hover:scale-[1.02] active:scale-[0.98]"
                 : "bg-zinc-100 text-zinc-400 cursor-not-allowed"
             }`}
