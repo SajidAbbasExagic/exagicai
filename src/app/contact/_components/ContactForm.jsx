@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { usePathname } from "next/navigation";
+import ReCAPTCHA from "react-google-recaptcha";
 import { sendContactEmail } from "@/app/actions/contact";
 
 export default function ContactForm() {
   const pathname = usePathname();
   const [status, setStatus] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const recaptchaRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,12 +17,21 @@ export default function ContactForm() {
     setStatus(null);
 
     const formData = new FormData(e.target);
+    const recaptchaValue = recaptchaRef.current?.getValue();
+    if (!recaptchaValue) {
+      setStatus("error");
+      setIsSubmitting(false);
+      return;
+    }
+    formData.append("recaptchaToken", recaptchaValue);
+
     const result = await sendContactEmail(formData);
 
     if (result.success) {
       setStatus("success");
     } else {
       setStatus("error");
+      recaptchaRef.current?.reset();
     }
     setIsSubmitting(false);
   };
@@ -95,6 +106,12 @@ export default function ContactForm() {
               className="w-full bg-zinc-50 border border-zinc-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand transition-all resize-none"
               placeholder="Tell us about your project..."
             ></textarea>
+          </div>
+          <div className="space-y-1.5 flex justify-center py-2">
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+            />
           </div>
           <button
             type="submit"

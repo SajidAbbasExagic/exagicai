@@ -1,8 +1,15 @@
 "use server";
 
 import { sendEmail } from "@/lib/mail";
+import { verifyCaptchaAction } from "@/lib/recaptcha";
 
 export async function sendContactEmail(formData) {
+  const token = formData.get("recaptchaToken");
+  const captchaValidation = await verifyCaptchaAction(token);
+  if (!captchaValidation.success) {
+    return { success: false, message: captchaValidation.message };
+  }
+
   const name = formData.get("name");
   const email = formData.get("email");
   const subject = formData.get("subject");

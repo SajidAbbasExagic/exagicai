@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { usePathname } from "next/navigation";
+import ReCAPTCHA from "react-google-recaptcha";
 import { sendCommentEmail } from "@/app/actions/comment";
 
 export default function ArticleComments({ articleTitle }) {
@@ -15,6 +16,7 @@ export default function ArticleComments({ articleTitle }) {
   });
   const [verification, setVerification] = useState(null); // 'robot' or 'human'
   const [status, setStatus] = useState("idle"); // 'idle', 'submitting', 'success', 'error'
+  const recaptchaRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,6 +25,14 @@ export default function ArticleComments({ articleTitle }) {
     setStatus("submitting");
 
     const data = new FormData(e.target);
+    const recaptchaValue = recaptchaRef.current?.getValue();
+
+    if (!recaptchaValue) {
+       setStatus("error");
+       return;
+    }
+
+    data.append("recaptchaToken", recaptchaValue);
     data.append("postUrl", `https://exagic.ai${pathname}`);
     data.append("articleTitle", articleTitle);
 
@@ -32,6 +42,7 @@ export default function ArticleComments({ articleTitle }) {
       setStatus("success");
     } else {
       setStatus("error");
+      recaptchaRef.current?.reset();
     }
   };
 
@@ -186,6 +197,14 @@ export default function ArticleComments({ articleTitle }) {
               I am a human.
             </button>
           </div>
+          {verification === "human" && (
+            <div className="flex justify-center mt-6">
+               <ReCAPTCHA
+                 ref={recaptchaRef}
+                 sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+               />
+            </div>
+          )}
         </div>
 
         <div className="pt-6">
