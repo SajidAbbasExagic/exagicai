@@ -74,8 +74,8 @@ export default function AIEntityMythArticle() {
         href: "/lab/rise-of-ai-referral-traffic",
       }}
       nextArticle={{
-        title: "What Is Entity SEO and Why Industrial Brands Need It",
-        href: "/lab/what-is-entity-seo-industrial-brands",
+        title: "60% of Searches Now End Without a Click. For Industrial Brands, That's an Existential Problem.",
+        href: "/lab/60-percent-searches-zero-click-industrial-existential-threat",
       }}
     >
       <p className="lead text-xl font-medium text-zinc-900 mb-10">
