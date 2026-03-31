@@ -8,12 +8,22 @@ export const categories = [
 
 export const articles = [
   {
+    title:
+      "60% of Searches Now End Without a Click. For Industrial Brands, That's an Existential Problem.",
+    description:
+      "Roughly 60% of Google searches now end without a click — the answer appears directly on the page. For industrial manufacturers, this is an existential threat.",
+    href: "/lab/60-percent-searches-zero-click-industrial-existential-threat",
+    date: "March 31, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
     title: "Do AI Systems Only Cite You If You’re in Google’s Entity Database?",
-    description: "In recent months, a claim has circulated widely: 'AI will only cite you if you’re in Google’s entity database.' We evaluate this claim by explaining how AI models actually select sources.",
+    description:
+      "In recent months, a claim has circulated widely: 'AI will only cite you if you’re in Google’s entity database.' We evaluate this claim by explaining how AI models actually select sources.",
     href: "/lab/do-ai-systems-only-cite-you-if-youre-in-googles-entity-database",
     date: "March 25, 2026",
     category: "AI SEO Education",
-    badge: "New",
   },
   {
     title: "The Rise of AI Traffic: Which LLM Is Sending the Most Visitors to Your Website?",

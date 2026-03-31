@@ -32,6 +32,11 @@ export default function sitemap() {
     "what-is-entity-seo-industrial-brands",
     "what-is-grounding-in-ai-search",
     "what-is-sro-selection-rate-optimization",
+    "do-ai-systems-only-cite-you-if-youre-in-googles-entity-database",
+    "60-percent-searches-zero-click-industrial-existential-threat",
+    "sro-grounding-snippets",
+    "ai-agents-procurement-2027-manufacturing",
+    "anthropic-institute-ai-society",
   ];
 
   const locations = [
