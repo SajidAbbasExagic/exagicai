@@ -8,6 +8,14 @@ export const categories = [
 
 export const articles = [
   {
+    title: "How AI Search is Changing B2B Industrial Vendor Shortlisting in 2026",
+    description: "B2B buyers are increasingly using conversational AI to shortlist vendors. Discover why traditional SEO is failing industrial manufacturers and how to adapt your content strategy for AI procurement tools.",
+    href: "/lab/how-ai-search-is-changing-b2b-vendor-shortlisting-2026",
+    date: "April 8, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
     title:
       "60% of Searches Now End Without a Click. For Industrial Brands, That's an Existential Problem.",
     description:
@@ -15,7 +23,6 @@ export const articles = [
     href: "/lab/60-percent-searches-zero-click-industrial-existential-threat",
     date: "March 31, 2026",
     category: "AI SEO Education",
-    badge: "New",
   },
   {
     title: "Do AI Systems Only Cite You If You’re in Google’s Entity Database?",

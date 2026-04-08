@@ -2,6 +2,7 @@ export default function sitemap() {
   const baseUrl = "https://exagic.ai";
 
   const labArticles = [
+    "how-ai-search-is-changing-b2b-vendor-shortlisting-2026",
     "2026-bay-area-industrial-ai-visibility-report",
     "aeo-vs-seo-industrial-brands",
     "ai-adoption-by-country",
