@@ -8,12 +8,31 @@ export const categories = [
 
 export const articles = [
   {
+    title:
+      "The Emergence of AI-to-AI Economies: When Procurement Agents Negotiate with Sales Bots",
+    description:
+      "The next phase of industrial commerce isn't human-to-human. It's machine-to-machine. Explore the rise of autonomous negotiation and what it means for B2B complexity.",
+    href: "/lab/emergence-ai-to-ai-economies-procurement-agents-sales-bots",
+    date: "April 13, 2026",
+    category: "Industry Specific",
+    badge: "New",
+  },
+  {
+    title:
+      "The AI Procurement Revolution: Why Technical Data is the New SEO for Manufacturers",
+    description:
+      "As AI agents take over supplier shortlisting, the focus shifts from keywords to structured technical data. Learn how to ensure your manufacturing capabilities are machine-readable.",
+    href: "/lab/ai-procurement-revolution-technical-data-new-seo",
+    date: "April 10, 2026",
+    category: "Industry Specific",
+    badge: "New",
+  },
+  {
     title: "How AI Search is Changing B2B Industrial Vendor Shortlisting in 2026",
     description: "B2B buyers are increasingly using conversational AI to shortlist vendors. Discover why traditional SEO is failing industrial manufacturers and how to adapt your content strategy for AI procurement tools.",
     href: "/lab/how-ai-search-is-changing-b2b-vendor-shortlisting-2026",
     date: "April 8, 2026",
     category: "AI SEO Education",
-    badge: "New",
   },
   {
     title:

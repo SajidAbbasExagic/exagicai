@@ -68,12 +68,12 @@ export default function AIShortlistingArticle() {
       faqSchema={faqSchema}
       breadcrumbItems={breadcrumbItems}
       previousArticle={{
-        title: "60% of Searches Now End Without a Click. For Industrial Brands, That's an Existential Problem.",
-        href: "/lab/60-percent-searches-zero-click-industrial-existential-threat",
+        title: "The AI Procurement Revolution: Why Technical Data is the New SEO for Manufacturers",
+        href: "/lab/ai-procurement-revolution-technical-data-new-seo",
       }}
       nextArticle={{
-        title: "Do AI Systems Only Cite You If You’re in Google’s Entity Database?",
-        href: "/lab/do-ai-systems-only-cite-you-if-youre-in-googles-entity-database",
+        title: "60% of Searches Now End Without a Click. For Industrial Brands, That's an Existential Problem.",
+        href: "/lab/60-percent-searches-zero-click-industrial-existential-threat",
       }}
     >
       <p className="lead text-xl font-medium text-zinc-900 mb-10">
