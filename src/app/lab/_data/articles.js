@@ -8,6 +8,46 @@ export const categories = [
 
 export const articles = [
   {
+    title: "AI Agents for Compliance: How Procurement Bots Verify ISO Certifications Automatically",
+    description: "Explore how AI procurement bots are autonomously verifying ISO, AS9100, and ITAR compliance, cutting vendor qualification times and changing how suppliers must present credentials.",
+    href: "/lab/ai-agents-compliance-procurement-bots-iso-certifications",
+    date: "April 30, 2026",
+    category: "Industry Specific",
+    badge: "New",
+  },
+  {
+    title: "The Impact of OpenAI's SearchGPT on Industrial Supply Chain Visibility",
+    description: "OpenAI's SearchGPT is reshaping how B2B buyers search. Discover the implications for industrial supply chain visibility and how manufacturers must adapt.",
+    href: "/lab/impact-openai-searchgpt-industrial-supply-chain",
+    date: "April 27, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title: "How to Optimize Your Manufacturing Case Studies for AI Retrieval Systems",
+    description: "Your manufacturing case studies are invisible to AI procurement agents unless formatted correctly. Learn how to optimize problem-solution pairs for RAG systems.",
+    href: "/lab/optimize-manufacturing-case-studies-ai-retrieval",
+    date: "April 23, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title: "Zero-Click Sourcing: Why Your B2B Analytics Show Dropping Traffic but Rising Revenue",
+    description: "If your industrial website analytics show dropping traffic, it might be a positive sign. Understand how zero-click sourcing driven by AI is reshaping B2B lead generation.",
+    href: "/lab/zero-click-sourcing-b2b-analytics-dropping-traffic",
+    date: "April 20, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title: "The Death of the Traditional RFQ: How Autonomous AI Sourcing Changes the B2B Sales Cycle",
+    description: "The traditional B2B sales cycle is undergoing a seismic shift. Discover how autonomous AI sourcing systems are eliminating the traditional RFQ process in favor of real-time machine negotiation.",
+    href: "/lab/death-of-traditional-rfq-autonomous-ai-sourcing",
+    date: "April 16, 2026",
+    category: "Industry Specific",
+    badge: "New",
+  },
+  {
     title:
       "The Emergence of AI-to-AI Economies: When Procurement Agents Negotiate with Sales Bots",
     description:
