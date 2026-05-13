@@ -8,6 +8,22 @@ export const categories = [
 
 export const articles = [
   {
+    title: "OpenAI Codex vs. Anthropic Claude Code: Which AI Coding Agent Wins in 2026?",
+    description: "Choosing the right AI coding agent depends on your budget, tech stack, and level of involvement. We compare OpenAI Codex and Anthropic Claude Code to help you decide.",
+    href: "/lab/openai-codex-vs-anthropic-claude-code-comparison",
+    date: "May 13, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title: "Agentic Commerce Is Here: How Retailers Can Prepare for the New Shopping Era",
+    description: "We are entering an era where AI agents act on behalf of consumers and businesses. Learn how retailers can adapt to this fundamental shift in discovery and purchase behavior.",
+    href: "/lab/agentic-commerce-retail-new-shopping-era",
+    date: "May 4, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
     title: "AI Agents for Compliance: How Procurement Bots Verify ISO Certifications Automatically",
     description: "Explore how AI procurement bots are autonomously verifying ISO, AS9100, and ITAR compliance, cutting vendor qualification times and changing how suppliers must present credentials.",
     href: "/lab/ai-agents-compliance-procurement-bots-iso-certifications",
