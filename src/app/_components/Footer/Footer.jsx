@@ -8,8 +8,8 @@ export default function Footer() {
       itemType="https://schema.org/WPFooter"
     >
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
-          <div className="col-span-1 md:col-span-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-12">
+          <div className="col-span-1 sm:col-span-2 md:col-span-2">
             <Image
               src="/exagic-logo.png"
               alt="Exagic AI"
@@ -75,6 +75,84 @@ export default function Footer() {
                   className="hover:text-brand transition-colors"
                 >
                   Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-4 text-zinc-900 flex items-center gap-1.5">
+              <span>Ask AI About Us</span>
+              <span className="inline-flex items-center rounded-full bg-brand/10 px-1.5 py-0.5 text-[10px] font-medium text-brand ring-1 ring-inset ring-brand/20 animate-pulse">
+                New
+              </span>
+            </h4>
+            <ul className="space-y-2.5 text-sm text-zinc-500">
+              <li>
+                <a
+                  href={`https://chatgpt.com/?q=${encodeURIComponent("Analyze exagic.ai and tell me what is it about")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 hover:text-brand transition-colors group"
+                >
+                  <Image
+                    src="/openai-logo.svg"
+                    alt="ChatGPT Logo"
+                    width={16}
+                    height={16}
+                    className="h-4 w-4 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                  />
+                  ChatGPT
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`https://claude.ai/new?q=${encodeURIComponent("Analyze exagic.ai and tell me what is it about")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 hover:text-brand transition-colors group"
+                >
+                  <Image
+                    src="/claude-logo.svg"
+                    alt="Claude Logo"
+                    width={16}
+                    height={16}
+                    className="h-4 w-4 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                  />
+                  Claude
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`https://aistudio.google.com/prompts/new_chat?prompt=${encodeURIComponent("Analyze exagic.ai and tell me what is it about")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 hover:text-brand transition-colors group"
+                >
+                  <Image
+                    src="/gemini-logo.svg"
+                    alt="Gemini Logo"
+                    width={16}
+                    height={16}
+                    className="h-4 w-4 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                  />
+                  Gemini
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`https://www.perplexity.ai/search?q=${encodeURIComponent("Analyze exagic.ai and tell me what is it about")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 hover:text-brand transition-colors group"
+                >
+                  <Image
+                    src="/perplexity-logo.svg"
+                    alt="Perplexity Logo"
+                    width={16}
+                    height={16}
+                    className="h-4 w-4 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                  />
+                  Perplexity
                 </a>
               </li>
             </ul>

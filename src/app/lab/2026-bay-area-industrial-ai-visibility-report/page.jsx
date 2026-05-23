@@ -1483,10 +1483,10 @@ export default function VisibilityReportPart1() {
       </div>
 
       <div className="mt-16 text-sm text-zinc-500 flex flex-wrap gap-x-8 gap-y-4">
-        <Link href="/capabilities/aeo" className="hover:text-brand font-medium">
+        <Link href="/aeo" className="hover:text-brand font-medium">
           AEO Capabilities
         </Link>
-        <Link href="/capabilities/sro" className="hover:text-brand font-medium">
+        <Link href="/sro" className="hover:text-brand font-medium">
           SRO Capabilities
         </Link>
         <Link

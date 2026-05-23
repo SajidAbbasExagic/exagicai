@@ -1,4 +1,5 @@
 import LabArticleLayout from "@/components/LabArticleLayout";
+import Link from "next/link";
 
 export const metadata = {
   title: "What Is Grounding in AI Search and Why It Determines Who Gets Cited",
@@ -98,7 +99,11 @@ export default function GroundingArticle() {
         Retrieval-Augmented Generation (RAG). The model fetches current data
         before it writes a single word of the answer. We've seen that grounded
         responses are 4x more accurate for technical queries. If you aren't in
-        the retrieval set, you aren't in the answer.
+        the retrieval set, your site will suffer from a near-zero{" "}
+        <Link href="/lab/what-is-sro-selection-rate-optimization" className="text-brand hover:underline">
+          Selection Rate
+        </Link>
+        . If you aren't in the retrieval set, you aren't in the answer.
       </p>
 
       <h2>How Does the Grounding Process Work Step by Step?</h2>
@@ -128,11 +133,18 @@ export default function GroundingArticle() {
       <p>
         AI is expensive to run. Models only search the web when they have to. If
         you ask for a math formula, it won't trigger grounding. But if you ask
-        for a &quot;machining shop in San Leandro,&quot; it will.
+        for a {" "}
+        <Link href="/lab/precision-machining-san-leandro-ai-sourcing" className="text-brand hover:underline">
+          machining shop in San Leandro
+        </Link>
+        , it will.
       </p>
       <p>
-        This is critical for SEO. You can't influence the static training data.
-        That was decided years ago. But you can influence the grounding phase.
+        This is critical for SEO. You can't influence the static{" "}
+        <Link href="/lab/how-llms-build-brand-associations" className="text-brand hover:underline">
+          training data and model memory
+        </Link>
+        . That was decided years ago. But you can influence the grounding phase.
         Your focus should be 100% on the queries that trigger a live search.
         That's the only place your new schema or content updates matter.
       </p>
@@ -141,12 +153,19 @@ export default function GroundingArticle() {
       <p>
         First, the bot has to be able to read you. If your best data is inside a
         complex PDF, the retrieval system might skip it. We've seen that
-        converting PDF specs into HTML tables increases citation rates by 40%.
+        converting PDF specs into structured{" "}
+        <Link href="/lab/how-to-structure-technical-data-for-ai-sourcing" className="text-brand hover:underline font-medium">
+          HTML tables
+        </Link>{" "}
+        increases citation rates by 40%.
       </p>
       <p>
         Next is entity clarity. Use names and numbers. Don't say &quot;we are
-        highly certified.&quot; Say &quot;we are AS9100 certified.&quot; The
-        machine is looking for exact matches for the user's prompt.
+        highly certified.&quot; Say &quot;we are{" "}
+        <Link href="/lab/ai-agents-compliance-procurement-bots-iso-certifications" className="text-brand hover:underline font-medium">
+          AS9100 certified
+        </Link>
+        .&quot; The machine is looking for exact matches for the user's prompt.
       </p>
       <p>
         Finally, the first 150 characters are everything. Since retrieval is

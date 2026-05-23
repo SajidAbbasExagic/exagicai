@@ -2,6 +2,8 @@ export default function sitemap() {
   const baseUrl = "https://exagic.ai";
 
   const labArticles = [
+    "neil-patel-llmo-industrial-ai-seo-playbook",
+    "ai-visibility-kpi-dashboard-industrial-cmos",
     "how-ai-search-is-changing-b2b-vendor-shortlisting-2026",
     "2026-bay-area-industrial-ai-visibility-report",
     "aeo-vs-seo-industrial-brands",

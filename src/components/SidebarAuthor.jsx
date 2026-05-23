@@ -11,24 +11,24 @@ export default function SidebarAuthor() {
       <div className="flex items-center gap-4 mb-4">
         <div className="relative h-12 w-12 rounded-full overflow-hidden border-2 border-[#f06030]">
           <Image
-            src="/ai_expert_author.png"
-            alt="Alex Sterling"
+            src="/team/arthur.jpg"
+            alt="Saif K"
             fill
             className="object-cover"
           />
         </div>
         <div>
           <h4 className="text-sm font-bold text-zinc-900 leading-tight">
-            Alex Sterling
+            Saif K
           </h4>
           <p className="text-[10px] text-zinc-500 font-medium">
-            Lead AI Strategist
+            Director of Strategy
           </p>
         </div>
       </div>
       <p className="text-xs text-zinc-600 leading-relaxed line-clamp-3">
         Expert in mechanistic interpretability and AI visibility for industrial
-        global brands.
+        manufacturers and Bay Area suppliers.
       </p>
     </div>
   );

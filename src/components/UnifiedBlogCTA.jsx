@@ -24,24 +24,24 @@ export default function UnifiedBlogCTA() {
           <div className="flex flex-col md:flex-row gap-10 items-center text-center md:text-left">
             <div className="relative h-32 w-32 shrink-0 rounded-full overflow-hidden shadow-xl border-4 border-white ring-1 ring-zinc-100">
               <Image
-                src="/ai_expert_author.png"
-                alt="Alex Sterling"
+                src="/team/arthur.jpg"
+                alt="Saif K"
                 fill
                 className="object-cover scale-110"
               />
             </div>
             <div className="flex-1">
               <span className="text-[10px] font-bold text-[#f06030] uppercase tracking-[0.25em] block mb-3">
-                Knowledge Lead
+                Director of Strategy
               </span>
               <h3 className="text-3xl font-bold text-zinc-900 mb-2 tracking-tight">
-                Alex Sterling
+                Saif K
               </h3>
               <p className="text-zinc-500 font-semibold mb-4 text-xs tracking-wide">
-                Lead AI Strategist & Founder
+                Director of Strategy & Founder
               </p>
               <p className="text-zinc-600 text-[14px] leading-relaxed max-w-sm">
-                Alex specializes in bridging the gap between industrial
+                Saif specializes in bridging the gap between industrial
                 technical documentation and modern AI retrieval systems.
               </p>
             </div>

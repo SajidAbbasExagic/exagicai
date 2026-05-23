@@ -1,4 +1,5 @@
 import LabArticleLayout from "@/components/LabArticleLayout";
+import Link from "next/link";
 
 export const metadata = {
   title: "What Is Entity SEO and Why Industrial Brands Need It | Exagic AI",
@@ -81,8 +82,11 @@ export default function EntitySEOArticle() {
       <p className="lead text-xl font-medium text-zinc-900 mb-10">
         Google is no longer a search engine; it is a discovery engine. In our
         experience, the models don't care about your keywords anymore. They care
-        about who you are. If you aren't a recognized entity in the AI's
-        knowledge graph, you don't exist in the procurement phase.
+        about who you are. If you aren't a recognized entity in the AI's{" "}
+        <Link href="/lab/do-ai-systems-only-cite-you-if-youre-in-googles-entity-database" className="text-brand hover:underline">
+          knowledge graph and entity database
+        </Link>
+        , you don't exist in the procurement phase.
       </p>
 
       <h2>What Is an Entity?</h2>
@@ -95,7 +99,11 @@ export default function EntitySEOArticle() {
         AI systems parse the web to find these concepts and the relationships
         between them. They want to know that Brand A is connected to
         Certification B and Location C. We've seen that once a brand is
-        identified as a trusted entity, its citation rate increases overnight.
+        identified as a trusted entity, its{" "}
+        <Link href="/lab/what-is-sro-selection-rate-optimization" className="text-brand hover:underline">
+          selection rate and citation rate
+        </Link>{" "}
+        increases overnight.
       </p>
 
       <h2>How Entity SEO Differs from Traditional Keyword SEO</h2>
@@ -131,7 +139,10 @@ export default function EntitySEOArticle() {
             </tr>
             <tr>
               <td className="px-6 py-4 text-zinc-600">
-                Tool: keyword research
+                Tool:{" "}
+                <Link href="/lab/aeo-vs-seo-industrial-brands" className="text-brand hover:underline">
+                  keyword SEO research
+                </Link>
               </td>
               <td className="px-6 py-4 text-zinc-600">
                 Tool: entity mapping and schema markup
@@ -181,8 +192,11 @@ export default function EntitySEOArticle() {
       <h3>1. Brand Entity</h3>
       <p>
         This is your foundation. Use your legal name, founding date, and NAICS
-        codes. We suggest using Organization schema on your homepage to tell the
-        machine exactly who you are. Don't let the crawler guess.
+        codes. We suggest using{" "}
+        <Link href="/lab/how-to-structure-technical-data-for-ai-sourcing" className="text-brand hover:underline font-medium">
+          Organization schema
+        </Link>{" "}
+        on your homepage to tell the machine exactly who you are. Don't let the crawler guess.
       </p>
 
       <h3>2. Product and Service Entities</h3>
@@ -206,7 +220,11 @@ export default function EntitySEOArticle() {
         Certifications are trust signals. Don't just say you are &quot;ISO
         certified.&quot; State &quot;ISO 9001:2015.&quot; The machine treats the
         full name as a unique entity. If you use the shorthand, you miss the
-        match.
+        match. Implementing autonomous{" "}
+        <Link href="/lab/ai-agents-compliance-procurement-bots-iso-certifications" className="text-brand hover:underline font-medium">
+          compliance bot verification
+        </Link>{" "}
+        makes these certs machine-verifiable.
       </p>
 
       <h3>5. People Entities</h3>

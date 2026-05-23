@@ -147,7 +147,7 @@ export default async function LocationPage({ params }) {
                 Schedule a Call
               </Link>
               <Link
-                href="/capabilities"
+                href="/ai-seo"
                 className="text-zinc-900 text-xs sm:text-base font-bold hover:text-brand transition-colors flex items-center gap-1.5 sm:gap-2 whitespace-nowrap"
               >
                 See Our Capabilities
@@ -323,7 +323,7 @@ export default async function LocationPage({ params }) {
                   </span>
                   , generic SEO is no longer sufficient. Our specialized{" "}
                   <Link
-                    href="/capabilities/aeo"
+                    href="/aeo"
                     className="text-brand hover:underline font-medium"
                   >
                     Answer Engine Optimization (AEO)
@@ -349,7 +349,7 @@ export default async function LocationPage({ params }) {
                   models might incorrectly associate your brand with the wrong
                   physical address or region, maximizing your{" "}
                   <Link
-                    href="/capabilities/sro"
+                    href="/sro"
                     className="text-brand hover:underline font-medium"
                   >
                     Selection Rate Optimization (SRO)

@@ -8,6 +8,26 @@ export const categories = [
 
 export const articles = [
   {
+    title:
+      "Neil Patel's LLMO Playbook: What Industrial Brands Should Borrow for AI SEO",
+    description:
+      "Neil Patel's LLM optimization guidance is useful for broad marketers, but industrial brands need a stricter playbook built around technical data, citations, certifications, and procurement proof.",
+    href: "/lab/neil-patel-llmo-industrial-ai-seo-playbook",
+    date: "May 21, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title:
+      "From Keyword Rank to Citation Share: The AI Visibility KPI Dashboard Industrial CMOs Need",
+    description:
+      "Industrial marketing teams need a new dashboard for AI search. Learn how to measure citation share, prompt coverage, entity accuracy, AI referrals, and procurement shortlist visibility.",
+    href: "/lab/ai-visibility-kpi-dashboard-industrial-cmos",
+    date: "May 17, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
     title: "OpenAI Codex vs. Anthropic Claude Code: Which AI Coding Agent Wins in 2026?",
     description: "Choosing the right AI coding agent depends on your budget, tech stack, and level of involvement. We compare OpenAI Codex and Anthropic Claude Code to help you decide.",
     href: "/lab/openai-codex-vs-anthropic-claude-code-comparison",

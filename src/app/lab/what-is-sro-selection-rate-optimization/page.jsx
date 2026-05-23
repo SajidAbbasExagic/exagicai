@@ -1,4 +1,5 @@
 import LabArticleLayout from "@/components/LabArticleLayout";
+import Link from "next/link";
 
 export const metadata = {
   title:
@@ -84,11 +85,13 @@ export default function ArticlePage() {
         times but only cites you 20 times, your rate is 2%.
       </p>
       <p>
-        That is a failure of content structure, not domain authority. In
-        traditional search, you want clicks. In AI search, the AI model is the
-        only user that matters. It browses your content and decides if you are
-        trustworthy enough to name. If your data is fragmented, your selection
-        rate stays near zero.
+        That is a failure of content structure, not domain authority. In{" "}
+        <Link href="/lab/aeo-vs-seo-industrial-brands" className="text-brand hover:underline">
+          traditional search
+        </Link>
+        , you want clicks. In AI search, the AI model is the only user that matters.
+        It browses your content and decides if you are trustworthy enough to name.
+        If your data is fragmented, your selection rate stays near zero.
       </p>
 
       <h2>Why Does Selection Rate Matter for Industrial Manufacturers?</h2>
@@ -118,8 +121,11 @@ export default function ArticlePage() {
         <div className="p-8 rounded-2xl bg-zinc-50 border border-zinc-100 shadow-sm">
           <h3 className="text-xl font-bold text-zinc-900">2. Vague Entities</h3>
           <p className="mt-3 text-zinc-600 leading-relaxed">
-            Using terms like "high quality" instead of "Grade 5 Titanium." If
-            the AI cannot verify the spec, it will not cite the source.
+            Using terms like "high quality" instead of "Grade 5 Titanium." If the AI cannot verify the specific{" "}
+            <Link href="/lab/what-is-entity-seo-industrial-brands" className="text-brand hover:underline font-medium">
+              brand entities
+            </Link>{" "}
+            and specs, it will not cite the source.
           </p>
         </div>
         <div className="p-8 rounded-2xl bg-zinc-50 border border-zinc-100 shadow-sm">
@@ -127,8 +133,11 @@ export default function ArticlePage() {
             3. Extraction Friction
           </h3>
           <p className="mt-3 text-zinc-600 leading-relaxed">
-            Data trapped in scanned PDFs or images. During retrieval, the model
-            prefers clean HTML text that it can parse in milliseconds.
+            Data trapped in scanned PDFs or images. During retrieval, the model prefers{" "}
+            <Link href="/lab/how-to-structure-technical-data-for-ai-sourcing" className="text-brand hover:underline font-medium">
+              structured technical data
+            </Link>{" "}
+            and clean HTML text that it can parse in milliseconds.
           </p>
         </div>
         <div className="p-8 rounded-2xl bg-zinc-50 border border-zinc-100 shadow-sm">
@@ -143,18 +152,24 @@ export default function ArticlePage() {
       <h2>How Exagic AI Optimizes Selection Rate</h2>
       <p>
         Our process starts with a Retrieval Audit. We use tools to see exactly
-        what snippets GPT-4o and Perplexity are pulling from your site. We often
+        what grounding snippets GPT-4o and Perplexity are pulling from your site. We often
         find they are pulling the wrong paragraphs.
       </p>
       <p>
-        Next, we use Snippet Engineering. We rewrite the content blocks the AI
-        is already looking at. We inject precise numbers and material specs
+        Next, we use{" "}
+        <Link href="/lab/sro-grounding-snippets" className="text-brand hover:underline">
+          Snippet Engineering
+        </Link>
+        . We rewrite the content blocks the AI is already looking at. We inject precise numbers and material specs
         where they are most visible to the crawler. We turn your paragraphs into
         "extraction traps."
       </p>
       <p>
-        Finally, we use Entity Reinforcement. We use schema markup to prove the
-        relationship between your brand and your location. This gives the AI
+        Finally, we use{" "}
+        <Link href="/lab/what-is-entity-seo-industrial-brands" className="text-brand hover:underline">
+          Entity SEO reinforcement
+        </Link>
+        . We use schema markup to prove the relationship between your brand and your location. This gives the AI
         confidence. It stops guessing and starts citing.
       </p>
 

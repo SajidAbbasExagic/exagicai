@@ -109,7 +109,7 @@ export default function HomePage() {
           itemOffered: {
             "@type": "Service",
             name: "AI Search Engine Optimization",
-            url: "https://www.exagic.ai/capabilities",
+            url: "https://www.exagic.ai/ai-seo",
           },
         },
         {
@@ -117,7 +117,7 @@ export default function HomePage() {
           itemOffered: {
             "@type": "Service",
             name: "Answer Engine Optimization",
-            url: "https://www.exagic.ai/capabilities/aeo",
+            url: "https://www.exagic.ai/aeo",
           },
         },
         {
@@ -125,7 +125,7 @@ export default function HomePage() {
           itemOffered: {
             "@type": "Service",
             name: "Selection Rate Optimization",
-            url: "https://www.exagic.ai/capabilities/sro",
+            url: "https://www.exagic.ai/sro",
           },
         },
       ],

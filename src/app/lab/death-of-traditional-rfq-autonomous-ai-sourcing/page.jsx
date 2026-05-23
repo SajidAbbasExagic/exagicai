@@ -61,11 +61,19 @@ export default function DeathOfRFQArticle() {
       nextArticle={null}
     >
       <p className="lead text-xl font-medium text-zinc-900 mb-10">
-        For decades, the Request for Quote (RFQ) has been the heartbeat of industrial B2B sales. Today, it is rapidly becoming a relic of the past, replaced by autonomous AI sourcing agents that evaluate, negotiate, and award contracts before a human sales rep even knows a buyer is looking.
+        For decades, the Request for Quote (RFQ) has been the heartbeat of industrial B2B sales. Today, it is rapidly becoming a relic of the past, replaced by {" "}
+        <Link href="/lab/ai-agents-procurement-2027-manufacturing" className="text-brand hover:underline">
+          autonomous AI sourcing agents
+        </Link>{" "}
+        that evaluate, negotiate, and award contracts before a human sales rep even knows a buyer is looking.
       </p>
 
       <p>
-        The shift is driven by the sheer inefficiency of the traditional model. A standard complex manufacturing RFQ can take weeks to resolve, involving multiple departments, spreadsheets, and endless email chains. By contrast, AI-driven procurement pipelines resolve these same requirements in milliseconds. We are witnessing the transition from human-negotiated contracts to machine-verified execution.
+        The shift is driven by the sheer inefficiency of the traditional model. A standard complex manufacturing RFQ can take weeks to resolve, involving multiple departments, spreadsheets, and endless email chains. By contrast, {" "}
+        <Link href="/lab/ai-procurement-revolution-technical-data-new-seo" className="text-brand hover:underline font-medium">
+          AI-driven procurement pipelines
+        </Link>{" "}
+        resolve these same requirements in milliseconds. We are witnessing the transition from human-negotiated contracts to machine-verified execution.
       </p>
 
       {/* Insight Callout */}
@@ -77,7 +85,11 @@ export default function DeathOfRFQArticle() {
             The end of the PDF Spec Sheet.
           </h3>
           <p className="text-zinc-300 text-lg md:text-xl max-w-2xl leading-relaxed font-normal">
-            If your capabilities are locked in a PDF, you are invisible to the next generation of AI procurement agents. Structured data is the new currency of trust in the industrial sector.
+            If your capabilities are locked in a PDF, you are invisible to the next generation of AI procurement agents. {" "}
+            <Link href="/lab/how-to-structure-technical-data-for-ai-sourcing" className="text-brand hover:underline font-semibold">
+              Structured data
+            </Link>{" "}
+            is the new currency of trust in the industrial sector.
           </p>
         </div>
       </div>
@@ -89,7 +101,11 @@ export default function DeathOfRFQArticle() {
 
       <h2>How AI Agents Execute Sourcing</h2>
       <p>
-        Modern procurement systems, powered by advanced LLMs and multi-agent frameworks, operate on structured data. When a buyer inputs a requirement (e.g., &quot;Need 5,000 CNC machined titanium brackets, AS9100 certified, delivered to Texas by Q3&quot;), the procurement agent doesn&apos;t draft an email. It queries the web, targeting machine-readable databases of supplier capabilities.
+        Modern procurement systems, powered by advanced LLMs and multi-agent frameworks, operate on structured data. When a {" "}
+        <Link href="/lab/questions-buyers-ask-ai-finding-suppliers" className="text-brand hover:underline">
+          buyer inputs a requirement
+        </Link>{" "}
+        (e.g., &quot;Need 5,000 CNC machined titanium brackets, AS9100 certified, delivered to Texas by Q3&quot;), the procurement agent doesn&apos;t draft an email. It queries the web, targeting machine-readable databases of supplier capabilities.
       </p>
 
       <div className="overflow-x-auto my-12 border border-zinc-200 rounded-3xl not-prose shadow-sm">
@@ -128,7 +144,15 @@ export default function DeathOfRFQArticle() {
 
       <h2>The Rise of "Zero-Touch" Procurement</h2>
       <p>
-        The most aggressive tier of procurement is moving toward "Zero-Touch" systems. In these environments, an AI agent is given a budget and a set of technical constraints. It then autonomously finds the supplier, verifies their AS9100 or ISO 9001 status, checks their real-time production capacity via ERP-linked APIs, and issues a binding contract. If your sales process requires a human to "pick up the phone," you are structurally excluded from these high-velocity contracts.
+        The most aggressive tier of procurement is moving toward {" "}
+        <Link href="/lab/zero-click-sourcing-b2b-analytics-dropping-traffic" className="text-brand hover:underline">
+          Zero-Touch Sourcing
+        </Link>{" "}
+        systems. In these environments, an AI agent is given a budget and a set of technical constraints. It then autonomously finds the supplier, verifies their AS9100 or {" "}
+        <Link href="/lab/ai-agents-compliance-procurement-bots-iso-certifications" className="text-brand hover:underline font-semibold">
+          ISO 9001 status
+        </Link>
+        , checks their real-time production capacity via ERP-linked APIs, and issues a binding contract. If your sales process requires a human to "pick up the phone," you are structurally excluded from these high-velocity contracts.
       </p>
 
       {/* Internal Link Callout */}
