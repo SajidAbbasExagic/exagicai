@@ -40,3 +40,36 @@ export async function sendContactEmail(formData) {
     replyTo: email,
   });
 }
+
+export async function sendMeetingRequest({
+  name,
+  email,
+  dateLabel,
+  timeLabel,
+  timezone,
+}) {
+  if (!name?.trim() || !email?.trim() || !dateLabel || !timeLabel) {
+    return { success: false, message: "Missing required fields." };
+  }
+
+  const recipient = process.env.CONTACT_RECIPIENT_EMAIL || process.env.SMTP_USER;
+
+  const html = `
+    <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+      <h2 style="color: #000;">New Meeting Request</h2>
+      <p><strong>From:</strong> ${name} &lt;${email}&gt;</p>
+      <p><strong>Requested Date:</strong> ${dateLabel}</p>
+      <p><strong>Requested Time:</strong> ${timeLabel}</p>
+      <p><strong>Timezone:</strong> ${timezone}</p>
+      <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
+      <p style="font-size: 12px; color: #999;">Sent from Exagic.ai meeting scheduler.</p>
+    </div>
+  `;
+
+  return await sendEmail({
+    to: recipient,
+    subject: `[Meeting Request] ${name} — ${dateLabel} at ${timeLabel}`,
+    html,
+    replyTo: email,
+  });
+}

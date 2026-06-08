@@ -17,12 +17,11 @@ export default function UnifiedBlogCTA() {
   };
 
   return (
-    <div className="bg-white border border-zinc-100 rounded-[2.5rem] overflow-hidden shadow-2xl my-20">
+    <div className="my-20 overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-xl">
       <div className="flex flex-col lg:flex-row">
-        {/* Left Section: Author Bio */}
-        <div className="lg:w-[55%] p-10 md:p-14 border-b lg:border-b-0 lg:border-r border-zinc-100 flex items-center">
-          <div className="flex flex-col md:flex-row gap-10 items-center text-center md:text-left">
-            <div className="relative h-32 w-32 shrink-0 rounded-full overflow-hidden shadow-xl border-4 border-white ring-1 ring-zinc-100">
+        <div className="lg:w-[55%] flex items-center border-b border-zinc-100 p-10 md:p-12 lg:border-b-0 lg:border-r">
+          <div className="flex flex-col items-center gap-8 text-center md:flex-row md:items-center md:gap-10 md:text-left">
+            <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full border-4 border-white shadow-lg ring-1 ring-zinc-100">
               <Image
                 src="/team/arthur.jpg"
                 alt="Saif K"
@@ -31,16 +30,16 @@ export default function UnifiedBlogCTA() {
               />
             </div>
             <div className="flex-1">
-              <span className="text-[10px] font-bold text-[#f06030] uppercase tracking-[0.25em] block mb-3">
+              <span className="mb-3 block text-[10px] font-bold uppercase tracking-[0.25em] text-[#f06030]">
                 Director of Strategy
               </span>
-              <h3 className="text-3xl font-bold text-zinc-900 mb-2 tracking-tight">
+              <h3 className="mb-2 text-3xl font-bold tracking-tight text-zinc-900">
                 Saif K
               </h3>
-              <p className="text-zinc-500 font-semibold mb-4 text-xs tracking-wide">
+              <p className="mb-4 text-xs font-semibold tracking-wide text-zinc-500">
                 Director of Strategy & Founder
               </p>
-              <p className="text-zinc-600 text-[14px] leading-relaxed max-w-sm">
+              <p className="max-w-sm text-[14px] leading-relaxed text-zinc-600">
                 Saif specializes in bridging the gap between industrial
                 technical documentation and modern AI retrieval systems.
               </p>
@@ -48,14 +47,13 @@ export default function UnifiedBlogCTA() {
           </div>
         </div>
 
-        {/* Right Section: Conversion CTA */}
-        <div className="lg:w-[45%] bg-[#f06030] p-10 md:p-14 flex flex-col justify-center text-white relative">
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 pointer-events-none"></div>
+        <div className="relative flex flex-col justify-center bg-[#f06030] p-10 md:p-12 lg:w-[45%] text-white">
+          <div className="pointer-events-none absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10" />
           <div className="relative z-10">
-            <h4 className="text-2xl font-bold leading-[1.2] mb-4 text-center">
+            <h4 className="mb-4 text-center text-2xl font-bold leading-[1.2]">
               Boost Your <br /> AI Visibility
             </h4>
-            <p className="text-[13px] mb-8 opacity-90 leading-relaxed text-center max-w-[280px] mx-auto">
+            <p className="mx-auto mb-8 max-w-[280px] text-center text-[13px] leading-relaxed opacity-90">
               Get a free audit of how ChatGPT and Perplexity perceive your
               brand.
             </p>
@@ -66,11 +64,11 @@ export default function UnifiedBlogCTA() {
                 placeholder="WWW.YOURDOMAIN.COM"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
-                className="w-full px-5 py-4 rounded-xl bg-white text-zinc-900 text-xs font-bold focus:outline-none placeholder:text-zinc-400 shadow-sm border border-white/20"
+                className="w-full rounded-xl border border-white/20 bg-white px-5 py-4 text-xs font-bold text-zinc-900 shadow-sm placeholder:text-zinc-400 focus:outline-none"
               />
               <button
                 onClick={handleContinue}
-                className="w-full bg-[#1b63da] py-4 rounded-xl text-xs font-black tracking-[0.15em] hover:bg-blue-700 transition-all shadow-[0_8px_20px_rgba(27,99,218,0.3)] active:scale-[0.97]"
+                className="w-full rounded-xl bg-[#1b63da] py-4 text-xs font-black tracking-[0.15em] shadow-[0_8px_20px_rgba(27,99,218,0.3)] transition-all hover:bg-blue-700 active:scale-[0.97]"
               >
                 CONTINUE
               </button>

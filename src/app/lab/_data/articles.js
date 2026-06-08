@@ -9,6 +9,56 @@ export const categories = [
 export const articles = [
   {
     title:
+      "You Can Rank #1 and Still Lose the AI Shortlist: The Rankings-vs-Citations Split for Manufacturers",
+    description:
+      "19% of marketers chase rankings only—a GEO mistake. Learn why industrial brands can rank #1 on Google and still lose the ChatGPT procurement shortlist.",
+    href: "/lab/chasing-rankings-losing-ai-citations-manufacturers",
+    date: "June 8, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title:
+      "Beyond Google: How Bay Area Manufacturers Diversify Visibility Across AI Search Channels",
+    description:
+      "37% of marketers fail to diversify traffic sources. A channel map for Bay Area manufacturers building visibility in ChatGPT, Perplexity, directories, and AI referrals.",
+    href: "/lab/beyond-google-traffic-diversification-bay-area-manufacturers",
+    date: "June 5, 2026",
+    category: "Location Specific",
+    badge: "New",
+  },
+  {
+    title:
+      "Why Mass AI Content Fails Industrial GEO—and What Evidence-Based Publishing Looks Like",
+    description:
+      "38% cite mass AI-generated content as a top GEO mistake. What evidence-based publishing looks like for manufacturers who need citations, not word count.",
+    href: "/lab/mass-ai-content-poisoning-industrial-geo",
+    date: "June 2, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title:
+      "Build Authority Before You Scale Content: Neil Patel's GEO Rule for Industrial Brands",
+    description:
+      "Neil Patel's GEO research: top mistakes chase volume over trust. The authority-first sequence industrial manufacturers need before scaling content.",
+    href: "/lab/build-authority-before-scaling-industrial-geo",
+    date: "May 29, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title:
+      "Why ChatGPT Doesn't Recommend Your Manufacturing Brand: The 7 GEO Mistakes Industrial Companies Make",
+    description:
+      "Neil Patel's NP Digital research names seven GEO mistakes killing AI visibility. Here is how each one shows up in industrial manufacturing—and the fix order that works.",
+    href: "/lab/why-chatgpt-doesnt-recommend-manufacturers-seven-geo-mistakes",
+    date: "May 25, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title:
       "Neil Patel's LLMO Playbook: What Industrial Brands Should Borrow for AI SEO",
     description:
       "Neil Patel's LLM optimization guidance is useful for broad marketers, but industrial brands need a stricter playbook built around technical data, citations, certifications, and procurement proof.",

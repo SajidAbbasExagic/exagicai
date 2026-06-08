@@ -67,7 +67,11 @@ export default function NeilPatelLLMOIndustrialPlaybook() {
         title: "From Keyword Rank to Citation Share: The AI Visibility KPI Dashboard Industrial CMOs Need",
         href: "/lab/ai-visibility-kpi-dashboard-industrial-cmos",
       }}
-      nextArticle={null}
+      nextArticle={{
+        title:
+          "Why ChatGPT Doesn't Recommend Your Manufacturing Brand: The 7 GEO Mistakes Industrial Companies Make",
+        href: "/lab/why-chatgpt-doesnt-recommend-manufacturers-seven-geo-mistakes",
+      }}
     >
       <p className="lead text-xl font-medium text-zinc-900 mb-10">
         Neil Patel's recent writing around generative AI search and LLM
