@@ -4,27 +4,56 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Validate VPS secrets
+        run: |
+          missing=0
+          if [ -z "${{ secrets.VPS_HOST }}" ]; then
+            echo "::error::Missing GitHub secret: VPS_HOST"
+            missing=1
+          fi
+          if [ -z "${{ secrets.VPS_USER }}" ]; then
+            echo "::error::Missing GitHub secret: VPS_USER"
+            missing=1
+          fi
+          if [ -z "${{ secrets.VPS_SSH_KEY }}" ]; then
+            echo "::error::Missing GitHub secret: VPS_SSH_KEY"
+            missing=1
+          fi
+          if [ "$missing" -eq 1 ]; then
+            echo "::error::VPS deploy cannot run until secrets are configured in repo Settings > Secrets and variables > Actions"
+            exit 1
+          fi
+
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Deploy to VPS via SSH
-        uses: appleboy/ssh-action@v1.0.0
+        uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          port: ${{ secrets.VPS_PORT }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          command_timeout: 30m
+          script_stop: true
           script: |
-              cd /home/exagic.ai/public_html
-              git fetch origin
-              git reset --hard origin/main
-              rm -rf .next
-              npm install
-              npm run build
-              pm2 restart exagic
+            set -e
+            cd /home/exagic.ai/public_html
+            echo "==> Fetching latest main"
+            git fetch origin
+            git reset --hard origin/main
+            echo "==> Installing dependencies"
+            npm ci || npm install
+            echo "==> Building"
+            rm -rf .next
+            npm run build
+            echo "==> Restarting app"
+            pm2 restart exagic || pm2 start npm --name exagic -- start
+            echo "==> Deploy complete"
