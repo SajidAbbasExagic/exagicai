@@ -55,6 +55,7 @@ export default function ArticlePage() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="The Rise of AI Traffic: Which LLM Is Sending the Most Visitors to Your Website?"
       metaTitle="The Rise of AI Traffic: Which LLM Is Sending the Most Visitors? | Exagic AI"
       metaDescription="ChatGPT, Gemini, Perplexity, Claude — AI referral traffic is growing exponentially. Here's what the latest data shows and what it means for your traffic strategy in 2026."

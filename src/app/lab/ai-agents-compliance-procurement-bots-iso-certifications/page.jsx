@@ -48,6 +48,7 @@ export default function AIComplianceBotsArticle() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="AI Agents for Compliance: How Procurement Bots Verify ISO Certifications Automatically"
       metaTitle="AI Procurement Bots & ISO Compliance Verification | Exagic AI"
       metaDescription="Explore how AI procurement bots verify ISO, AS9100, and ITAR compliance automatically and what manufacturers must do to remain compliant-visible."

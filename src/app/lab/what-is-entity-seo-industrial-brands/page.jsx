@@ -59,6 +59,7 @@ export default function EntitySEOArticle() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="What Is Entity SEO and Why Industrial Brands Need It for AI Visibility"
       metaTitle="What Is Entity SEO and Why Industrial Brands Need It | Exagic AI"
       metaDescription="Entity SEO is the practice of defining your brand, products, and services as named, verifiable entities that AI systems can understand and cite. Here is how it works for industrial companies."

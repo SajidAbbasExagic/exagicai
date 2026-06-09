@@ -60,6 +60,7 @@ export default function QuestionsBuyersAskArticle() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="The Exact Questions Industrial Buyers Ask AI When Finding Suppliers and How to Answer Them"
       metaTitle="The Exact Questions Industrial Buyers Ask AI | Exagic AI"
       metaDescription="Industrial procurement teams ask AI highly specific questions when finding suppliers. Here are the most common query patterns and how suppliers can structure content to answer them directly."

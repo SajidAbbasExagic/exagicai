@@ -41,6 +41,7 @@ export default function AnthropicInstituteArticle() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="Anthropic Just Created a Dedicated Institute to Study What Powerful AI Does to Society"
       metaTitle="Anthropic Institute: Studying Powerful AI's Societal Impact | Exagic AI"
       metaDescription="Anthropic launched The Anthropic Institute to publicly report what building powerful AI models is teaching them about the world."

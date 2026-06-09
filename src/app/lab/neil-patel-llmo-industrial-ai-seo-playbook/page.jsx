@@ -54,6 +54,7 @@ export default function NeilPatelLLMOIndustrialPlaybook() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="Neil Patel's LLMO Playbook: What Industrial Brands Should Borrow for AI SEO"
       metaTitle="Neil Patel's LLMO Playbook for Industrial AI SEO | Exagic AI"
       metaDescription="A practical industrial interpretation of Neil Patel's LLM optimization guidance, with real-world AI search data and a stricter framework for manufacturers and suppliers."

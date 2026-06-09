@@ -60,6 +60,7 @@ export default function GroundingArticle() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="What Is Grounding in AI Search and Why It Determines Who Gets Cited"
       metaTitle="What Is Grounding in AI Search and Why It Determines Who Gets Cited | Exagic AI"
       metaDescription="Grounding is the process by which AI systems retrieve external sources to support their answers. Understanding it is the foundation of every effective AI SEO strategy."

@@ -61,6 +61,7 @@ export default function PharmaArticle() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="AI Procurement in Pharmaceutical Manufacturing: How GMP Suppliers Get Found"
       metaTitle="AI Procurement in Pharmaceutical Manufacturing | Exagic AI"
       metaDescription="GMP-compliant suppliers, contract manufacturers, and life sciences service providers need AI-optimized content to be found by pharmaceutical procurement teams using AI tools."

@@ -58,6 +58,7 @@ export default function AIShortlistingArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="How AI Search is Changing B2B Industrial Vendor Shortlisting in 2026"
       metaTitle="How AI Search is Changing B2B Industrial Vendor Shortlisting in 2026 | Exagic AI"
       metaDescription="B2B buyers are increasingly using conversational AI to shortlist vendors. Discover why traditional SEO is failing industrial manufacturers and how to adapt your content strategy for AI procurement tools."

@@ -3,10 +3,12 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { getAuthor } from "@/app/lab/_data/authors";
 
-export default function UnifiedBlogCTA() {
+export default function UnifiedBlogCTA({ authorId = "saif" }) {
   const router = useRouter();
   const [url, setUrl] = useState("");
+  const author = getAuthor(authorId);
 
   const handleContinue = () => {
     if (url) {
@@ -23,25 +25,24 @@ export default function UnifiedBlogCTA() {
           <div className="flex flex-col items-center gap-8 text-center md:flex-row md:items-center md:gap-10 md:text-left">
             <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full border-4 border-white shadow-lg ring-1 ring-zinc-100">
               <Image
-                src="/team/arthur.jpg"
-                alt="Saif K"
+                src={author.image}
+                alt={author.name}
                 fill
                 className="object-cover scale-110"
               />
             </div>
             <div className="flex-1">
               <span className="mb-3 block text-[10px] font-bold uppercase tracking-[0.25em] text-[#f06030]">
-                Director of Strategy
+                {author.ctaTitle}
               </span>
               <h3 className="mb-2 text-3xl font-bold tracking-tight text-zinc-900">
-                Saif K
+                {author.name}
               </h3>
               <p className="mb-4 text-xs font-semibold tracking-wide text-zinc-500">
-                Director of Strategy & Founder
+                {author.ctaSubtitle}
               </p>
               <p className="max-w-sm text-[14px] leading-relaxed text-zinc-600">
-                Saif specializes in bridging the gap between industrial
-                technical documentation and modern AI retrieval systems.
+                {author.ctaBio}
               </p>
             </div>
           </div>

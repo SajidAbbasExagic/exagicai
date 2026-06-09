@@ -13,6 +13,7 @@ export const articles = [
     description:
       "19% of marketers chase rankings only—a GEO mistake. Learn why industrial brands can rank #1 on Google and still lose the ChatGPT procurement shortlist.",
     href: "/lab/chasing-rankings-losing-ai-citations-manufacturers",
+    authorId: "saif",
     date: "June 8, 2026",
     category: "AI SEO Education",
     badge: "New",
@@ -23,6 +24,7 @@ export const articles = [
     description:
       "37% of marketers fail to diversify traffic sources. A channel map for Bay Area manufacturers building visibility in ChatGPT, Perplexity, directories, and AI referrals.",
     href: "/lab/beyond-google-traffic-diversification-bay-area-manufacturers",
+    authorId: "muqaddas",
     date: "June 5, 2026",
     category: "Location Specific",
     badge: "New",
@@ -33,6 +35,7 @@ export const articles = [
     description:
       "38% cite mass AI-generated content as a top GEO mistake. What evidence-based publishing looks like for manufacturers who need citations, not word count.",
     href: "/lab/mass-ai-content-poisoning-industrial-geo",
+    authorId: "saif",
     date: "June 2, 2026",
     category: "AI SEO Education",
     badge: "New",
@@ -43,6 +46,7 @@ export const articles = [
     description:
       "Neil Patel's GEO research: top mistakes chase volume over trust. The authority-first sequence industrial manufacturers need before scaling content.",
     href: "/lab/build-authority-before-scaling-industrial-geo",
+    authorId: "saif",
     date: "May 29, 2026",
     category: "AI SEO Education",
     badge: "New",
@@ -53,6 +57,7 @@ export const articles = [
     description:
       "Neil Patel's NP Digital research names seven GEO mistakes killing AI visibility. Here is how each one shows up in industrial manufacturing—and the fix order that works.",
     href: "/lab/why-chatgpt-doesnt-recommend-manufacturers-seven-geo-mistakes",
+    authorId: "saif",
     date: "May 25, 2026",
     category: "AI SEO Education",
     badge: "New",
@@ -63,6 +68,7 @@ export const articles = [
     description:
       "Neil Patel's LLM optimization guidance is useful for broad marketers, but industrial brands need a stricter playbook built around technical data, citations, certifications, and procurement proof.",
     href: "/lab/neil-patel-llmo-industrial-ai-seo-playbook",
+    authorId: "muqaddas",
     date: "May 21, 2026",
     category: "AI SEO Education",
     badge: "New",
@@ -73,6 +79,7 @@ export const articles = [
     description:
       "Industrial marketing teams need a new dashboard for AI search. Learn how to measure citation share, prompt coverage, entity accuracy, AI referrals, and procurement shortlist visibility.",
     href: "/lab/ai-visibility-kpi-dashboard-industrial-cmos",
+    authorId: "saif",
     date: "May 17, 2026",
     category: "AI SEO Education",
     badge: "New",
@@ -81,6 +88,7 @@ export const articles = [
     title: "OpenAI Codex vs. Anthropic Claude Code: Which AI Coding Agent Wins in 2026?",
     description: "Choosing the right AI coding agent depends on your budget, tech stack, and level of involvement. We compare OpenAI Codex and Anthropic Claude Code to help you decide.",
     href: "/lab/openai-codex-vs-anthropic-claude-code-comparison",
+    authorId: "muqaddas",
     date: "May 13, 2026",
     category: "AI SEO Education",
     badge: "New",
@@ -89,6 +97,7 @@ export const articles = [
     title: "Agentic Commerce Is Here: How Retailers Can Prepare for the New Shopping Era",
     description: "We are entering an era where AI agents act on behalf of consumers and businesses. Learn how retailers can adapt to this fundamental shift in discovery and purchase behavior.",
     href: "/lab/agentic-commerce-retail-new-shopping-era",
+    authorId: "saif",
     date: "May 4, 2026",
     category: "AI SEO Education",
     badge: "New",
@@ -97,6 +106,7 @@ export const articles = [
     title: "AI Agents for Compliance: How Procurement Bots Verify ISO Certifications Automatically",
     description: "Explore how AI procurement bots are autonomously verifying ISO, AS9100, and ITAR compliance, cutting vendor qualification times and changing how suppliers must present credentials.",
     href: "/lab/ai-agents-compliance-procurement-bots-iso-certifications",
+    authorId: "muqaddas",
     date: "April 30, 2026",
     category: "Industry Specific",
     badge: "New",
@@ -105,6 +115,7 @@ export const articles = [
     title: "The Impact of OpenAI's SearchGPT on Industrial Supply Chain Visibility",
     description: "OpenAI's SearchGPT is reshaping how B2B buyers search. Discover the implications for industrial supply chain visibility and how manufacturers must adapt.",
     href: "/lab/impact-openai-searchgpt-industrial-supply-chain",
+    authorId: "saif",
     date: "April 27, 2026",
     category: "AI SEO Education",
     badge: "New",
@@ -113,6 +124,7 @@ export const articles = [
     title: "How to Optimize Your Manufacturing Case Studies for AI Retrieval Systems",
     description: "Your manufacturing case studies are invisible to AI procurement agents unless formatted correctly. Learn how to optimize problem-solution pairs for RAG systems.",
     href: "/lab/optimize-manufacturing-case-studies-ai-retrieval",
+    authorId: "muqaddas",
     date: "April 23, 2026",
     category: "AI SEO Education",
     badge: "New",
@@ -121,6 +133,7 @@ export const articles = [
     title: "Zero-Click Sourcing: Why Your B2B Analytics Show Dropping Traffic but Rising Revenue",
     description: "If your industrial website analytics show dropping traffic, it might be a positive sign. Understand how zero-click sourcing driven by AI is reshaping B2B lead generation.",
     href: "/lab/zero-click-sourcing-b2b-analytics-dropping-traffic",
+    authorId: "saif",
     date: "April 20, 2026",
     category: "AI SEO Education",
     badge: "New",
@@ -129,6 +142,7 @@ export const articles = [
     title: "The Death of the Traditional RFQ: How Autonomous AI Sourcing Changes the B2B Sales Cycle",
     description: "The traditional B2B sales cycle is undergoing a seismic shift. Discover how autonomous AI sourcing systems are eliminating the traditional RFQ process in favor of real-time machine negotiation.",
     href: "/lab/death-of-traditional-rfq-autonomous-ai-sourcing",
+    authorId: "muqaddas",
     date: "April 16, 2026",
     category: "Industry Specific",
     badge: "New",
@@ -139,6 +153,7 @@ export const articles = [
     description:
       "The next phase of industrial commerce isn't human-to-human. It's machine-to-machine. Explore the rise of autonomous negotiation and what it means for B2B complexity.",
     href: "/lab/emergence-ai-to-ai-economies-procurement-agents-sales-bots",
+    authorId: "saif",
     date: "April 13, 2026",
     category: "Industry Specific",
     badge: "New",
@@ -149,6 +164,7 @@ export const articles = [
     description:
       "As AI agents take over supplier shortlisting, the focus shifts from keywords to structured technical data. Learn how to ensure your manufacturing capabilities are machine-readable.",
     href: "/lab/ai-procurement-revolution-technical-data-new-seo",
+    authorId: "muqaddas",
     date: "April 10, 2026",
     category: "Industry Specific",
     badge: "New",
@@ -157,6 +173,7 @@ export const articles = [
     title: "How AI Search is Changing B2B Industrial Vendor Shortlisting in 2026",
     description: "B2B buyers are increasingly using conversational AI to shortlist vendors. Discover why traditional SEO is failing industrial manufacturers and how to adapt your content strategy for AI procurement tools.",
     href: "/lab/how-ai-search-is-changing-b2b-vendor-shortlisting-2026",
+    authorId: "saif",
     date: "April 8, 2026",
     category: "AI SEO Education",
   },
@@ -166,6 +183,7 @@ export const articles = [
     description:
       "Roughly 60% of Google searches now end without a click — the answer appears directly on the page. For industrial manufacturers, this is an existential threat.",
     href: "/lab/60-percent-searches-zero-click-industrial-existential-threat",
+    authorId: "muqaddas",
     date: "March 31, 2026",
     category: "AI SEO Education",
   },
@@ -174,6 +192,7 @@ export const articles = [
     description:
       "In recent months, a claim has circulated widely: 'AI will only cite you if you’re in Google’s entity database.' We evaluate this claim by explaining how AI models actually select sources.",
     href: "/lab/do-ai-systems-only-cite-you-if-youre-in-googles-entity-database",
+    authorId: "muqaddas",
     date: "March 25, 2026",
     category: "AI SEO Education",
   },
@@ -181,6 +200,7 @@ export const articles = [
     title: "The Rise of AI Traffic: Which LLM Is Sending the Most Visitors to Your Website?",
     description: "ChatGPT, Gemini, Perplexity, Claude — AI referral traffic is growing exponentially. Here's what the latest data shows and what it means for your traffic strategy in 2026.",
     href: "/lab/rise-of-ai-referral-traffic",
+    authorId: "muqaddas",
     date: "March 19, 2026",
     category: "AI SEO Education",
     badge: "New",
@@ -190,6 +210,7 @@ export const articles = [
     description:
       "AI may be built in America, but the world is adopting it faster. Here's what the latest AI adoption data reveals — and how businesses can act on it.",
     href: "/lab/ai-adoption-by-country",
+    authorId: "saif",
     date: "March 19, 2026",
     category: "AI SEO Education",
   },
@@ -198,6 +219,7 @@ export const articles = [
     description:
       "Anthropic launched The Anthropic Institute to publicly report what building powerful AI models is teaching them about the world.",
     href: "/lab/anthropic-institute-ai-society",
+    authorId: "saif",
     date: "March 12, 2026",
     category: "AI SEO Education",
     badge: "New",
@@ -207,6 +229,7 @@ export const articles = [
     description:
       "New research into the Gemini grounding pipeline reveals the exact mechanics of Selection Rate Optimization (SRO). Learn the rules of the 2,000-word budget and extractive summarization.",
     href: "/lab/sro-grounding-snippets",
+    authorId: "saif",
     date: "March 9, 2026",
     category: "AI SEO Education",
   },
@@ -216,6 +239,7 @@ export const articles = [
     description:
       "By 2027, autonomous AI agents will handle supplier discovery, qualification, and shortlisting for manufacturing, production, and wholesale buyers. Most industrial brands are not ready.",
     href: "/lab/ai-agents-procurement-2027-manufacturing",
+    authorId: "muqaddas",
     date: "March 4, 2026",
     category: "Industry Specific",
   },
@@ -224,6 +248,7 @@ export const articles = [
     description:
       "Original research by Exagic AI assessing the AI retrieval readiness of 50 industrial manufacturers across the I-880 corridor. 18% are completely invisible to AI procurement agents.",
     href: "/lab/2026-bay-area-industrial-ai-visibility-report",
+    authorId: "muqaddas",
     date: "February 25, 2026",
     category: "Location Specific",
     badge: "Research Report",
@@ -235,6 +260,7 @@ export const articles = [
     description:
       "Grounding is the process by which AI systems retrieve external sources to support their answers. Understanding it is the foundation of every effective AI SEO strategy.",
     href: "/lab/what-is-grounding-in-ai-search",
+    authorId: "muqaddas",
     date: "February 15, 2026",
     category: "AI SEO Education",
   },
@@ -244,6 +270,7 @@ export const articles = [
     description:
       "LLMs build associations between brands and concepts during training. Understanding this process is essential for industrial companies that want AI systems to represent them accurately.",
     href: "/lab/how-llms-build-brand-associations",
+    authorId: "saif",
     date: "February 5, 2026",
     category: "AI SEO Education",
   },
@@ -253,6 +280,7 @@ export const articles = [
     description:
       "Entity SEO is the practice of defining your brand, products, and services as named, verifiable entities that AI systems can understand and cite.",
     href: "/lab/what-is-entity-seo-industrial-brands",
+    authorId: "saif",
     date: "January 25, 2026",
     category: "AI SEO Education",
   },
@@ -262,6 +290,7 @@ export const articles = [
     description:
       "Google's AI Overviews and AI Mode are changing how industrial buyers find suppliers. Here is how they work and what manufacturers must do to appear.",
     href: "/lab/ai-overviews-industrial-procurement",
+    authorId: "saif",
     date: "January 18, 2026",
     category: "AI SEO Education",
   },
@@ -271,6 +300,7 @@ export const articles = [
     description:
       "Aerospace and defense procurement teams use AI to pre-screen suppliers for AS9100, ITAR, and NADCAP qualifications.",
     href: "/lab/ai-procurement-aerospace-defense-bay-area",
+    authorId: "muqaddas",
     date: "January 12, 2026",
     category: "Industry Specific",
   },
@@ -280,6 +310,7 @@ export const articles = [
     description:
       "Semiconductor equipment suppliers and specialty chemical vendors serving Silicon Valley fabs need AI-optimized content for procurement visibility.",
     href: "/lab/ai-procurement-semiconductor-supply-chain",
+    authorId: "saif",
     date: "January 5, 2026",
     category: "Industry Specific",
   },
@@ -289,6 +320,7 @@ export const articles = [
     description:
       "GMP-compliant suppliers and life sciences service providers need AI-optimized content to be found by pharmaceutical procurement teams.",
     href: "/lab/ai-procurement-pharmaceutical-manufacturing",
+    authorId: "saif",
     date: "December 25, 2025",
     category: "Industry Specific",
   },
@@ -298,6 +330,7 @@ export const articles = [
     description:
       "EHS consultants and safety equipment suppliers serving Bay Area manufacturers need AI-optimized content to be found by safety procurement teams.",
     href: "/lab/ai-search-industrial-safety-compliance-suppliers",
+    authorId: "saif",
     date: "December 15, 2025",
     category: "Industry Specific",
   },
@@ -307,6 +340,7 @@ export const articles = [
     description:
       "Suppliers serving Silicon Valley tech manufacturers face AI procurement tools that evaluate vendors on specification-driven criteria.",
     href: "/lab/silicon-valley-supply-chain-ai-visibility",
+    authorId: "muqaddas",
     date: "December 5, 2025",
     category: "Location Specific",
   },
@@ -316,6 +350,7 @@ export const articles = [
     description:
       "Manufacturers and industrial suppliers in Oakland, Hayward, Newark, and Union City face AI procurement gaps.",
     href: "/lab/east-bay-industrial-corridor-ai-seo",
+    authorId: "saif",
     date: "November 25, 2025",
     category: "Location Specific",
   },
@@ -325,6 +360,7 @@ export const articles = [
     description:
       "Industrial procurement teams ask AI highly specific questions when finding suppliers. Here are the most common query patterns.",
     href: "/lab/questions-buyers-ask-ai-finding-suppliers",
+    authorId: "saif",
     date: "November 15, 2025",
     category: "Q&A",
   },
@@ -334,6 +370,7 @@ export const articles = [
     description:
       "Industrial buyers query AI with specific intent. Understanding what they want from AI-generated answers determines what content you need.",
     href: "/lab/what-industrial-buyers-want-ai-answers",
+    authorId: "saif",
     date: "November 5, 2025",
     category: "Q&A",
   },
@@ -343,6 +380,7 @@ export const articles = [
     description:
       "Why comprehensive FAQ strategy is critical for AI SEO, AEO, and getting Bay Area industrial brands cited by AI sourcing agents.",
     href: "/lab/qa-engine-playbook-industrial-faq",
+    authorId: "muqaddas",
     date: "October 28, 2025",
     category: "Q&A",
   },
@@ -351,6 +389,7 @@ export const articles = [
     description:
       "How to use Schema.org, JSON-LD, and clear data architecture to ensure AI sourcing tools read your industrial catalogs.",
     href: "/lab/how-to-structure-technical-data-for-ai-sourcing",
+    authorId: "saif",
     date: "October 20, 2025",
     category: "AI SEO Education",
   },
@@ -360,6 +399,7 @@ export const articles = [
     description:
       "How hardware startups in Silicon Valley and San Jose can use AI SEO and entity structures to bypass legacy manufacturers.",
     href: "/lab/ai-seo-silicon-valley-hardware-startups",
+    authorId: "saif",
     date: "October 12, 2025",
     category: "Location Specific",
   },
@@ -369,6 +409,7 @@ export const articles = [
     description:
       "How machine shops and precision fabricators in San Leandro and the East Bay can get cited by AI procurement.",
     href: "/lab/precision-machining-san-leandro-ai-sourcing",
+    authorId: "saif",
     date: "October 5, 2025",
     category: "Location Specific",
   },
@@ -378,6 +419,7 @@ export const articles = [
     description:
       "Why procurement teams are querying ChatGPT and Perplexity before Google and what SF Bay Area suppliers must do.",
     href: "/lab/ai-search-industrial-suppliers-sf-bay-area",
+    authorId: "muqaddas",
     date: "September 25, 2025",
     category: "AI SEO Education",
   },
@@ -387,6 +429,7 @@ export const articles = [
     description:
       "A practical guide to SRO, the AI-native discipline that determines whether your content gets cited or ignored.",
     href: "/lab/what-is-sro-selection-rate-optimization",
+    authorId: "saif",
     date: "September 15, 2025",
     category: "AI SEO Education",
   },
@@ -396,6 +439,7 @@ export const articles = [
     description:
       "Most East Bay manufacturers have qualified capabilities but structurally broken content. Here is how to fix it.",
     href: "/lab/east-bay-manufacturers-invisible-ai-search",
+    authorId: "saif",
     date: "September 5, 2025",
     category: "Location Specific",
   },
@@ -405,6 +449,7 @@ export const articles = [
     description:
       "A clear breakdown of how Answer Engine Optimization differs from traditional SEO and why you need both.",
     href: "/lab/aeo-vs-seo-industrial-brands",
+    authorId: "saif",
     date: "August 25, 2025",
     category: "AI SEO Education",
   },
@@ -413,6 +458,7 @@ export const articles = [
     description:
       "How freight forwarders, 3PL operators, and logistics providers at the Port of Oakland can become the supplier AI procurement tools cite.",
     href: "/lab/ai-search-port-of-oakland-freight-suppliers",
+    authorId: "muqaddas",
     date: "August 15, 2025",
     category: "Location Specific",
   },
@@ -421,6 +467,7 @@ export const articles = [
     description:
       "How refinery vendors serving Chevron Richmond and Valero Benicia can build AI citation authority.",
     href: "/lab/ai-search-richmond-refinery-chemical-suppliers",
+    authorId: "saif",
     date: "August 5, 2025",
     category: "Location Specific",
   },
@@ -429,6 +476,7 @@ export const articles = [
     description:
       "How Tesla supply chain vendors and San Jose aerospace manufacturers can become AI-citable.",
     href: "/lab/ai-search-fremont-san-jose-manufacturing-suppliers",
+    authorId: "saif",
     date: "July 26, 2025",
     category: "Location Specific",
   },
@@ -437,6 +485,7 @@ export const articles = [
     description:
       "How life sciences suppliers serving the South SF biotech corridor can build AI visibility.",
     href: "/lab/ai-search-south-san-francisco-biotech-suppliers",
+    authorId: "saif",
     date: "July 18, 2025",
     category: "Location Specific",
   },
@@ -445,6 +494,7 @@ export const articles = [
     description:
       "How Vallejo's post-Mare Island defense industrial base can build AI citation authority.",
     href: "/lab/ai-search-vallejo-defense-maritime-suppliers",
+    authorId: "muqaddas",
     date: "July 10, 2025",
     category: "Location Specific",
   },

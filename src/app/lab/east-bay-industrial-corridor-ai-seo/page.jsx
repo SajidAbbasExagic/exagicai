@@ -60,6 +60,7 @@ export default function EastBayArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="The East Bay Industrial Corridor: AI SEO for Manufacturers in Oakland, Hayward, and Union City"
       metaTitle="The East Bay Industrial Corridor AI SEO | Exagic AI"
       metaDescription="Manufacturers and industrial suppliers in Oakland, Hayward, Newark, and Union City face AI procurement gaps. Here is how East Bay industrial companies build AI citation authority."

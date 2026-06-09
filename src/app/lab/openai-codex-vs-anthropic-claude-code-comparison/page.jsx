@@ -49,6 +49,7 @@ export default function AIComparisonArticle() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="OpenAI Codex vs. Anthropic Claude Code: Which AI Coding Agent Wins in 2026?"
       metaTitle="OpenAI Codex vs. Anthropic Claude Code Comparison | Exagic AI"
       metaDescription="A detailed comparison of OpenAI Codex and Anthropic Claude Code. Discover which AI coding agent is right for your tech stack, budget, and workflow."

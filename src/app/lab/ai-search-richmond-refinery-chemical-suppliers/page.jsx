@@ -56,6 +56,7 @@ export default function ArticlePage() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="AI Procurement in the Richmond-Benicia Corridor"
       metaTitle="AI Procurement and the Richmond-Benicia Corridor | Exagic AI"
       metaDescription="How refinery and chemical suppliers in Richmond and Benicia get found by AI procurement tools."

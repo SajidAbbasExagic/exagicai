@@ -103,6 +103,7 @@ export default function VisibilityReportPart1() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="The 2026 Bay Area Industrial AI Visibility Report"
       metaTitle="The 2026 Bay Area Industrial AI Visibility Report | Exagic AI"
       metaDescription="Exagic AI analyzed 50 industrial manufacturers across Oakland, San Leandro, Fremont, and Hayward to assess their AI retrieval readiness. 18% are completely invisible to AI procurement agents."

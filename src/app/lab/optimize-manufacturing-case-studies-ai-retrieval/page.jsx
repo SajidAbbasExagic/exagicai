@@ -48,6 +48,7 @@ export default function OptimizeCaseStudiesArticle() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="How to Optimize Your Manufacturing Case Studies for AI Retrieval Systems"
       metaTitle="Optimize Manufacturing Case Studies for AI Retrieval | Exagic AI"
       metaDescription="Learn how to format manufacturing case studies with structured data so AI procurement systems can read and cite them."

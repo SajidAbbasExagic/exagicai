@@ -61,6 +61,7 @@ export default function SafetyArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="AI Search for Industrial Safety and EHS Suppliers in the SF Bay Area"
       metaTitle="AI Search for Industrial Safety and EHS Suppliers | Exagic AI"
       metaDescription="EHS consultants, safety equipment suppliers, and industrial hygiene services serving Bay Area manufacturers need AI-optimized content to be found by safety procurement teams."

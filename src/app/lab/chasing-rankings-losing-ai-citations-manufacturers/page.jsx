@@ -52,6 +52,7 @@ export default function ChasingRankingsLosingCitationsArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="You Can Rank #1 and Still Lose the AI Shortlist: The Rankings-vs-Citations Split for Manufacturers"
       metaTitle="Rankings vs AI Citations for Manufacturers | Exagic AI"
       metaDescription="Industrial brands can rank #1 on Google and lose the AI shortlist. Learn the rankings-vs-citations split and how to optimize for GEO."

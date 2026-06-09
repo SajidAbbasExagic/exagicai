@@ -67,6 +67,7 @@ export default function AIAgentsProcurement2027Article() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="How AI Agents Will Transform Procurement by 2027: Is Your Manufacturing Brand Visible?"
       metaTitle="How AI Agents Will Transform Procurement by 2027: Is Your Manufacturing Brand Visible? | Exagic AI"
       metaDescription="By 2027, autonomous AI agents will handle supplier discovery, qualification, and shortlisting for manufacturing, production, and wholesale buyers. Most industrial brands are not ready."

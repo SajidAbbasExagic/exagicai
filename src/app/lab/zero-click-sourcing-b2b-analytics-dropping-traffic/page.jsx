@@ -48,6 +48,7 @@ export default function ZeroClickSourcingArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="Zero-Click Sourcing: Why Your B2B Analytics Show Dropping Traffic but Rising Revenue"
       metaTitle="Zero-Click Sourcing in B2B Marketing | Exagic AI"
       metaDescription="Understand how zero-click sourcing driven by AI is reshaping B2B lead generation and web analytics for manufacturers."

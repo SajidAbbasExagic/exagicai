@@ -59,6 +59,7 @@ export default function AIAtoAEconomyArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="The Emergence of AI-to-AI Economies: When Procurement Agents Negotiate with Sales Bots"
       metaTitle="AI-to-AI Economies: Procurement Agents vs Sales Bots | Exagic AI"
       metaDescription="Explore the rise of autonomous B2B negotiation. When machine-led procurement meets machine-led sales, the industrial supply chain changes forever."

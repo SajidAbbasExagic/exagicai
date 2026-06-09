@@ -48,6 +48,7 @@ export default function SearchGPTImpactArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="The Impact of OpenAI's SearchGPT on Industrial Supply Chain Visibility"
       metaTitle="SearchGPT Impact on Industrial Supply Chain | Exagic AI"
       metaDescription="Discover the implications of OpenAI's SearchGPT on industrial supply chain visibility and how manufacturers must adapt."

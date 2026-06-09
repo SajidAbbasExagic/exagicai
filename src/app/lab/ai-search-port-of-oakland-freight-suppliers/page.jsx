@@ -56,6 +56,7 @@ export default function ArticlePage() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="AI Search and the Port of Oakland"
       metaTitle="AI Search and the Port of Oakland | Exagic AI"
       metaDescription="How freight forwarders, 3PL operators, and logistics providers serving the Port of Oakland are cited by AI tools."

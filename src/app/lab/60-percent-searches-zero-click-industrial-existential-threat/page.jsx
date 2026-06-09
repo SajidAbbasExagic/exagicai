@@ -37,6 +37,7 @@ export default function ZeroClickArticle() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="60% of Searches Now End Without a Click. For Industrial Brands, That's an Existential Problem."
       metaTitle="60% of Searches Now End Without a Click | Exagic AI"
       metaDescription="Roughly 60% of Google searches now end without a click. For industrial manufacturers and B2B suppliers, this zero-click reality is an existential threat."

@@ -60,6 +60,7 @@ export default function AIEntityMythArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="Do AI Systems Only Cite You If You're in Google's Entity Database?"
       metaTitle="Do AI Systems Only Cite You If You're in Google's Entity Database? | Exagic AI"
       metaDescription="Debunking the myth that AI only cites registered entities. Learn how Google's Knowledge Graph works, what entities really mean for AI citations, and how to build entity authority."

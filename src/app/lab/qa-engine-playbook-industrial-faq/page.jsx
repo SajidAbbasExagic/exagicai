@@ -39,6 +39,7 @@ export default function QAEnginePlaybookPage() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="The Q&A Engine Playbook: Why FAQs are the New Lead Generators for Bay Area Manufacturers"
       metaTitle="The Q&A Engine Playbook: Industrial FAQs for AI Visibility"
       metaDescription="Why comprehensive FAQ strategy is critical for AI SEO, AEO, and getting Bay Area industrial brands cited by AI sourcing agents."

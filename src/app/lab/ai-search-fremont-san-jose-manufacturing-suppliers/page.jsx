@@ -56,6 +56,7 @@ export default function ArticlePage() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="AI Search for Fremont and San Jose Manufacturers"
       metaTitle="AI Search for Fremont and San Jose Manufacturers | Exagic AI"
       metaDescription="Suppliers serving Tesla's Fremont factory, Silicon Valley aerospace, and San Jose defense manufacturers need AI-optimized content to appear in AI procurement searches."

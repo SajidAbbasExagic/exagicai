@@ -59,6 +59,7 @@ export default function SevenGEOMistakesIndustrialArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="Why ChatGPT Doesn't Recommend Your Manufacturing Brand: The 7 GEO Mistakes Industrial Companies Make"
       metaTitle="7 GEO Mistakes Industrial Manufacturers Make | Exagic AI"
       metaDescription="Neil Patel's GEO research applied to industrial brands: the seven mistakes that stop ChatGPT and Perplexity from recommending your manufacturing company—and how to fix each one."

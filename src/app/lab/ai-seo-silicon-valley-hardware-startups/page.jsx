@@ -39,6 +39,7 @@ export default function SiliconValleyHardwarePage() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="AI SEO for Silicon Valley Hardware Startups: Bypassing Legacy Monopolies"
       metaTitle="AI SEO for Silicon Valley Hardware Startups | Exagic AI"
       metaDescription="How hardware startups in Silicon Valley and San Jose can use AI SEO and entity structures to bypass legacy manufacturers and build rapid B2B visibility."

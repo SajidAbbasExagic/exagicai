@@ -73,6 +73,7 @@ export default function SROGroundingSnippetsArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="Grounding Snippets & SRO: Decoding Google's AI Search Pipeline"
       metaTitle="Grounding Snippets & SRO: Decoding Google's AI Search Pipeline | Exagic AI"
       metaDescription="A deep dive into the extractive summarization pipeline that powers Google's AI Search Mode and the mechanics of Selection Rate Optimization (SRO)."

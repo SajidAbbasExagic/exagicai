@@ -60,6 +60,7 @@ export default function AIOverviewsArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="Google AI Overviews and AI Mode: What Industrial Brands Need to Know"
       metaTitle="Google AI Overviews and AI Mode | Exagic AI"
       metaDescription="Google's AI Overviews and AI Mode are changing how industrial buyers find suppliers. Here is how they work and what manufacturers must do to appear in them."

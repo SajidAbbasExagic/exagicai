@@ -49,6 +49,7 @@ export default function AgenticCommerceArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="Agentic Commerce Is Here: How Retailers Can Prepare for the New Shopping Era"
       metaTitle="Agentic Commerce & AI Shopping Agents | Exagic AI"
       metaDescription="Learn how agentic AI is transforming retail discovery and purchase, and how businesses can build the infrastructure to thrive in a machine-to-machine economy."

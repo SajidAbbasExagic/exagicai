@@ -55,6 +55,7 @@ export default function ArticlePage() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="Why East Bay Manufacturers Are Invisible in AI Search"
       metaTitle="Why East Bay Manufacturers Are Invisible in AI Search and How to Fix It | Exagic AI"
       metaDescription="Most East Bay manufacturers are qualified suppliers being skipped by AI procurement tools. Here is exactly why and the specific fixes that make industrial brands AI-citable."

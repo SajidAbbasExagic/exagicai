@@ -61,6 +61,7 @@ export default function AerospaceArticle() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="AI Procurement in Bay Area Aerospace and Defense: How Qualified Suppliers Get Found"
       metaTitle="AI Procurement in Bay Area Aerospace and Defense | Exagic AI"
       metaDescription="Aerospace and defense procurement teams use AI to pre-screen suppliers for AS9100, ITAR, and NADCAP qualifications. Here is how Bay Area suppliers can appear in those searches."

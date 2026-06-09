@@ -6,6 +6,7 @@ import UnifiedBlogCTA from "./UnifiedBlogCTA";
 import SidebarTOC from "./SidebarTOC";
 import SidebarAuthor from "./SidebarAuthor";
 import SidebarCTA from "./SidebarCTA";
+import { getAuthor } from "@/app/lab/_data/authors";
 
 export default function LabArticleLayout({
   title,
@@ -20,7 +21,19 @@ export default function LabArticleLayout({
   children,
   previousArticle = null,
   nextArticle = null,
+  authorId = "saif",
 }) {
+  const author = getAuthor(authorId);
+  const enrichedArticleSchema = articleSchema
+    ? {
+        ...articleSchema,
+        author: {
+          "@type": "Person",
+          name: author.schemaName,
+          url: author.linkedin,
+        },
+      }
+    : null;
   const getCategoryColor = (cat) => {
     switch (cat) {
       case "AI SEO Education":
@@ -68,10 +81,12 @@ export default function LabArticleLayout({
       <title>{metaTitle}</title>
       <meta name="description" content={metaDescription} />
 
-      {articleSchema && (
+      {enrichedArticleSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(enrichedArticleSchema),
+          }}
         />
       )}
       {breadcrumbItems.length > 0 && (
@@ -222,7 +237,7 @@ export default function LabArticleLayout({
               {/* End of article footer content - Still inside lg:w-2/3 to keep sidebar sticky alongside */}
               <div className="mt-24 space-y-24 max-w-3xl">
                 {/* Unified Author & CTA Card */}
-                <UnifiedBlogCTA />
+                <UnifiedBlogCTA authorId={authorId} />
 
                 {faqSchema.length > 0 && (
                   <div className="pt-16 border-t border-zinc-100">
@@ -253,7 +268,7 @@ export default function LabArticleLayout({
             <aside className="hidden lg:block lg:w-1/3">
               <div className="space-y-8 h-full">
                 <SidebarTOC />
-                <SidebarAuthor />
+                <SidebarAuthor authorId={authorId} />
                 <div className="sticky top-28 z-40">
                   <SidebarCTA />
                 </div>

@@ -53,6 +53,7 @@ export default function ArticlePage() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="AEO vs SEO: What the Difference Means for Industrial Companies"
       metaTitle="AEO vs SEO: What the Difference Means for SF Bay Area Industrial Companies | Exagic AI"
       metaDescription="A clear breakdown of how Answer Engine Optimization differs from traditional SEO and why SF Bay Area industrial brands need both working together."

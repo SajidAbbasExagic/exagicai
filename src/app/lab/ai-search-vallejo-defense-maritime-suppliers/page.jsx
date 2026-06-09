@@ -56,6 +56,7 @@ export default function ArticlePage() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="Vallejo Defense and Maritime AI Search"
       metaTitle="Vallejo Defense and Maritime AI Search | Exagic AI"
       metaDescription="How defense and maritime suppliers in Vallejo can leverage the Mare Island legacy for AI citation authority."

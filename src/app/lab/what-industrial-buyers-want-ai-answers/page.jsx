@@ -60,6 +60,7 @@ export default function WhatBuyersWantArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="What Industrial Buyers Actually Want From AI Answers and How Suppliers Can Provide It"
       metaTitle="What Industrial Buyers Want From AI Answers | Exagic AI"
       metaDescription="Industrial buyers query AI with specific intent. Understanding what they want from AI-generated answers determines what content suppliers need to build for AI citation."

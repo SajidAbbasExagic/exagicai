@@ -54,6 +54,7 @@ export default function AIVisibilityKPIDashboardArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="From Keyword Rank to Citation Share: The AI Visibility KPI Dashboard Industrial CMOs Need"
       metaTitle="AI Visibility KPI Dashboard for Industrial CMOs | Exagic AI"
       metaDescription="A practical KPI framework for measuring AI search visibility across citations, prompt coverage, shortlist inclusion, entity accuracy, and AI referral quality."

@@ -54,6 +54,7 @@ export default function ArticlePage() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="Biotech AI Procurement in South San Francisco"
       metaTitle="AI Procurement in South SF Biotech Cluster | Exagic AI"
       metaDescription="How biotech and life sciences suppliers in South San Francisco get found by AI procurement tools."

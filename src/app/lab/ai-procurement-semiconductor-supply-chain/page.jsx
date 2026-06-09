@@ -61,6 +61,7 @@ export default function SemiconductorArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="AI Procurement in the Semiconductor Supply Chain: Visibility for Silicon Valley Vendors"
       metaTitle="AI Procurement in the Semiconductor Supply Chain | Exagic AI"
       metaDescription="Semiconductor equipment suppliers, cleanroom service providers, and specialty chemical vendors serving Silicon Valley fabs need AI-optimized content for procurement visibility."

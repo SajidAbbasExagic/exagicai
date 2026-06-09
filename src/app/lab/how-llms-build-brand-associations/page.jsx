@@ -60,6 +60,7 @@ export default function LLMBrandAssociationsArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="How Large Language Models Build Brand Associations and Why It Matters for Industrial Companies"
       metaTitle="How Large Language Models Build Brand Associations | Exagic AI"
       metaDescription="LLMs build associations between brands and concepts during training. Understanding this process is essential for industrial companies that want AI systems to represent them accurately."

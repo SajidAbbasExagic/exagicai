@@ -59,6 +59,7 @@ export default function AIProcurementRevolutionArticle() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="The AI Procurement Revolution: Why Technical Data is the New SEO for Manufacturers"
       metaTitle="The AI Procurement Revolution: Why Technical Data is the New SEO for Manufacturers | Exagic AI"
       metaDescription="As AI agents take over supplier shortlisting, the focus shifts from keywords to structured technical data. Learn how to ensure your manufacturing capabilities are machine-readable for the next generation of B2B buyers."

@@ -39,6 +39,7 @@ export default function StructureDataPage() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="Structuring Technical Data: How AI Reads Industrial Catalogs"
       metaTitle="Structuring Technical Data for AI Sourcing | Exagic AI"
       metaDescription="How to use Schema.org, JSON-LD, and clear data architecture to ensure AI sourcing tools read your industrial catalogs."

@@ -55,6 +55,7 @@ export default function ArticlePage() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="How AI Search Is Changing How Industrial Buyers Find Suppliers"
       metaTitle="How AI Search Is Changing Industrial Supplier Discovery in the SF Bay Area | Exagic AI"
       metaDescription="Procurement teams in the SF Bay Area are using ChatGPT, Perplexity, and Gemini to find suppliers. Here is what industrial manufacturers need to know to appear in those searches."

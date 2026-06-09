@@ -48,6 +48,7 @@ export default function DeathOfRFQArticle() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="The Death of the Traditional RFQ: How Autonomous AI Sourcing Changes the B2B Sales Cycle"
       metaTitle="The Death of the Traditional RFQ | Exagic AI"
       metaDescription="Autonomous AI sourcing systems are eliminating the traditional RFQ process in favor of real-time machine negotiation."

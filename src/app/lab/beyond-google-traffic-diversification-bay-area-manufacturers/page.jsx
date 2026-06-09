@@ -52,6 +52,7 @@ export default function BeyondGoogleTrafficDiversificationArticle() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="Beyond Google: How Bay Area Manufacturers Diversify Visibility Across AI Search Channels"
       metaTitle="Traffic Diversification for Bay Area Manufacturers | Exagic AI"
       metaDescription="37% of marketers fail to diversify traffic sources. Learn how Bay Area manufacturers build visibility beyond Google in ChatGPT, Perplexity, and AI procurement channels."

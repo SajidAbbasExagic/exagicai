@@ -40,6 +40,7 @@ export default function SanLeandroMachiningPage() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="Precision Machining in San Leandro: Surviving the Shift to AI Sourcing"
       metaTitle="AI Search for Precision Machining in San Leandro | Exagic AI"
       metaDescription="How machine shops and precision fabricators in San Leandro and the East Bay can get cited by AI procurement and Answer Engines."

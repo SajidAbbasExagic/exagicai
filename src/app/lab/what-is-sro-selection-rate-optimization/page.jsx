@@ -54,6 +54,7 @@ export default function ArticlePage() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="What Is Selection Rate Optimization (SRO) and Why Industrial Brands Need It"
       metaTitle="What Is Selection Rate Optimization (SRO) Specialists in AI SEO | Exagic AI"
       metaDescription="SRO is the AI SEO discipline that determines whether your content is cited once AI retrieves it. A practical guide for SF Bay Area industrial manufacturers."

@@ -54,6 +54,7 @@ export default function BuildAuthorityBeforeScalingArticle() {
 
   return (
     <LabArticleLayout
+      authorId="muqaddas"
       title="Build Authority Before You Scale Content: Neil Patel's GEO Rule for Industrial Brands"
       metaTitle="Build Authority Before Scaling Content | Exagic AI"
       metaDescription="Neil Patel's GEO research says top mistakes chase volume over trust. Learn the industrial authority foundation manufacturers need before scaling content."

@@ -51,6 +51,7 @@ export default function MassAIContentIndustrialGEOArticle() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="Why Mass AI Content Fails Industrial GEO—and What Evidence-Based Publishing Looks Like"
       metaTitle="Mass AI Content Fails Industrial GEO | Exagic AI"
       metaDescription="38% of marketers cite mass AI content as a top GEO mistake. Learn what evidence-based publishing looks like for industrial manufacturers."

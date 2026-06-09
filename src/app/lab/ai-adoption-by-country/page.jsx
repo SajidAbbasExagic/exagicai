@@ -44,6 +44,7 @@ export default function ArticlePage() {
 
   return (
     <LabArticleLayout
+      authorId="saif"
       title="AI Adoption by Country: Why the US Is Falling Behind (And What It Means for Your Business)"
       metaTitle="AI Adoption by Country: Why the US Is Falling Behind | Exagic AI"
       metaDescription="AI may be built in America, but the world is adopting it faster. Here's what the latest AI adoption data reveals — and how businesses can act on it."
