@@ -11,7 +11,7 @@ export default function AEOHero() {
             </h1>
             <p className="mt-6 text-lg text-zinc-700 leading-relaxed font-medium">
               AEO is the practice of optimizing your brand's visibility for AI
-              chat assistants, AI agents, and answer engines — ensuring your
+              chat assistants, AI agents, and answer engines etc. ensuring your
               industrial products and services are the default recommendation
               when buyers search.
             </p>

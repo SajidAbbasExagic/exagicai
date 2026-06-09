@@ -9,7 +9,7 @@ const getCategoryColor = (cat) => {
     case "Location Specific":
       return "text-purple-600 bg-purple-50 border-purple-100";
     case "Q&A":
-      return "text-amber-600 bg-amber-50 border-amber-100";
+      return "text-amber-600 bg-amber-50 border-amber-200";
     default:
       return "text-zinc-600 bg-zinc-50 border-zinc-100";
   }
