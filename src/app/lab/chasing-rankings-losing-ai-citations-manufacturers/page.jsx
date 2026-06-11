@@ -1,4 +1,5 @@
 import LabArticleLayout from "@/components/LabArticleLayout";
+import RankingsVsCitationsChart from "@/components/lab/RankingsVsCitationsChart";
 import Link from "next/link";
 
 export const metadata = {
@@ -82,8 +83,18 @@ export default function ChasingRankingsLosingCitationsArticle() {
       <p>
         This is the rankings-vs-citations split—and it explains why legacy SEO
         wins look hollow while pipelines quietly shift to competitors cited in
-        AI answers you never see in Search Console.
+        AI answers you never see in Search Console. It is mistake #6 in{" "}
+        <Link
+          href="/lab/why-chatgpt-doesnt-recommend-manufacturers-seven-geo-mistakes"
+          className="text-brand hover:underline"
+        >
+          Neil Patel&apos;s seven GEO mistakes research
+        </Link>
+        —and the one industrial CMOs miss most often because legacy dashboards
+        still celebrate position #1.
       </p>
+
+      <RankingsVsCitationsChart />
 
       <h2>Two Competitions, Two Scoreboards</h2>
       <p>
@@ -216,6 +227,47 @@ export default function ChasingRankingsLosingCitationsArticle() {
           Fix entity drift so the model cites you, not a namesake competitor.
         </li>
       </ol>
+
+      <h2>When Rankings and Citations Diverge: Three Real Patterns</h2>
+      <p>
+        In dual-track audits we see three recurring patterns manufacturers
+        should recognize before they misread a &quot;good&quot; SEO month:
+      </p>
+      <ul>
+        <li>
+          <strong>Rank up, citations flat:</strong> New blog volume without
+          evidence—often after a mass AI content push (
+          <Link
+            href="/lab/mass-ai-content-poisoning-industrial-geo"
+            className="text-brand hover:underline"
+          >
+            see the 38% GEO mistake
+          </Link>
+          ).
+        </li>
+        <li>
+          <strong>Rank flat, citations up:</strong> FAQ layers, cert pages, or
+          equipment tables added—classic{" "}
+          <Link
+            href="/lab/build-authority-before-scaling-industrial-geo"
+            className="text-brand hover:underline"
+          >
+            authority-first GEO
+          </Link>
+          .
+        </li>
+        <li>
+          <strong>Rank down, citations up:</strong> Zero-click shortlists
+          forming before clicks—often paired with rising{" "}
+          <Link
+            href="/lab/rise-of-ai-referral-traffic"
+            className="text-brand hover:underline"
+          >
+            AI referral traffic
+          </Link>
+          .
+        </li>
+      </ul>
 
       <h2>Dual-Track Reporting: Rankings + Citations Together</h2>
       <p>

@@ -1,40 +1,53 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
-import ReCAPTCHA from "react-google-recaptcha";
+import Script from "next/script";
 import { sendContactEmail } from "@/app/actions/contact";
 
 export default function ContactForm() {
   const pathname = usePathname();
   const [status, setStatus] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [captchaValue, setCaptchaValue] = useState(null);
-  const recaptchaRef = useRef(null);
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setStatus(null);
 
-    const formData = new FormData(e.target);
-    const recaptchaValue = recaptchaRef.current?.getValue();
-    if (!recaptchaValue) {
+    const form = e.target;
+
+    if (!window.grecaptcha) {
       setStatus("error");
       setIsSubmitting(false);
       return;
     }
-    formData.append("recaptchaToken", recaptchaValue);
 
-    const result = await sendContactEmail(formData);
+    window.grecaptcha.ready(async () => {
+      try {
+        const token = await window.grecaptcha.execute(
+          process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+          { action: "contact_submit" }
+        );
 
-    if (result.success) {
-      setStatus("success");
-    } else {
-      setStatus("error");
-      recaptchaRef.current?.reset();
-    }
-    setIsSubmitting(false);
+        const formData = new FormData(form);
+        formData.append("recaptchaToken", token);
+
+        const result = await sendContactEmail(formData);
+
+        if (result?.success) {
+          setStatus("success");
+          form.reset();
+        } else {
+          setStatus("error");
+        }
+      } catch (error) {
+        console.error("CAPTCHA error:", error);
+        setStatus("error");
+      } finally {
+        setIsSubmitting(false);
+      }
+    });
   };
 
   return (
@@ -59,7 +72,7 @@ export default function ContactForm() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
-                Full Name
+                Full Name <span className="text-brand ml-0.5">*</span>
               </label>
               <input
                 required
@@ -71,7 +84,7 @@ export default function ContactForm() {
             </div>
             <div className="space-y-1.5">
               <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
-                Company Email
+                Company Email <span className="text-brand ml-0.5">*</span>
               </label>
               <input
                 required
@@ -98,7 +111,7 @@ export default function ContactForm() {
           </div>
           <div className="space-y-1.5">
             <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
-              How can we help?
+              How can we help? <span className="text-brand ml-0.5">*</span>
             </label>
             <textarea
               required
@@ -108,19 +121,16 @@ export default function ContactForm() {
               placeholder="Tell us about your project..."
             ></textarea>
           </div>
-          <div className="space-y-1.5 flex justify-center py-2">
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-              onChange={(val) => setCaptchaValue(val)}
-              onExpired={() => setCaptchaValue(null)}
-            />
-          </div>
+          {/* Google reCAPTCHA v3 Script */}
+          <Script
+            src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+            strategy="lazyOnload"
+          />
           <button
             type="submit"
-            disabled={isSubmitting || !captchaValue}
+            disabled={isSubmitting}
             className={`w-full bg-zinc-900 text-white font-bold py-3 px-6 rounded-lg hover:bg-brand transition-all shadow-md active:scale-[0.98] text-sm ${
-              isSubmitting || !captchaValue ? "opacity-50 cursor-not-allowed" : ""
+              isSubmitting ? "opacity-50 cursor-not-allowed" : ""
             }`}
           >
             {isSubmitting ? "Sending..." : "Submit Strategy Inquiry"}

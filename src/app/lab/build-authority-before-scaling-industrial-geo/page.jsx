@@ -1,4 +1,5 @@
 import LabArticleLayout from "@/components/LabArticleLayout";
+import GeoMistakesChart from "@/components/lab/GeoMistakesChart";
 import Link from "next/link";
 
 export const metadata = {
@@ -90,8 +91,28 @@ export default function BuildAuthorityBeforeScalingArticle() {
         calendar. Twelve blog posts about AI in manufacturing. Six LinkedIn
         threads. A refreshed homepage tagline. None of it gives ChatGPT a new
         reason to trust the entity. This article is the authority-first
-        sequence—what to fix before you publish another word.
+        sequence—what to fix before you publish another word. It directly
+        answers mistake #4 in{" "}
+        <Link
+          href="/lab/why-chatgpt-doesnt-recommend-manufacturers-seven-geo-mistakes"
+          className="text-brand hover:underline"
+        >
+          Patel&apos;s seven GEO mistakes
+        </Link>{" "}
+        and pairs with{" "}
+        <Link
+          href="/lab/neil-patel-llmo-industrial-ai-seo-playbook"
+          className="text-brand hover:underline"
+        >
+          the industrial LLMO playbook
+        </Link>
+        .
       </p>
+
+      <GeoMistakesChart
+        highlightIndex={3}
+        footnote="Ignoring authority building is mistake #4 at 28%. Industrial brands feel it sooner because procurement prompts demand verifiable proof."
+      />
 
       <div className="my-12 p-10 rounded-2xl bg-zinc-900 text-white border border-zinc-800 shadow-xl relative overflow-hidden not-prose">
         <div className="relative z-10">
@@ -139,7 +160,15 @@ export default function BuildAuthorityBeforeScalingArticle() {
         Independent sources that repeat your facts: certification body listings,
         customer case studies on partner sites, regional industrial directories,
         trade press, and association memberships. When third parties confirm what
-        your site claims, citation probability rises sharply.
+        your site claims, citation probability rises sharply. Our{" "}
+        <Link
+          href="/lab/2026-bay-area-industrial-ai-visibility-report"
+          className="text-brand hover:underline"
+        >
+          Bay Area visibility report
+        </Link>{" "}
+        found that Tier 1 manufacturers had 3× more corroborating directory
+        matches than invisible peers—not more blog posts.
       </p>
 
       <div className="overflow-x-auto my-12 border border-zinc-200 rounded-3xl not-prose shadow-sm">

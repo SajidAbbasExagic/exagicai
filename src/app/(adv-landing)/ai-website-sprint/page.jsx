@@ -4,7 +4,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import ReCAPTCHA from "react-google-recaptcha";
+import Script from "next/script";
 import { sendSprintEmail } from "@/app/actions/sprint";
 
 // Animation presets
@@ -21,36 +21,74 @@ const staggerContainer = {
   viewport: { once: true }
 };
 
+function getNextSlotDate() {
+  const date = new Date();
+  // Add 2 days ahead
+  date.setDate(date.getDate() + 2);
+  
+  // Ensure it's a working day (Monday - Friday)
+  const day = date.getDay();
+  if (day === 6) { // Saturday
+    date.setDate(date.getDate() + 2); // Move to Monday
+  } else if (day === 0) { // Sunday
+    date.setDate(date.getDate() + 1); // Move to Monday
+  }
+  
+  return date.toLocaleDateString("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+  });
+}
+
 export default function AIWebsiteSprintPage() {
   const pathname = usePathname();
   const [status, setStatus] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [recaptchaToken, setRecaptchaToken] = useState("");
-  const recaptchaRef = useRef(null);
+  const [nextSlotDate, setNextSlotDate] = useState("");
 
-  const onRecaptchaChange = (value) => {
-    setRecaptchaToken(value);
-  };
+  useEffect(() => {
+    setNextSlotDate(getNextSlotDate());
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setStatus(null);
 
-    const formData = new FormData(e.target);
-    // Add token manually if not automatically handled by hidden field
-    formData.append("recaptchaToken", recaptchaToken);
-    
-    const result = await sendSprintEmail(formData);
+    const form = e.target;
 
-    if (result.success) {
-      setStatus("success");
-      recaptchaRef.current?.reset();
-    } else {
+    if (!window.grecaptcha) {
       setStatus("error");
-      recaptchaRef.current?.reset();
+      setIsSubmitting(false);
+      return;
     }
-    setIsSubmitting(false);
+
+    window.grecaptcha.ready(async () => {
+      try {
+        const token = await window.grecaptcha.execute(
+          process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+          { action: "sprint_submit" }
+        );
+
+        const formData = new FormData(form);
+        formData.append("recaptchaToken", token);
+        
+        const result = await sendSprintEmail(formData);
+
+        if (result.success) {
+          setStatus("success");
+          form.reset();
+        } else {
+          setStatus("error");
+        }
+      } catch (error) {
+        console.error("CAPTCHA error:", error);
+        setStatus("error");
+      } finally {
+        setIsSubmitting(false);
+      }
+    });
   };
 
   return (
@@ -60,14 +98,16 @@ export default function AIWebsiteSprintPage() {
         <div className="absolute top-[-200px] right-[-100px] w-[600px] h-[600px] bg-brand/5 rounded-full blur-[120px] pointer-events-none"></div>
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-brand/10 border border-brand/20 px-4 py-2 rounded-full mb-8"
-          >
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-brand">Next Slot: Monday, March 30</span>
-          </motion.div>
+          {nextSlotDate && (
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 bg-brand/10 border border-brand/20 px-4 py-2 rounded-full mb-8"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-brand">Next Slot: {nextSlotDate}</span>
+            </motion.div>
+          )}
 
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
@@ -336,31 +376,21 @@ export default function AIWebsiteSprintPage() {
                   <InputGroup name="email" label="Expert Email" placeholder="john@example.com" type="email" required />
                   <InputGroup name="phone" label="Phone (Optional)" placeholder="+1 (555) 000-0000" />
                   <div className="flex flex-col gap-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Your Expertise</label>
-                    <div className="relative">
-                      <select name="expertise" required className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-4 text-zinc-900 focus:outline-none focus:border-brand transition-all appearance-none cursor-pointer">
-                        <option value="">Select your field</option>
-                        <option value="Psychologist">Psychologist</option>
-                        <option value="Real Estate Expert">Real Estate Expert</option>
-                        <option value="Strategic Consultant">Strategic Consultant</option>
-                        <option value="Legal Professional">Legal Professional</option>
-                        <option value="Tech Founder">Tech Founder</option>
-                        <option value="Other Expert">Other Expert</option>
-                      </select>
-                      <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400">
-                        ▼
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Google reCAPTCHA */}
-                  <div className="flex justify-center md:justify-start">
-                    <ReCAPTCHA
-                      ref={recaptchaRef}
-                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY} 
-                      onChange={onRecaptchaChange}
+                    <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Project Details <span className="text-brand ml-0.5">*</span></label>
+                    <textarea 
+                      name="projectDetails" 
+                      required 
+                      rows={4} 
+                      placeholder="Tell us about your project, goals, and what you'd like us to build..."
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-4 text-zinc-900 placeholder:text-zinc-300 focus:outline-none focus:border-brand transition-all resize-y text-sm min-h-[120px]"
                     />
                   </div>
+
+                  {/* Google reCAPTCHA v3 Script */}
+                  <Script
+                    src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+                    strategy="lazyOnload"
+                  />
                   
                   <div className="pt-4">
                     <motion.button 
@@ -545,7 +575,9 @@ function FAQItem({ q, a }) {
 function InputGroup({ label, placeholder, type = "text", name, required }) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">{label}</label>
+      <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
+        {label} {required && <span className="text-brand ml-0.5">*</span>}
+      </label>
       <input 
         name={name}
         required={required}

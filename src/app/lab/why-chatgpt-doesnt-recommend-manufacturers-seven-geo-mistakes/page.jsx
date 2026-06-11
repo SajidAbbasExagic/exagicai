@@ -1,4 +1,5 @@
 import LabArticleLayout from "@/components/LabArticleLayout";
+import GeoMistakesChart from "@/components/lab/GeoMistakesChart";
 import Link from "next/link";
 
 export const metadata = {
@@ -112,49 +113,7 @@ export default function SevenGEOMistakesIndustrialArticle() {
         qualified suppliers.
       </p>
 
-      {/* Stat Callout — NP Digital GEO mistakes */}
-      <div className="my-12 p-10 rounded-2xl bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 text-white shadow-xl relative overflow-hidden not-prose">
-        <div className="absolute bottom-0 right-0 p-8 opacity-10 font-serif text-[10rem] leading-none select-none pointer-events-none font-bold italic">
-          GEO
-        </div>
-        <div className="relative z-10">
-          <div className="text-brand font-bold mb-4 tracking-widest text-sm uppercase">
-            NP Digital Research · 500 Marketers
-          </div>
-          <h3 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-            The 7 Most Common AI Search Mistakes
-          </h3>
-          <div className="space-y-3 max-w-xl">
-            {[
-              ["Weak Brand / Entity Positioning", "40%"],
-              ["Publishing Mass AI-Generated Content", "38%"],
-              ["Not Diversifying Traffic Sources", "37%"],
-              ["Ignoring Authority Building", "28%"],
-              ["Not Updating Old Content", "22%"],
-              ["Chasing Rankings Only", "19%"],
-              ["Using Outdated KPIs", "4%"],
-            ].map(([label, pct]) => (
-              <div key={label} className="flex items-center gap-4">
-                <div className="w-12 text-right text-sm font-bold text-brand shrink-0">
-                  {pct}
-                </div>
-                <div className="flex-1 h-2 bg-zinc-800 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-brand rounded-full"
-                    style={{ width: pct }}
-                  />
-                </div>
-                <div className="text-sm text-zinc-300 min-w-0">{label}</div>
-              </div>
-            ))}
-          </div>
-          <p className="mt-8 text-zinc-400 text-sm leading-relaxed max-w-2xl">
-            Patel&apos;s conclusion: the top three mistakes chase volume over trust.
-            Build authority before scaling. For manufacturers, authority means
-            verifiable capability facts—not more blog posts.
-          </p>
-        </div>
-      </div>
+      <GeoMistakesChart footnote="Patel's conclusion: the top three mistakes chase volume over trust. Build authority before scaling. For manufacturers, authority means verifiable capability facts—not more blog posts." />
 
       <h2>GEO vs. SEO: Why Industrial Brands Feel the Gap First</h2>
       <p>
@@ -541,6 +500,50 @@ export default function SevenGEOMistakesIndustrialArticle() {
           </ul>
         </div>
       </div>
+
+      <h2>Deep Dives: Fix Each Mistake in the GEO Series</h2>
+      <p>
+        Each mistake above has a dedicated playbook in our Lab—with data
+        visualizations, Bay Area examples, and internal audit steps:
+      </p>
+      <ul>
+        <li>
+          Mistake #1 (40%):{" "}
+          <Link href="/lab/what-is-entity-seo-industrial-brands" className="text-brand hover:underline">
+            Entity SEO for industrial brands
+          </Link>
+        </li>
+        <li>
+          Mistake #2 (38%):{" "}
+          <Link href="/lab/mass-ai-content-poisoning-industrial-geo" className="text-brand hover:underline">
+            Mass AI content vs. evidence-based publishing
+          </Link>
+        </li>
+        <li>
+          Mistake #3 (37%):{" "}
+          <Link href="/lab/beyond-google-traffic-diversification-bay-area-manufacturers" className="text-brand hover:underline">
+            Traffic diversification beyond Google
+          </Link>
+        </li>
+        <li>
+          Mistake #4 (28%):{" "}
+          <Link href="/lab/build-authority-before-scaling-industrial-geo" className="text-brand hover:underline">
+            Build authority before scaling
+          </Link>
+        </li>
+        <li>
+          Mistake #6 (19%):{" "}
+          <Link href="/lab/chasing-rankings-losing-ai-citations-manufacturers" className="text-brand hover:underline">
+            Rankings vs. AI citations
+          </Link>
+        </li>
+        <li>
+          Mistake #7 (4%):{" "}
+          <Link href="/lab/ai-visibility-kpi-dashboard-industrial-cmos" className="text-brand hover:underline">
+            AI visibility KPI dashboard
+          </Link>
+        </li>
+      </ul>
 
       <h2>Why Trust Beats Volume in Industrial GEO</h2>
       <p>

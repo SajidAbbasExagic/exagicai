@@ -1,13 +1,14 @@
 "use server";
 
 import { sendEmail } from "@/lib/mail";
+import { verifyCaptchaAction } from "@/lib/recaptcha";
 
 export async function sendSprintEmail(formData) {
   const firstName = formData.get("firstName");
   const lastName = formData.get("lastName");
   const email = formData.get("email");
   const phone = formData.get("phone");
-  const expertise = formData.get("expertise");
+  const projectDetails = formData.get("projectDetails");
   const recaptchaToken = formData.get("recaptchaToken");
   const path = formData.get("path") || "/";
   const sourceUrl = `https://exagic.ai${path}`;
@@ -17,22 +18,9 @@ export async function sendSprintEmail(formData) {
   }
 
   // Verify reCAPTCHA token
-  try {
-    const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
-    });
-
-    const data = await response.json();
-    if (!data.success) {
-      return { success: false, error: "CAPTCHA verification failed. Please try again." };
-    }
-  } catch (error) {
-    console.error("reCAPTCHA Error:", error);
-    return { success: false, error: "Authentication service error. Please try later." };
+  const captchaValidation = await verifyCaptchaAction(recaptchaToken);
+  if (!captchaValidation.success) {
+    return { success: false, error: captchaValidation.message || "CAPTCHA verification failed. Please try again." };
   }
 
   const recipient = process.env.CONTACT_RECIPIENT_EMAIL || process.env.SMTP_USER;
@@ -43,7 +31,7 @@ export async function sendSprintEmail(formData) {
       <p><strong>Name:</strong> ${firstName} ${lastName}</p>
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
-      <p><strong>Expertise:</strong> ${expertise}</p>
+      <p><strong>Project Details:</strong> ${projectDetails}</p>
       <p><strong>Source Page:</strong> <a href="${sourceUrl}">${sourceUrl}</a></p>
       <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
       <p style="font-size: 12px; color: #999;">Sent from Exagic.ai AI Website Sprint form.</p>

@@ -1,4 +1,5 @@
 import LabArticleLayout from "@/components/LabArticleLayout";
+import ChannelMixChart from "@/components/lab/ChannelMixChart";
 import Link from "next/link";
 
 export const metadata = {
@@ -110,8 +111,19 @@ export default function BeyondGoogleTrafficDiversificationArticle() {
           AI referral traffic analysis
         </Link>{" "}
         shows the channel is small but growing explosively—manufacturers ignoring
-        it are diversifying into a shrinking slice of discovery.
+        it are diversifying into a shrinking slice of discovery. This is mistake
+        #3 in{" "}
+        <Link
+          href="/lab/why-chatgpt-doesnt-recommend-manufacturers-seven-geo-mistakes"
+          className="text-brand hover:underline"
+        >
+          Patel&apos;s GEO research
+        </Link>
+        —cited by 37% of marketers—and the one Bay Area shops feel last because
+        Google still sends RFQs today.
       </p>
+
+      <ChannelMixChart />
 
       <div className="my-12 p-10 rounded-2xl bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 text-white shadow-xl not-prose">
         <h3 className="text-2xl font-bold mb-6">The Five-Channel Visibility Map</h3>
@@ -186,6 +198,22 @@ export default function BeyondGoogleTrafficDiversificationArticle() {
           <Link href="/lab/ai-search-port-of-oakland-freight-suppliers" className="text-brand hover:underline">Port of Oakland logistics</Link>
         </li>
       </ul>
+
+      <h2>Measuring Diversification: The Channel Index</h2>
+      <p>
+        Track a simple diversification index each quarter: the percentage of
+        qualified discovery touchpoints that are not Google organic alone.
+        Include answer-engine citations, AI referral sessions, directory entity
+        matches, and corridor-page impressions. Brands optimizing only for
+        rankings score 100% Google-dependent even when{" "}
+        <Link
+          href="/lab/chasing-rankings-losing-ai-citations-manufacturers"
+          className="text-brand hover:underline"
+        >
+          citations diverge from rank
+        </Link>
+        . Target: no single channel above 60% of weighted visibility by Q4.
+      </p>
 
       <h2>Channel 5: AI Referral Attribution</h2>
       <p>

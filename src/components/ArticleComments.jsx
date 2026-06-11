@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
-import ReCAPTCHA from "react-google-recaptcha";
+import Script from "next/script";
 import { sendCommentEmail } from "@/app/actions/comment";
 
 export default function ArticleComments({ articleTitle }) {
@@ -14,37 +14,44 @@ export default function ArticleComments({ articleTitle }) {
     website: "",
     saveInfo: false,
   });
-  const [verification, setVerification] = useState(null); // 'robot' or 'human'
   const [status, setStatus] = useState("idle"); // 'idle', 'submitting', 'success', 'error'
-  const [captchaValue, setCaptchaValue] = useState(null);
-  const recaptchaRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (verification !== "human") return;
-
     setStatus("submitting");
 
-    const data = new FormData(e.target);
-    const recaptchaValue = recaptchaRef.current?.getValue();
+    const form = e.target;
 
-    if (!recaptchaValue) {
-       setStatus("error");
-       return;
-    }
-
-    data.append("recaptchaToken", recaptchaValue);
-    data.append("postUrl", `https://exagic.ai${pathname}`);
-    data.append("articleTitle", articleTitle);
-
-    const result = await sendCommentEmail(data);
-
-    if (result.success) {
-      setStatus("success");
-    } else {
+    if (!window.grecaptcha) {
       setStatus("error");
-      recaptchaRef.current?.reset();
+      return;
     }
+
+    window.grecaptcha.ready(async () => {
+      try {
+        const token = await window.grecaptcha.execute(
+          process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+          { action: "comment_submit" }
+        );
+
+        const data = new FormData(form);
+        data.append("recaptchaToken", token);
+        data.append("postUrl", `https://exagic.ai${pathname}`);
+        data.append("articleTitle", articleTitle);
+
+        const result = await sendCommentEmail(data);
+
+        if (result.success) {
+          setStatus("success");
+          form.reset();
+        } else {
+          setStatus("error");
+        }
+      } catch (error) {
+        console.error("CAPTCHA error:", error);
+        setStatus("error");
+      }
+    });
   };
 
   const handleChange = (e) => {
@@ -168,54 +175,18 @@ export default function ArticleComments({ articleTitle }) {
           </label>
         </div>
 
-        <div className="pt-4">
-          <p className="text-sm font-bold text-zinc-700 mb-4 text-center">
-            Verification
-          </p>
-          <div className="flex justify-center gap-4">
-            <button
-              type="button"
-              disabled={status === "submitting"}
-              onClick={() => setVerification("robot")}
-              className={`px-6 py-2 rounded-full text-sm font-bold border transition-all ${
-                verification === "robot"
-                  ? "bg-zinc-900 text-white border-zinc-900"
-                  : "bg-white text-zinc-500 border-zinc-200 hover:border-zinc-300"
-              }`}
-            >
-              I am a robot.
-            </button>
-            <button
-              type="button"
-              disabled={status === "submitting"}
-              onClick={() => setVerification("human")}
-              className={`px-6 py-2 rounded-full text-sm font-bold border transition-all ${
-                verification === "human"
-                  ? "bg-brand text-white border-brand shadow-lg shadow-brand/20"
-                  : "bg-white text-zinc-500 border-zinc-200 hover:border-zinc-300"
-              }`}
-            >
-              I am a human.
-            </button>
-          </div>
-          {verification === "human" && (
-            <div className="flex justify-center mt-6">
-               <ReCAPTCHA
-                 ref={recaptchaRef}
-                 sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-                 onChange={(val) => setCaptchaValue(val)}
-                 onExpired={() => setCaptchaValue(null)}
-               />
-            </div>
-          )}
-        </div>
+        {/* Google reCAPTCHA v3 Script */}
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+          strategy="lazyOnload"
+        />
 
         <div className="pt-6">
           <button
             type="submit"
-            disabled={verification !== "human" || status === "submitting" || !captchaValue}
+            disabled={status === "submitting"}
             className={`w-full rounded-full py-4 text-center font-bold transition-all ${
-              verification === "human" && status !== "submitting" && captchaValue
+              status !== "submitting"
                 ? "bg-brand text-white shadow-xl hover:scale-[1.02] active:scale-[0.98]"
                 : "bg-zinc-100 text-zinc-400 cursor-not-allowed"
             }`}

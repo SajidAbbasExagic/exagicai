@@ -3,8 +3,6 @@ export async function verifyCaptchaAction(token) {
   const secretKey = process.env.RECAPTCHA_SECRET_KEY;
   if (!secretKey) {
     console.warn("RECAPTCHA_SECRET_KEY is not set.");
-    // If not set, you might want to fail or pass depending on environment.
-    // Assuming we want to fail:
     return { success: false, message: "Server misconfiguration" };
   }
   
@@ -14,6 +12,10 @@ export async function verifyCaptchaAction(token) {
     const res = await fetch(url, { method: "POST" });
     const data = await res.json();
     if (data.success) {
+      // For reCAPTCHA v3, verify the score (threshold: 0.5)
+      if (data.score !== undefined && data.score < 0.5) {
+        return { success: false, message: "reCAPTCHA validation failed: potential bot detected" };
+      }
       return { success: true };
     } else {
       return { success: false, message: "reCAPTCHA validation failed", errors: data["error-codes"] };

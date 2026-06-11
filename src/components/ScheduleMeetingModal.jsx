@@ -4,6 +4,7 @@ import Image from "next/image";
 import Script from "next/script";
 import { useEffect, useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { sendMeetingRequest } from "@/app/actions/contact";
 
 const TIMEZONE = "America/Los_Angeles";
@@ -105,6 +106,7 @@ function buildSlotsForDate(date) {
 }
 
 export default function ScheduleMeetingModal({ isOpen, onClose }) {
+  const pathname = usePathname();
   const [weekOffset, setWeekOffset] = useState(0);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedSlot, setSelectedSlot] = useState(null);
@@ -167,22 +169,43 @@ export default function ScheduleMeetingModal({ isOpen, onClose }) {
     setIsSubmitting(true);
     setStatus(null);
 
-    const result = await sendMeetingRequest({
-      name,
-      email,
-      dateLabel: selectedDate.toLocaleDateString("en-US", {
-        weekday: "long",
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-        timeZone: TIMEZONE,
-      }),
-      timeLabel: formatTimeLabel(selectedSlot),
-      timezone: getTimezoneLabel(),
-    });
+    if (!window.grecaptcha) {
+      setStatus("error");
+      setIsSubmitting(false);
+      return;
+    }
 
-    setStatus(result.success ? "success" : "error");
-    setIsSubmitting(false);
+    window.grecaptcha.ready(async () => {
+      try {
+        const token = await window.grecaptcha.execute(
+          process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+          { action: "meeting_submit" }
+        );
+
+        const result = await sendMeetingRequest({
+          name,
+          email,
+          dateLabel: selectedDate.toLocaleDateString("en-US", {
+            weekday: "long",
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+            timeZone: TIMEZONE,
+          }),
+          timeLabel: formatTimeLabel(selectedSlot),
+          timezone: getTimezoneLabel(),
+          path: pathname,
+          recaptchaToken: token,
+        });
+
+        setStatus(result?.success ? "success" : "error");
+      } catch (error) {
+        console.error("CAPTCHA error:", error);
+        setStatus("error");
+      } finally {
+        setIsSubmitting(false);
+      }
+    });
   };
 
   if (!isOpen) return null;
@@ -425,6 +448,11 @@ export default function ScheduleMeetingModal({ isOpen, onClose }) {
         )}
         </div>
       </div>
+      {/* Google reCAPTCHA v3 Script */}
+      <Script
+        src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+        strategy="lazyOnload"
+      />
     </div>
   );
 }

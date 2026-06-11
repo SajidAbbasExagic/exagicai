@@ -1,4 +1,5 @@
 import LabArticleLayout from "@/components/LabArticleLayout";
+import LabChartCard from "@/components/lab/LabChartCard";
 import Link from "next/link";
 
 export const metadata = {
@@ -103,6 +104,31 @@ export default function NeilPatelLLMOIndustrialPlaybook() {
         the growth curve is too steep for B2B brands to ignore.
       </p>
 
+      <LabChartCard
+        title="AI Referral Traffic Growth Curve (2024–2026)"
+        subtitle="ChatGPT still leads referral share, but Claude and Perplexity show the steepest growth slopes."
+      >
+        <div className="relative w-full" style={{ paddingBottom: "40%" }}>
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 200" preserveAspectRatio="xMidYMid meet">
+            <rect x="50" y="10" width="430" height="150" fill="#f9fafb" rx="4" />
+            <line x1="50" y1="160" x2="480" y2="160" stroke="#d4d4d8" strokeWidth="1.5" />
+            <polyline points="70,145 180,130 290,85 400,35" fill="none" stroke="#f06030" strokeWidth="3" />
+            <circle cx="400" cy="35" r="5" fill="#f06030" />
+            <text x="408" y="38" fill="#f06030" fontSize="9" fontWeight="bold">+357% YoY</text>
+            <text x="70" y="180" fill="#71717a" fontSize="9">2024</text>
+            <text x="265" y="180" fill="#71717a" fontSize="9">2025</text>
+            <text x="400" y="180" fill="#71717a" fontSize="9">2026</text>
+          </svg>
+        </div>
+        <p className="text-xs text-zinc-500 text-center mt-2">
+          Full platform breakdown in our{" "}
+          <Link href="/lab/rise-of-ai-referral-traffic" className="text-brand hover:underline">
+            AI referral traffic report
+          </Link>
+          .
+        </p>
+      </LabChartCard>
+
       <div className="my-12 grid grid-cols-1 md:grid-cols-3 gap-6 not-prose">
         <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
           <div className="text-3xl font-bold text-zinc-900">357%</div>
@@ -186,7 +212,15 @@ export default function NeilPatelLLMOIndustrialPlaybook() {
         It needs the model to verify certification, geography, material
         capability, industry fit, and production volume. That is why industrial
         AI SEO has to go beyond topical authority. It has to turn operational
-        facts into retrieval-ready evidence.
+        facts into retrieval-ready evidence—using{" "}
+        <Link href="/lab/how-to-structure-technical-data-for-ai-sourcing" className="text-brand hover:underline">
+          structured technical data
+        </Link>{" "}
+        and{" "}
+        <Link href="/lab/what-is-entity-seo-industrial-brands" className="text-brand hover:underline">
+          entity SEO
+        </Link>{" "}
+        as the foundation.
       </p>
 
       <h2>The Industrial Version of Topical Authority</h2>
@@ -285,6 +319,44 @@ export default function NeilPatelLLMOIndustrialPlaybook() {
         case studies that include constraints and outcomes. Then build articles
         around the questions those facts answer.
       </p>
+
+      <h2>Industrial GEO Series: From Patel&apos;s Research to Bay Area Playbooks</h2>
+      <p>
+        This playbook is the entry point. The follow-up articles apply each GEO
+        mistake to industrial procurement—with charts, audits, and fix orders:
+      </p>
+      <ul>
+        <li>
+          <Link href="/lab/why-chatgpt-doesnt-recommend-manufacturers-seven-geo-mistakes" className="text-brand hover:underline">
+            The 7 GEO mistakes for manufacturers
+          </Link>
+        </li>
+        <li>
+          <Link href="/lab/build-authority-before-scaling-industrial-geo" className="text-brand hover:underline">
+            Build authority before scaling content
+          </Link>
+        </li>
+        <li>
+          <Link href="/lab/mass-ai-content-poisoning-industrial-geo" className="text-brand hover:underline">
+            Why mass AI content fails industrial GEO
+          </Link>
+        </li>
+        <li>
+          <Link href="/lab/beyond-google-traffic-diversification-bay-area-manufacturers" className="text-brand hover:underline">
+            Traffic diversification for Bay Area manufacturers
+          </Link>
+        </li>
+        <li>
+          <Link href="/lab/chasing-rankings-losing-ai-citations-manufacturers" className="text-brand hover:underline">
+            Rankings vs. citations split
+          </Link>
+        </li>
+        <li>
+          <Link href="/lab/ai-visibility-kpi-dashboard-industrial-cmos" className="text-brand hover:underline">
+            AI visibility KPI dashboard for CMOs
+          </Link>
+        </li>
+      </ul>
 
       <h2>A Practical 30-Day LLMO Sprint for Industrial Brands</h2>
       <p>

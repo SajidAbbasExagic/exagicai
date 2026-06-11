@@ -1,4 +1,5 @@
 import LabArticleLayout from "@/components/LabArticleLayout";
+import ContentEvidenceChart from "@/components/lab/ContentEvidenceChart";
 import Link from "next/link";
 
 export const metadata = {
@@ -88,8 +89,24 @@ export default function MassAIContentIndustrialGEOArticle() {
         <strong>extractable, verifiable evidence</strong>. Mass AI content that
         repeats the same vague capability claims actually poisons your entity
         signal—training retrieval systems that your site is high-volume,
-        low-specificity noise.
+        low-specificity noise. Patel ranks this mistake #2 overall—right behind{" "}
+        <Link
+          href="/lab/why-chatgpt-doesnt-recommend-manufacturers-seven-geo-mistakes"
+          className="text-brand hover:underline"
+        >
+          weak entity positioning
+        </Link>
+        —and ahead of{" "}
+        <Link
+          href="/lab/beyond-google-traffic-diversification-bay-area-manufacturers"
+          className="text-brand hover:underline"
+        >
+          traffic diversification failures
+        </Link>
+        .
       </p>
+
+      <ContentEvidenceChart />
 
       <h2>How AI Content Poisoning Shows Up on Factory Websites</h2>
       <p>We see the same patterns in audits across the I-880 corridor:</p>
@@ -151,6 +168,39 @@ export default function MassAIContentIndustrialGEOArticle() {
       <p>
         If the answer is no, the page fails GEO regardless of readability,
         keyword density, or how fast it was produced.
+      </p>
+
+      <h2>Why AI Content Dilutes Citations You Already Earned</h2>
+      <p>
+        Thin AI pages do not just fail to help—they compete with your best
+        evidence pages for retrieval attention. When a model crawls forty
+        generic posts and one strong{" "}
+        <Link
+          href="/lab/how-to-structure-technical-data-for-ai-sourcing"
+          className="text-brand hover:underline"
+        >
+          structured capability page
+        </Link>
+        , the noise lowers confidence in the entire domain. That is why{" "}
+        <Link
+          href="/lab/build-authority-before-scaling-industrial-geo"
+          className="text-brand hover:underline"
+        >
+          authority-first publishing
+        </Link>{" "}
+        beats calendar-driven AI output: fewer URLs, higher evidence density per
+        URL.
+      </p>
+      <p>
+        Case studies optimized for retrieval—problem, material, tolerance,
+        outcome—outperform thought leadership by a wide margin. See our guide on{" "}
+        <Link
+          href="/lab/optimize-manufacturing-case-studies-ai-retrieval"
+          className="text-brand hover:underline"
+        >
+          manufacturing case studies for AI retrieval
+        </Link>{" "}
+        for the page structure that survives grounding pipelines.
       </p>
 
       <h2>Evidence-Based Publishing Menu for Manufacturers</h2>
