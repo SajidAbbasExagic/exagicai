@@ -44,6 +44,7 @@ function getNextSlotDate() {
 export default function AIWebsiteSprintPage() {
   const pathname = usePathname();
   const [status, setStatus] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [nextSlotDate, setNextSlotDate] = useState("");
 
@@ -55,10 +56,12 @@ export default function AIWebsiteSprintPage() {
     e.preventDefault();
     setIsSubmitting(true);
     setStatus(null);
+    setErrorMessage("");
 
     const form = e.target;
 
     if (!window.grecaptcha) {
+      setErrorMessage("reCAPTCHA script failed to load. Check ad-blockers or connection.");
       setStatus("error");
       setIsSubmitting(false);
       return;
@@ -80,10 +83,12 @@ export default function AIWebsiteSprintPage() {
           setStatus("success");
           form.reset();
         } else {
+          setErrorMessage(result.error || result.message || "Something went wrong. Please try again.");
           setStatus("error");
         }
       } catch (error) {
         console.error("CAPTCHA error:", error);
+        setErrorMessage(error?.message || "CAPTCHA verification error.");
         setStatus("error");
       } finally {
         setIsSubmitting(false);
@@ -364,7 +369,7 @@ export default function AIWebsiteSprintPage() {
               )}
               {status === "error" && (
                 <div className="bg-rose-50 text-rose-700 p-4 rounded-xl border border-rose-100 font-medium text-sm text-center">
-                  Something went wrong submitting the form. Please try again.
+                  {errorMessage || "Something went wrong submitting the form. Please try again."}
                 </div>
               )}
               {status !== "success" && (

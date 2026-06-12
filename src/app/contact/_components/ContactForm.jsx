@@ -8,16 +8,19 @@ import { sendContactEmail } from "@/app/actions/contact";
 export default function ContactForm() {
   const pathname = usePathname();
   const [status, setStatus] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setStatus(null);
+    setErrorMessage("");
 
     const form = e.target;
 
     if (!window.grecaptcha) {
+      setErrorMessage("reCAPTCHA script failed to load. Check ad-blockers or connection.");
       setStatus("error");
       setIsSubmitting(false);
       return;
@@ -34,15 +37,19 @@ export default function ContactForm() {
         formData.append("recaptchaToken", token);
 
         const result = await sendContactEmail(formData);
+        console.log("sendContactEmail result:", result);
 
         if (result?.success) {
           setStatus("success");
           form.reset();
         } else {
+          console.error("Form submission failed:", result);
+          setErrorMessage(result?.message || "Something went wrong. Please try again.");
           setStatus("error");
         }
       } catch (error) {
         console.error("CAPTCHA error:", error);
+        setErrorMessage(error?.message || "CAPTCHA verification error.");
         setStatus("error");
       } finally {
         setIsSubmitting(false);
@@ -62,7 +69,7 @@ export default function ContactForm() {
       )}
       {status === "error" && (
         <div className="bg-rose-50 text-rose-700 p-4 rounded-xl border border-rose-100 font-medium text-sm mb-6">
-          Something went wrong. Please try again or contact us directly.
+          {errorMessage || "Something went wrong. Please try again or contact us directly."}
         </div>
       )}
 

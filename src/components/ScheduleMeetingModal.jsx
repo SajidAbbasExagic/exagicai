@@ -8,9 +8,9 @@ import { usePathname } from "next/navigation";
 import { sendMeetingRequest } from "@/app/actions/contact";
 
 const TIMEZONE = "America/Los_Angeles";
-const SLOT_MINUTES = 20;
+const SLOT_MINUTES = 60;
 const BUSINESS_START = 9;
-const BUSINESS_END = 18;
+const BUSINESS_END = 21;
 const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL;
 
 function startOfDay(date) {
@@ -35,17 +35,6 @@ function isWeekend(date) {
     timeZone: TIMEZONE,
   });
   return weekday === "Sat" || weekday === "Sun";
-}
-
-function toPacificTimestamp(dateKey, hour, minute) {
-  const probe = new Date(`${dateKey}T12:00:00Z`);
-  const offset =
-    probe.getTime() -
-    new Date(probe.toLocaleString("en-US", { timeZone: TIMEZONE })).getTime();
-  const local = new Date(
-    `${dateKey}T${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}:00`,
-  );
-  return local.getTime() + offset;
 }
 
 function formatDayLabel(date) {
@@ -94,9 +83,18 @@ function buildSlotsForDate(date) {
   const now = Date.now();
   const dateKey = getDateKey(date);
 
+  // Compute timezone offset once per date instead of in a loop
+  const probe = new Date(`${dateKey}T12:00:00Z`);
+  const offset =
+    probe.getTime() -
+    new Date(probe.toLocaleString("en-US", { timeZone: TIMEZONE })).getTime();
+
   for (let hour = BUSINESS_START; hour < BUSINESS_END; hour++) {
     for (let minute = 0; minute < 60; minute += SLOT_MINUTES) {
-      const timestamp = toPacificTimestamp(dateKey, hour, minute);
+      const local = new Date(
+        `${dateKey}T${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}:00`
+      );
+      const timestamp = local.getTime() + offset;
       if (timestamp <= now) continue;
       slots.push(new Date(timestamp));
     }
@@ -223,32 +221,20 @@ export default function ScheduleMeetingModal({ isOpen, onClose }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="schedule-meeting-title"
-        className="relative z-10 mt-2 flex h-[min(calc(100dvh-6.5rem),560px)] w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-zinc-700/30 bg-zinc-50 shadow-[0_32px_80px_rgba(0,0,0,0.45)] ring-1 ring-white/10 sm:mt-3 sm:h-[min(calc(100dvh-8.25rem),560px)]"
+        className="relative z-10 mt-2 flex h-[min(calc(100dvh-6.5rem),560px)] w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50 shadow-[0_32px_80px_rgba(0,0,0,0.15)] sm:mt-3 sm:h-[min(calc(100dvh-8.25rem),560px)]"
       >
-        <div className="flex shrink-0 items-center justify-between bg-zinc-900 px-4 py-3 sm:px-6 sm:py-4">
-          <p className="text-sm font-medium text-zinc-300">Pick a time:</p>
-          <div className="flex items-center gap-3 sm:gap-4">
-            <Image
-              src="/exagic-logo.png"
-              alt="Exagic"
-              width={100}
-              height={32}
-              className="h-6 w-auto object-contain brightness-0 invert sm:h-7"
-            />
-            <button
-              type="button"
-              onClick={onClose}
-              className="rounded-full p-1.5 text-zinc-400 transition-colors hover:bg-white/10 hover:text-white"
-              aria-label="Close"
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-        </div>
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute right-4 top-4 z-20 rounded-full p-2 text-zinc-400 transition-colors hover:bg-zinc-200/50 hover:text-zinc-800"
+          aria-label="Close"
+        >
+          <X className="h-5 w-5" />
+        </button>
 
         <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
         {CALENDLY_URL ? (
-          <div className="min-h-0 flex-1 overflow-y-auto">
+          <div className="min-h-0 flex-1 overflow-y-auto pt-10 px-4 sm:px-6">
             <Script
               src="https://assets.calendly.com/assets/external/widget.js"
               strategy="lazyOnload"
@@ -259,7 +245,7 @@ export default function ScheduleMeetingModal({ isOpen, onClose }) {
             />
           </div>
         ) : status === "success" ? (
-          <div className="min-h-0 flex-1 overflow-y-auto px-4 py-12 text-center sm:px-6 sm:py-16">
+          <div className="min-h-0 flex-1 overflow-y-auto px-4 py-16 text-center sm:px-6 sm:py-20">
             <h3 className="text-2xl font-bold text-zinc-900">
               Meeting request sent
             </h3>
@@ -277,7 +263,7 @@ export default function ScheduleMeetingModal({ isOpen, onClose }) {
             </button>
           </div>
         ) : step === "confirm" ? (
-          <form onSubmit={handleSubmit} className="min-h-0 flex-1 overflow-y-auto px-4 py-6 sm:px-6 sm:py-8">
+          <form onSubmit={handleSubmit} className="min-h-0 flex-1 overflow-y-auto px-4 py-8 pr-12 sm:px-6 sm:py-10 sm:pr-14">
             <button
               type="button"
               onClick={() => setStep("pick")}
@@ -336,7 +322,7 @@ export default function ScheduleMeetingModal({ isOpen, onClose }) {
           </form>
         ) : (
           <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
-            <div className="shrink-0 px-4 pt-5 sm:px-6 sm:pt-6">
+            <div className="shrink-0 px-4 pt-8 pr-12 sm:px-6 sm:pt-10 sm:pr-14">
             <h3
               id="schedule-meeting-title"
               className="text-base font-bold text-zinc-900 sm:text-lg"
