@@ -11,7 +11,7 @@ const DEFAULT_MISTAKES = [
 export default function GeoMistakesChart({
   mistakes = DEFAULT_MISTAKES,
   highlightIndex = null,
-  footnote = "Patel's conclusion: the top three mistakes chase volume over trust. Build authority before scaling.",
+  footnote = "The top three mistakes chase volume over trust. Build authority before scaling.",
 }) {
   return (
     <div className="my-12 p-10 rounded-2xl bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 text-white shadow-xl relative overflow-hidden not-prose">
@@ -20,7 +20,7 @@ export default function GeoMistakesChart({
       </div>
       <div className="relative z-10">
         <div className="text-brand font-bold mb-4 tracking-widest text-sm uppercase">
-          NP Digital Research · 500 Marketers
+          Exagic AI Research · 500 Marketers
         </div>
         <h3 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
           The 7 Most Common AI Search Mistakes

@@ -415,7 +415,7 @@ export default function ArticlePage() {
       </div>
 
       <div className="mt-8 text-sm text-zinc-500 bg-zinc-50 p-6 rounded-xl">
-        <strong>Sources:</strong> NP Digital, March 2026. Data from TechCrunch, Alphamatic, Search Engine Land, Conductor, Ubersuggest, Answer the Public, Similar Web, Adobe Analytics, Digiday, Growth Unhinged, Wallaroo Media, Rank Science, and Microsoft Clarity.
+        <strong>Sources:</strong> Exagic AI Research, March 2026. Data from TechCrunch, Alphamatic, Search Engine Land, Conductor, Similar Web, Adobe Analytics, Digiday, Growth Unhinged, Wallaroo Media, Rank Science, and Microsoft Clarity.
       </div>
     </LabArticleLayout>
   );

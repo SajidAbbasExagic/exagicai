@@ -6,7 +6,7 @@ export const metadata = {
   title:
     "Why ChatGPT Doesn't Recommend Your Manufacturing Brand: The 7 GEO Mistakes Industrial Companies Make",
   description:
-    "Neil Patel's NP Digital research identifies seven GEO mistakes holding brands back in AI search. Here is how each mistake shows up in industrial manufacturing—and what to fix first.",
+    "Recent industry-wide GEO research identifies seven GEO mistakes holding brands back in AI search. Here is how each mistake shows up in industrial manufacturing—and what to fix first.",
   alternates: {
     canonical:
       "https://exagic.ai/lab/why-chatgpt-doesnt-recommend-manufacturers-seven-geo-mistakes",
@@ -20,7 +20,7 @@ export default function SevenGEOMistakesIndustrialArticle() {
     headline:
       "Why ChatGPT Doesn't Recommend Your Manufacturing Brand: The 7 GEO Mistakes Industrial Companies Make",
     description:
-      "Neil Patel's NP Digital research identifies seven GEO mistakes holding brands back in AI search. Here is how each mistake shows up in industrial manufacturing.",
+      "Recent industry-wide GEO research identifies seven GEO mistakes holding brands back in AI search. Here is how each mistake shows up in industrial manufacturing.",
     author: { "@type": "Organization", name: "Exagic AI Research" },
     publisher: { "@type": "Organization", name: "Exagic AI" },
     datePublished: "2026-05-25",
@@ -63,12 +63,12 @@ export default function SevenGEOMistakesIndustrialArticle() {
       authorId="saif"
       title="Why ChatGPT Doesn't Recommend Your Manufacturing Brand: The 7 GEO Mistakes Industrial Companies Make"
       metaTitle="7 GEO Mistakes Industrial Manufacturers Make | Exagic AI"
-      metaDescription="Neil Patel's GEO research applied to industrial brands: the seven mistakes that stop ChatGPT and Perplexity from recommending your manufacturing company—and how to fix each one."
+      metaDescription="Industry-wide GEO research applied to industrial brands: the seven mistakes that stop ChatGPT and Perplexity from recommending your manufacturing company—and how to fix each one."
       datePublished="May 25, 2026"
       category="AI SEO Education"
       tags={[
         "GEO",
-        "Neil Patel",
+        "AI SEO",
         "ChatGPT",
         "Entity SEO",
         "Industrial Marketing",
@@ -78,20 +78,20 @@ export default function SevenGEOMistakesIndustrialArticle() {
       breadcrumbItems={breadcrumbItems}
       previousArticle={{
         title:
-          "Neil Patel's LLMO Playbook: What Industrial Brands Should Borrow for AI SEO",
-        href: "/lab/neil-patel-llmo-industrial-ai-seo-playbook",
+          "The LLMO Playbook for Industrial Brands: Moving Beyond Generic AI SEO",
+        href: "/lab/llmo-playbook-industrial-brands",
       }}
       nextArticle={{
         title:
-          "Build Authority Before You Scale Content: Neil Patel's GEO Rule for Industrial Brands",
+          "Build Authority Before You Scale Content: The GEO Rule for Industrial Brands",
         href: "/lab/build-authority-before-scaling-industrial-geo",
       }}
     >
       <p className="lead text-xl font-medium text-zinc-900 mb-10">
-        Neil Patel recently summarized why ChatGPT &quot;doesn&apos;t love&quot; most
+        Recent studies summarized why ChatGPT &quot;doesn&apos;t love&quot; most
         websites: marketers are making the same Generative Engine Optimization
-        (GEO) mistakes over and over. NP Digital surveyed 500 marketers and
-        business owners. The top failure wasn&apos;t a technical glitch—it was weak
+        (GEO) mistakes over and over. A survey of 500 marketers and
+        business owners identified that the top failure wasn&apos;t a technical glitch—it was weak
         brand and entity positioning, cited by 40% of respondents. For
         industrial manufacturers, that statistic is especially damning. Your
         buyers aren&apos;t asking for &quot;great content.&quot; They&apos;re asking whether you
@@ -99,21 +99,21 @@ export default function SevenGEOMistakesIndustrialArticle() {
       </p>
 
       <p>
-        This article takes Patel&apos;s seven most common AI search mistakes and
+        This article takes the seven most common AI search mistakes and
         translates each into an industrial diagnosis. It is not a repeat of our{" "}
         <Link
-          href="/lab/neil-patel-llmo-industrial-ai-seo-playbook"
+          href="/lab/llmo-playbook-industrial-brands"
           className="text-brand hover:underline"
         >
           LLMO playbook overview
         </Link>
-        . That piece explained how to borrow Patel&apos;s broad framework. This one
-        maps his GEO mistake data—mistake by mistake—to the specific reasons
+        . That piece explained how to borrow a broader framework. This one
+        maps the GEO mistake data—mistake by mistake—to the specific reasons
         ChatGPT and Perplexity skip your shop when procurement engineers ask for
         qualified suppliers.
       </p>
 
-      <GeoMistakesChart footnote="Patel's conclusion: the top three mistakes chase volume over trust. Build authority before scaling. For manufacturers, authority means verifiable capability facts—not more blog posts." />
+      <GeoMistakesChart footnote="Industry research shows that the top three mistakes chase volume over trust. Build authority before scaling. For manufacturers, authority means verifiable capability facts—not more blog posts." />
 
       <h2>GEO vs. SEO: Why Industrial Brands Feel the Gap First</h2>
       <p>
@@ -238,8 +238,8 @@ export default function SevenGEOMistakesIndustrialArticle() {
         content for AI&quot; and spin up 50 posts about &quot;the future of
         manufacturing.&quot; None of them include a single machine model, tolerance
         band, or alloy grade. Worse, they often repeat the same capability
-        claims without new evidence—exactly what Patel warns against when he
-        says the top mistakes chase volume over trust.
+        claims without new evidence—exactly what industry research warns against:
+        chasing volume over trust.
       </p>
       <p>
         AI retrieval systems weight{" "}
@@ -265,7 +265,7 @@ export default function SevenGEOMistakesIndustrialArticle() {
 
       <h2>Mistake #3: Not Diversifying Traffic Sources (37%)</h2>
       <p>
-        Patel frames this as over-reliance on Google organic. For manufacturers,
+        General research frames this as over-reliance on Google organic. For manufacturers,
         the parallel is over-reliance on legacy directories and trade-show
         inbound while ignoring AI-mediated discovery entirely. ThomasNet,
         industry associations, and Google still matter—but{" "}
@@ -323,7 +323,7 @@ export default function SevenGEOMistakesIndustrialArticle() {
         </li>
       </ul>
       <p>
-        Patel&apos;s advice to build authority before scaling content applies
+        The core GEO rule to build authority before scaling content applies
         directly: fix proof before publishing volume.
       </p>
 
@@ -453,7 +453,7 @@ export default function SevenGEOMistakesIndustrialArticle() {
 
       <h2>The Industrial GEO Fix Order: What to Do First</h2>
       <p>
-        Patel&apos;s research implies a priority stack. For manufacturers, we
+        The research implies a priority stack. For manufacturers, we
         translate it into a 30-day sequence that addresses the highest-impact
         mistakes before lower-frequency ones:
       </p>
@@ -547,7 +547,7 @@ export default function SevenGEOMistakesIndustrialArticle() {
 
       <h2>Why Trust Beats Volume in Industrial GEO</h2>
       <p>
-        The through-line in Patel&apos;s GEO data is that the most common failures
+        The through-line in this GEO data is that the most common failures
         are not technical SEO bugs—they are trust and identity failures.
         Manufacturers that fix entity positioning, stop publishing hollow AI
         content, diversify into answer-engine visibility, and measure citations

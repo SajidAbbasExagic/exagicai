@@ -75,7 +75,7 @@ export default function BeyondGoogleTrafficDiversificationArticle() {
       }}
     >
       <p className="lead text-xl font-medium text-zinc-900 mb-10">
-        Neil Patel&apos;s GEO mistake data puts &quot;not diversifying traffic
+        Exagic AI&apos;s GEO mistake data puts &quot;not diversifying traffic
         sources&quot; third on the list—37% of marketers admit the failure. For
         Bay Area manufacturers, the blind spot is familiar: organic Google
         rankings and ThomasNet profiles still define &quot;visibility,&quot; while
@@ -117,7 +117,7 @@ export default function BeyondGoogleTrafficDiversificationArticle() {
           href="/lab/why-chatgpt-doesnt-recommend-manufacturers-seven-geo-mistakes"
           className="text-brand hover:underline"
         >
-          Patel&apos;s GEO research
+          our GEO research
         </Link>
         —cited by 37% of marketers—and the one Bay Area shops feel last because
         Google still sends RFQs today.
@@ -278,7 +278,7 @@ export default function BeyondGoogleTrafficDiversificationArticle() {
       </ol>
 
       <p>
-        Patel&apos;s GEO data is clear: single-channel dependence is a
+        GEO research is clear: single-channel dependence is a
         top-three mistake. Bay Area manufacturers that diversify into answer
         engines, directory entities, and regional citation networks capture
         discovery wherever the buyer starts—not only on Google page one.

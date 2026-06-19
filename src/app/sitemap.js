@@ -2,12 +2,15 @@ export default function sitemap() {
   const baseUrl = "https://exagic.ai";
 
   const labArticles = [
+    "grounding-ai-search-vs-vague-seo-copy",
+    "structured-capability-pages-industrial-ai-citations",
+    "how-ai-search-bots-verify-supplier-capacity",
     "chasing-rankings-losing-ai-citations-manufacturers",
     "beyond-google-traffic-diversification-bay-area-manufacturers",
     "mass-ai-content-poisoning-industrial-geo",
     "build-authority-before-scaling-industrial-geo",
     "why-chatgpt-doesnt-recommend-manufacturers-seven-geo-mistakes",
-    "neil-patel-llmo-industrial-ai-seo-playbook",
+    "llmo-playbook-industrial-brands",
     "ai-visibility-kpi-dashboard-industrial-cmos",
     "how-ai-search-is-changing-b2b-vendor-shortlisting-2026",
     "2026-bay-area-industrial-ai-visibility-report",

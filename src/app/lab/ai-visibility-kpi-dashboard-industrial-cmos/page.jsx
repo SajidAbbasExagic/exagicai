@@ -69,8 +69,8 @@ export default function AIVisibilityKPIDashboardArticle() {
         href: "/lab/openai-codex-vs-anthropic-claude-code-comparison",
       }}
       nextArticle={{
-        title: "Neil Patel's LLMO Playbook: What Industrial Brands Should Borrow for AI SEO",
-        href: "/lab/neil-patel-llmo-industrial-ai-seo-playbook",
+        title: "The LLMO Playbook for Industrial Brands: Moving Beyond Generic AI SEO",
+        href: "/lab/llmo-playbook-industrial-brands",
       }}
     >
       <p className="lead text-xl font-medium text-zinc-900 mb-10">

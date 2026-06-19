@@ -298,7 +298,7 @@ export default function ArticlePage() {
       </p>
 
       <div className="mt-8 text-sm text-zinc-500 bg-zinc-50 p-6 rounded-xl">
-        <strong>Sources:</strong> NP Digital, March 2026. Data from Visual Capitalist, SimilarWeb, Search Engine Land, Adobe Analytics, Digiday, Microsoft Work Trend Index, Stanford AI Index Report, OECD AI adoption studies.
+        <strong>Sources:</strong> Exagic AI Research, March 2026. Data from Visual Capitalist, SimilarWeb, Search Engine Land, Adobe Analytics, Digiday, Microsoft Work Trend Index, Stanford AI Index Report, OECD AI adoption studies.
       </div>
     </LabArticleLayout>
   );

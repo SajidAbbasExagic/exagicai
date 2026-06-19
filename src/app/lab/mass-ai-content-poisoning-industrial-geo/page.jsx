@@ -64,7 +64,7 @@ export default function MassAIContentIndustrialGEOArticle() {
       breadcrumbItems={breadcrumbItems}
       previousArticle={{
         title:
-          "Build Authority Before You Scale Content: Neil Patel's GEO Rule for Industrial Brands",
+          "Build Authority Before You Scale Content: The GEO Rule for Industrial Brands",
         href: "/lab/build-authority-before-scaling-industrial-geo",
       }}
       nextArticle={{
@@ -74,7 +74,7 @@ export default function MassAIContentIndustrialGEOArticle() {
       }}
     >
       <p className="lead text-xl font-medium text-zinc-900 mb-10">
-        Neil Patel&apos;s GEO research ranks &quot;publishing mass AI-generated
+        Recent industry GEO research ranks &quot;publishing mass AI-generated
         content&quot; as the second-most-common AI search mistake—cited by 38%
         of marketers. In industrial marketing, the failure mode is predictable:
         a VP reads that AI search rewards content volume, hands the blog to
@@ -89,7 +89,7 @@ export default function MassAIContentIndustrialGEOArticle() {
         <strong>extractable, verifiable evidence</strong>. Mass AI content that
         repeats the same vague capability claims actually poisons your entity
         signal—training retrieval systems that your site is high-volume,
-        low-specificity noise. Patel ranks this mistake #2 overall—right behind{" "}
+        low-specificity noise. Our research ranks this mistake #2 overall—right behind{" "}
         <Link
           href="/lab/why-chatgpt-doesnt-recommend-manufacturers-seven-geo-mistakes"
           className="text-brand hover:underline"
@@ -257,7 +257,7 @@ export default function MassAIContentIndustrialGEOArticle() {
       </ol>
       <p>
         Never invert the order—AI prose first, facts later. That produces exactly
-        the 38% mistake Patel&apos;s research warns about.
+        the 38% mistake industry research warns about.
       </p>
 
       <h2>Cleaning Up Existing AI Content Debt</h2>

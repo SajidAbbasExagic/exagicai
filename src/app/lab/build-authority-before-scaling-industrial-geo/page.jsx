@@ -4,9 +4,9 @@ import Link from "next/link";
 
 export const metadata = {
   title:
-    "Build Authority Before You Scale Content: Neil Patel's GEO Rule for Industrial Brands",
+    "Build Authority Before You Scale Content: The GEO Rule for Industrial Brands",
   description:
-    "Neil Patel's top GEO insight: the biggest AI search mistakes chase volume over trust. Here is how industrial manufacturers build authority before scaling content.",
+    "The core GEO rule: the biggest AI search mistakes chase volume over trust. Here is how industrial manufacturers build authority before scaling content.",
   alternates: {
     canonical:
       "https://exagic.ai/lab/build-authority-before-scaling-industrial-geo",
@@ -18,9 +18,9 @@ export default function BuildAuthorityBeforeScalingArticle() {
     "@context": "https://schema.org",
     "@type": "Article",
     headline:
-      "Build Authority Before You Scale Content: Neil Patel's GEO Rule for Industrial Brands",
+      "Build Authority Before You Scale Content: The GEO Rule for Industrial Brands",
     description:
-      "Neil Patel's top GEO insight: the biggest AI search mistakes chase volume over trust. Here is how industrial manufacturers build authority before scaling content.",
+      "The core GEO rule: the biggest AI search mistakes chase volume over trust. Here is how industrial manufacturers build authority before scaling content.",
     author: { "@type": "Organization", name: "Exagic AI Research" },
     publisher: { "@type": "Organization", name: "Exagic AI" },
     datePublished: "2026-05-29",
@@ -56,12 +56,12 @@ export default function BuildAuthorityBeforeScalingArticle() {
   return (
     <LabArticleLayout
       authorId="muqaddas"
-      title="Build Authority Before You Scale Content: Neil Patel's GEO Rule for Industrial Brands"
+      title="Build Authority Before You Scale Content: The GEO Rule for Industrial Brands"
       metaTitle="Build Authority Before Scaling Content | Exagic AI"
-      metaDescription="Neil Patel's GEO research says top mistakes chase volume over trust. Learn the industrial authority foundation manufacturers need before scaling content."
+      metaDescription="GEO research says top mistakes chase volume over trust. Learn the industrial authority foundation manufacturers need before scaling content."
       datePublished="May 29, 2026"
       category="AI SEO Education"
-      tags={["GEO", "Authority", "Neil Patel", "Industrial Marketing"]}
+      tags={["GEO", "Authority", "AI SEO", "Industrial Marketing"]}
       articleSchema={articleSchema}
       faqSchema={faqSchema}
       breadcrumbItems={breadcrumbItems}
@@ -77,7 +77,7 @@ export default function BuildAuthorityBeforeScalingArticle() {
       }}
     >
       <p className="lead text-xl font-medium text-zinc-900 mb-10">
-        At the bottom of Neil Patel&apos;s GEO mistake research sits one line that
+        At the bottom of GEO mistake research sits one line that
         industrial marketers should tattoo on the wall:{" "}
         <em>the top mistakes chase volume over trust. Build authority before
         scaling.</em> For a SaaS company, authority might mean reviews and
@@ -97,11 +97,11 @@ export default function BuildAuthorityBeforeScalingArticle() {
           href="/lab/why-chatgpt-doesnt-recommend-manufacturers-seven-geo-mistakes"
           className="text-brand hover:underline"
         >
-          Patel&apos;s seven GEO mistakes
+          the seven GEO mistakes
         </Link>{" "}
         and pairs with{" "}
         <Link
-          href="/lab/neil-patel-llmo-industrial-ai-seo-playbook"
+          href="/lab/llmo-playbook-industrial-brands"
           className="text-brand hover:underline"
         >
           the industrial LLMO playbook
@@ -117,7 +117,7 @@ export default function BuildAuthorityBeforeScalingArticle() {
       <div className="my-12 p-10 rounded-2xl bg-zinc-900 text-white border border-zinc-800 shadow-xl relative overflow-hidden not-prose">
         <div className="relative z-10">
           <div className="text-brand font-bold mb-4 tracking-widest text-sm uppercase">
-            Patel&apos;s GEO Principle
+            GEO Principle
           </div>
           <h3 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
             Trust precedes volume.
@@ -217,7 +217,7 @@ export default function BuildAuthorityBeforeScalingArticle() {
 
       <h2>The 21-Day Authority Sprint</h2>
       <p>
-        Before your next content batch, run this sprint. It mirrors Patel&apos;s
+        Before your next content batch, run this sprint. It mirrors the
         trust-before-volume rule in operational steps.
       </p>
       <ol>
@@ -258,7 +258,7 @@ export default function BuildAuthorityBeforeScalingArticle() {
       </p>
 
       <p>
-        Patel&apos;s GEO data is blunt: marketers who chase volume without trust
+        The GEO research is blunt: marketers who chase volume without trust
         lose in AI search. Industrial brands that build entity integrity,
         capability evidence, and external corroboration first—then scale—are the
         ones ChatGPT starts recommending.

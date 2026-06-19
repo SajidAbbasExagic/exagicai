@@ -9,6 +9,39 @@ export const categories = [
 export const articles = [
   {
     title:
+      "Grounding in AI Search: Why Retrieval-Ready Data Beats Vague SEO Copy",
+    description:
+      "Vague marketing copy is ignored by LLM grounding pipelines. Learn how to write retrieval-ready, factual copy that search bots choose to cite.",
+    href: "/lab/grounding-ai-search-vs-vague-seo-copy",
+    authorId: "saif",
+    date: "June 19, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title:
+      "Structured Capability Pages: The Foundation of B2B AI Citations",
+    description:
+      "AI search engines require structured capability data to verify supplier expertise. How to design machine-readable capability pages for industrial SRO.",
+    href: "/lab/structured-capability-pages-industrial-ai-citations",
+    authorId: "muqaddas",
+    date: "June 15, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title:
+      "How AI Search Bots Verify Supplier Capacity and Equipment Specs",
+    description:
+      "AI procurement agents verify supplier capacity before adding them to shortlists. Learn how manufacturers can present equipment specs to pass verification.",
+    href: "/lab/how-ai-search-bots-verify-supplier-capacity",
+    authorId: "saif",
+    date: "June 12, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title:
       "You Can Rank #1 and Still Lose the AI Shortlist: The Rankings-vs-Citations Split for Manufacturers",
     description:
       "19% of marketers chase rankings only—a GEO mistake. Learn why industrial brands can rank #1 on Google and still lose the ChatGPT procurement shortlist.",
@@ -42,9 +75,9 @@ export const articles = [
   },
   {
     title:
-      "Build Authority Before You Scale Content: Neil Patel's GEO Rule for Industrial Brands",
+      "Build Authority Before You Scale Content: The GEO Rule for Industrial Brands",
     description:
-      "Neil Patel's GEO research: top mistakes chase volume over trust. The authority-first sequence industrial manufacturers need before scaling content.",
+      "Industry GEO research: top mistakes chase volume over trust. The authority-first sequence industrial manufacturers need before scaling content.",
     href: "/lab/build-authority-before-scaling-industrial-geo",
     authorId: "saif",
     date: "May 29, 2026",
@@ -55,7 +88,7 @@ export const articles = [
     title:
       "Why ChatGPT Doesn't Recommend Your Manufacturing Brand: The 7 GEO Mistakes Industrial Companies Make",
     description:
-      "Neil Patel's NP Digital research names seven GEO mistakes killing AI visibility. Here is how each one shows up in industrial manufacturing—and the fix order that works.",
+      "Recent industry research names seven GEO mistakes killing AI visibility. Here is how each one shows up in industrial manufacturing—and the fix order that works.",
     href: "/lab/why-chatgpt-doesnt-recommend-manufacturers-seven-geo-mistakes",
     authorId: "saif",
     date: "May 25, 2026",
@@ -64,10 +97,10 @@ export const articles = [
   },
   {
     title:
-      "Neil Patel's LLMO Playbook: What Industrial Brands Should Borrow for AI SEO",
+      "The LLMO Playbook for Industrial Brands: Moving Beyond Generic AI SEO",
     description:
-      "Neil Patel's LLM optimization guidance is useful for broad marketers, but industrial brands need a stricter playbook built around technical data, citations, certifications, and procurement proof.",
-    href: "/lab/neil-patel-llmo-industrial-ai-seo-playbook",
+      "A generic LLM optimization playbook is useful for broad marketers, but industrial brands need a stricter framework built around technical data, citations, certifications, and procurement proof.",
+    href: "/lab/llmo-playbook-industrial-brands",
     authorId: "muqaddas",
     date: "May 21, 2026",
     category: "AI SEO Education",

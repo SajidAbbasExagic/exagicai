@@ -68,10 +68,13 @@ export default function ChasingRankingsLosingCitationsArticle() {
           "Beyond Google: How Bay Area Manufacturers Diversify Visibility Across AI Search Channels",
         href: "/lab/beyond-google-traffic-diversification-bay-area-manufacturers",
       }}
-      nextArticle={null}
+      nextArticle={{
+        title: "How AI Search Bots Verify Supplier Capacity and Equipment Specs",
+        href: "/lab/how-ai-search-bots-verify-supplier-capacity",
+      }}
     >
       <p className="lead text-xl font-medium text-zinc-900 mb-10">
-        Neil Patel&apos;s GEO research lists &quot;chasing rankings only&quot;
+        GEO research lists &quot;chasing rankings only&quot;
         among the seven most common AI search mistakes—19% of marketers admit it.
         In industrial marketing, the split is starker: you can hold position #1
         for &quot;precision machining Oakland&quot; and never appear when a
@@ -88,7 +91,7 @@ export default function ChasingRankingsLosingCitationsArticle() {
           href="/lab/why-chatgpt-doesnt-recommend-manufacturers-seven-geo-mistakes"
           className="text-brand hover:underline"
         >
-          Neil Patel&apos;s seven GEO mistakes research
+          the seven GEO mistakes research
         </Link>
         —and the one industrial CMOs miss most often because legacy dashboards
         still celebrate position #1.
@@ -298,7 +301,7 @@ export default function ChasingRankingsLosingCitationsArticle() {
         <Link href="/lab/zero-click-sourcing-b2b-analytics-dropping-traffic" className="text-brand hover:underline">
           zero-click sourcing
         </Link>{" "}
-       —and it is why chasing rankings only is Patel&apos;s GEO mistake #6.
+       —and it is why chasing rankings only is GEO mistake #6.
       </p>
 
       <h2>30-Day Rankings + Citations Reconciliation</h2>
