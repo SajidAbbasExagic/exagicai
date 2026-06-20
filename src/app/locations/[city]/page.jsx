@@ -426,11 +426,11 @@ export default async function LocationPage({ params }) {
             <div className="w-full md:w-5/12 flex justify-center md:justify-end">
               <div className="relative w-full max-w-[400px]">
                 <Image
-                  src="/ai_expert_author.png"
-                  alt="AI SEO Expert"
+                  src="/team/arthur.jpg"
+                  alt="Saif K - AI SEO Expert"
                   width={500}
-                  height={600}
-                  className="w-full h-auto object-contain drop-shadow-xl"
+                  height={500}
+                  className="w-full h-auto object-cover rounded-2xl drop-shadow-xl"
                   priority
                 />
               </div>
