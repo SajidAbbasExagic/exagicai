@@ -5,7 +5,6 @@ import Script from "next/script";
 import { useEffect, useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { sendMeetingRequest } from "@/app/actions/contact";
 
 const TIMEZONE = "America/Los_Angeles";
 const SLOT_MINUTES = 60;
@@ -180,22 +179,27 @@ export default function ScheduleMeetingModal({ isOpen, onClose }) {
           { action: "meeting_submit" }
         );
 
-        const result = await sendMeetingRequest({
-          name,
-          email,
-          dateLabel: selectedDate.toLocaleDateString("en-US", {
-            weekday: "long",
-            month: "long",
-            day: "numeric",
-            year: "numeric",
-            timeZone: TIMEZONE,
+        const res = await fetch("/api/meeting", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name,
+            email,
+            dateLabel: selectedDate.toLocaleDateString("en-US", {
+              weekday: "long",
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+              timeZone: TIMEZONE,
+            }),
+            timeLabel: formatTimeLabel(selectedSlot),
+            timezone: getTimezoneLabel(),
+            path: pathname,
+            recaptchaToken: token,
           }),
-          timeLabel: formatTimeLabel(selectedSlot),
-          timezone: getTimezoneLabel(),
-          path: pathname,
-          recaptchaToken: token,
         });
 
+        const result = await res.json();
         setStatus(result?.success ? "success" : "error");
       } catch (error) {
         console.error("CAPTCHA error:", error);

@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Script from "next/script";
-import { sendSprintEmail } from "@/app/actions/sprint";
 
 // Animation presets
 const fadeInUp = {
@@ -75,9 +74,22 @@ export default function AIWebsiteSprintPage() {
         );
 
         const formData = new FormData(form);
-        formData.append("recaptchaToken", token);
-        
-        const result = await sendSprintEmail(formData);
+
+        const res = await fetch("/api/sprint", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            firstName: formData.get("firstName"),
+            lastName: formData.get("lastName"),
+            email: formData.get("email"),
+            phone: formData.get("phone"),
+            projectDetails: formData.get("projectDetails"),
+            path: formData.get("path"),
+            recaptchaToken: token,
+          }),
+        });
+
+        const result = await res.json();
 
         if (result.success) {
           setStatus("success");

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
-import { sendContactEmail } from "@/app/actions/contact";
 
 export default function ContactForm() {
   const pathname = usePathname();
@@ -34,9 +33,21 @@ export default function ContactForm() {
         );
 
         const formData = new FormData(form);
-        formData.append("recaptchaToken", token);
 
-        const result = await sendContactEmail(formData);
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: formData.get("name"),
+            email: formData.get("email"),
+            subject: formData.get("subject"),
+            message: formData.get("message"),
+            path: formData.get("path"),
+            recaptchaToken: token,
+          }),
+        });
+
+        const result = await res.json();
         console.log("sendContactEmail result:", result);
 
         if (result?.success) {

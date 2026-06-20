@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
-import { sendCommentEmail } from "@/app/actions/comment";
 
 export default function ArticleComments({ articleTitle }) {
   const pathname = usePathname();
@@ -34,12 +33,21 @@ export default function ArticleComments({ articleTitle }) {
           { action: "comment_submit" }
         );
 
-        const data = new FormData(form);
-        data.append("recaptchaToken", token);
-        data.append("postUrl", `https://exagic.ai${pathname}`);
-        data.append("articleTitle", articleTitle);
+        const res = await fetch("/api/comment", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            comment: formData.comment,
+            website: formData.website,
+            postUrl: `https://exagic.ai${pathname}`,
+            articleTitle,
+            recaptchaToken: token,
+          }),
+        });
 
-        const result = await sendCommentEmail(data);
+        const result = await res.json();
 
         if (result.success) {
           setStatus("success");
