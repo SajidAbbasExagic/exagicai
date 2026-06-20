@@ -6,6 +6,11 @@ const require = createRequire(import.meta.url);
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
+  experimental: {
+    serverActions: {
+      allowedOrigins: ['exagic.ai', 'www.exagic.ai'],
+    },
+  },
   headers: async () => [
     {
       source: '/(.*)',
