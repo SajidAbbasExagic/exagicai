@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Search, UserPlus, Lock } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { chatData } from '../data/chatData';
 
 const agentPersona = {
     name: "Exagic Assistant",
@@ -12,7 +11,6 @@ const agentPersona = {
     welcome: "Hello! I'm your Exagic growth strategist. I can help you optimize your brand's visibility in AI-driven search results. What can we look into first?"
 };
 
-const STOP_WORDS = new Set(['a', 'an', 'the', 'and', 'or', 'do', 'does', 'how', 'is', 'are', 'can', 'you', 'me', 'i', 'to', 'for', 'with', 'about', 'what', 'where']);
 
 const FloatingChat = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -33,24 +31,48 @@ const FloatingChat = () => {
     const router = useRouter();
 
     useEffect(() => {
+        const getCookie = (name) => {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+        };
+
         const checkAuth = () => {
-            const emailProvided = localStorage.getItem('userEmail') !== null;
+            const emailProvided = getCookie('userEmail') !== null;
             setHasEmail(emailProvided);
         };
         checkAuth();
-        window.addEventListener('storage', checkAuth);
         window.addEventListener('focus', checkAuth);
         return () => {
-            window.removeEventListener('storage', checkAuth);
             window.removeEventListener('focus', checkAuth);
         };
     }, []);
 
-    const handleEmailSubmit = (e) => {
+    const handleEmailSubmit = async (e) => {
         e.preventDefault();
-        if (tempEmail.trim() && tempEmail.includes('@')) {
-            localStorage.setItem('userEmail', tempEmail);
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(tempEmail.trim())) {
+            return;
+        }
+
+        if (tempEmail.trim()) {
+            document.cookie = `userEmail=${encodeURIComponent(tempEmail)}; path=/; max-age=31536000`; // 1 year expiry
             setHasEmail(true);
+
+            try {
+                await fetch('/api/chatbot-notify', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        email: tempEmail, 
+                        path: window.location.pathname 
+                    })
+                });
+            } catch (err) {
+                console.error("Failed to send chatbot notification", err);
+            }
         }
     };
 
@@ -91,106 +113,26 @@ const FloatingChat = () => {
         setStatus('THINKING');
 
         setTimeout(() => {
-            const rawTokens = userMsg.toLowerCase().replace(/[?.,!]/g, '').split(/\s+/);
-            const tokens = rawTokens.filter(t => !STOP_WORDS.has(t));
+            let responseText = "Thank you for your message. Chatbot response logic is ready to be implemented here.";
             const lowMsg = userMsg.toLowerCase().trim();
-            
-            let responseText = "";
-            let newSuggestions = [];
-            let action = null;
-            let currentTopic = context.topic;
 
-            // 1. Intent Detection (Enhanced)
-            const intents = {
-                greetings: {
-                    patterns: ['hi', 'hello', 'hey', 'yo', 'greetings', 'sup', 'morning', 'evening'],
-                    responses: ["Hi there! I'm online and ready to help. What would you like to focus on today?"],
-                    topic: 'general'
-                },
-                wellbeing: {
-                    patterns: ['how are you', 'hows it going', 'you okay', 'status'],
-                    responses: ["I'm doing great, thank you! Ready to dive into your strategy. How can I help?"],
-                    topic: 'internal'
-                },
-                identity: {
-                    patterns: ['who are you', 'what are you', 'your name', 'exagic'],
-                    responses: ["I'm the Exagic AI Assistant. I help brands improve their authority and visibility across AI search models."],
-                    topic: 'identity'
-                }
-            };
-
-            for (const [key, data] of Object.entries(intents)) {
-                if (data.patterns.some(p => lowMsg.includes(p))) {
-                    responseText = data.responses[0];
-                    newSuggestions = ['Audit my visibility', 'How SRO works', 'Contact the team'];
-                    currentTopic = data.topic;
-                    break;
-                }
+            if (lowMsg.includes('audit')) {
+                responseText = "I can help start an AI visibility audit for your brand. I will check how your brand is cited and recommended across models like GPT-4, Claude, and Gemini. Please visit our Audit page to get started.";
+            } else if (lowMsg.includes('sro') || lowMsg.includes('optimization') || lowMsg.includes('how sro works')) {
+                responseText = "Selection Rate Optimization (SRO) is our proprietary framework. We optimize your digital presence so that AI search engines and answer engines (like Perplexity and SearchGPT) actively select and recommend your brand as the top authority for industry queries.";
+            } else if (lowMsg.includes('contact') || lowMsg.includes('team')) {
+                responseText = "You can contact our team at any time to schedule a discovery call. Please visit our Contact page to get in touch.";
+            } else if (lowMsg.match(/\b(hi|hello|hey|greetings|morning|afternoon)\b/)) {
+                responseText = "Hello! I'm here to help you optimize your brand's AI visibility. Feel free to ask about our SRO framework, request a visibility audit, or contact our team.";
             }
 
-            // 2. Mission/Action Detection
-            if (!responseText) {
-                if (tokens.some(t => ['audit', 'analyze', 'scan', 'check'].includes(t))) {
-                    responseText = "I'll start a visibility audit for you. I'm checking how your brand is mentioned across models like GPT-4 and Claude to find areas for improvement.";
-                    action = "Analyzing Visibility";
-                    newSuggestions = ['View live progress', 'See weak points', 'Stop analysis'];
-                    currentTopic = 'audit';
-                } else if (tokens.some(t => ['so', 'sro', 'aeo', 'optimization', 'engine'].includes(t))) {
-                    responseText = "Selection Rate Optimization (SRO) is our specialized framework. We ensure your brand is chosen as the primary authority for industry-specific queries in AI search.";
-                    newSuggestions = ['See case studies', 'How it works', 'Contact us'];
-                    currentTopic = 'sro';
-                }
-            }
-
-            // 3. Knowledge Base Weighted Search (Intelligent Matching)
-            if (!responseText) {
-                let bestMatch = null;
-                let maxScore = 0;
-
-                chatData.forEach(item => {
-                    let score = 0;
-                    const qTokens = item.question.toLowerCase().replace(/[?.,!]/g, '').split(/\s+/);
-                    const tagTokens = item.tags || [];
-
-                    tokens.forEach(userToken => {
-                        if (qTokens.includes(userToken)) score += 3;
-                        if (tagTokens.includes(userToken)) score += 5;
-                        // Boost for previous context
-                        if (currentTopic && tagTokens.includes(currentTopic)) score += 2;
-                    });
-
-                    if (score > maxScore) {
-                        maxScore = score;
-                        bestMatch = item;
-                    }
-                });
-
-                if (maxScore > 2 && bestMatch) {
-                    responseText = bestMatch.answer;
-                    currentTopic = bestMatch.tags?.[0] || 'general';
-                    newSuggestions = chatData
-                        .filter(i => i.question !== bestMatch.question && i.tags?.some(t => bestMatch.tags?.includes(t)))
-                        .slice(0, 3)
-                        .map(i => i.question);
-                } else {
-                    // Context-aware fallback
-                    if (currentTopic === 'sro') {
-                        responseText = "I'm not finding that specific detail in our SRO database, but it might be a specialized case. Would you like to check our guides or message our support team?";
-                        newSuggestions = ['See SRO guide', 'Message Support', 'Reset'];
-                    } else {
-                        responseText = "I don't have enough information on that yet. I've noted it for our team to improve my responses. Is there something else I can help with?";
-                        newSuggestions = ['Start Audit', 'Talk to a human', 'SEO Basics'];
-                    }
-                }
-            }
-
-            setChatHistory(prev => [...prev, { type: 'bot', text: responseText }]);
+            setChatHistory(prev => [...prev, { 
+                type: 'bot', 
+                text: responseText 
+            }]);
             setIsTyping(false);
             setStatus('READY');
-            setSuggestions(newSuggestions.length > 0 ? newSuggestions : ['Audit my visibility', 'How SRO works', 'Contact the team']);
-            setActiveAction(action);
-            setContext({ topic: currentTopic, depth: context.depth + 1 });
-        }, 1200);
+        }, 1000);
     };
     const toggleChat = () => {
         setIsOpen(!isOpen);
@@ -205,17 +147,17 @@ const FloatingChat = () => {
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        className="w-[350px] sm:w-[400px] max-h-[calc(100dvh-120px)] h-[600px] bg-white dark:bg-zinc-900 backdrop-blur-xl rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-zinc-200/50 dark:border-zinc-800 flex flex-col overflow-hidden no-scrollbar"
+                        className="w-[350px] sm:w-[400px] max-h-[calc(100dvh-120px)] h-[600px] bg-white dark:bg-zinc-900 backdrop-blur-md rounded-[1.5rem] shadow-xl border border-zinc-200 dark:border-zinc-800 flex flex-col overflow-hidden no-scrollbar"
                     >
                         {/* Premium Header */}
-                        <div className="p-6 bg-gradient-to-br from-orange-500/5 via-transparent to-transparent border-b border-zinc-100 dark:border-zinc-800">
+                        <div className="p-5 bg-white dark:bg-zinc-900 border-b border-zinc-100 dark:border-zinc-800">
                             <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-4">
+                                <div className="flex items-center gap-3">
                                     <div className="relative">
-                                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-orange-600 to-orange-400 flex items-center justify-center text-white shadow-lg shadow-orange-500/20">
-                                            <MessageCircle size={24} />
+                                        <div className="w-10 h-10 rounded-xl bg-orange-500 flex items-center justify-center text-white shadow-sm">
+                                            <MessageCircle size={20} />
                                         </div>
-                                        <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-4 border-white dark:border-zinc-900 rounded-full"></span>
+                                        <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-white dark:border-zinc-900 rounded-full"></span>
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-zinc-900 dark:text-white leading-tight">{agentPersona.name}</h3>
@@ -231,11 +173,11 @@ const FloatingChat = () => {
                                 <motion.div 
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    className="mt-4 p-3 bg-orange-500/5 rounded-2xl border border-orange-500/10 flex items-center justify-between"
+                                    className="mt-4 p-3 bg-zinc-50 dark:bg-zinc-800/50 rounded-xl border border-zinc-100 dark:border-zinc-800 flex items-center justify-between"
                                 >
                                     <div className="flex items-center gap-2">
-                                        <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-                                        <span className="text-[10px] uppercase tracking-wider font-bold text-orange-600 dark:text-orange-400">{activeAction}</span>
+                                        <div className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+                                        <span className="text-[10px] uppercase tracking-wider font-semibold text-orange-600 dark:text-orange-400">{activeAction}</span>
                                     </div>
                                     <span className="text-[10px] text-zinc-400 uppercase font-medium">In progress</span>
                                 </motion.div>
@@ -246,8 +188,8 @@ const FloatingChat = () => {
                         <div className="flex-grow overflow-hidden flex flex-col relative bg-white dark:bg-zinc-900">
                             {!hasEmail ? (
                                 <div className="absolute inset-0 z-20 flex flex-col items-center justify-center p-8 text-center">
-                                    <div className="w-16 h-16 rounded-3xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 border border-orange-500/20">
-                                        <MessageCircle size={28} />
+                                    <div className="w-14 h-14 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 border border-orange-500/20">
+                                        <MessageCircle size={24} />
                                     </div>
                                     <h4 className="text-xl font-bold text-zinc-900 dark:text-white mb-3 leading-tight">Wait! Let's stay connected</h4>
                                     <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-8 leading-relaxed max-w-[280px] mx-auto">
@@ -264,12 +206,11 @@ const FloatingChat = () => {
                                         />
                                         <button 
                                             type="submit"
-                                            className="w-full py-4 bg-orange-500 text-white rounded-2xl font-bold shadow-lg shadow-orange-500/20 hover:bg-orange-600 transition-all flex items-center justify-center gap-2 active:scale-[0.98]"
+                                            className="w-full py-3 bg-orange-500 text-white rounded-xl font-medium hover:bg-orange-600 transition-colors flex items-center justify-center gap-2"
                                         >
                                             Continue to Chat
                                         </button>
                                     </form>
-                                    <p className="mt-6 text-[10px] text-zinc-400 uppercase tracking-widest font-bold">Secure Connection Enabled</p>
                                 </div>
                             ) : (
                                 <>
@@ -299,40 +240,54 @@ const FloatingChat = () => {
 
                                     {/* Integrated Footer Area */}
                                     <div className="bg-zinc-50 dark:bg-zinc-900/50 border-t border-zinc-100 dark:border-zinc-800">
-                                        {/* Agent Suggestions */}
-                                        {suggestions.length > 0 && !isTyping && (
-                                            <div className="px-6 py-4 flex gap-2 overflow-x-auto no-scrollbar mask-fade-right">
-                                                {suggestions.map((s, i) => (
-                                                    <button 
-                                                        key={i}
-                                                        onClick={() => handleSendMessage(null, s)}
-                                                        className="whitespace-nowrap px-4 py-2 bg-white dark:bg-zinc-800/80 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-600 transition-all text-xs font-medium border border-zinc-200/50 dark:border-zinc-700/50 rounded-xl shadow-sm hover:shadow-orange-500/20 active:scale-95 text-zinc-600 dark:text-zinc-300"
-                                                    >
-                                                        {s}
-                                                    </button>
-                                                ))}
+                                        {chatHistory.filter(msg => msg.type === 'user').length >= 4 ? (
+                                            <div className="p-6 text-center">
+                                                <div className="inline-flex p-3 bg-orange-500/10 rounded-xl mb-3 border border-orange-500/20">
+                                                    <MessageCircle className="text-orange-500" size={20} />
+                                                </div>
+                                                <h4 className="font-bold text-zinc-900 dark:text-white mb-2">Thanks for chatting!</h4>
+                                                <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-[280px] mx-auto">
+                                                    Our team will review this conversation and contact you shortly through the provided email.
+                                                </p>
                                             </div>
-                                        )}
+                                        ) : (
+                                            <>
+                                                {/* Agent Suggestions */}
+                                                {suggestions.length > 0 && !isTyping && (
+                                                    <div className="px-6 py-4 flex gap-2 overflow-x-auto no-scrollbar mask-fade-right">
+                                                        {suggestions.map((s, i) => (
+                                                            <button 
+                                                                key={i}
+                                                                onClick={() => handleSendMessage(null, s)}
+                                                                className="whitespace-nowrap px-4 py-2 bg-white dark:bg-zinc-800/80 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-600 transition-all text-xs font-medium border border-zinc-200/50 dark:border-zinc-700/50 rounded-xl shadow-sm hover:shadow-orange-500/20 active:scale-95 text-zinc-600 dark:text-zinc-300"
+                                                            >
+                                                                {s}
+                                                            </button>
+                                                        ))}
+                                                    </div>
+                                                )}
 
-                                        {/* Modern Input */}
-                                        <div className="px-6 pb-6 pt-2">
-                                            <form className="flex items-center gap-2 bg-white dark:bg-zinc-800 rounded-2xl p-1.5 border border-zinc-200/50 dark:border-zinc-700/50 shadow-inner" onSubmit={(e) => handleSendMessage(e)}>
-                                                <input 
-                                                    type="text"
-                                                    value={message}
-                                                    onChange={(e) => setMessage(e.target.value)}
-                                                    placeholder="Ask a question..."
-                                                    className="flex-grow bg-transparent text-zinc-900 dark:text-white px-4 py-2.5 text-sm focus:outline-none placeholder:text-zinc-400"
-                                                />
-                                                <button 
-                                                    type="submit"
-                                                    disabled={!message.trim()}
-                                                    className="p-2.5 bg-orange-500 text-white rounded-xl shadow-lg shadow-orange-500/20 hover:bg-orange-600 disabled:opacity-50 disabled:shadow-none transition-all active:scale-90"
-                                                >
-                                                    <Send size={18} />
-                                                </button>
-                                            </form>
-                                        </div>
+                                                {/* Modern Input */}
+                                                <div className="px-6 pb-6 pt-2">
+                                                    <form className="flex items-center gap-2 bg-zinc-50 dark:bg-zinc-900 rounded-xl p-1.5 border border-zinc-200 dark:border-zinc-800" onSubmit={(e) => handleSendMessage(e)}>
+                                                        <input 
+                                                            type="text"
+                                                            value={message}
+                                                            onChange={(e) => setMessage(e.target.value)}
+                                                            placeholder="Ask a question..."
+                                                            className="flex-grow bg-transparent text-zinc-900 dark:text-white px-4 py-2 text-sm focus:outline-none placeholder:text-zinc-400"
+                                                        />
+                                                        <button 
+                                                            type="submit"
+                                                            disabled={!message.trim()}
+                                                            className="p-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 disabled:opacity-50 transition-colors flex items-center justify-center"
+                                                        >
+                                                            <Send size={16} />
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </>
+                                        )}
                                     </div>
                                 </>
                             )}
@@ -381,32 +336,25 @@ const FloatingChat = () => {
             </AnimatePresence>
 
             {/* Agent Toggle Bubble */}
-            <motion.button
+            <button
                 onClick={toggleChat}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all border-4 relative ${
-                    isOpen ? 'bg-white dark:bg-zinc-900 border-orange-500' : 'bg-orange-500 border-white/20'
+                className={`w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 active:scale-95 border border-zinc-200 dark:border-zinc-800 relative ${
+                    isOpen ? 'bg-white dark:bg-zinc-900 text-orange-500' : 'bg-orange-500 text-white'
                 }`}
             >
                 {isOpen ? (
-                    <X size={28} className="text-orange-500" />
+                    <X size={24} />
                 ) : (
                     <>
-                        <div className="relative z-10">
-                            <motion.div 
-                                animate={{ rotate: 360 }}
-                                transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-                                className="absolute -inset-4 border border-white/30 rounded-full border-dashed"
-                            />
-                            <MessageCircle size={30} className="text-white" />
+                        <div className="relative z-10 flex items-center justify-center">
+                            <MessageCircle size={24} />
                         </div>
                         {showIntro && (
                             <span className="absolute top-0 right-0 w-4 h-4 bg-red-500 border-2 border-white dark:border-zinc-900 rounded-full animate-bounce z-20" />
                         )}
                     </>
                 )}
-            </motion.button>
+            </button>
         </div>
     );
 };
