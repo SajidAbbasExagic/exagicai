@@ -2,6 +2,11 @@ export default function sitemap() {
   const baseUrl = "https://exagic.ai";
 
   const labArticles = [
+    "ai-search-contract-electronics-manufacturers-ems",
+    "supplier-vs-supplier-comparison-queries-ai-search",
+    "content-freshness-signals-ai-search-citations",
+    "llms-txt-file-industrial-brands",
+    "how-ai-search-success-is-measured-ltv-roi",
     "grounding-ai-search-vs-vague-seo-copy",
     "structured-capability-pages-industrial-ai-citations",
     "how-ai-search-bots-verify-supplier-capacity",

@@ -22,6 +22,18 @@ const nextConfig = {
         { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
       ],
     },
+    {
+      // HTML pages only (exclude Next static assets and files with extensions).
+      // Force browsers, CDNs and OpenLiteSpeed's LSCache to revalidate so AI
+      // crawlers always get the freshest build instead of a stale cached page.
+      source: '/((?!_next/|.*\\.[^/]+$).*)',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'public, max-age=0, s-maxage=60, must-revalidate, stale-while-revalidate=60',
+        },
+      ],
+    },
   ],
 };
 

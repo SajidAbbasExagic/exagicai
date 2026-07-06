@@ -70,4 +70,9 @@ jobs:
               pm2 start npm --name exagic -- start
             fi
             pm2 save || true
+            echo "==> Purging OpenLiteSpeed (LSCache) so crawlers get fresh HTML"
+            # Clear the on-disk LiteSpeed page cache, then reload the server.
+            # Guarded so a missing path/permission never fails the deploy.
+            sudo rm -rf /usr/local/lsws/cachedata/* 2>/dev/null || rm -rf /usr/local/lsws/cachedata/* 2>/dev/null || true
+            sudo /usr/local/lsws/bin/lswsctrl restart 2>/dev/null || /usr/local/lsws/bin/lswsctrl restart 2>/dev/null || true
             echo "==> Deploy complete"

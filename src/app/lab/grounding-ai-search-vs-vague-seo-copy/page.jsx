@@ -64,7 +64,11 @@ export default function GroundingVsVagueCopyArticle() {
         title: "Structured Capability Pages: The Foundation of B2B AI Citations",
         href: "/lab/structured-capability-pages-industrial-ai-citations",
       }}
-      nextArticle={null}
+      nextArticle={{
+        title:
+          "How AI Search Success Is Measured Today: Why LTV and ROI Beat Front-End Conversions",
+        href: "/lab/how-ai-search-success-is-measured-ltv-roi",
+      }}
     >
       <p className="lead text-xl font-medium text-zinc-900 mb-10">
         If your website reads like a high-level corporate brochure, it is likely invisible to AI search.

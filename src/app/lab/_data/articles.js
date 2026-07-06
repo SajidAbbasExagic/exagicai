@@ -9,6 +9,59 @@ export const categories = [
 export const articles = [
   {
     title:
+      "AI Search for Contract Electronics Manufacturers: Winning EMS & PCB Queries",
+    description:
+      "EMS and PCB assembly buyers shortlist with AI. How contract electronics manufacturers structure capability, certification, and capacity data to win AI-assisted sourcing.",
+    href: "/lab/ai-search-contract-electronics-manufacturers-ems",
+    authorId: "saif",
+    date: "July 6, 2026",
+    category: "Industry Specific",
+    badge: "New",
+  },
+  {
+    title: "Winning 'Supplier vs Supplier' Comparison Queries in AI Search",
+    description:
+      "When buyers ask AI to compare two suppliers, the model builds the table for them. How to make your capabilities show up favorably in AI comparison answers.",
+    href: "/lab/supplier-vs-supplier-comparison-queries-ai-search",
+    authorId: "muqaddas",
+    date: "July 3, 2026",
+    category: "Q&A",
+    badge: "New",
+  },
+  {
+    title:
+      "Content Freshness Signals in AI Search: How Recency Decides Who Gets Cited",
+    description:
+      "AI answer engines favor content that looks current and maintained. Why stale pages lose citations, plus a maintenance cadence for industrial sites.",
+    href: "/lab/content-freshness-signals-ai-search-citations",
+    authorId: "saif",
+    date: "June 30, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title: "Should Your Industrial Site Publish an llms.txt File?",
+    description:
+      "A practical, hype-free look at llms.txt: what it does, how it differs from robots.txt, and when B2B manufacturers should actually adopt it.",
+    href: "/lab/llms-txt-file-industrial-brands",
+    authorId: "muqaddas",
+    date: "June 26, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title:
+      "How AI Search Success Is Measured Today: Why LTV & ROI Beat Front-End Conversions",
+    description:
+      "Most teams measure AI search at the click. Why lifetime value, repeat purchase, and ROI are the metrics that actually decide if your AI visibility is working.",
+    href: "/lab/how-ai-search-success-is-measured-ltv-roi",
+    authorId: "saif",
+    date: "June 23, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title:
       "Grounding in AI Search: Why Retrieval-Ready Data Beats Vague SEO Copy",
     description:
       "Vague marketing copy is ignored by LLM grounding pipelines. Learn how to write retrieval-ready, factual copy that search bots choose to cite.",
@@ -16,7 +69,6 @@ export const articles = [
     authorId: "saif",
     date: "June 19, 2026",
     category: "AI SEO Education",
-    badge: "New",
   },
   {
     title:
@@ -27,7 +79,6 @@ export const articles = [
     authorId: "muqaddas",
     date: "June 15, 2026",
     category: "AI SEO Education",
-    badge: "New",
   },
   {
     title:
