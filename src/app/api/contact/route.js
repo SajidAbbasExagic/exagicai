@@ -5,7 +5,7 @@ import { verifyCaptchaAction } from "@/lib/recaptcha";
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { name, email, subject, message, path, recaptchaToken } = body;
+    const { name, email, subject, message, path, recaptchaToken, meetingDate, meetingTime, meetingTimezone } = body;
 
     // Verify reCAPTCHA
     const captchaValidation = await verifyCaptchaAction(recaptchaToken);
@@ -33,6 +33,9 @@ export async function POST(request) {
       <p><strong>From:</strong> ${name} &lt;${email}&gt;</p>
       <p><strong>Subject:</strong> ${subject}</p>
       <p><strong>Source Page:</strong> <a href="${sourceUrl}">${sourceUrl}</a></p>
+      ${meetingDate && meetingTime ? `
+        <p><strong>Scheduled Meeting:</strong> ${meetingDate} at ${meetingTime} (${meetingTimezone || 'Pacific Time'})</p>
+      ` : ''}
       <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
       <p><strong>Message:</strong></p>
       <p style="white-space: pre-wrap; background: #f9f9f9; padding: 15px; border-radius: 8px;">${message}</p>

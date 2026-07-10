@@ -29,11 +29,7 @@ function getDateKey(date) {
 }
 
 function isWeekend(date) {
-  const weekday = date.toLocaleDateString("en-US", {
-    weekday: "short",
-    timeZone: TIMEZONE,
-  });
-  return weekday === "Sat" || weekday === "Sun";
+  return false;
 }
 
 function formatDayLabel(date) {
@@ -76,7 +72,27 @@ function getCurrentTimeLabel() {
 }
 
 function buildSlotsForDate(date) {
-  if (isWeekend(date)) return [];
+  const weekday = date.toLocaleDateString("en-US", {
+    weekday: "short",
+    timeZone: TIMEZONE,
+  });
+
+  let timeStrings = [];
+  if (weekday === "Fri") {
+    timeStrings = ["18:30", "19:00", "19:30"];
+  } else if (weekday === "Sat") {
+    timeStrings = ["09:00", "10:00", "11:00", "12:00", "13:00", "16:00", "17:00"];
+  } else if (weekday === "Sun") {
+    // Sunday: Any Available Slot (standard business hours 9:00 AM - 9:00 PM hourly)
+    for (let hour = BUSINESS_START; hour < BUSINESS_END; hour++) {
+      for (let minute = 0; minute < 60; minute += SLOT_MINUTES) {
+        timeStrings.push(`${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`);
+      }
+    }
+  } else {
+    // Monday - Thursday
+    timeStrings = ["12:00", "12:30", "13:00", "13:30", "18:30", "19:00"];
+  }
 
   const slots = [];
   const now = Date.now();
@@ -88,21 +104,18 @@ function buildSlotsForDate(date) {
     probe.getTime() -
     new Date(probe.toLocaleString("en-US", { timeZone: TIMEZONE })).getTime();
 
-  for (let hour = BUSINESS_START; hour < BUSINESS_END; hour++) {
-    for (let minute = 0; minute < 60; minute += SLOT_MINUTES) {
-      const local = new Date(
-        `${dateKey}T${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}:00`
-      );
-      const timestamp = local.getTime() + offset;
-      if (timestamp <= now) continue;
-      slots.push(new Date(timestamp));
-    }
+  for (const timeStr of timeStrings) {
+    const [hourStr, minStr] = timeStr.split(":");
+    const local = new Date(`${dateKey}T${hourStr}:${minStr}:00`);
+    const timestamp = local.getTime() + offset;
+    if (timestamp <= now) continue;
+    slots.push(new Date(timestamp));
   }
 
   return slots;
 }
 
-export default function ScheduleMeetingModal({ isOpen, onClose }) {
+export default function ScheduleMeetingModal({ isOpen, onClose, onSelectSlot }) {
   const pathname = usePathname();
   const [weekOffset, setWeekOffset] = useState(0);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -418,7 +431,24 @@ export default function ScheduleMeetingModal({ isOpen, onClose }) {
                           type="button"
                           onClick={() => {
                             setSelectedSlot(slot);
-                            setStep("confirm");
+                            if (onSelectSlot) {
+                              onSelectSlot({
+                                date: selectedDate,
+                                slot: slot,
+                                dateLabel: selectedDate.toLocaleDateString("en-US", {
+                                  weekday: "long",
+                                  month: "long",
+                                  day: "numeric",
+                                  year: "numeric",
+                                  timeZone: TIMEZONE,
+                                }),
+                                timeLabel: formatTimeLabel(slot),
+                                timezone: getTimezoneLabel(),
+                              });
+                              onClose();
+                            } else {
+                              setStep("confirm");
+                            }
                           }}
                           className={`rounded-lg border px-3 py-2.5 text-xs font-bold transition-colors sm:rounded-xl sm:px-4 sm:py-3 sm:text-sm ${
                             isSelected
