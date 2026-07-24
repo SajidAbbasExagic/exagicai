@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpRight, Linkedin } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import LinkedinIcon from "@/components/LinkedinIcon";
 import { getAuthor } from "@/app/lab/_data/authors";
 
 export default function SidebarAuthor({ authorId = "saif" }) {
@@ -37,7 +38,7 @@ export default function SidebarAuthor({ authorId = "saif" }) {
         rel="noopener noreferrer"
         className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-600 transition-colors hover:text-zinc-900"
       >
-        <Linkedin className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} />
+        <LinkedinIcon className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} />
         <span>LinkedIn</span>
         <ArrowUpRight className="h-3 w-3 opacity-50" strokeWidth={2} />
       </a>

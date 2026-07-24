@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ArrowUpRight, Globe, Linkedin } from "lucide-react";
+import { ArrowUpRight, Globe } from "lucide-react";
+import LinkedinIcon from "@/components/LinkedinIcon";
 import ScheduleMeetingButton from "@/components/ScheduleMeetingButton";
 
 const member = {
@@ -10,7 +11,7 @@ const member = {
     {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/saif-exagic-ai",
-      icon: Linkedin,
+      icon: LinkedinIcon,
     },
     {
       label: "Exagic Profile",

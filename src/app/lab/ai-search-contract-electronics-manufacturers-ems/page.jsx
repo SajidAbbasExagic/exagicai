@@ -66,7 +66,11 @@ export default function EmsAiSearchArticle() {
         title: "Winning 'Supplier vs Supplier' Comparison Queries in AI Search",
         href: "/lab/supplier-vs-supplier-comparison-queries-ai-search",
       }}
-      nextArticle={null}
+      nextArticle={{
+        title:
+          "Optimizing Technical Assets for Multimodal AI Sourcing: Blueprints, STEP AP242, and 3D Schematics",
+        href: "/lab/multimodal-ai-sourcing-cad-blueprints",
+      }}
     >
       <p className="lead text-xl font-medium text-zinc-900 mb-10">
         A hardware startup needs 5,000 boards assembled, IPC-A-610 Class 2, with

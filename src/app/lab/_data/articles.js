@@ -9,6 +9,61 @@ export const categories = [
 export const articles = [
   {
     title:
+      "Defense & CMMC 2.0 Compliance Verification by Autonomous Government Procurement Bots",
+    description:
+      "How autonomous government procurement bots verify CMMC 2.0 compliance using NIST OSCAL, machine-readable SSPs, and continuous DevSecOps evidence streams.",
+    href: "/lab/defense-cmmc-compliance-verification",
+    authorId: "muqaddas",
+    date: "July 24, 2026",
+    category: "Industry Specific",
+    badge: "New",
+  },
+  {
+    title:
+      "Digital Product Passports (DPP) & Provenance Signals in AI Search Retrieval",
+    description:
+      "Learn how to configure Digital Product Passports (DPP) and GS1 Digital Link structures to establish trusted provenance signals for B2B AI search engines.",
+    href: "/lab/digital-product-passports-dpp-ai-retrieval",
+    authorId: "saif",
+    date: "July 21, 2026",
+    category: "Industry Specific",
+    badge: "New",
+  },
+  {
+    title:
+      "Passing Synthetic Sourcing Audits: How B2B AI Agents Run Pre-RFQ Sandboxes",
+    description:
+      "Prepare for synthetic sourcing audits. Learn how AI procurement agents execute bottom-up should-costing, manufacturability tests, and pre-RFQ simulations.",
+    href: "/lab/synthetic-sourcing-audits-pre-rfq-sandboxes",
+    authorId: "muqaddas",
+    date: "July 17, 2026",
+    category: "Q&A",
+    badge: "New",
+  },
+  {
+    title:
+      "Agentic API Endpoints: Exposing Real-Time Machine Inventory & Production Capacity Directly to AI Agents",
+    description:
+      "Learn how to expose manufacturing capacity, CNC spindle availability, and raw inventory using MTConnect and OpenAPI specifications designed for autonomous sourcing bots.",
+    href: "/lab/agentic-api-endpoints-machine-capacity",
+    authorId: "saif",
+    date: "July 14, 2026",
+    category: "Industry Specific",
+    badge: "New",
+  },
+  {
+    title:
+      "Optimizing Technical Assets for Multimodal AI Sourcing: Blueprints, STEP AP242, and 3D Schematics",
+    description:
+      "Discover how multimodal AI engines ingest CAD data, engineering blueprints, and STEP AP242 schemas to automate B2B industrial procurement and supplier selection.",
+    href: "/lab/multimodal-ai-sourcing-cad-blueprints",
+    authorId: "muqaddas",
+    date: "July 10, 2026",
+    category: "AI SEO Education",
+    badge: "New",
+  },
+  {
+    title:
       "AI Search for Contract Electronics Manufacturers: Winning EMS & PCB Queries",
     description:
       "EMS and PCB assembly buyers shortlist with AI. How contract electronics manufacturers structure capability, certification, and capacity data to win AI-assisted sourcing.",

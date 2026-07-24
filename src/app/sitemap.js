@@ -2,6 +2,11 @@ export default function sitemap() {
   const baseUrl = "https://exagic.ai";
 
   const labArticles = [
+    "defense-cmmc-compliance-verification",
+    "digital-product-passports-dpp-ai-retrieval",
+    "synthetic-sourcing-audits-pre-rfq-sandboxes",
+    "agentic-api-endpoints-machine-capacity",
+    "multimodal-ai-sourcing-cad-blueprints",
     "ai-search-contract-electronics-manufacturers-ems",
     "supplier-vs-supplier-comparison-queries-ai-search",
     "content-freshness-signals-ai-search-citations",
