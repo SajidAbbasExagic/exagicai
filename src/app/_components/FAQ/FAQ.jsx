@@ -1,10 +1,6 @@
-"use client";
-
-import { useState } from "react";
+import FAQAccordion from "@/components/ui/FAQAccordion";
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState(null);
-
   const faqs = [
     {
       question: "What sort of monthly budget do I need for AI SEO?",
@@ -110,7 +106,7 @@ export default function FAQ() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="rag-section border-y border-zinc-100 bg-zinc-50 py-20 md:py-24"
+      className="rag-section border-y border-zinc-100 bg-zinc-50/50 py-20 md:py-24"
     >
       <script
         type="application/ld+json"
@@ -119,74 +115,12 @@ export default function FAQ() {
       <div className="mx-auto max-w-4xl px-6 lg:px-12 min-h-[450px]">
         <h2
           id="faq-heading"
-          className="text-3xl sm:text-4xl font-bold text-zinc-900 tracking-tight text-center"
+          className="text-3xl sm:text-4xl font-bold text-zinc-900 tracking-tight text-center mb-12 sm:mb-16"
         >
           Frequently Asked Questions
         </h2>
 
-        <dl className="mt-12 sm:mt-16 space-y-2 w-full">
-          {faqs.map((faq, index) => (
-            <div
-              key={faq.question}
-              className="faq-item group rounded-2xl bg-white border border-zinc-200/60 overflow-hidden shadow-sm hover:border-brand/30 transition-colors duration-300"
-              itemScope
-              itemProp="mainEntity"
-              itemType="https://schema.org/Question"
-            >
-              <dt>
-                <button
-                  type="button"
-                  className="flex w-full cursor-pointer items-center justify-between px-5 py-5 sm:px-6 sm:py-6 text-left transition-colors"
-                  onClick={() =>
-                    setOpenIndex(openIndex === index ? null : index)
-                  }
-                  aria-expanded={openIndex === index}
-                  aria-controls={`faq-answer-${index}`}
-                >
-                  <span
-                    className="text-base sm:text-lg font-bold text-zinc-900 tracking-tight group-hover:text-brand transition-colors duration-300"
-                    itemProp="name"
-                  >
-                    {faq.question}
-                  </span>
-                  <div
-                    className={`ml-6 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-zinc-50 transition-all duration-300 ${openIndex === index ? "bg-brand/10 text-brand transform rotate-180" : "text-zinc-400 group-hover:bg-brand/5 group-hover:text-brand"}`}
-                  >
-                    <svg
-                      className="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2.5}
-                        d={openIndex === index ? "M20 12H4" : "M12 4v16m8-8H4"}
-                      />
-                    </svg>
-                  </div>
-                </button>
-              </dt>
-              <dd
-                id={`faq-answer-${index}`}
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === index ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}
-                itemScope
-                itemProp="acceptedAnswer"
-                itemType="https://schema.org/Answer"
-                hidden={openIndex !== index}
-              >
-                <div
-                  className="px-5 pb-5 pt-0 sm:px-6 sm:pb-6 text-sm text-zinc-600 leading-relaxed border-t border-zinc-100 mt-2 pt-4"
-                  itemProp="text"
-                >
-                  {faq.answer}
-                </div>
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <FAQAccordion items={faqs} defaultOpenIndex={2} />
       </div>
     </section>
   );

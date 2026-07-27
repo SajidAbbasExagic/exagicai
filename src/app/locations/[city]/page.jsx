@@ -7,6 +7,7 @@ import IndustryFocus from "@/app/_components/IndustryFocus/IndustryFocus";
 import SocialProof from "@/app/_components/SocialProof/SocialProof";
 import ContactCTA from "@/app/_components/ContactCTA/ContactCTA";
 import Image from "next/image";
+import FAQAccordion from "@/components/ui/FAQAccordion";
 
 export async function generateStaticParams() {
   return cities.map((city) => ({
@@ -286,21 +287,7 @@ export default async function LocationPage({ params }) {
                     agents
                   </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
-                  {city.richContent.faqs.map((faq, i) => (
-                    <div key={i} className="group">
-                      <h4 className="text-lg font-bold text-zinc-900 mb-4 flex items-start gap-3">
-                        <span className="text-brand font-black shrink-0">
-                          Q.
-                        </span>
-                        {faq.question}
-                      </h4>
-                      <p className="text-zinc-600 text-[15px] leading-relaxed pl-7 border-l-2 border-zinc-50 group-hover:border-brand/30 transition-colors">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                <FAQAccordion items={city.richContent.faqs} defaultOpenIndex={0} />
               </div>
             )}
           </div>
