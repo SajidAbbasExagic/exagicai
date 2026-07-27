@@ -11,10 +11,14 @@ export async function verifyCaptchaAction(token) {
     return { success: false, message: "Server misconfiguration" };
   }
   
-  const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`;
-  
+  // Send credentials in the POST body, not the query string: a secret in a URL
+  // is recorded by access logs, proxies and any intermediary along the way.
   try {
-    const res = await fetch(url, { method: "POST" });
+    const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ secret: secretKey, response: token }),
+    });
     const data = await res.json();
     if (data.success) {
       // For reCAPTCHA v3, verify the score (threshold: 0.5)
