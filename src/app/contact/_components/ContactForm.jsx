@@ -47,19 +47,25 @@ export default function ContactForm() {
             message: formData.get("message"),
             path: formData.get("path"),
             recaptchaToken: token,
-            meetingDate: selectedMeeting ? selectedMeeting.dateLabel : null,
-            meetingTime: selectedMeeting ? selectedMeeting.timeLabel : null,
-            meetingTimezone: selectedMeeting ? selectedMeeting.timezone : null,
+            // Canonical UTC instant — the server derives the labels and blocks
+            // the slot from this.
+            meetingSlot: selectedMeeting ? selectedMeeting.slotIso : null,
           }),
         });
- 
+
         const result = await res.json();
-        console.log("sendContactEmail result:", result);
- 
+
         if (result?.success) {
           setStatus("success");
           setSelectedMeeting(null);
           form.reset();
+        } else if (res.status === 409 || result?.code === "SLOT_TAKEN") {
+          // Someone booked this time first — drop it so they can pick again.
+          setSelectedMeeting(null);
+          setErrorMessage(
+            result?.message || "That time was just booked. Please choose another slot."
+          );
+          setStatus("error");
         } else {
           console.error("Form submission failed:", result);
           setErrorMessage(result?.message || "Something went wrong. Please try again.");
