@@ -19,7 +19,15 @@ function getSmtpConfig() {
     greetingTimeout: 10_000,
     socketTimeout: 15_000,
     tls: {
-      rejectUnauthorized: false,
+      // Certificate validation is OFF unless explicitly enabled, because
+      // CyberPanel/OpenLiteSpeed mail hosts commonly present self-signed certs
+      // and turning this on blindly would break sending.
+      //
+      // It is a man-in-the-middle risk: if your mail host has a valid
+      // certificate, set SMTP_TLS_REJECT_UNAUTHORIZED=true and confirm mail
+      // still sends.
+      rejectUnauthorized:
+        process.env.SMTP_TLS_REJECT_UNAUTHORIZED?.trim().toLowerCase() === "true",
     },
   };
 }

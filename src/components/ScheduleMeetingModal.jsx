@@ -1,15 +1,19 @@
 "use client";
 
-import Image from "next/image";
 import Script from "next/script";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { usePathname } from "next/navigation";
+import {
+  TIMEZONE,
+  buildSlotsForDateKey,
+  formatDateLabel,
+  formatDayLabel,
+  formatLongDateLabel,
+  getDateKey,
+  getTimezoneLabel,
+} from "@/lib/slots";
 
-const TIMEZONE = "America/Los_Angeles";
-const SLOT_MINUTES = 60;
-const BUSINESS_START = 9;
-const BUSINESS_END = 21;
 const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL;
 
 function startOfDay(date) {
@@ -24,43 +28,8 @@ function addDays(date, days) {
   return d;
 }
 
-function getDateKey(date) {
-  return date.toLocaleDateString("en-CA", { timeZone: TIMEZONE });
-}
-
 function isWeekend(date) {
   return false;
-}
-
-function formatDayLabel(date) {
-  return date.toLocaleDateString("en-US", {
-    weekday: "short",
-    timeZone: TIMEZONE,
-  });
-}
-
-function formatDateLabel(date) {
-  return date.toLocaleDateString("en-US", {
-    day: "numeric",
-    month: "short",
-    timeZone: TIMEZONE,
-  });
-}
-
-function formatTimeLabel(date) {
-  return date.toLocaleTimeString("en-US", {
-    hour: "numeric",
-    minute: "2-digit",
-    timeZone: TIMEZONE,
-  });
-}
-
-function getTimezoneLabel() {
-  const parts = new Intl.DateTimeFormat("en-US", {
-    timeZone: TIMEZONE,
-    timeZoneName: "longGeneric",
-  }).formatToParts(new Date());
-  return parts.find((part) => part.type === "timeZoneName")?.value || "Pacific Time";
 }
 
 function getCurrentTimeLabel() {
@@ -69,50 +38,6 @@ function getCurrentTimeLabel() {
     minute: "2-digit",
     timeZone: TIMEZONE,
   });
-}
-
-function buildSlotsForDate(date) {
-  const weekday = date.toLocaleDateString("en-US", {
-    weekday: "short",
-    timeZone: TIMEZONE,
-  });
-
-  let timeStrings = [];
-  if (weekday === "Fri") {
-    timeStrings = ["18:30", "19:00", "19:30"];
-  } else if (weekday === "Sat") {
-    timeStrings = ["09:00", "10:00", "11:00", "12:00", "13:00", "16:00", "17:00"];
-  } else if (weekday === "Sun") {
-    // Sunday: Any Available Slot (standard business hours 9:00 AM - 9:00 PM hourly)
-    for (let hour = BUSINESS_START; hour < BUSINESS_END; hour++) {
-      for (let minute = 0; minute < 60; minute += SLOT_MINUTES) {
-        timeStrings.push(`${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`);
-      }
-    }
-  } else {
-    // Monday - Thursday
-    timeStrings = ["12:00", "12:30", "13:00", "13:30", "18:30", "19:00"];
-  }
-
-  const slots = [];
-  const now = Date.now();
-  const dateKey = getDateKey(date);
-
-  // Compute timezone offset once per date instead of in a loop
-  const probe = new Date(`${dateKey}T12:00:00Z`);
-  const offset =
-    probe.getTime() -
-    new Date(probe.toLocaleString("en-US", { timeZone: TIMEZONE })).getTime();
-
-  for (const timeStr of timeStrings) {
-    const [hourStr, minStr] = timeStr.split(":");
-    const local = new Date(`${dateKey}T${hourStr}:${minStr}:00`);
-    const timestamp = local.getTime() + offset;
-    if (timestamp <= now) continue;
-    slots.push(new Date(timestamp));
-  }
-
-  return slots;
 }
 
 export default function ScheduleMeetingModal({ isOpen, onClose, onSelectSlot }) {
@@ -124,7 +49,9 @@ export default function ScheduleMeetingModal({ isOpen, onClose, onSelectSlot }) 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [bookedSlots, setBookedSlots] = useState(() => new Set());
 
   const weekDates = useMemo(() => {
     const start = addDays(startOfDay(new Date()), weekOffset * 7);
@@ -133,8 +60,28 @@ export default function ScheduleMeetingModal({ isOpen, onClose, onSelectSlot }) 
 
   const timeSlots = useMemo(() => {
     if (!selectedDate) return [];
-    return buildSlotsForDate(selectedDate);
+    return buildSlotsForDateKey(getDateKey(selectedDate));
   }, [selectedDate]);
+
+  /** Booked slots come from the server; they are never derivable client-side. */
+  const refreshAvailability = useCallback(async () => {
+    try {
+      const res = await fetch("/api/meeting/availability", {
+        cache: "no-store",
+      });
+      const data = await res.json();
+      setBookedSlots(new Set(Array.isArray(data?.booked) ? data.booked : []));
+    } catch (error) {
+      // Non-fatal: the server still validates and reserves on submit, so the
+      // worst case is a "just booked" message instead of a greyed-out button.
+      console.error("Failed to load availability:", error);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen || CALENDLY_URL) return;
+    refreshAvailability();
+  }, [isOpen, refreshAvailability]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -161,6 +108,7 @@ export default function ScheduleMeetingModal({ isOpen, onClose, onSelectSlot }) 
       setName("");
       setEmail("");
       setStatus(null);
+      setErrorMessage("");
       setIsSubmitting(false);
     }
   }, [isOpen]);
@@ -178,9 +126,11 @@ export default function ScheduleMeetingModal({ isOpen, onClose, onSelectSlot }) 
 
     setIsSubmitting(true);
     setStatus(null);
+    setErrorMessage("");
 
     if (!window.grecaptcha) {
       setStatus("error");
+      setErrorMessage("reCAPTCHA failed to load. Check ad-blockers or your connection.");
       setIsSubmitting(false);
       return;
     }
@@ -198,22 +148,33 @@ export default function ScheduleMeetingModal({ isOpen, onClose, onSelectSlot }) 
           body: JSON.stringify({
             name,
             email,
-            dateLabel: selectedDate.toLocaleDateString("en-US", {
-              weekday: "long",
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-              timeZone: TIMEZONE,
-            }),
-            timeLabel: formatTimeLabel(selectedSlot),
-            timezone: getTimezoneLabel(),
+            slot: selectedSlot.iso,
             path: pathname,
             recaptchaToken: token,
           }),
         });
 
         const result = await res.json();
-        setStatus(result?.success ? "success" : "error");
+
+        if (result?.success) {
+          setStatus("success");
+          return;
+        }
+
+        // Someone booked this slot first — refresh and send them back to pick.
+        if (res.status === 409 || result?.code === "SLOT_TAKEN") {
+          await refreshAvailability();
+          setSelectedSlot(null);
+          setStep("pick");
+          setStatus("error");
+          setErrorMessage(
+            result?.message || "That time was just booked. Please choose another slot."
+          );
+          return;
+        }
+
+        setStatus("error");
+        setErrorMessage(result?.message || "");
       } catch (error) {
         console.error("CAPTCHA error:", error);
         setStatus("error");
@@ -268,8 +229,8 @@ export default function ScheduleMeetingModal({ isOpen, onClose, onSelectSlot }) 
             </h3>
             <p className="mt-3 text-sm text-zinc-600 leading-relaxed max-w-md mx-auto">
               Thanks, {name}. We&apos;ll confirm your meeting for{" "}
-              {formatTimeLabel(selectedSlot)} on{" "}
-              {formatDateLabel(selectedDate)} shortly.
+              {selectedSlot?.timeLabel} on {formatDateLabel(selectedDate)}{" "}
+              shortly.
             </p>
             <button
               type="button"
@@ -291,7 +252,7 @@ export default function ScheduleMeetingModal({ isOpen, onClose, onSelectSlot }) 
             <h3 className="text-xl font-bold text-zinc-900">Confirm your meeting</h3>
             <p className="mt-2 text-sm text-zinc-600">
               {formatDayLabel(selectedDate)}, {formatDateLabel(selectedDate)} at{" "}
-              {formatTimeLabel(selectedSlot)} ({getTimezoneLabel()})
+              {selectedSlot?.timeLabel} ({getTimezoneLabel()})
             </p>
 
             <div className="mt-6 space-y-4">
@@ -325,7 +286,8 @@ export default function ScheduleMeetingModal({ isOpen, onClose, onSelectSlot }) 
 
             {status === "error" && (
               <p className="mt-4 text-sm text-rose-600">
-                Something went wrong. Please try again or email inquiries@exagic.ai.
+                {errorMessage ||
+                  "Something went wrong. Please try again or email inquiries@exagic.ai."}
               </p>
             )}
 
@@ -412,6 +374,11 @@ export default function ScheduleMeetingModal({ isOpen, onClose, onSelectSlot }) 
                 <p className="mt-1.5 text-xs text-zinc-500 sm:mt-2 sm:text-sm">
                   30 minute meeting • {getTimezoneLabel()} ({getCurrentTimeLabel()})
                 </p>
+                {status === "error" && errorMessage && (
+                  <p className="mt-2 text-xs text-rose-600 sm:text-sm">
+                    {errorMessage}
+                  </p>
+                )}
               </div>
 
               {timeSlots.length === 0 ? (
@@ -422,27 +389,31 @@ export default function ScheduleMeetingModal({ isOpen, onClose, onSelectSlot }) 
                 <div className="mt-3 min-h-0 flex-1 overflow-y-auto overscroll-contain pr-1">
                   <div className="grid grid-cols-2 gap-2 pb-1 sm:grid-cols-3 sm:gap-3">
                     {timeSlots.map((slot) => {
-                      const isSelected =
-                        selectedSlot && selectedSlot.getTime() === slot.getTime();
+                      const isSelected = selectedSlot?.iso === slot.iso;
+                      const isBooked = bookedSlots.has(slot.iso);
 
                       return (
                         <button
-                          key={slot.toISOString()}
+                          key={slot.iso}
                           type="button"
+                          disabled={isBooked}
+                          aria-label={
+                            isBooked
+                              ? `${slot.timeLabel} — already booked`
+                              : slot.timeLabel
+                          }
                           onClick={() => {
+                            if (isBooked) return;
                             setSelectedSlot(slot);
+                            setStatus(null);
+                            setErrorMessage("");
+
                             if (onSelectSlot) {
                               onSelectSlot({
                                 date: selectedDate,
-                                slot: slot,
-                                dateLabel: selectedDate.toLocaleDateString("en-US", {
-                                  weekday: "long",
-                                  month: "long",
-                                  day: "numeric",
-                                  year: "numeric",
-                                  timeZone: TIMEZONE,
-                                }),
-                                timeLabel: formatTimeLabel(slot),
+                                slotIso: slot.iso,
+                                dateLabel: formatLongDateLabel(selectedDate),
+                                timeLabel: slot.timeLabel,
                                 timezone: getTimezoneLabel(),
                               });
                               onClose();
@@ -451,12 +422,14 @@ export default function ScheduleMeetingModal({ isOpen, onClose, onSelectSlot }) 
                             }
                           }}
                           className={`rounded-lg border px-3 py-2.5 text-xs font-bold transition-colors sm:rounded-xl sm:px-4 sm:py-3 sm:text-sm ${
-                            isSelected
-                              ? "border-brand bg-brand text-white"
-                              : "border-zinc-200 bg-white text-zinc-800 hover:border-brand hover:text-brand"
+                            isBooked
+                              ? "cursor-not-allowed border-zinc-100 bg-zinc-100 text-zinc-300 line-through"
+                              : isSelected
+                                ? "border-brand bg-brand text-white"
+                                : "border-zinc-200 bg-white text-zinc-800 hover:border-brand hover:text-brand"
                           }`}
                         >
-                          {formatTimeLabel(slot)}
+                          {slot.timeLabel}
                         </button>
                       );
                     })}

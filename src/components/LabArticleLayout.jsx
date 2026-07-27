@@ -6,6 +6,7 @@ import UnifiedBlogCTA from "./UnifiedBlogCTA";
 import SidebarTOC from "./SidebarTOC";
 import SidebarAuthor from "./SidebarAuthor";
 import SidebarCTA from "./SidebarCTA";
+import FAQAccordion from "@/components/ui/FAQAccordion";
 import { getAuthor } from "@/app/lab/_data/authors";
 
 export default function LabArticleLayout({
@@ -244,21 +245,7 @@ export default function LabArticleLayout({
                     <h2 className="text-3xl font-bold text-zinc-900 mb-8">
                       Frequently Asked Questions
                     </h2>
-                    <dl className="space-y-6">
-                      {faqSchema.map((faq, index) => (
-                        <div
-                          key={index}
-                          className="bg-white rounded-2xl p-6 border border-zinc-100 shadow-sm"
-                        >
-                          <dt className="text-lg font-bold text-zinc-900 mb-3">
-                            {faq.question}
-                          </dt>
-                          <dd className="text-zinc-600 leading-relaxed">
-                            {faq.answer}
-                          </dd>
-                        </div>
-                      ))}
-                    </dl>
+                    <FAQAccordion items={faqSchema} defaultOpenIndex={0} />
                   </div>
                 )}
               </div>

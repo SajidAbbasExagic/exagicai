@@ -23,10 +23,15 @@ const nextConfig = {
       ],
     },
     {
-      // HTML pages only (exclude Next static assets and files with extensions).
-      // Force browsers, CDNs and OpenLiteSpeed's LSCache to revalidate so AI
-      // crawlers always get the freshest build instead of a stale cached page.
-      source: '/((?!_next/|.*\\.[^/]+$).*)',
+      // HTML pages only (exclude Next static assets, API routes, and files with
+      // extensions). Force browsers, CDNs and OpenLiteSpeed's LSCache to
+      // revalidate so AI crawlers always get the freshest build instead of a
+      // stale cached page.
+      //
+      // `api/` MUST stay excluded: these are extensionless paths, so without it
+      // this rule applies s-maxage=60 to /api/meeting/availability and LSCache
+      // serves stale availability — offering slots that are already booked.
+      source: '/((?!_next/|api/|.*\\.[^/]+$).*)',
       headers: [
         {
           key: 'Cache-Control',
